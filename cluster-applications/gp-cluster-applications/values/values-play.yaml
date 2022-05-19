@@ -1,0 +1,222 @@
+project:
+  create: true
+  name: gepaplexx
+
+applications:
+####################### CLUSTER-UPDATER #######################
+  clusterUpdater:
+    name: cluster-updater
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-infrastructure
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cluster-updater
+      targetRevision: "*"
+      helm:
+        parameters:
+          - name: "clustername"
+            value: "play"
+          - name: "consoleUrl"
+            value: "console.apps.play.gepaplexx.com"
+          - name: "slack.channel"
+            value: "aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDAxRk0zQUNES04vQjAxUTI0NkI1TksvMUFIaHlIUlVsOVlVS2c2WHp5UGh2Z3dDCg=="
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+####################### CLUSTER-LOGGING #######################
+  clusterLogging:
+    name: cluster-logging-instance
+    enabled: true
+    destination:
+      namespace: openshift-logging
+      create: true
+    argoProject: gepaplexx
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cluster-logging-instance
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+####################### CLUSTER-LOGGING-EVENTROUTER #######################
+  clusterLoggingEventrouter:
+    name: cluster-logging-eventrouter
+    enabled: true
+    destination:
+      namespace: openshift-logging
+      create: true
+    argoProject: gepaplexx
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cluster-logging-eventrouter
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+##################### CLUSTER-MONITORING ######################
+  clusterMonitoring:
+    name: cluster-monitoring
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: openshift-monitoring
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cluster-monitoring-config
+      targetRevision: "*"
+      helm:
+        parameters:
+        - name: "infranodes.enabled"
+          value: "true"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+##################### OPENSHIFT IMAGE REGISTRY ######################
+  internalRegistry:
+    name: openshift-registry
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-infrastructure
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-ocp-internal-registry
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ####################### KASTEN K10 BACKUP ######################
+  kasten-instance:
+    name: k10
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: k10
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-kasten-instance"
+      helm:
+        parameters:
+          - name: "kasten.auth.clusterApiURL"
+            value: "api.play.gepaplexx.com"
+          - name: "kasten.route.host"
+            value: "kasten.apps.play.gepaplexx.com"
+          - name: "kasten.clusterName"
+            value: "play"
+    ignoreDifferences:
+      - jsonPointers:
+          - /spec/auth/openshift/clientSecret
+        kind: K10
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ##################### GEPAPLEXX-CICD-TOOLS ######################
+  gepaplexx-cicd-tools:
+    name: gepaplexx-cicd-tools
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gepaplexx-cicd-tools
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cicd-tools
+      targetRevision: "*"
+      helm:
+        parameters:
+          - name: "argocd.route.hostname"
+            value: "argocd.play.apps.gepaplexx.com"
+          - name: "argo_workflows.ingress.hostname"
+            value: "workflows.play.apps.gepaplexx.com"
+          - name: "argo_rollouts.dashboard.ingress.hosts[0]"
+            value: "rollouts.play.apps.gepaplexx.com"
+          - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
+            value: "rollouts.play.apps.gepaplexx.com"
+          - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
+            value: "rollouts.play.apps.gepaplexx.com"
+          # Access to gepaplexx/gepaplexx-cicd repository!
+          - name: "argocd.workflowrepository.username"
+            value: "AgCoMdsVW6srLxFsyCDE/C5fAZzXRZeJbiBnYRgNaoaUUbVTAx72hDdDtJVTELZzFBoe/HmPRo9r/X0qdrI6Bx7IiCRJgnhbR0w7wpvyVOSOC25kJs8lU5ewTjEtuMlTdJ44PI9TF5+ausLOhL4dUB6dVqj8zzPIY8dKjYSPM7gBYrZTIxJRt/unFfgRc33iE6ReU02QEG0Hq6ahAtKAU6VwLKCKQYmM9JpGX+zlYcHb6jaxyWQ8T7SVTW61NaOLQ1FJzd7z2uENm8CXFhcQPMh+9/RpaDvpJKv8Cwvbp+3OusSwJnf2VdT6WdN0gt+UsR7Z8qGDEJNkqzxNeXX4pCkFly3MmRuhGn+y6xcfg5AlTDZUIflRWtIKkRZ6jppFD47OE6BPJhvFzUKPTEe+oWwRPqXdTljgw2LkZ/X9J/MuMUo7AYTBucqxX007NNlP0gMLYVdQXeG5FUYkuU6ns2SP5DXNXshxN3t0pQDIXnT+4zTcooUboWMKBJdtUCLVTzLn2eM6EG/D8gDrROKBQfilVbCS7Z6+KZW3T9e6oBUZi7DKWtF54dAVFWvCreOyfJUdl1oHP/f0RuniLV04r/NDiN6lNEg8ikvvHfSmCEoJ7IXcLsieut+cDzPNUDHd2BOA6pLpLVHo1E9smvm+djXvy/jILJEN1FYuhgM2SApIl352wgN9R25OLaOq73vJCeS5"
+          - name: "argocd.workflowrepository.sshPrivateKey"
+            value: "AgCBsfO+fayhJy2UvrEqZWgF5WEooggK9HLJMlVI9dJMbIExu5s9EFFJvMont9l/gS2ng0nxHrws3TdHr+DZ6tZEU7UxRNn+D8sWW4ETUbo+Tor8MYcdZzMWKzxgp18fn5dDkKEbhzWZBh3Z7W4pfK/rwl1GLsDMc0csqS8L2W7CeGXKC1QylAXZPawmb2tcv1gIh9IQkIDlDZCjJuR66ORLVoJCLIU36L/N7PKaTH6PkCMWpk8dNK2aELLDH1WpqmBqjGrbOZIpXR3OE6OBGnhJFuTZF1EafmHWNSHWlI3uPbZVyd/cNvfA+OlZZzCW2pGQljHO3nvjOOD3Pdl5w84dQJLj7fLFJDq8lKz4lpSliZQwXcLC8WSKG+m1/zLJaMRr76mHVjasZd/FUlXw/wyDUX/7H3pFIm6w8se1YOa9p7CrTdHmFj6D2hWBnJDCkF0qOFclmfe6E3oJFyrX6uP2MDiZYdmhOLwnRtfi8oKQQ39kE1bjKh/S8Cqw9gpmnheSTL83bDuU9r1BeeFYwwJUMztONUXOeLYrlz8ZlygnB6O7wvAvOObhCzRA4dOvUyadnmuDOceeb6dyUe0A6bb+1pG2hlDdW6d/4Vkw+YeBw+bDjRdEFTCz8fqHMgpnvtaAsmEQsaoQkU6YJZaSeZJYNqUARGQXNH/yyN7fwvKyVzUdnA0mvnOBxrMAVFwDxYzjM14Sb0thDLVLl5KmTeFBzpKCSZrO/VY8mogL9FwrnxLz2cutkmqU6NfXsoGa/wDhT0w="
+          - name: "argocd.workflowrepository.enabled"
+            value: "true"
+          - name: "sealedSecrets.postgresql.password"
+            value: "AgBtPWTsNURIvzMe88uTxW49i+E9KgU/MGlZ8ToNK9K2NJBAvnN77nJxwDoBYhhvbCzF5pUarDIte4bp/axwEu2s2n3wKin0OLY1Cgt2mUINoVUnwge7xe5ND1RpMRQEA3a4J+w7RiQ+VH83m66DDhlqupHwL1h4z27qLvyISun1tjefxK1pLqZrgzJXLxRHCOte0WfRIdjjz8QmzD0+OHcKk/h9f+bmHACXfciZvnnFBbvHQ+edJl1IOkqmaoYJ/x4sX4sQBb4HH+mF1jvoPb+rWhrdNodh79ofAZHzNeFdDb7CRSgCdI2qnCtcHn6zkttXq/YPJTwsxn/rqIu3Vc5LFpmcWFBKNES9LCLG7/Fmyy8Hvwpc0IBA5p8cLCwy01x/jKueoJIRXKEBoMqYteuGft1kn5LSrAmXeI/0iy1/tw0KuB2VlQzOcvnyhW18SaF4/68X7IVLYGDOJHQjFBtKct0URn0TW/eJeeZe2iiP7k9O9H7cm6daQJ6WkpxMAFBd8TSH3R/b7mDA9yQhf9VADvWztFaBmURMQMOjz0w75L+30z8LHvUwz4WZPp55hYGss8crQd6YOMSE099pDxqg0s+e78h69PJnKv5W2pYqDx6fgTvzd071BJriHudksJMhlbALBvjaVBH1f4UVjnSS1H79Lp8HCu/Rnm+WuiCuzbzReNu67mreYMnjBApe9P8="
+          - name: "sealedSecrets.postgresql.postgresPassword"
+            value: "AgBOJxjx4oQASRbWDhRGzuMpq+FL0EW3qdXd87WORssb2AwXx3keOrljXYgRst3U2JmBWF0EhVhmK+rPqgsmA6/MUKnZ7j5j4pHONmJ0xw7LI7U86rSlL5cWPx5WPS1949yBwZkj7LO8U3Gy3KAKbFQ9AjXQ4PV/cBG6QzN/mBvKANZuKNDs6izGUDcL4L/zaIBEeFrYPHj7MxLJsZ4XNmFK/k5fyBYlQmXK4t4UDr1kaT5RGals4vZVopnSI3k9caI91swKDT+DBmWxWRb6Q3o7T6ZXNtyczQUER3s7YXwnoslBbmGnk99tnnxQi34wjetl3Bb+mXrzdWWe186/P4+BSLouVgAo5xQYMKKyccz3RsVT8vR3pyAyzrAgaEpgduW6QVG6ic1z3tvvcSuBMiBxFVIGfl9Lz1uXohVGQjnhHwPusQkf2gLrfaUwzKaCfJAj5Zx5fQnVgrU9pNHsD/bD9SjROs0Uv5M9vtrVdvwPAZF1w640dOfXTiFJeZVmQGhUvYV4EEBjlngNLEv7ND62Y55s1zKDwzE1D5MQXBY7uk02KDnyaG/MqB2rcbuV1COC+1JCG3CZ8S1Tgd0nGlhuSrskY5jkCjOaUTGA+/vFCluAvs8YJUAqVE4LH2iO/xtoSr7++MvczvstZzOxRceRBPpqdaR8OZgVbHIA5B/HCBf7Ei61yAlxEZ6hLKzV4s8="
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+  ##################### GEPAPLEXX-CICD-EVENTS ######################
+  gepaplexx-cicd-argo-events:
+    name: gp-cicd-argo-events
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gepaplexx-cicd-tools
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cicd-argo-events
+      targetRevision: "*"
+      helm:
+        skipCrds: true
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ##################### GEPAPLEXX-CICD-EVENTBUS ######################
+  gepaplexx-cicd-eventbus:
+    name: gepaplexx-cicd-eventbus
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gepaplexx-cicd-eventbus
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gepaplexx-cicd-eventbus
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ##################### GEPAPLEXX-CICD ######################
+  gepaplexx-cicd:
+    name: gepaplexx-cicd
+    enabled: true
+    argoProject: gepaplexx-cicd
+    destination:
+      namespace: openshift-gitops
+      create: false
+    source:
+      repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
+      targetRevision: "main"
+      path: "clusters/play/applications"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
