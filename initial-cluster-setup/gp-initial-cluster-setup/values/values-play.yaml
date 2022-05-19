@@ -147,6 +147,23 @@ applications:
         prune: true
         selfHeal: true
 
+  ##################### CERT-MANAGER ######################
+  certManager:
+    name: cert-manager
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: cert-manager
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-cert-manager
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
 ##################### CERTIFICATES-PATCHES ######################
   certificatesPatches:
     name: certificate-patches
