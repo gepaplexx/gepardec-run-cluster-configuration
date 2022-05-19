@@ -27,7 +27,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: gp-infrastructure
-      create: true
+      create: false
     source:
       chart: sealed-secrets
       repoURL: https://bitnami-labs.github.io/sealed-secrets

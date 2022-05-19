@@ -51,7 +51,7 @@ applications:
     enabled: true
     destination:
       namespace: openshift-logging
-      create: true
+      create: false
     argoProject: gepaplexx
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
@@ -213,7 +213,7 @@ applications:
     argoProject: gepaplexx-cicd
     destination:
       namespace: openshift-gitops
-      create: true
+      create: false
     source:
       repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
       targetRevision: "main"
