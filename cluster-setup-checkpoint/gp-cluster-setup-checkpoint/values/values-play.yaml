@@ -1,3 +1,7 @@
+project:
+  create: false
+  name: gepaplexx
+
 applications:
 ########################## ROOK/CEPH INSTANCE ##########################
   rookCephInstance:
