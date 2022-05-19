@@ -11,7 +11,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: rook-ceph
-      create: false
+      create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-storage-cephcluster
@@ -28,7 +28,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: openshift-logging
-      create: false
+      create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cluster-logging-operator

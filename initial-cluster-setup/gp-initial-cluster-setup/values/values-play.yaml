@@ -27,7 +27,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: gp-infrastructure
-      create: false
+      create: true
     source:
       chart: sealed-secrets
       repoURL: https://bitnami-labs.github.io/sealed-secrets
@@ -120,7 +120,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: rook-ceph
-      create: false
+      create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-rook-ceph-operator
