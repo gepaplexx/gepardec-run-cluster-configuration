@@ -108,6 +108,12 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cluster-config
       targetRevision: "*"
+    helm:
+      parameters:
+        - name: "argocd.workflowrepository.username"
+          value: "AgCto5xs6ow513MAasHFdvvUgGdNWQMk+/7RNuLNdy3KsOA1DEDbEO6kcTuFw1aRk0Qks7ncqqYQ1d1lgm4mnPa2++ofUh4qHSgzFrm82DOpmKhEHxG1REjHxfsjhRxXNMbYF7J/TXq7FHJ7HUDM2TvTxiaYl5nsC/6cQmZeHeELGfzYPy/VH6Y1Z1QgRev/myOL/8qvavK7uAfcR48g8tFFIzduUfpNZOOwYIY3TJ+vQGFhs93f6z0gOw9bA0gGAAPiVXS1foVRXpb0NUr0tF9XAQAo2qxC3TvBykrSR+y1LTedJkqDWFucXveMUhqh7gO/hw/z7/l8obT7iGFmGl55QsygLCN2+RohG3V7Z1k++GXWBxwk1eDcm5s9s5BMgDqjs3/b7FLQEe7LFwc/gSCrulGsnYOOsP4/snp0xUtkXiVyVF8KUeiw+UPfz9m0u3Z9FTxpT5F3RD1HrrcGw1yfQihf6x1G2YBsul6ge8s5C88htjCdtW9TZj0EG3VXDnAlGi+GhBHwmtiDDBKwlVNfKj90lIKfjGXsdM6bvyGAg7xf/mW/2Yy17D76nnyVMsIifAIrNtx732J2+2N2OWLDe9bQfetGKK8lsFynvLEZCo7bY8fQSXuYroLcZfzBqF1Gw47vSwGdVG7mAL90XrXiIw5iQFgfUHK5tR1B+bPR+N0rF0jzfVsuYhtE40uLkEQxMOV5Ti8zV/PwNIIFtDI//fopu3max26G"
+        - name: "argocd.workflowrepository.sshPrivateKey"
+          value: "AgBUHaZ2Tm1JDi5RUX+roGKc5qzZdGxEJppupx+V8HYUyC+GT2L+1Tkq7CBsIGnnLgZJC3NrZHm7tsO8uajERm5uOVk4rPDcCB5bki17gLhc1O6Xq0iRPoPqGP2lX1qA/qZTAkgiS1KGlkAasR7BAnB6SBjJrCuAEQD8t5vPqWT1pWNi3ZyotrMNrgT/shbjR3W6L2HcwKs8WEAcZ205onKCc625RFGg9JaUB8Iv/RuMvfmQNqT0LYP/uWzlxoqUpzx6uXoa+5C7fKTapI611vCUE64Uihn3KTP98gNPA784zuSk2Anahg/pkrioLsTFGZO03oCQZAXa5GhsuIEIGx9GkveAmv00MLcPJj5geqQeC0t+PsuXBL1LAfRZMF6UJz/VWvTQ+R11Nk+Fe7+tM/6xzjgmSaUZN7k4deevxNxdCk3qoury5mViKWsJeKNInOKDj69tA6dxFLsH95FwXGHhdcZxTeOxBu5EgE/jALyggN2R6PiCQ6su0CchJGK0IZR53B5mECjwQoEReuQhBkyofAma68qVLh8L7m1Wozq4XJlCu7MMIMAjKx63Onwavbn4X50zVBYcIu8Oat1lygfjJPEzy76xdmgc1PvRDb9dCIoDfrfEhtUB6GifTdGEvsmcwXPPcgNTq5JXr0D35PNEDMfqy8re4KVRbZMhbIdFEcAtUqP6bY9Sv/PXvihcBld7M6djOG6OjB8lJU/yGs+LmREwYa65+vbDKbR0xgWeBAyTgOIfRYq+7FytVHIePHHmkac="
     syncPolicy:
       automated:
         prune: true
