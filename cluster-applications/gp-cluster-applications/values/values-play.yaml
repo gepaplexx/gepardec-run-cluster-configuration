@@ -34,7 +34,7 @@ applications:
     enabled: true
     destination:
       namespace: openshift-logging
-      create: true
+      create: false
     argoProject: gepaplexx
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
@@ -51,7 +51,7 @@ applications:
     enabled: true
     destination:
       namespace: openshift-logging
-      create: true
+      create: false
     argoProject: gepaplexx
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"

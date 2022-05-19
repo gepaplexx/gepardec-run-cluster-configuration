@@ -28,7 +28,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: openshift-logging
-      create: true
+      create: false
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cluster-logging-operator
