@@ -241,7 +241,7 @@ applications:
           - name: "route.nameOverride"
             value: "true"
           - name: "route.hostname"
-            value: "console.apps.play.gepaplexx.com"
+            value: "apps.play.gepaplexx.com"
     syncPolicy:
       automated:
         prune: true
