@@ -208,7 +208,7 @@ applications:
           - name: "solvers.dnsZones[0]"
             value: "play.gepaplexx.com"
           - name: "solvers.accessKeyId"
-            value: "AKIATM2YI3GT5EKYOYDT"
+            value: "AKIATM2YI3GT356GUVVU"
           - name: "solvers.secretName"
             value: "play-route53-credentials-secret"
           - name: "solvers.secretAccessKey"
