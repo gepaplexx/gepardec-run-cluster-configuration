@@ -13,7 +13,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
-      chart: gp-cluster-updater
+      chart: gp-cluster-update-checker
       targetRevision: "*"
       helm:
         parameters:
