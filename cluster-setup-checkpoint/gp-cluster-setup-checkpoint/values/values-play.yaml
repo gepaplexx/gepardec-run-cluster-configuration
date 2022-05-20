@@ -15,6 +15,10 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-storage-cephcluster
       targetRevision: "*"
+    ignoreDifferences:
+      - jsonPointers:
+          - /spec/monitoring/
+        kind: CephCluster
     syncPolicy:
       automated:
         prune: true
