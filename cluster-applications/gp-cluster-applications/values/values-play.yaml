@@ -135,7 +135,7 @@ applications:
   gepaplexx-cicd-tools:
     name: gepaplexx-cicd-tools
     enabled: true
-    argoProject: gepaplexx
+    argoProject: gepaplexx-cicd
     destination:
       namespace: gepaplexx-cicd-tools
       create: true
@@ -167,7 +167,7 @@ applications:
   gepaplexx-cicd-argo-events:
     name: gp-cicd-argo-events
     enabled: true
-    argoProject: gepaplexx
+    argoProject: gepaplexx-cicd
     destination:
       namespace: gepaplexx-cicd-tools
       create: true
@@ -186,7 +186,7 @@ applications:
   gepaplexx-cicd-eventbus:
     name: gepaplexx-cicd-eventbus
     enabled: true
-    argoProject: gepaplexx
+    argoProject: gepaplexx-cicd
     destination:
       namespace: gepaplexx-cicd-eventbus
       create: true
