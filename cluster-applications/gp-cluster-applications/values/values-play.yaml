@@ -126,6 +126,7 @@ applications:
       - jsonPointers:
           - /spec/auth/openshift/clientSecret
         kind: K10
+        group: apik10.kasten.io
     syncPolicy:
       automated:
         prune: true
