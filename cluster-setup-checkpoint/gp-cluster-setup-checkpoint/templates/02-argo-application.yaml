@@ -17,6 +17,10 @@ spec:
   project: {{ default "default" $.Values.project.name }}
   source:
 {{ toYaml .source | indent 4 }}
+{{- if .ignoreDifferences }}
+  ignoreDifferences:
+{{ toYaml .ignoreDifferences | indent 4 }}
+{{- end }}
   syncPolicy:
     automated:
       prune: {{ .syncPolicy.automated.prune }}

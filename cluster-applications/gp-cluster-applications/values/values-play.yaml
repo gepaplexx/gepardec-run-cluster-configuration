@@ -126,6 +126,7 @@ applications:
       - jsonPointers:
           - /spec/auth/openshift/clientSecret
         kind: K10
+        group: apik10.kasten.io
     syncPolicy:
       automated:
         prune: true
@@ -156,9 +157,9 @@ applications:
           - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
             value: "rollouts.apps.play.gepaplexx.com"
           - name: "sealedSecrets.postgresql.password"
-            value: "AgA4zHS8mwrM9vPKQ8D/Q6uM0i2yi/pcwAZ7k6VBRpLKoaeclAROg4T3u7lpp8qXlUvYhCi7dO4AeL8u5UX/gwFh9kKsXay66IBKaOVXEBaUqYcewGPYGBNECfK7PkLvV6KZgIX6vvsm+Z5ENE+aMn63lFjgUtQWEOWe/uTY4WmZLRzMN3dz846Tq4/3BQE2kq36/NCaxERsV0EBGVA4i/JFxn1FY/qTze6Ttk47KiAWZ1po4hC1dlWz4ZmBSJ32phIQ/LUQXPbTeaPGt8MZZ5ZrvBqSzAELlW1pSphG5PYGHD43fV91Koj49YUtIOCWMUnnXSzDgG3eyBnR7x43TXlYzBrVp4tokgac5EYlzNtxf0zR/+8X0N1CR9Ws2rJ0aOp9KwvIkPZ5IFV9q+HH6U/QOelUvmNHvA60zYH7sUycU1RuENnvKaapTYloEhIz+WEG+L3LMgxeJraltBuzvEpJyXrDmePgpMxjwgmRO6E5g9BI+E7HgBGhRdiVhdQZT1i5lPqt3/xiVpNGzLLTisUrEwQIQtmmx3RMos7p2PPKSIt6JpH5s+xAIV6M6nVYtO9VJb3BjGk9z86A4d+z+SWHxMzi+H2uPtbf9jhO37a4cRmiXMN8oEbe40eL4DU0xmMdwFkKUy+9GzfxrAu+4T81DwKwyUdzs3Ip3kDnXZDrs0ShZGoSau38icbFoso6MQs="
+            value: "AgCf5s6khftTQ4ECechTsOqjEq07n7TnkP9FhDq9iXLt9nXvOMV2J96x8kJGL1ebEr2CD61b9NsAB30K51v/yXm5gRWpD+27EExQvQZfcVOjHbUeXaZC4pIgNtzOMX6tUPZWVXlAnI2vlSFFGwLP6kPvoYhbF6EfjSZw9DCPQiz7CY0HRlivOpxAlQYKkqoz0kSlD8INBonGOCZXieuJPIJoEUwwh3V6+FUbEHYrXf8o2eA8ani89dklzzWOum99WucNn2cgMAkxV5ZM+qNBE0An6O62SqzEqsKOnVYL8BXPfEOZoXZ6TTLfmpc2F0YwH/izEDBGzHCp1VPMmJf3WVajkw9+dlVrR4C6yG/sudYOcEBMmBXp+6Ik99Xu36LOAEhN0dxAMNeSWUjpUW8KfZKO+LwR+uGAdCVLUJso9B1LcRGmWNq3Q7f5Qf2jcWZl4EaCDS+tZgGHDTLnl86Ox4nOvuQRCIPY6EPraJwCGq6jdQ8FOlwGqXKCLw1245jqngx4NfaDgyEnjkDhmRze5fPvcR/ToSQBnjMbbyoXXeq2Y99PzP3H5EBMqaIccagb6NZRJjPU4H1/u5SjrIP+LSAasUywPBOT962HKcurYsOoa1V1LVo89voseJoHRR1wQ9rqe2ERP4a8TSzr0ijT6o7y6dK7POEnFffbhnLSxwmpNvpp0xAxbqNrCASuApNjKFua+Bkxww=="
           - name: "sealedSecrets.postgresql.postgresPassword"
-            value: "AgCm1GT4xYqKQ8TJQQWCOlvUdUVmDy77uTpKWzcvc0JhBV1mWr7FieU9pdrQmiHZmo9F0+L+IF7wxH4r1LAyd8KPuCMJiodOcjz10nU3aBt/jKn8EjhSmFOvTpu2/CczM16efyJnFf0VznOJFKXH9pvCyll1dqJmVbvDdStFJksqdM2FOZmRgtuw5BKf+h/wWR6hWyS9QbnrOoVD9Ws1HreslUsELZ3R+O8+lCap7q2+BOA6JEPLJ3uQBRxtHMTcsnhH/FO0+MZk8oNuMSl4bs8nDONErbhWoSEORlJkDlpcupKHcIJxLD66GzaGS/jGBSmQnBEL19ciR8fGabZyuncfktlFUq4eyZ95CjAYXrhmUjlCMbriT0FBcWCTLIU2bV+nzka71JUm0BhF1xD6A5Itsx/yJX+eMdyQnxmFb51AddncFukusMVN0QBh/5X65WRikfirsv6q/614TA4qJpN3x/yname+CqweErXpCMNaxpZ+Pzwe4GNt6+dQJmgTiebHYeweSCq7drbg2AUkCUs3JZtFJJyQknkVcmC43zYp66dtb6GICXlgjwwh00ba3/JJWVFsr4DMn7k1M9zvblVl/xLElklU7LWOVyLa1iES+YtOm7zyGsRhU6t+KCVdvE1S36/yGY5NkHM54+P0JZLz6boolOyCuyajNOWPT5XEpp7BKwI4MGdY7iuvOxcmREQ="
+            value: "AgAu0msps6vrEoKSJ4IXIz/M1sKP+av1tEvvtwSR9zZ4/seZN+SaG94+QKyymYGgRhF7eA0CznHURz9VYgk++oiw/CDAG91ZCbHPffHSJNDKQ6DLq/uw5Lv2LaPnRBNJmS/rVLZF/TvLxJGBvcCLa+CeMqa1Q8LCaDtZFf1QwPWTCBigxhWdjm8bWhYfvJaJIJ6Kabxz+fCxZb8pvoIPDIwmBufJ66TM3kj6qiEsO4Sx9TPYcNMH+MjW99MJWP2aEst3+xub/kh+3I6Eq7kJ6XTtjPO3TbHKbaxMb58u4Lm+pD4JjwSpJqSaKNjrtjv4QMbi0NYdbtFUWQOp0o/BOKF2WhqXUt/66121l/zMAPXEABsMtSb5KCLAyG/slG5zeY1Nj4Jbxan7XjsWPslregUAVUXCfebsBHSBJ8VeY/hSmDM1AFhVB4I8kLur656HA/BQraZOMIvZULovbkumjmbzUimnL8tE122bGEoYXYR1HKeafOvH99B6RgGEqolZVIijmleWtqo5DUTkmTCqA+JmgFcttRJsExQ/RGjHF+ISvxXueKkz1b9TNxcBvhZi3ghfux2zOCK3CD1Ih0Q8+W8/Xd11RgQmf+HlJ/ILokcksu67v7W7zOTSUNXmzc7ReSGx8qqbauK0w8S4NNLPsv4YEiAJ41YrTB3kqKqxBLCQyZgbL7eaBERZ7czeR3cshTxwzEduQg=="
     syncPolicy:
       automated:
         prune: true

@@ -16,9 +16,11 @@ applications:
       chart: gp-storage-cephcluster
       targetRevision: "*"
     ignoreDifferences:
-      - jsonPointers:
-          - /spec/monitoring/
+      - group: ceph.rook.io
         kind: CephCluster
+        name: rook-ceph
+        jsonPointers:
+          - /spec/monitoring/createPrometheusRules
     syncPolicy:
       automated:
         prune: true
@@ -61,7 +63,7 @@ applications:
   ####################### NFS-STORAGE-PROVISIONER ######################
   nfs-provisioner:
     name: nfs
-    enabled: false #TODO: aktivieren. nur wegen Firewall damit das Setup hoffentlich durchläuft!
+    enabled: false # TODO: enable sobald FW-Freischaltung da ist.
     argoProject: gepaplexx
     destination:
       namespace: nfs-storage-provisioner
