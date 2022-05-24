@@ -61,7 +61,7 @@ applications:
   ####################### NFS-STORAGE-PROVISIONER ######################
   nfs-provisioner:
     name: nfs
-    enabled: false #TODO: aktivieren. nur wegen Firewall damit das Setup hoffentlich durchläuft!
+    enabled: true
     argoProject: gepaplexx
     destination:
       namespace: nfs-storage-provisioner
