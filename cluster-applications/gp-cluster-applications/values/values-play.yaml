@@ -40,6 +40,12 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cluster-logging-instance
       targetRevision: "*"
+    helm:
+      parameters:
+        - name: "elasticsearch.resources.requests.memory"
+          value: "14Gi"
+        - name: "elasticsearch.resources.limits.memory"
+          value: "14Gi"
     syncPolicy:
       automated:
         prune: true
