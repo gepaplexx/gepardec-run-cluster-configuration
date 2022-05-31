@@ -3,7 +3,7 @@ project:
   name: gepaplexx
 
 applications:
-################## RESOURCE LOCKER OPERATOR ###################
+  ################## RESOURCE LOCKER OPERATOR ###################
   resourceLocker:
     name: resource-locker-operator
     enabled: true
@@ -20,7 +20,7 @@ applications:
         prune: true
         selfHeal: true
 
-################## SEALED SECRETS OPERATOR ####################
+  ################## SEALED SECRETS OPERATOR ####################
   sealedSecretsOperator:
     name: sealed-secrets-operator
     enabled: true
@@ -43,7 +43,7 @@ applications:
         prune: true
         selfHeal: true
 
-###################### IDENTITY PROVIDER ######################
+  ###################### IDENTITY PROVIDER ######################
   identityProvider:
     name: identity-provider
     enabled: true
@@ -58,19 +58,19 @@ applications:
       helm:
         parameters:
           - name: "google.clientSecret"
-            value: "AgBXKVrQkK+xcoeoT/6R6oZiJ50r/GIVSWs1FQq18JYOOy3PmsK6mr7AiB2Kvcz+CH9yHRZ/5EhwdUaz6XhqbxqMqAs2TeV4TFwvj5VveZ9CIKPN4Anx1fX29rCtGSnTJcHH88pUm75yMrde2YMAFewpyhifo0LEQgHl9uziicHGLYePUxnukRYXmFbBvjwXRXf+e8CMNKZnefJGR3vZuKkR8E6bqMcxGOIiMEc/pLmMlG2H+obK8g3uOOWBxZJUPy1pdn395iUJWpDx8jWtfelfm8nkp08E/XlNGcukIGmkVefNsFrIz/HbWwouLNw10pFW3FnDnZdQjnDG3CC34v+zOl0CQ7kV9rqTEgibcTS8ZGI5Lx7avyS5px7Mg50OsZDqlkYX6yKLgtrU3pUTNQE2xfNCNh2FMjVsuXBBEGmpP+5OcLZuhObsLAPDZ+FT1i/sjwR6ntYYP/7HlTNLNb1etyIa+VpvB4QLM0GslCHR/T6hBEmHpRq6oaWi7Pc2GVl9GXcwZgH1x/bseT9kBwgtHHdSXsrY0pz4wZfixvYkplv3v0LiWGpCU1oh+zcYQcnQ5/LUydg5k9egDwdrxBYdKYR+YYZ0mWWipKZwXaYoPDC0ryyrlXjRLa1Iz67OUJ++DRTViNk9FlAGT53EB2uGGTagWq8RiS6YN2uQSX1WptCV4FGgc0scjgKo17E2KwVIol8jxmK5sXk+YJDF0hsTe7GKwo0N7do="
+            value: "AgBhDriAER+Skk0XxmdeKoJgfn94MFwIqrNtxHuttUlkkBdoMyjZdAVgmMM6+apXRFUZ39aH1+mwtNZkxn2n4zLGjXnkbvCxruh5hjuq64m+sInZDmbxqu7vTNeKOUy7VcaoYtz2JsoVRYderanZ65t6IJVygAa1aB7UwprbJ2NcFRtu971OY1b4tVGPc/BMZx8L/1pAyPG84KruAer2GpOdzB0YBdX26QjbXUelCjuQaTzIsunL6UHz5bH1igBadcYakSXpiHyllJ0MHaaSSdAOWPbnCSz6V6tzCRK3eB7+kx3N4Nkld7AbbBBBpxJC2je8JXsZXQtVby4U0M29k2ugBx8Pqfr+/hFUHB+Yxcq0h1DS0oWN676YS2Z/lStiUoMj4umMH4l6MIL5gwhepGiEn/ZeaCFyM9EPQwwY60fLlFYNiDR6yJd7Rm8SwvD9sf8W7JVMbt95ecevZrNv8fqv9Gh+qgT+t/5H2Nhro8vSIaiB6CbguYca9W0IISldw4tZtzNde8fl9J3z8eBWZ7kxRii4KOU4Knn/sQerAe4lpPzDoTBuHokLPEuZ4KowVCthMMzY79a5YlVq9OWtQEKGvqozbXleofJV3Inn5tIhUGL1eyD959YfTSLw8Jf7hkZfhte/XVRCOMkIkG0S1JyG2XsMgM8HAdSRmJe0wnV5O+kWzj+dFThsI8t05zRys7YX9HFIfIfhA724rZ7tQTlvxpKD6k1zLa0="
           - name: "google.clientId"
-            value: "AgC1bHDrbAn90M+N6R5iaQ8LlAJ0hWbVtWddTVFd6i+cjCqFUX4CZIBPYB5tQXZalbgzW3h1KQvzs0kprJY50R1S1h6FcGGXuj1Oioe4fvv/0mX2q3ZyxOpqJelJWPc1x5XvBuabGiZyP/sPw57sO2Tb9syxRgZLbRiv97plhgvncRFw39KDF78iMXbAIGQkwSAje3Zcesh/cswnPm6pT90CAE2BdBvJ/1Zme6DcYvpqamzpoO0px69WCsKPKghWGwdNa093j4TmRs/a1wO7fECAgU21CkVChAS6Om77txzdp/Doer1xgp+ixm5MXHTexYtnpJ5clhDe1wz9pbI486sXvQDtim7SRMVSVRO6fXxZr15/ZTma48eWo9la278QxUwgXJXTreOw4S3Ytwh5fggsO1mrAK4dPtFRihJBg4/80duXcByy550PNd+GnkoyOJv3byxi0uv945DX0BOorJNGQSwWzEwgG/8JOg2B1x2kLt+j/a6wJBepXoI69caz4NXqsyZRnvm5joRaWG3VoQpMeEXoamlC+lZQ5nmxTyjyfYAbYUXRqvKDKbdclFdqnbOUjg7Swm98WZfIjtpgM07gvjo2K7O4kzsl3V4+65Ffd00OK56M7BX9jblYAtgdIkeTuKOoEbBtyVHb4AfrdQ0/HvCeKF9zofa8iAtX7S0MSheopMl6dMOs0BUkfkPuj0fHn+8fJFieqo5+H8jqCaAAH27pCrQFAS3EJybFwfNXThhGUTl5CLU7giE+tLlwaZ+zms3vvRvLr2BTm+xwGjMKroq0EkHDbl8="
+            value: "AgBXS0FRsCpbYJob1gg7gfavulPEywy54Wntp51W2NMYD0oA9NpBHs84//uF6u1sNZRZ1v2f8dtSl2W66sXLI6PAXkrBALwA9wFAzEm76PXSyVNA+pBqieiMxP3u2y3jw9j+guffMxz1I9Mm+aGIAPft5+BCdZeXRlWGj31XUhzhTBZfNm4qyPQVuW49V7R6UaO5aD4HalvSKH8mohS06hQcAdNurEK8tGgwJfN69foAYF8hC67I6hB2oHjinmeO3dfL5TF6fltYPHLBPtvLnvZEvrrea/+e6Z3nTmJ/98mUrfOJA/lKdNbimsm1+UsRmJRfEZgcZbLyXzfD1BhTQprHB7Lr8e6O3Epsp/NJcfKiGES0RJ9ZqjFCnAmpm02fuuBfv08c6PWcZlqJSRiuNAVTNNqixICyhC5xGaRu1EKvnIu6S212JRrWZnxEkAJ1lShvuxQOgAUipMcpSoJvBbPUp/+3DCKDtqBVvjfVNbaXv/SDscGksesAeQseWdQGChDg7E86I9Qe+NLtd/JyncPFfu72xJ+ZVPVat09w+U7F7ifTeR4eWQXY5B1s5EVKisHTJ+mBqWTLYw2ymco3yp+YhmojWzqKa4k1m6iiMNvegzlDy6GFrX/lNh7Bezzsm9p8SATRtHkY429k8AkIIdpjTWh8Qu5HkWzySqENErIg+vlT3daP7iFdPRFXMTAEAnU6hrxNqV3mRj76KvaKRydbIPEp/Hh9an2dvjp5vBqe2dCDNmU8uO9g3NzMlURUaUqS8HzGsmkH0FA/TCHObTdNIGfYbR0BYr8="
           - name: "google.restrDomain"
-            value: "AgBsu3v430MDkRFDYh9CRrBg7OPxtWwE4Di8KDfeReDHY8ZPmkPq4zML81VI+xku2N1gh9c+Bm6g/z4b8L7sY/2oiUx0lHBpEdnN6Rle0hUBKv2IcXuEUDbAYdfmd5uvFJ8+7M8sJpypFxSBzv7sjehD1R8eXjMEKodTCtA1/f18Wyvrhd6SgR3x7y5CJ2sdQLnaorvbdZmkgFK1BxIv6RFXss0+tS08aXs1A4Ka4xZ83Mn2vicanbuCm6R9CCerLpXpkqrH8rd1Dza+ZN7rV+8LIEH4oFQz+1dwWdUDUvSpaWeaUW5+Fg0hlAREi19o5WcI+dAPHOeJjVH+MtHqWzRyHXCI6M2D4IXSIZ03cPlOH1+53KI1m/zzIWRzhsQDh++uFoKKI8nZW90hLrISFYcFI3wRa2YwoxYcKmdPGJy84tCQI+Sp6OGKeByoeyRsovpSyXKd34NT5fFTJU+udYFhfYHj1HEXtq0qWHeZsreRjAxtP5/z6Mvd6SWrKrTTk/fZ/xjHwTluVjOxaWp7ozu4gxc4wbDbI7/G5YmjJhcHkKMAHqCQCgqVfoxaLKBKZ+vzhRI4lejW0wMrQYABpS1xhkIpU1W9PhGfy55AxdN/IbIPTmNzrEB+kUVmqqO885Dw0rcfCLbf5hM8s5ecFyjtg7TV6FCOTl4cpCrLMFCPliBLKnW860QWTFkWk7XyjWWoUWA8JxmzN4lRHVA="
+            value: "AgBdq2tkOx9B1POGbZ7csUklUs4D/LYk0H7YOJTVJzkW6nfwX8kcqQPTGaba3tJCUsFf2NZW46n2GAjwu7BQfhvGKPSHiLsl6KaLt8n20fFBIirXcG5Ww076zj1EKh0wQwNFTmQEr4dXx/vX3Z2mcTImYu4eXcwu2YV80cqERTdsg8NpaBV17xu0nTKoHxhlJ9YCdzxc19BAeH9FCjMKzCbsi+FbB9FHqFHsbLchBdt7M5LXyRfaT+rx19QSbxcaak8iUD1PRl+z2jt/70c2U7a/I7HpGI512G05KkaQ/gOy9qtYmwqHDwl1jwqmWWCtDjYuR5Oda/oJt9H4B1fUGuUHDgXoLRA+ThAu/ccSg5AYBa9npOeqQmiNm3NpI5DkEOetYuwNJTaDyJr39RMz7W/hIlLF71ZLgYH5KbYgpLGJhmmD4HQGwoZIxuo1pEbIwpgxCdb2Hh18AtMPzHif1NSumiq+FLaKGfKpYOypZNRVJz6Czo/HZc5/yiJzec62zS0VpBfDkfpk0TgyRuEJupxrpWvzqq12wmQ0PtHgOpczvgGfZEOtKF5ugygmtFbvabvvtoOuDT4rQiMi+20VWgJL1q06Vvs9LcN4XF0c3ZoEF1auzwM2xxtHjPQa2INMXnx1CBwzSyT0LdERKxpnEL7aVBO0QZR40R1FU6K5mma0PCYAKRfdOWtNOeoV0ypjmYUeh9/5a2eKgClNXoA="
           - name: "google.enable"
             value: "true"
           - name: "git.clientSecret"
-            value: "AgCpLiRUPovmu+MddZIOASTrdlO/IS/+0rLr3TASDHUmG6v4dPMDhkuaJ6tfoOkVDY/qSWhU281idZ9Ha42VB8nSlqGoP2WlWuGxNBQCHNaPVCLNXCoZtL5pg0aLjtO+L3mKjRr5ms8DvWyBs9S/z+YAwnP133jwuTXi3lyffmR0m1wBh3RhnuVSVXGGmWO7YKpPg40yf/xmfRv5PwDR7bSSYvO7jemLBSPZq/K6bRyXucS8gvoZbFqoMXJ/k1whYGsbwmCZaYV89FrVLRUsjN6Y5/sB5YJWcJctTcE2VAzhGShX56IGUZNdSFFl6YE2uRW9TtfahTrq4UNj/CQCjgBsHilRZukLTY//x6XsqxYN2dCIG5LtC0j6D23SBc3bDJFzElCfBbptewv6I/4F1o1GRow8iFcCoB9h2f3jirS1FU4OQO9xx9l2gyoCpl52gEo/vvF9WyF8HHVyPWTbrRzZtXWthS7SOz7oKJGtJ6HYhNRnThZDqkc81SDuGgJHVFS//1D+Jz0Yq93qCFkVBEJCtO6vabYogCQZPhHO93N+z9TAIt/e/OfDXqRKkDqmf8izSkiaGWio058NO402Yl8MnLHFmhuOJ33v245a2EemmpxGrVE34d5peNN73rDQaGSHtP1HHLDLD769DHN173s08c7IlopyEwymMDQRs/kW10vnhCwDJLCdEOL5GGYFMFf7WrAui2VbtyIBxKJMg+HYqFIV52BCNcm6iS33t/qMJmrcIS6AifbX"
+            value: "AgCqn/mMIstXEuUnWLBs42VVObXpFx7MzPNkphejWOhnvNM3nrWQZy3fC6k0lzWcOJzPM9++ndMvcgA2BFeJi/lZ97wjnCizVsJrsLXmDgRgYQKbs24Q52PHJJ/w2TziGeMdm3GOA3SEoMbjznK2PzyPA4GefDjz/rPS1nfrnucxeyIr9jAWL/cohD2Pv2m+3sK+WzXatnKAXYezPWj4vHVf69tj3rCTsxSaKi3Jrj1lec6R7lszsJRIIQdNmf/ncC6fRsI+CCDta8cizxwegOiuC8K9PTCETeT9i8vupwU/VROS6444jyiZva59jBN4sp562/DANJLEzCVl/DlRpQCiEVBUN/sWMiRgu5fn5YeI6yIxs37kBKIvEuFTXZY4JO2DzcKtl/VoiG214TV4nQp/mutpaagaEcrKOaIqXcYPHOp/ySgd/774F9DKGO5KUgj7XJtpmdjWA0lfHWc+cH65GZKm3LVckiicMJfxq/5t6aV5/EPKu+zk2PzcQw+ujFTVRNLDPjRkF2LGP3VXNWDd4ZLTznpslMKmrdszIIsx3t1mK44QlGknF+YHeGhuJZKWagzu1deqokL0v+xvZN67qDSwZjzBINoYq/OcXQ3aePGLurx17YLyEe62utnB6hK5epoKfeQSJULfSNJSHvVFE+OqA+K+rIMEcEc3IXZNTzfrl5gfdPdzVX7owQNhadatKtfqb7wzfNaxYGKnizDY8dVtGgRcHb2Z8C3AxKue/rk/T66lbTdl"
           - name: "git.clientId"
-            value: "AgBUogD4lelhqme3Yqfpl3PVgKwe7YTMUHbqZRJeY/vgMRpQuvyEt4Bn+676kuKAVb+P/0/NVpIx95ju+a64rUKX59B8B/M1ITnTuzbkyFFEZaDjZSxrOg5l0vyJZbdgJ/PfviyP5kQy4VP3++Y7rFNc63oJE47Wfhlw1hnm78+lrWcqvuf6zxItgTEwMAE0UM5nr69KLG4+I9KkDGziVR9Y9DfEzQslnHXZ8b0Hdf3XNJZ38qe5xBvvwPiADOV5zaOmFVzvGWACgPXKQBPIbhVAQk+uNGsSo9OnDueU0RB1IceGBnqwqJtiL/qZ+Xj0IxDCM0XX8JnnZD+Z1j05vYEISXs6PESsFsn7DCuvCX3/E8QjRJRAfrRKEIR1XVwyTWv3kjKpEAx/rHPhk2rz12cIDkXuFyIjDyjZlwKkngEbTh64dbPO2jX7XC7kA4gik3PpVOCOv/2z4u0d2ckzznZzaJxXP21Fz74/RYWbK0O3NgDvQNlJ1BA9cLRixu3b73jEXdstAs1eF2qTeZ7EN6+FaaXnh/vl3wmA5eps5NH76pfEF66FIcra35yiPhzItOvHhcYPWxX3Hmam5AqqZL36FqjvUajQ5A1Nx3Laj0mT9rZq6JmdVgiC5w0ye95ommDMa4OcaYeknWJqopKZ5rKTuDjm8ySsgJPKClY3nd+KgzhUV9umwnD40glMi0ZPmhHMPIaog43v6fjwll8j8RTsHEY11w=="
+            value: "AgCX8OWJ5kKWyJRmsXZ/fAzVe9TuqDveSrO6tqRwGzMB+b/tusLo4ycCHzJc6hYR4A513rw3vTbI5OS5BTfa1wTaOJcTmGzE1zbZmIpJk5VWAZsENNSqI05lutO3Nwz6WnOHjaZ4psTyj/6JLecLteZxkKSU046Hn2wq2C3w5cC6Ut5VCMF/IPi1Svd8vS/41aUkvxP2Y07ZlMXoI1UU9Cz5MwBpxE+YG3N6c1NydDA1CKGsjeYT/SGifWQ12+yvmqYnjXsvcQNtPVLDkp/0w989DldbCUHUbEcfHc4N8TaFZI7c80PKf34rg2v2pbEenexG83q87jSR2/mpM0cVCH1Suz+nMxFRI73eEftXT542vYm+eKIlfl0kjkdQ96dQ5CLUGQEYVJZvzDRO+nVRauH6cUD8BYlDgjMtelU6MOsGtPzZnA/sIZ5nDPBNy5Nx4CM3myYYi+XnZREjC/9IxerLQEiEHba0W30IX6/1DQWW9l0e7Jq2mWPjwSYFozbSuuCBwaI3fx0pHa78Nvk6yrslqyUGhfbFfcpj4CuiRhIefBvPwqnvkF/wCPI2pNHQXfuavqn2KCvvt5TkTO3gL3eOx9QjpeizRIBr5GeyczFVBu/bLsi7No+gJNZIMsawVIxV2r9Q4WLxtbU251DN+0DWmGWDCQ297fpQ8bwsTolkfPFLHNy/jISdGrYq3wjfGXwJRAlYLw233fb9Qw7Ah4nLk5b4oQ=="
           - name: "git.restrOrgs"
-            value: "AgBhGhh5F9J8aoAf9spX60S+k4+HUodVRGo0X6zBd6E9VGlmcbGTUfti8+ULGqi9NBJ3bCAAHPJvFDe76QJOaQIS1v/oF/0H2gyqOBMZjTeOKu1cOux5tLVaKoZlkLDrcvoodN4eUGIH+SJEV+ZuHRxNV08oaUhG2b/EBsUg68snhCKJhcNd5q1S9KRykT/YBz6ZCLH+Z8lYd/eG7tWTgyma/9Pfc8KufJP7DmexYovdjJDEu3V+EdR/lGa0ODY2tluYCeAprlqBuYKjoqit1oaxjgHuLEhwS+o3Y2i3UTE9Mt/Ycrilpqoivmd/GsJFINZlIV1QCLueXjDbJ2mrO1Te6yb5xw87XXBjyHMtGhn5e8g7B6pZL0I//D64QlRSoaChBJjvRZljVX96nH0WiCuamSRpZByHRMA6z8aSOhtWb/lB8+xjE+izLfs4mdCbx0FFh6EzVmw3XcLG3qxQi0bfilO+1FPLGvZVwq9qi+On8UeUldQjvg7GnS6mhYjWohI7iVvaxDR4Pz83r3HtQUheqJHtTkHoZFOR3P6BVGgic3nJIX1pLQjZ6FZbWkbukLBMW/G+xTyDLgtl6QsCy/tOgW2VykwOHeUVxbzKmRYTEeBp69HuJWdL3p7Q6LkFubMREuZhn0KKD6oP7i1AYlqYk65otrVzPZikwIoQgg2qQEiX0RgOCvhOjmape4h78l8RJHyVhDuo41YWXqujUpXdIXyyFw=="
+            value: "AgBB44zhpVbncCKsTCuuAiKSf0jtEH0Gvj8tVBX8g9GzoCq0CS9bK2dWtTuwzEF+ZpDU2aE9h0mz2YXwjvL9XuMZWW75Uwo/dNkcLWBn7qWyzzNA35nKhCK5jRXLlj8rxbtN9ZuQdSiEZp7GlTWZjW4prRC/Dtb+PtF55kQwecr1yX+cnojSfKj6MltD842iTALuo1bvatWTgCg4DhDISM6PpwjKHcULjctpwinWN9GM4kWauozwiNnkDoMzG0X8F5d6eDhuHmxFq9jDPK3MH9hD+1vE/1Lay7PCmEatWyJ3nQKfWLP5XJ9yFrRg67Js2I6+PhHRujpYcEVGrtB/3WTLluTLa3fU6EImhVdVMb3qjmgGNZf/Nvtlh2P7N6x4R9OHmAI0i+VUwf+jMCNO+N7fWDnrTklTdc+p9x+6ra+Rw5I0jk9qY2b6DKHewDrbBCBjvgZQhxBTEIquS77y0pPBvR+d1YtJ0KAQTVxUIVnL/CmiegNbDH2Fn7CrBq+RDDA3N+YttO4+7PxylZovqFAt2PiJs1Abt2uDn1j7wqh5q+IC8VE3GwTGZh5NMulnjcRA9gXhsvhbEjmtA4mN+92iZw5eFR0egzdptUfTeuICplj4uzlWHSQ9p4fZbqKbg2aCwlRUucM5P/jkJWXIubXAIEz7fO/136f0Nql4imDdIQWuCCy67eiQ0Fu84GsEC9JsHl2tCASZFSH7miIJiTW9kAIWog=="
           - name: "git.enable"
             value: "true"
           - name: "htpasswd.enable"
@@ -82,7 +82,7 @@ applications:
         prune: true
         selfHeal: true
 
-###################### OAUTH GROUP SYNC  ######################
+  ###################### OAUTH GROUP SYNC  ######################
   oauthGroupSync:
     name: oauth-group-sync
     enabled: true
@@ -100,7 +100,7 @@ applications:
         selfHeal: true
 
 
-####################### CLUSTER-CONFIG ########################
+  ####################### CLUSTER-CONFIG ########################
   clusterConfig:
     name: cluster-config
     enabled: true
@@ -112,18 +112,18 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cluster-config
       targetRevision: "*"
-      helm:
-        parameters:
-          - name: "argocd.workflowrepository.username"
-            value: "AgBqj/p+6BNP7TITeQyttPY8QYW2RkY69sV1aHWvR4G4/meMdlEQcKZEbqcTRb/20WypPB5DE22flwhGU/K9n5Dp3GMrkEhAEI1nOuelwmKiPkgkVz8r4JcQsQswtW+4xpPTFe6JZJOoCRd7Yx+wSeIZt8Zjsy4Iz3fErx+xmMj9yH60bLiepCVLKbhuER4WqKrr7jYKICS1M3dTWaPlIjnmXSyyy7vrfl7iK7SATzzya9zSOy9FVLEvjUukPOo5out5bEhbIEdQ8z/x+CucrNcqYaCWgRe2sks7OqevzHxl9eV8Qx7OdSCBvs57Zwf5QDU8X7ls4Yy4+5xHiXS0qF8K5ppFEDWBoMrCV270WjJELaF6/vFCTAXB//WlZ377hgPWQWlU4bhxYT5D7jLQ7FZDt6Yi7zIZJ6GBj1rfp0gyf5MWmBkzBnDoWv3SuLlqWvNOgQAaWZc7OIbEkSMyIODbkU5H7WSHlAd2z/4QZ27DHVNV76JImunkxNIfOvuEQjXp0qIqVpz9er6gF18VHQ3ksCD6ltOwpBdkddVGg9dTXe9oawSxtfVpMObGnfFJ81e1mWxZrIB9xl+yftFDcS8NaDM5IUn4/GxieSGXQelWw58/ue7PtjRgIhgcmUcIomNu+9tRRwQQt9n96vA6VB17VA6c7lOXKiAK/aqaiS4LaLTkl3D6moN6+c+F41LbW1e8lo3T6IR1TUdP9KpdLdC8Sw=="
-          - name: "argocd.workflowrepository.sshPrivateKey"
-            value: "AgBk3KpCtQz2o1z78EeOTTrbZWmWKZHzgXDtSn2tTyAoQpF2kYlgj/e/zJK0Vo0Ij4A9zK4idpgZL6WmCeEq6AuGzly9pVM6/CZSZvbsVd5xvUg5IcvGtFG1mN4/ConlRLqXoOcxT4/K1XuYYU7zvoDAKGihJtUa+ZKS8es0lqcrLoBA3E9ucwxlr1u8LaA3xRp6/vIs4eW0sxVfop+Dt8fFvhjSHvPX1D2vKqf37f+omDCwmcJmJKOPOmPGWH6X9EoRrZnVXK0SeIWgqEWNcaC9ImiojS5DZDlc4wH1WiAPp3iuVzSce2doL/FZtyMExO/uZUCw7G9MxcZyyolTYR9LW3Sr9ywJCcpk8PwOoaKidQKhp5ODNVLU6yx4EAFCEV/F4lEFYQ+Vrkqfnzkl5mDPic/m3X3sy+iJQzV7oqs3u9GiO64/U2aFSzMyfn+WVhAMEcPyo/+Wv7yQfsiCpqPBU67R5LvS7d6/IWvAjsXf2gm42B+KGcH7digTTu2hE293kjsKSd6d+DYLPdJaP2gBq5mo/PR9LuhN24NARPpq8/LDear833y+Iye3FWFnwmQADDuBi5+cmt5eAqn8cvIczdU3TS/z270pj+I9d0qmrJFxDCA9c0sc3V56HMhK1E7B4UOZ+Psdfsp8EHnIVUFxKmw3BBool/8tYdhU9DRk0a4fvKgycLdljKsZoYKpcnFWQ+hfiv56bYeMFCnNBLrhfMLhi7eG+L/IbHlXAuuj37OtirRlD6nAvLSGq+u0ep8xrR7tPX65SSHNs7Xqten/Oq0nLOBDC0r/8tHhyDIA/Eki5tpOrx5efEUgtFz2OMSyMmg22y0HCyZIfwhpAetK/h6romzZ1ijDB5TTykGu+++Kc1vHEvHblRNrCUQ5njQn09wfvdz+yHq3xSlfUKcvXd9uS2qOwrnT3KepWggrR70Beyd/9gPWScIxoZdGo+O4d1FObHlQ36KHoez72kyM+ml2+EWIJlvn/pMy1ame1dNnRyO5dQWatmq410XVBruKNOzaxl6DHKkk0WjQuD1io621OFwvZQ96AgS0oysUn5lHEWNlDhBUVPDhD7JQ4dyp6amVv39dHsHahLaru73vd++I1HPmEQeT5lrr+mN39pXm1tWUCnn0zwLjy1Rl4K+NKtCGILT3wzx/T85gOZxvaAO/5M2NHT37NQ94s+xn54+NjvFRdNBkEaatfcVhIU1xrUdI6xnzsjJe2jiQF/m7w+tJKkqRwVFOXgqTMi88XoShGy7RvwUinaNHEgDyaosXpGEr4FWGF0aTmDFBh2XbxXZda4LRM2NZQpTsPdm4T9Rh693sV3EkeFhOO5OPQcYngvf9pcL0QMj1AiS16Tmx6DP9/WnQOTnfyw54xUZbXNj9071SybUXgnpVknqwFTBPs7DBZBURucprxq5OnzK+uZtsZGzNfRztCfc4moSq8q9QJLs1zAo7RlTN88tcu/sKVBNXkgi7FdyHCNc5ZkzgSuz9GgAfp0LfQn1SzzBGM12jnTnjSAjOahAk/CfJvWKwM1MRkh0YF9nAVPDlcxSo7BDoVPadJuSa8HpZOxelEoqfRKSUM3HyizmittfGE/iZjnuPSsRG7QLlvJG+nC8uLU7mxya5QOGi7imoLu/9PxgWDyTniTNDsALz5i5xljQv8/2lJdoMcWukNr1LOt8g202ZqhmDMzeA5HsqvR63Yj1q8pM="
+    helm:
+      parameters:
+        - name: "argocd.workflowrepository.username"
+          value: "AgAQYQVFrdCMm9n+Fa4RPUf3i42IgwBHKhPtvBVAMxAgo8F4FqoFRZhsaZ3uL8m6SjCDeGfpzO9IkguGXfzLjrxIiocf8lTgiu6vLp014f3C6IZIyZBKwoBE0RdIPQqHd4CXhwRZxJ+ABkYCVl+oD5YidHBJlQXsiE2AvwZk3TDekryf6wFohwKqJHr5AuUUA7RTPwyEOHF8ZkDXqZArz9M6eMJydLOjsbhbn5aSY70BMpB206yvZHkxqTRddmVn/cQ3ypCF0oKWyK2s9ifne6Iv6QSzD/AcMjZz/EIB4/LlG3sUCaNUVfyRRte2WyvGpoAceojQEWbbyeUQEOwepYQ4BNjg0N6A1ctfOX28xiOr9U421glBBWGqRKODDwlev21NxE2suxdXJuohEoPyKFxcqLNuFbuxqryuXAIWiQD06a598dmUUcQamRSUK5UmvbahZBXS3889C697ZQalf3UhWjSlf8i11nVELgVNkXCDDghZFN/cEtYyAsqdBT7P++wRA+fKLHsYfvh2FJOHGx10H43xk5UDtQ8uwfL05lJhg9xsag4cplNiTE52YSoiAoUcT/dWVsVRSvs5q0dHG2xnqEXdfodSCr6D18ly6iiJbtkepRZz/ST5qmJxYcP0ti6hcsV6drK04DolJglZ12Jw0Sal26fkbvfhR6vOjde23L/oFcUkztZ4jlemu0Oi/UWoBSx0v2RQhF6yTR96e4XWGA=="
+        - name: "argocd.workflowrepository.sshPrivateKey"
+          value: "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"
     syncPolicy:
       automated:
         prune: true
         selfHeal: true
 
-########################## ROOK/CEPH OPERATOR ##########################
+  ########################## ROOK/CEPH OPERATOR ##########################
   rookCephOperator:
     name: rook-ceph-operator
     enabled: true
@@ -140,7 +140,7 @@ applications:
         prune: true
         selfHeal: true
 
-##################### IMAGE REGISTRY CACHE ######################
+  ##################### IMAGE REGISTRY CACHE ######################
   internalRegistryMirror:
     name: openshift-registry-mirror
     enabled: true
@@ -174,7 +174,7 @@ applications:
         prune: true
         selfHeal: true
 
-##################### CERTIFICATES-PATCHES ######################
+  ##################### CERTIFICATES-PATCHES ######################
   certificatesPatches:
     name: certificate-patches
     enabled: true
@@ -195,7 +195,7 @@ applications:
         prune: true
         selfHeal: true
 
-##################### CLUSTER-ISSUER ######################
+  ##################### CLUSTER-ISSUER ######################
   clusterIssuer:
     name: cluster-issuer
     enabled: true
@@ -216,7 +216,7 @@ applications:
           - name: "solvers.secretName"
             value: "play-route53-credentials-secret"
           - name: "solvers.secretAccessKey"
-            value: "AgBmrS2xjLpOxgtixLWd+v/F1zKRHhF0fHxDcx2oehxih08XJtNM3AK3sCuAAt2uOCpSNkh65rnP/TVlSdmMIB6m/7fKLr0g8nYl+S+tt4upgXSl+uroJKW+nEJXxJQ3EtFhKkYZ8tZ7N8dSfudmSbh8XEy0xvvyyE8/Zy6xjskrLZBJaJDrLR84F/ffaImZf2i/5L98UCgynbHWcUQjNGUsU4rAozxp7v1wNrka89ZPEPLj2xWTFSwUsH8UEP/SC4p2MC1mPUyxgqm3D1hSxp8Y5jiFGZyowd+KWM24XZJrW8L1DxK545uoZK2fVBpNSkQwNacOoidWUOfVElbaFFKgSlrz1P9UjLzPIfClnYvQio3eXemkmco2NbgsnG6sf5YswORBdUPAJmLLFJ+i2oEVOABkONngwQ725Fy0ivzyt/c6CKhww269KKV5uWQc+NGGnB2AljujeBkkj5hsP1X61ApoquxEvIRSE4XJ27yDXvXFQAIqfjnEmtM7bh4VN7BotLdCSFyu3hnW6AzNjIaBVD/vhF2KP+GMAOSbBAxAEdNlmgJBzOYU7bogvL8FRfyodGu81BneSUXdk8ODKZ80dTyXVt28IGXXk8WEOJaWrKQbgHXK9F8hadJAbzVQ7EtH6Bss4K+13OnId75cm1jtncYo3sNo9BkBVO5G4ePh948PppZFcs1Z2I48UD2w49YaMQcu1m+8X1U9jmwMez91seh2N22xlyOWohu5tc2xpZMioYwjQRTJ"
+            value: "AgC0OKJ+SdWpMBkeYIqiJlI/73eayOLWxGKefEncyxLSD3aL1BvuW+h9yD4tmsQogonxWcWC1Eh4ifNz1VGw4j3BJOa2frNnxnUDPgEq6gysqG2tinl/wtbfwEAxNbiQHcukX4/r/hdvRK/Gx2M/gPrW2GyM+4oFV31hnlDG8KyZqRszhAtYnrjE0j8ptzSVIfH85KBbeN/lIX8i+ECuPpEOApfaWvuHNfkCoILR+sGHmtgsRNJcPcu57zGXErUfoMvb7VSs2Mqwt02H1rn7x8L6v+E0dcpc5X2N3V6ToaSQcCgYNB31B3cJJsNzQ7funPc373AFlVoaEHH9UAiXSqWifcFzhQ03+nEzVlQkBSOEBJsj2NcFuLZmzg4k7DTBM2A772J/qx8a3bBtfJlATHunIAhnoB+c8EXMghQCeZ9S1eKyBNOwB8yfrhnuWrbKyzrT9pykneaKM19vXZUXWjfSW/Yk0OW5NkXO2JO47x9hWUgC5gy+M2+hNHJ2mpdFxgEi4wO+NBtSYpKQQJTY2clqE6m+fkcvZJ/NsYbsEmgEGhsm1kKg+bkz2T7MB6ZejjMlqMGgmgx8fw2kaQQhJbaecYsVOrOvrjhs//V/lctKBy6C5ZMZ5oouglzzZZ4DCpSGnwi6sKcBEDwhVFA1BSs+m/B4S0bQr/LrxeoPSh5M00bf5kfLwPtlF15WJDeAs94QJBvc7NLJG9mvR285HzqkdJ0UcJiJ9kAt5FJocaMlHvhwMZs3w1nD"
           - name: "certificates.defaultIngress"
             value: "*.apps.play.gepaplexx.com"
           - name: "certificates.console"
@@ -228,7 +228,7 @@ applications:
         prune: true
         selfHeal: true
 
-##################### CONSOLE-PATCHES ######################
+  ##################### CONSOLE-PATCHES ######################
   consolePatches:
     name: console-patches
     enabled: true

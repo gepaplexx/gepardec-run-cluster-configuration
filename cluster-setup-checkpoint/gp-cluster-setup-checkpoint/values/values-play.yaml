@@ -3,7 +3,7 @@ project:
   name: gepaplexx
 
 applications:
-########################## ROOK/CEPH INSTANCE ##########################
+  ########################## ROOK/CEPH INSTANCE ##########################
   rookCephInstance:
     name: rook-ceph-instance
     enabled: true
@@ -26,7 +26,7 @@ applications:
         prune: true
         selfHeal: true
 
-################### CLUSTER-LOGGING OPERATOR ##########################
+  ################### CLUSTER-LOGGING OPERATOR ##########################
   clusterLoggingOperator:
     name: cluster-logging-operator
     enabled: true

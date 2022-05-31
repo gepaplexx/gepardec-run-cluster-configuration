@@ -3,7 +3,7 @@ project:
   name: gepaplexx
 
 applications:
-####################### CLUSTER-UPDATER #######################
+  ####################### CLUSTER-UPDATER #######################
   clusterUpdater:
     name: cluster-updater
     enabled: true
@@ -22,13 +22,13 @@ applications:
           - name: "consoleUrl"
             value: "console.apps.play.gepaplexx.com"
           - name: "slack.channel"
-            value: "aHR0cHM6Ly9ob29rcy5zbGFjay5jb20vc2VydmljZXMvVDAxRk0zQUNES04vQjAxUTI0NkI1TksvMUFIaHlIUlVsOVlVS2c2WHp5UGh2Z3dD"
+            value: "AgA0ym5EyLQjaqkepc0IEYUruXnlAorIZocs6od7bs2pvEh0Mo9Ij+QITnjan3ImMxHVM9S5Le7PK3hsXIJTYibsJy1CRfahO1STCFhlpqXyhvkjpm9HC2q7vI3+CnoTWT8L8RbHFg9BTEYh7hfh9MBfy1W8yRFy4oq16K9V0HQB9ah+jkN02IMhcf6mHxu8Yfa1bRRvOZfbTFuBrLZwawZTv52vOB04zOjyRNBeb5RCel/pbah5GZKQJI+gO5JdX6iObOjIdOtGFvkllGTo8GPgsRFCoEAXqafBLm+5J20kNHT5uZl59tLybLOEzfKTipvm1f+oKBQXoxXVN41zuJcp49Pl9eLBXpEqfO8p4clyX4YWYNl5es2GHEnmbVXyKhgwlpj8xNp4anT7iU4zKXV+mpTbiaCHnaZOAXD0QaVQcxdkwjkDYMrdyP1mne3iK0fMuUMww2+WzXuW7ZT7RWGTrFAR91emdSppCU5VMD0HS8ZsxFGdqIQlYUn5XJWE6SYbQAUku1gp1ayD+kYrjPV0PWekpvcGSIw+IdiYmds8ov1+7pr7X9Dv8ccTv6CXZMqPlQiJ4BPiVYdZyYU2fQfvBQQovXSKhp9RkmcEyZ+dvG3lGjoGjBdgemMK58YgtJzcidruFAR/BuAeT/2+nTrq5sHcFtnElb4wYvFDmteV7Htcts5RurN87p+bNS9+azYvsIuJQNg7f+fmMklMyM2EKp6mzu8HEybm9BiBzerRasaUnx4F+qNKGHQKbTu63EMYo2HqP2zQXOrDZtAPc2cnpUTx8lURk/8PyE/q5MC5cMc="
     syncPolicy:
       automated:
         prune: true
         selfHeal: true
 
-####################### CLUSTER-LOGGING #######################
+  ####################### CLUSTER-LOGGING #######################
   clusterLogging:
     name: cluster-logging-instance
     enabled: true
@@ -51,7 +51,7 @@ applications:
         prune: true
         selfHeal: true
 
-####################### CLUSTER-LOGGING-EVENTROUTER #######################
+  ####################### CLUSTER-LOGGING-EVENTROUTER #######################
   clusterLoggingEventrouter:
     name: cluster-logging-eventrouter
     enabled: true
@@ -68,7 +68,7 @@ applications:
         prune: true
         selfHeal: true
 
-##################### CLUSTER-MONITORING ######################
+  ##################### CLUSTER-MONITORING ######################
   clusterMonitoring:
     name: cluster-monitoring
     enabled: true
@@ -83,7 +83,7 @@ applications:
       helm:
         parameters:
           - name: "alertmanager.config"
-            value: "AgAC2DJscdd4n9I5dfwk20wdZrKBt4UZYHqOd/v5ps4CS7UvobOcTORUsqJEK57QPjYYp6L0xV0BpS9csDoFnFyHnqXmfhGOTkiUytoDjBbDVGZiuOcvdu/8e2NJoWT42evtEVs4el2gEk8w2+S6TKcwgzgb0d5sKocoYXbgRuSy0lpmFfIMReXE676Zr89/oaJJADR7j8ep0nsm+aqfD7mKHNpxVFr2Ve2pUumSdaxjLQ4+Y7zxOlnp/zqe/Nt84IZ5G9TijtohbaFKPjVVYOKUhAK79NrGZzSB/sbyi5GeFQaSI4iMsMlAg7voX+G8tCYVzS8L4vZ0R5XICAJehVmUbpLFOWuNn1EsHXD2ojFVJszVBTN1ZAaOoWXnROHEYW70fv2QrJ77KuWCVCL+PGcQMcdTCh4kbVEjR7TB2G7hgpnB0PnR+IRVrm09lg0gq4VT22NjXZtIaqbpH9styGN4zJJvL9huVRGbUBRD1IhmZUSm9mTGjgmlG3eaNv+zENmKCND0B9oymjIxkGKazkRlEX7TPkYxiq0fTGefRykbiwm6NMnGoJCZK59/rvhMYB3w8ZyG4qscB4LckhkS0l/w1qh835kGUTN2oqvD+do9bHOn7Y2DNjCxx6XEJMeyV9An0J41vrJmsBpX4E63elk2bL6gEtm6BkWtsMXUH59+7RsqQ5JCKeGwDZPqsbe6uVRtasyASroUFQyc7ItEaU/75yH5TYf89gAQaGEU3FKT3YuMoGvXwe4zV7pP4OMv+D8SyXUWr15dQx2/8yLu+k4/zomRENRLKzipnWcG8OPw5EP/+0sRHFvcPpCN3GjdYk1+lWLfW6/wsijqyE3YlSa1PHVw/S/jWmJyRWmQEqSUy5S7PgHdOiJ4oamCjN3ds5W+vNXGYuZ8WhP4pVexdvMgPTM+lnAijxk7fNThqanhWI6YfR26h8jBwAbPn4DATlmnXbjAxUa3oz+ZnT73iPXg/LDtZLWL9y2jNAyhmuGIm21DbHD+pWomb/KqU3j68xXqXlwRDWW5H6qsbcYTpFZ73j36NWxm5KEPJJDeBKJydvLSo4ypCXp/zs0FtiNtYVh1SthefUP7OONIrkRnl476zNIS4C08D+AgPhioRTIeCoubsxxTDEYAzCKTtehHSYZbBmSvHVYPmbJ063lg7PpV9Bl/J82dxhx7N/GCc6771gs797dEwONIyk4EAcgSDo16nRV3fQycFOPnhXB96eAT7je+igK0kzAaW2W4sl/7mv8g2vx0L5/Q/BObvozI11t1FSPaVmu2uNPMFRVvvrLRL6FqjzTk5w4sIoBTJY6yoOOg/7Fwqh8JqS8IS1ppeNfrt6xZYi9TprZ+RfUk+My2aDMLWNNI0K6vve7yZ7QvxOJFvR5yb7jchjxcJK8ykQnvSbU5kMMtd0vwhNLvfMS09tKoNWbGoSSpoTvZzRYPiwrKAbA0K2nD5SBNAszf0uOEWAt92A3fSmzL7CaAFTfDVXYCMjfIrUb8cAqfh34PYL2M4D/kH1KpqH9rN/2sgSO4enQET25/F6eRwmHRLG90MyOI7KFODU32ZAQGFT/aw9dM/IibbS3nCTJMOm48imERfdn6fVuc0o/QTwkuEAScoIzJIkesrTIOm9IIswqynlXQrzZTOXJDai62DddfOqyVK2UVi42l1rgv2AdAT78XqWF8AePMJoTl9glQV7WP+7g4uGttDhHfZYJ4b9jVc2bakfzZUlNMP98YIUJxEdw2DPlFlHQtk/RDA61fdJ3psKXzJwsBOzMgTrBeK23MEKHDdRUF7ybpkGw7rygtcQIp0WBLCbfPHhkw91LtoOXZt5Amee/59xF9M/SwQl2tGoVzUOtC2PeadsvhD1JgjvCi2gSkBr9k7SoZ56eRS3u16bE9sCkTFC3ugB4Bpxe9FEY4y6bKaHWyCvj+95KbKNpG1rcl9dgp85phrK64UFAIjjz9atbx/wZKYVy1C5AlW1EB9QMqOiCEJMsW0zQEkeybkEy6AY0yJzskwGxB+8s7YeNjQW03ZPMZz/ISRPz4ZKcwD/jSnBMETh7kV8DZDwgF1i7omPZhSoPYrRT/4Q9vrGFTtSwNgBkjarMztSKVHy1oQyekip4BEf8rAUvuSLnBtBsoFJVPDCZboz4XTCjTfoIMgynarf2O0D0bpvpHUZ81Zn9BOkYFV9Jyic6VFjtU1ztpMKaEs65QtF2ru4TFPC3wYKEj9Gm8axW+L3KyC8kjkI43liw9/Xw1C+A6YKwuqpkZ5oij3DUVz4QEKnJspUgOkjMAU+8cEkgfP+iSQrl6NzDvTKWOyZiXBiAXzT7J27PIv5dzqExP0jTv48QNQI5y1s1kzzuFko2+N3h6PDXp3xwcRPHakEFluIi0coj+qv05uyRBYX6s9R4m/0omV07usVJMonI6s0nOVvhvqnrH+MtkqN6pA0sCSnjSykJ6jaavRuIZNUzh5Z2OwtvZgXwWqcCXH3yXZs2r+0coxpltekO2gn0LA7BbLbsV+u7nhzgChEU7IRp6OpHzIYdl+MS4wlsVNwMietfRFp27U4EaTQK4282jlCVAVXv33rsd11p475mc2awMQeWGxk7OJW3lfFfcFp4iYdVKHJUR7E8quWP7NpEGEWflwPIwbDD0DqcMmjKGEUU1wui6ygbF7/xwjpX5teSg61OG9uL9YMWwTxx8/BIUAiCm3DaDAkS9vxCvUMwfSmJCPlsc9Mbn9wNPOcQVW3ueBNupM6NjCsMuvHKPtk2vJul24mBALDqmYukr8vb12Qem0PDYRg=="
+            value: "AgAKzzWtSRwdkX2M4SgnEk8/heLlhG48jZ9qE1REuus3z7fTDQMz3M5E3UvypFGwn77/z8wQ7bJ9XVEKFaAGBY5p9O3gu79xd0amKv6UiT+KHltwo0w75PkB5186oE4mnablLKNV1SNpnP4vB46Y5t7pIjOegLuzwsQGESdyJpZLLM6JE4tqJ5Aj4XPNGmsXCxRUtXVMzEbwjB/FPMrlDIJ+vLjzoIn2sDqBdLzPQNXch5lK9mh64/spKtw6kluOJnCEm/QEqKXo8S1KuC9Z4FAu9e0DtTTJEdtA8QoymTZQFnSjzP4Dur3m7QOqYjbMK2xpOl1V1ksnwVm5M7i43THFBApMDV9xL2ay5mVwLQ2c4gLj7zRw3Ad610g3RtSP/N8/sL2/q9aEFglfSseumIY5qO/tOAmKgHg/NHFoHW3BhlhAk6wNX/ZmoeibiekIgFqMRYJbcMtZz3qgsSz0enzCCTwfZwxBfWlIPQ4B1RfdPcxbDMpG+Ok+Msj1U0IxfaY6O3qSOKeOxNCSeCjQDd2nublHxlg2l6aDQX7SLkD5l3cMU2kEx10b9qIN5rBSG/QTpzZwZsqsOpuN+97PZIrsZYmH22T4Jur6sVPlu2lhavMgyVk+mcLPcMT7x1CAWcJl+1Qz8nv/U60ZDONVCaSKjky+u8trIi93FTIzSf/y6pRG39TrQgkT5TxLKKBduPvjYi0JpS+zTmM="
           - name: "infranodes.enabled"
             value: "true"
     syncPolicy:
@@ -91,7 +91,7 @@ applications:
         prune: true
         selfHeal: true
 
-##################### OPENSHIFT IMAGE REGISTRY ######################
+  ##################### OPENSHIFT IMAGE REGISTRY ######################
   internalRegistry:
     name: openshift-registry
     enabled: true
@@ -163,13 +163,14 @@ applications:
           - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
             value: "rollouts.apps.play.gepaplexx.com"
           - name: "sealedSecrets.postgresql.password"
-            value: "AgCf5s6khftTQ4ECechTsOqjEq07n7TnkP9FhDq9iXLt9nXvOMV2J96x8kJGL1ebEr2CD61b9NsAB30K51v/yXm5gRWpD+27EExQvQZfcVOjHbUeXaZC4pIgNtzOMX6tUPZWVXlAnI2vlSFFGwLP6kPvoYhbF6EfjSZw9DCPQiz7CY0HRlivOpxAlQYKkqoz0kSlD8INBonGOCZXieuJPIJoEUwwh3V6+FUbEHYrXf8o2eA8ani89dklzzWOum99WucNn2cgMAkxV5ZM+qNBE0An6O62SqzEqsKOnVYL8BXPfEOZoXZ6TTLfmpc2F0YwH/izEDBGzHCp1VPMmJf3WVajkw9+dlVrR4C6yG/sudYOcEBMmBXp+6Ik99Xu36LOAEhN0dxAMNeSWUjpUW8KfZKO+LwR+uGAdCVLUJso9B1LcRGmWNq3Q7f5Qf2jcWZl4EaCDS+tZgGHDTLnl86Ox4nOvuQRCIPY6EPraJwCGq6jdQ8FOlwGqXKCLw1245jqngx4NfaDgyEnjkDhmRze5fPvcR/ToSQBnjMbbyoXXeq2Y99PzP3H5EBMqaIccagb6NZRJjPU4H1/u5SjrIP+LSAasUywPBOT962HKcurYsOoa1V1LVo89voseJoHRR1wQ9rqe2ERP4a8TSzr0ijT6o7y6dK7POEnFffbhnLSxwmpNvpp0xAxbqNrCASuApNjKFua+Bkxww=="
+            value: "AgBhumWZjXDQTmgIpPXhmFkYiBUP+bKfC600hiTBnnsZS+PA4FCTOwDexNpow9LId5lOxFevjstT6+g2qXAFibSQABmZVeC7XwceH52tHZuAKiOTLd2AQYcP2HGJAZqvtj6DO2/7slW7DRJf3dMzFI6Rra24u9j2o88O+5X5jzVKZWUhNgkEw2qlBVwlasV8xaG48vLv7AFLDPK3FtYbvlPNYSWGUfUXwrPNLdI3C/mI+RzCoSnKpqYEyUGKqsA13AUvvYU32A0QV8dZWts3wy1WuhY9Oy59Ad06iJ4wMB5ifjdyYo2F0AggQiAx+1kHwL7LNazlSpYBpR5vsVKB3COvcboxeTlTgcfKjGyu/0Q/eKyslXkNE5StMGABWTAljR/oIsXqGuh/NHsZzGA2KVKIagKhrY1UCEA8Yl0TdlMT5MfdTsnrUAiLxh0v1iLS/NCFm8Px1ne/OnMalpEq9kdpgM0nbIKx5/R5jbGUr93vvFBEMygAC+U8mE6cHSfzeejDgQSxsWLInXhz2W+q/bTGG72tQYizJwhFRcEkr3qAtcjI2Es6wyXUL1RiXLaKDftjxRnwkZ6VYnsbTN4H+YDUX8+J8d/r94SCxq/Sp5MTVetJ4DCisOCY0KwSOHVe7EPcQE0XXHfClKjUzGV8JrlmgJ8D6SwFToHRxihrGlZlOj9NftHL1TH1gYuQJngDHDqJNVzYHjdywHA="
           - name: "sealedSecrets.postgresql.postgresPassword"
-            value: "AgAu0msps6vrEoKSJ4IXIz/M1sKP+av1tEvvtwSR9zZ4/seZN+SaG94+QKyymYGgRhF7eA0CznHURz9VYgk++oiw/CDAG91ZCbHPffHSJNDKQ6DLq/uw5Lv2LaPnRBNJmS/rVLZF/TvLxJGBvcCLa+CeMqa1Q8LCaDtZFf1QwPWTCBigxhWdjm8bWhYfvJaJIJ6Kabxz+fCxZb8pvoIPDIwmBufJ66TM3kj6qiEsO4Sx9TPYcNMH+MjW99MJWP2aEst3+xub/kh+3I6Eq7kJ6XTtjPO3TbHKbaxMb58u4Lm+pD4JjwSpJqSaKNjrtjv4QMbi0NYdbtFUWQOp0o/BOKF2WhqXUt/66121l/zMAPXEABsMtSb5KCLAyG/slG5zeY1Nj4Jbxan7XjsWPslregUAVUXCfebsBHSBJ8VeY/hSmDM1AFhVB4I8kLur656HA/BQraZOMIvZULovbkumjmbzUimnL8tE122bGEoYXYR1HKeafOvH99B6RgGEqolZVIijmleWtqo5DUTkmTCqA+JmgFcttRJsExQ/RGjHF+ISvxXueKkz1b9TNxcBvhZi3ghfux2zOCK3CD1Ih0Q8+W8/Xd11RgQmf+HlJ/ILokcksu67v7W7zOTSUNXmzc7ReSGx8qqbauK0w8S4NNLPsv4YEiAJ41YrTB3kqKqxBLCQyZgbL7eaBERZ7czeR3cshTxwzEduQg=="
+            value: "AgBVb2XmJqmRQsYn3WkjKODRBPyQt6HCGtlpmr6dytW0kG94cAEeIX21TNn1QDLhskDEUww3xyEV6iUOx5m6IXtVtpL8STVE72QSdtIl6EUii5LJqJoMDEgYUZrqtFwjTPtKuDJdbvox0pCmDWmv2/v5lsYrq1FYoGQWmuY5nlUy4Ec6jx+bOc2XZM7dWwmV4A9iMJXZraJCx4240YNfZYEfJLwmFaYjCSugEqBQSRNs9S4gWFRi17ovNBHLh4iXwgF1oXHg9mlayx65E4ON54rpwFnvqA6ODue6tsGJbiY0gDiXup2ai6Nlap2mRKCtM3+RFaz/2E/8Mu8fcmBOmDXiGVnStLCxkq/c6cqB8bSTeG7FKZ7MiTLCdxOrDebGJEEeyAh5ulheaBt451Wfs+SnSpl+cL80LzUHS4gVSSSxhofpL0O6qTHmDNBFtdhaPUxwa3VERkgWwpCy0wQqFimn8/J2yGeGFSvrqn9kNIxoWQIQcujFPTkAoj2zwXbYa1vWHPOklBJYsPBA75T8o8Bgujn30/DLNf+1X1TpMl9mc02MV5BDNY0bCz2XaDI9r0bPgAp7HOfq2/TMYCkfu5znT0pC4yQ/DfodQ72HTJsYx6CTimN3IPmLVqmHTycLohj8zc/mnvYRtLp17smvgGk2g/BTQZQjleRR3ORFhRZeh7g8MHiLjrmhxj7NmoWIech+guxrKTRosAc="
     syncPolicy:
       automated:
         prune: true
         selfHeal: true
+
   ##################### GEPAPLEXX-CICD-EVENTS ######################
   gepaplexx-cicd-argo-events:
     name: gp-cicd-argo-events
