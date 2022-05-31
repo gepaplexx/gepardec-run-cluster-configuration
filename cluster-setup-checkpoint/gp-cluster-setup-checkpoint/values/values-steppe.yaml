@@ -63,7 +63,7 @@ applications:
   ####################### NFS-STORAGE-PROVISIONER ######################
   nfs-provisioner:
     name: nfs
-    enabled: false # TODO: enable sobald FW-Freischaltung da ist.
+    enabled: true # TODO: enable sobald FW-Freischaltung da ist.
     argoProject: gepaplexx
     destination:
       namespace: nfs-storage-provisioner
@@ -75,7 +75,7 @@ applications:
       helm:
         parameters:
           - name: "provisioner.nfs.path"
-            value: "/data/col1/play"
+            value: "/data/col1/steppe"
     syncPolicy:
       automated:
         prune: true

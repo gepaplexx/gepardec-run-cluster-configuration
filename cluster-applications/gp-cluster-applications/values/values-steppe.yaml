@@ -218,7 +218,7 @@ applications:
     source:
       repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
       targetRevision: "main"
-      path: "clusters/play/applications"
+      path: "clusters/steppe/applications"
     syncPolicy:
       automated:
         prune: true
