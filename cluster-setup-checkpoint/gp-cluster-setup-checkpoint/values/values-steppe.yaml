@@ -12,7 +12,7 @@ applications:
       namespace: rook-ceph
       create: false
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-storage-cephcluster
       targetRevision: "*"
       helm:
@@ -39,7 +39,7 @@ applications:
       namespace: openshift-logging
       create: false
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-operator
       targetRevision: "*"
     syncPolicy:
@@ -56,7 +56,7 @@ applications:
       namespace: k10
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "*"
       chart: "gp-kasten-operator"
     syncPolicy:
@@ -73,7 +73,7 @@ applications:
       namespace: nfs-storage-provisioner
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "*"
       chart: "gp-nfs-provisioner"
       helm:
