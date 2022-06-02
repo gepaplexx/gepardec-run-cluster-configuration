@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-update-checker
-      targetRevision: "*"
+      targetRevision: "1.2.1"
       helm:
         parameters:
           - name: "clustername"
@@ -39,7 +39,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
-      targetRevision: "*"
+      targetRevision: "1.3.0"
       helm:
         parameters:
           - name: "elasticsearch.resources.requests.memory"
@@ -62,7 +62,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-eventrouter
-      targetRevision: "*"
+      targetRevision: "0.1.1"
     syncPolicy:
       automated:
         prune: true
@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "*"
+      targetRevision: "1.2.2"
       helm:
         parameters:
           - name: "alertmanager.config"
@@ -102,7 +102,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-ocp-internal-registry
-      targetRevision: "*"
+      targetRevision: "1.1.0"
     syncPolicy:
       automated:
         prune: true
@@ -118,7 +118,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "0.0.3"
       chart: "gp-kasten-instance"
       helm:
         parameters:
@@ -149,7 +149,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "*"
+      targetRevision: "0.3.5"
       helm:
         parameters:
           - name: "argocd.route.hostname"
@@ -182,7 +182,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-argo-events
-      targetRevision: "*"
+      targetRevision: "0.3.0"
       helm:
         skipCrds: true
     syncPolicy:
@@ -201,7 +201,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "*"
+      targetRevision: "0.1.1"
     syncPolicy:
       automated:
         prune: true

@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-storage-cephcluster
-      targetRevision: "*"
+      targetRevision: "0.3.17"
       helm:
         parameters:
           - name: "cephcluster.runOnInfra"
@@ -41,7 +41,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-operator
-      targetRevision: "*"
+      targetRevision: "1.1.0"
     syncPolicy:
       automated:
         prune: true
@@ -57,7 +57,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "0.0.3"
       chart: "gp-kasten-operator"
     syncPolicy:
       automated:
@@ -67,14 +67,14 @@ applications:
   ####################### NFS-STORAGE-PROVISIONER ######################
   nfs-provisioner:
     name: nfs
-    enabled: true # TODO: enable sobald FW-Freischaltung da ist.
+    enabled: true
     argoProject: gepaplexx
     destination:
       namespace: nfs-storage-provisioner
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "0.1.0"
       chart: "gp-nfs-provisioner"
       helm:
         parameters:

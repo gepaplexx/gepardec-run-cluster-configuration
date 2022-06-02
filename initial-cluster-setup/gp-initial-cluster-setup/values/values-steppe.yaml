@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-resource-locker
-      targetRevision: "*"
+      targetRevision: "0.1.0"
     syncPolicy:
       automated:
         prune: true
@@ -31,7 +31,7 @@ applications:
     source:
       chart: sealed-secrets
       repoURL: https://bitnami-labs.github.io/sealed-secrets
-      targetRevision: 2.*
+      targetRevision: 2.1.8
       helm:
         parameters:
           - name: containerSecurityContext.enabled
@@ -54,7 +54,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-identity-provider
-      targetRevision: "*"
+      targetRevision: "1.1.2"
       helm:
         parameters:
           - name: "google.clientSecret"
@@ -89,7 +89,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-oauth-group-sync
-      targetRevision: "*"
+      targetRevision: "0.1.0"
     syncPolicy:
       automated:
         prune: true
@@ -107,7 +107,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-config
-      targetRevision: "*"
+      targetRevision: "1.2.2"
       helm:
         parameters:
           - name: "argocd.workflowrepository.username"
@@ -130,7 +130,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-rook-ceph-operator
-      targetRevision: "*"
+      targetRevision: "0.2.2"
     syncPolicy:
       automated:
         prune: true
@@ -147,7 +147,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-pull-through-cache
-      targetRevision: "*"
+      targetRevision: "1.0.0"
     syncPolicy:
       automated:
         prune: true
@@ -164,7 +164,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cert-manager
-      targetRevision: "*"
+      targetRevision: "1.7.1"
     syncPolicy:
       automated:
         prune: true
@@ -181,7 +181,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-certificates-patches
-      targetRevision: "*"
+      targetRevision: "2.0.0"
       helm:
         parameters:
           - name: "apiserver.customApiUrl"
@@ -202,7 +202,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-issuer
-      targetRevision: "*"
+      targetRevision: "0.1.0"
       helm:
         parameters:
           - name: "solvers.dnsZones[0]"
@@ -235,7 +235,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-console-patches
-      targetRevision: "*"
+      targetRevision: "0.3.2"
       helm:
         parameters:
           - name: "route.nameOverride"
