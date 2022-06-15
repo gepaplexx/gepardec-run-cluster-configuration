@@ -31,7 +31,7 @@ applications:
     source:
       chart: sealed-secrets
       repoURL: https://bitnami-labs.github.io/sealed-secrets
-      targetRevision: 2.1.8
+      targetRevision: 2.2.0
       helm:
         parameters:
           - name: containerSecurityContext.enabled
