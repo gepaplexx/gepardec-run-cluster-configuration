@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-storage-cephcluster
-      targetRevision: "0.3.18"
+      targetRevision: "0.3.19"
       helm:
         parameters:
           - name: "cephcluster.runOnInfra"
