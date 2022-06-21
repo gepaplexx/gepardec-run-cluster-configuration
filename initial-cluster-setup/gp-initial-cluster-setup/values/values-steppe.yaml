@@ -20,6 +20,23 @@ applications:
         prune: true
         selfHeal: true
 
+  ################## PATCH OPERATOR #############################
+  patchOperator:
+    name: patch-operator
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-infrastructure
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-patch-operator
+      targetRevision: "0.1.0"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
   ################## SEALED SECRETS OPERATOR ####################
   sealedSecretsOperator:
     name: sealed-secrets-operator
