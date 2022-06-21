@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.2"
+      targetRevision: "1.2.3"
       helm:
         parameters:
           - name: "alertmanager.config"
@@ -102,7 +102,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-ocp-internal-registry
-      targetRevision: "1.1.0"
+      targetRevision: "1.1.1"
     syncPolicy:
       automated:
         prune: true
@@ -118,7 +118,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.3"
+      targetRevision: "0.0.5"
       chart: "gp-kasten-instance"
       helm:
         parameters:
