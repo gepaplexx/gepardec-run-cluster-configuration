@@ -4,6 +4,23 @@ project:
 
 applications:
   ################## RESOURCE LOCKER OPERATOR ###################
+  resourceLocker:
+    name: resource-locker-operator
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-infrastructure
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-resource-locker
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ################## PATCH OPERATOR #############################
   patchOperator:
     name: patch-operator
     enabled: true
