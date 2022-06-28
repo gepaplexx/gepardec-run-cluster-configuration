@@ -19,6 +19,10 @@ applications:
         parameters:
           - name: "cephcluster.runOnInfra"
             value: "true"
+          - name: "cephcluster.monitoring.alerts.slackurl"
+            value: "AgBzgc2Nqj9ivQUx3wKKPucZHB90+h/t3jd8S/0y2Yl8FfU4pmhO1rx0RbAYyhXJ4da47ZPxN6aN8dJPPQARimYHgRETfvB9LlknIWHf9yaWiKlnQOs9ruKD9usInYVAe1bO6C7gDtCMoQzkymM0tyzfr/2qH4nfV+TxVM+MY+MiqGl5Fq5lTU4/eOsd84QjMQQ3f221T37fWF9IsoDQtbG6tQVAsB18XoiV6eA2hGoBoHB5TTBP1sbgoNfQD5+hjBlCu3wZCas3lBTy1b/Bh1/z3zLtmcDH2TVAwnlrmlv4OoxIAvQN94ntJlx4GjZsCEBe6kS5iGJF/K1XvN/7BPgpVAOdWZnPpYVM9t9PceoGyDpzo7ZAo7RbCOYdwFLPxKE0tsMgLTSf5CZ3mfKZ3zn+OSXe1rQjJmq0aZrC7amC/3x6RThHESPFHIpcPONAdInxh6kzrYAgkKs+E5IU95WNGQUO+uitupGgzprZMis1G1akWtLCAvgUCZ0g4ELlwlT1HQnhLwEhVXjDbQAOkKTbZCv76coaLjHwvQ8epZa5W8cr9EQYzjFSLTOyKlrcAiXFr9N+la9xZFbUdJQ4usEM55l5H5cxbHRASeNd0VStgBWqd/hHEYyXBAdO2fgnUSfvNL63Ra45TLXEWs2hNu0M/CKkods0tlvQcr9V/Jf6GwCSDpzbjMKJMcvxc/v8XNPY35F84XTJla/bqrEoQWuf1xg2nbFuPcMR1EdGgOFlSTmJMJAqAz+fIg8A+7YFNGZ+NN+bFyOZmwmaILHYX5C6IaD/1aSvfonMVv9jbRKDjds="
+          - name: "cephcluster.monitoring.alerts.environment"
+            value: "steppe"
     ignoreDifferences:
       - group: ceph.rook.io
         kind: CephCluster
