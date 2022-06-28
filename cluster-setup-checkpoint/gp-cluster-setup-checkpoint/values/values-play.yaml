@@ -17,9 +17,9 @@ applications:
       targetRevision: "*"
       helm:
         parameters:
-          - name: "cephcluster.monitoring.alerts.slackurl"
+          - name: "cephcluster.alerts.slackurl"
             value: "AgBbra9aDhPrqF31kB2KgQV3Cwi6DkhMc/YE4XUSCdUat92ZXnrsGRhPzodEI2o2Y7xPcmsb/DMHkaCRS/Ahz6G+xN0FYeCxpIhrblG6/1xO/1wnd8JyLugaf0/tnSGXumo6V+uLZOYUJqQj4NH/ICxWen7GIDXx4t2rq1ElXax4NvZqgl0SnWf5eYxrVmUijMPwNAlnC/ieL/GKIVINE5QDqNQ+D4aqByKOWu/ex7TeJwetvba/BaeiTER3dJJXbVVuVnJeRAFa5zXdVhrMS6I0kZ8XR5/KACrgIG4SxE6NZWzinOjbB+a/9fNzAlEzhIlcGhhHgwsHursPwq/YSRi/TwZYIq/5IzOq8lE2R6pjJtwEDyTW85T8yQfgdMkVvtP+/Kp/vuNnqFcX9ik5OGQO8hZWhY0rkzNHMkQM9G+4MW14GTCuHzNpoKPyK7oFtOsAqBavTZ6O3MDIMaIUtOXS07jAq2c9zSGCr6xPC5XdY8I06rlRO0PaBP+p/o6hnwxp72oEl+e+xcA0kG8eUoLwUmw9Nl4jTAs21XlKQNs4k1xFngKPiDjpJZO8i89FPWumuIX09ql9ROLgjHB1kzSRVDOh5mNmJUpFEg/KF4OxPgXKhUffz3/qkaHjpBmPJBsg9KH4pugIF0MV0z1gGvWdPPN84BjApWrbZA22twcoDu91WSiDzP34ZfPWXzlfDstiJa8YbNr3EUnO5rbpw5xGsJTnA4Tz+S5rJwcBYPiClLaV74QPo1OaPdeHJZgyoMX/vzNZeiEWWA9miYz5ItjZyR0fyNqTqMfo4kvBhKBk4Sg="
-          - name: "cephcluster.monitoring.alerts.environment"
+          - name: "cephcluster.alerts.environment"
             value: "play"
     ignoreDifferences:
       - group: ceph.rook.io
