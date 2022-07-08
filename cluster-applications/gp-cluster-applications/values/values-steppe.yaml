@@ -154,37 +154,24 @@ applications:
         parameters:
           - name: "argocd.route.hostname"
             value: "argocd.apps.steppe.gepaplexx.com"
-          - name: "argo_workflows.ingress.hostname"
+          - name: "argo_workflows.server.ingress.hosts[0]"
             value: "workflows.apps.steppe.gepaplexx.com"
+          - name: "argo_workflows.server.ingress.tls[0].hosts[0]"
+            value: "workflows.apps.steppe.gepaplexx.com"
+          - name: "argo_workflows.server.ingress.tls[0].secretName"
+            value: "workflows.apps.steppe.gepaplexx.com-tls"
           - name: "argo_rollouts.dashboard.ingress.hosts[0]"
             value: "rollouts.apps.steppe.gepaplexx.com"
           - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
             value: "rollouts.apps.steppe.gepaplexx.com"
           - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
             value: "rollouts.apps.steppe.gepaplexx.com"
-          - name: "sealedSecrets.postgresql.password"
-            value: "AgBOMsWEqSwd6lxYLmAZ4WyGAboHcn3HT0D96ui/jcn6Vr4w9Vjw9MhEbKGw1YOsgby8mKptszRoMxmEnL5wk0lpUYlSuurad0fstLqqSd6NG+4vqAOH6vZKgaZ81jNmW7V/mHB+mVTN+6j99NATkKXeJzWoZmqC6Q5p7Ir/mxJxYpXmG2QJhmyAapsTfJJ3DFVBU7RZ20MJz3w5m8EYgbbm3WOy8B4OdOdaDHR8l8VE0zOO42QPn7fDsu/+fo/RrE4hosdWpiJrNyOGctgVd5Y6HSHENvl9swyObdDZ4NEX7vuAmP94TO9FIYIQbAVrzfWFGXsRdSBFMzNMl4GAopICbZuYPdvnm4UHRr4JS5+Rk3YljsVccAtzpM9LCDcR9tpSVEezaBE8UZS3qgzSCklO3yjxl3lSqIpyqzIMCsKyYmZYjqxDfQqD4uB1K8CnDujjQ6ib6pkf4/jckzD0/LW5SvjsUK5+m7PeG9/BgNv+V4Y4CHUhzSH/nt/Wjz/t4LSkWyzK4o7GmDKIPgfErOawELnqYTbdNdsBMALGKK9luSAsaod5PGreBKGdqe5qTCaOhUXfqm5a01hwwpV7LXGaznwI1w1wc2oIYM5lR0biH9F42c9+l4af4Hq8Ed8+J6i0vu/tf0RlzRvH6JpjM0I/poE638FaCCHrPaSwGtDurPKKHNOsJ6clpoxUidhDkqz1rOrE/AX+crU="
-          - name: "sealedSecrets.postgresql.postgresPassword"
-            value: "AgA1XBm6eO5U4WcEKxom15GxeO7wpWJlYZ2HG7zVnPAH54kh4vsTLpzLm0Pr3GjRYEKU7sRa7i8QJH/ZVEyZKD+fYogafKETCmcq9PEIhg+iK82UbSmxI5I1knrx88llzVw1u3xa3huXXLfNAFQUFO+c/2xz11zaqjOym531uvYMgA1ZCMo01YqHrzYj+tEhLGvZO8xVQXCWvmam8f4ziMGO9lShJF7I3WY6sjk7pL5pFOCoRltUZjboYfbiGh7LPc+fZIdC3+68xFg0XYCBlI2tg5cdLKuHeRuw3KGCfQaTVQmbhFUYNJML+f6ph74ZoJuXCRjWM1g5AWxBb7JGqrZ+mwI4rh5LvbFw17MsPwLjQLW5pqu+/P2c/wYvbNadrSp4o2e++qvKIgc4L4sOOz2iehSsHDHMOOlFS1DsD2v6LGjDW+qBkWLN768OUy4kbQVs8VeyKNAc/fYvP2gx5Tox4hnSQzIfdD27y/I0EXCpZeB7otLT9ZtgYhtbfOVByry4L++EP4maoBaT1BS4cDmeYORZwZPooCdSPtYGYcEn/bGVRYVIMVXiaD0blwW7haN6yf8tLYTp4gaS4RBoVa9EqNAguDMj6kvqCg0iSlfCU8XVrOLBY+zGelBolz/sshRk6UAAJzMbTjafysnqfDTvDfvZy1yzHJG2lDqKslc7JerOjnY5CQMTiHONChUVh6grNcXq3rwKWcQ="
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
-  ##################### GEPAPLEXX-CICD-EVENTS ######################
-  gepaplexx-cicd-argo-events:
-    name: gp-cicd-argo-events
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: gepaplexx-cicd-tools
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-cicd-argo-events
-      targetRevision: "0.3.0"
-      helm:
-        skipCrds: true
+          - name: "sealedSecret.postgresql.password"
+            value: "AgCGbpeVyrgLYUX0KVt6cvcqFc25mxHoAjMrAumZatE1RRliej/ucAY2R4qh/p5kZ3Ml9MTh+krLauB+OFZT2WX3fQ+41JsgkBbRCEun79IGVE+fuD7NGm+RCKTnXGryGDvKLHgNRaqMA9+I/cBPXxdP2PxblX2rq72H25yGs9PxKwUJEHz8g1hHVw4V0o7qwI5CTWAIu5uFxyM0VHAhfFXiWrRaJGWFKEtXIgB+3WvufayyyJ9iG+vIvNIHb5cKdAQTCtXXNVbx+Rkvsokx5XB344B9VSm/QKqngVm3cIt4FwUQGqaxSfywJ7pblSprP14cSwrQRxyP4MxRhDfroLGBnlV5Ete8yoRF7X+F1f+29/E4H0uAozh70IYJ8/i0AtdsjkDUtJTqKZDf/l8HORmojTt6WwnKM8P2oJnmjonhaB/eiH5a/p0GCWlnJP5wHsFls7xbEW4TLXn1D5lj4HnQJ3e3tK3rTltuHkx7deYgx0PtWKCT05NrIZm8LxnGUjSe/dDpGYiK4UojpCfJHbDN3jWS0VJNxJsOXRn7RR3k6Wb7y0AqaccSdP+bTxr4vmACTjyjinLd31Bb+J4upp0ICUF/F4pnLyMo0COMFqHe5IzcDdOQ1j22KKx84ojg8+mcNgaypprdgHJmsQKco0jG/D689KDbD69sY8V+/FadIkI5DX1UwAqbPnaB7OIZzGzDX2EOFkrE2QNF"
+          - name: "sealedSecret.postgresql.postgresPassword"
+            value: "AgBPIgrmll1AnwoTdhUcU7/b+5ONkPDQdxIVlY4XSQQhP2cgySQxmQRVtCJ4iL7GmtSaoFn0o85RlnScSA31THd+p3MF/dPChtLkvzCXs+4juwc0bqXAdQhsVf5hTtrQ55lEdFOZZXcLWEyVBAIEgF31qPcZln+hvZbC/GxwNjB7CiavGQ1Kwe2OyLa/tZw2FEkKqlr0iJi151EuCFFwIk7K+zo+xYnW9RGPBMjcUOw04YJdgfE98fmKSuu1XnmvCtjLj5aOXLj7SaMU7K5yR7klgKeVlFddBVGumgO9aXEwobEc6v+bq5y3Q7CEu0IUIlwplmFTxh7z9NlkVvmBGyaZftBuitkBPWFtKubDwfSNnhaHjwviNstJEAawDLRPSegNawA+4+GJQ3Xh7ieL87IP3KPFKYidx1WdkfmqDQ8u9bCDqKNLycQSTc5EHqBljKH5+ierFPQ1dDYphi473v1uIe6B6kChVLQ4otT/3yPduCqXzYFWvF0ySGET0sh9GxJcR1886aUo/5yzeFwUNOQT2PBG71rnXfbv9YbF4pszzg8Zawh+Eond93ZO8KmvKSC2JK5cMMR1fs8SDuHNmoiuTz+UlZ2XWlGuY/lBr2V4TEyemhjsmvUvIFe/bIeldTwYvMkgH6iOIsu0TQvZJ5vFk4vuLSDdfw/u20QXJP6HibQCkOJWV+3cpXEASDYvxlh/9+figDTJf0LC"
+          - name: "sealedSecret.postgresql.username"
+            value: "AgBTH4zhm6Y0Pl5ZUr7ZPhLDzM3uJN/zA+bxoMn/rTgmsf6EQ+NPG87jgpqBUMZ6K4Iw9S6TiG+1syWs1T5IX1i+DAVNpskZojT1JfkeQPCaA/D7PxnNQD8Cfn3khtya6Xu4X+fh8ZCSeFN8ISolhRJIxj2naTvVv2Vm2St8yZzFQncB8/kL2weFN9ku/jZOBEqhlBpovaFh/zOh5N8thtRTTVu9b6iWCkT5C4A0Mv6Okbr6EA5hYRCtmrsOUpBSuzGfeIYSIGdhgVMJydSm12MlHbwkyGO6gsIGLTMR1RwH6qDskRNwssq8ZBhotobAIMclVP/Gpq76IZr2qQnDurQAIaZCLBL5zaqoIEM04HesWaL3gNYx+IuEMxzwI9ym0XjhUXSyeRTf/ldKjasNpoqXgOYlkq2nEKFG+R1fcC7c+S6Q1lf6Lk1eOh7J/5ZD55S2YJwnq/EAVmXn0dLCdp287a5xCgesAPuKbPZSPJG90688XPpMJo7Xdn+NdF9aeGaycbLUriraWzBkmRy3MvW0JHQU6mUiYNINuuS8Ak55clQCJ4Bl7L02uZpIfEo6bdZgF/pct0NV+fYSPbZp3wKQ+6pRVk0bt9iwegiCHWtQMBx3CLFULCN8WfZCqCSBcJZ+Q0LSza/7AEoMolMfkXkv0J3uS8eFV1Q/q0M5jtB9vGNBk0ynljlMJ66txhaiaCa0aGFw1y+qwA=="
     syncPolicy:
       automated:
         prune: true
