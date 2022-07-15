@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.5"
+      targetRevision: "1.2.6"
       helm:
         parameters:
           - name: "alertmanager.config"
