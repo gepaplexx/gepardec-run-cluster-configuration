@@ -43,9 +43,9 @@ applications:
       helm:
         parameters:
           - name: "elasticsearch.resources.requests.memory"
-            value: "12Gi"
+            value: "8Gi"
           - name: "elasticsearch.resources.limits.memory"
-            value: "12Gi"
+            value: "10Gi"
     syncPolicy:
       automated:
         prune: true
