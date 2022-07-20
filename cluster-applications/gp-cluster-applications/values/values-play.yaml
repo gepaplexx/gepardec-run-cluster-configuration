@@ -45,7 +45,7 @@ applications:
           - name: "elasticsearch.resources.requests.memory"
             value: "8Gi"
           - name: "elasticsearch.resources.limits.memory"
-            value: "10Gi"
+            value: "8Gi"
     syncPolicy:
       automated:
         prune: true
