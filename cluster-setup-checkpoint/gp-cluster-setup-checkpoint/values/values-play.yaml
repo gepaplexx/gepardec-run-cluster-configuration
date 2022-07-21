@@ -86,3 +86,24 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
+  ####################### Grafana Operator ######################
+  grafana-operator:
+    name: grafana-operator
+    enabled: true # TODO: Manuelle Schritte siehe https://gepardec.atlassian.net/wiki/spaces/G/pages/2460352513/Grafana
+    argoProject: gepaplexx
+    destination:
+      namespace: grafana-operator-system
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-grafana-operator"
+      helm:
+        parameters:
+          - name: "provisioner.nfs.path"
+            value: "/data/col1/play"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
