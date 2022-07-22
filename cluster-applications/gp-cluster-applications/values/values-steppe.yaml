@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.5"
+      targetRevision: "1.2.6"
       helm:
         parameters:
           - name: "alertmanager.config"
@@ -149,7 +149,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.4.0"
+      targetRevision: "0.4.1"
       helm:
         parameters:
           - name: "argocd.route.hostname"
@@ -188,7 +188,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.1.1"
+      targetRevision: "0.1.2"
     syncPolicy:
       automated:
         prune: true
