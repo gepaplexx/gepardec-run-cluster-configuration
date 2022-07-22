@@ -210,3 +210,20 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
+    ##################### VAULT ######################
+    vault:
+      name: vault
+      enabled: false
+      argoProject: gepaplexx
+      destination:
+        namespace: gp-vault
+        create: true
+      source:
+        repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+        targetRevision: "0.1.0"
+        chart: gp-hashicorp-vault
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
