@@ -231,6 +231,10 @@ applications:
             value: "AgCS7ioRCQsbZVqp1zTe4IgiDoduzJ/sYddqCbaa5PW6zh3D4O29CkRMMMyblegWsIXKI2GTxgCjtSSFpVx2LOBp1/zNM74XS8K1Loj8Kx4EIAhOg6OZ8v6cEEefGVoyYPyrqvS8PxA2v4/5MOB4/+zYLN5XqTdgd0uBzvq+xiPKkEj2Zum2ugVhweKupNln8GDneGwVtpX9+LLbtO0eWTrVjqfqmFOmkEuec9BPAM6vNNTy1OioHfJ6skaWT+PK6xtvooHQJ6cbEN7t6GnG+lPrxY8Vy34sfX/Ur8ivDNCwf57d87MxY1u3xMuDeAaiZIUt5EbjuhnlmAm+bZgX1jY3MrvODdROqmd88o8RYU2x/mi85Vtw1GxbW+DgK3xBbxTyb89kcE+P2Ui5SVIQwOU0lIervZtuEOjMq6gvSOYkOoYLPDk0h2sdH2Oe6ANsKusbhMVAVuqEQoXUynYNYw8TW76uwJlAbo5J1BEjzrN5jkXJLeYxsEQfM1vUDG4KqGZaJXcwF5bvC+LzJ2Ol+LCQg6WbUCMFAJRPaTKdj7je5doIxFqyxcjffEPzoDOvcRVdsnZET73gpiC2/ibGc/SnHeglUwDXmN8kuFAMx54NJLfrbUCVE9kgBlAiyBtReqHIzoxxmN6joHcsNxxjqBEoUGA8MEwPEVRHf9sw16gXP7T151DEJPSxJzlw5h3ZR3mv6O6uWy26Y23r3va/V9RQAssDDJF8ww=="
           - name: "metrics.password"
             value: "AgB5fYAMNU4zvljvzUyf7rVIE0SEr/i1UDFNPdtRTQHMItts5j+DgdTCmfhfb7J65ASmqzASYJSoZtAISt5vYPPtM97E0kr4q+SdSToY1+xlaLEMfaSHk3/lzyqA2V+uINo1Anc6YHEm4WGWphtpDLzGD9oiE5sewp4+J9nMm795XI370mOoy926yxHTy/G6PVodkyTT9Zy1R+Lri4RPhXA9OqlTQkfT7HyCtsoK0XFo+Xpoj1Jv86Ag0G2xNyhDnCBajzBTZGpgPBNOj67/P4ljlx2F34cbPUh9XuYqZtpttWVHrMIudPwVkRr6724PvO4lLYhRNcvR6LYWjf1eR2wx6f/oDovS4tja7BzjMiIpXJ6BPfRkRsummasUSToREhB+MndZWvM4/vUdNLAogEP8UM2DQsM32riOVSC7O9ibxgy0VrR+MvHgWFfbD2yzSsFHfBfQLdPiPMmzZPsRk0znufgVrjl+WIWuSbR3nMtv/UUYnE9onW/1U4hl9nkPCyppLoVcQp7GtPvpt+OB/I7Qc6o+JBpXP/4mGeH92Z1rVQemWKxSkTMDkyqn8M/dIU/VXcQ9xl3Rl60VpwuUKa2GkL0rola1EvnbbGz1AOOFq9jKlPn636ZuWqlIE8HNyqo3HKol6AU5eZgCXpn59aJ9uP0TMyH+Z9VU/O4Nt+Mtu9WFIhpzvpl3N8mD+V6nKiqVufVMbQserlNhDnbWgmE9Z6gxug=="
+    ignoreDifferences:
+      - jsonPointers:
+          - /webhooks/0/clientConfig/caBundle
+        kind: MutatingWebhookConfiguration
     syncPolicy:
       automated:
         prune: true
