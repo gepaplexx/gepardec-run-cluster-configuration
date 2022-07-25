@@ -232,7 +232,8 @@ applications:
           - name: "metrics.password"
             value: "AgB5fYAMNU4zvljvzUyf7rVIE0SEr/i1UDFNPdtRTQHMItts5j+DgdTCmfhfb7J65ASmqzASYJSoZtAISt5vYPPtM97E0kr4q+SdSToY1+xlaLEMfaSHk3/lzyqA2V+uINo1Anc6YHEm4WGWphtpDLzGD9oiE5sewp4+J9nMm795XI370mOoy926yxHTy/G6PVodkyTT9Zy1R+Lri4RPhXA9OqlTQkfT7HyCtsoK0XFo+Xpoj1Jv86Ag0G2xNyhDnCBajzBTZGpgPBNOj67/P4ljlx2F34cbPUh9XuYqZtpttWVHrMIudPwVkRr6724PvO4lLYhRNcvR6LYWjf1eR2wx6f/oDovS4tja7BzjMiIpXJ6BPfRkRsummasUSToREhB+MndZWvM4/vUdNLAogEP8UM2DQsM32riOVSC7O9ibxgy0VrR+MvHgWFfbD2yzSsFHfBfQLdPiPMmzZPsRk0znufgVrjl+WIWuSbR3nMtv/UUYnE9onW/1U4hl9nkPCyppLoVcQp7GtPvpt+OB/I7Qc6o+JBpXP/4mGeH92Z1rVQemWKxSkTMDkyqn8M/dIU/VXcQ9xl3Rl60VpwuUKa2GkL0rola1EvnbbGz1AOOFq9jKlPn636ZuWqlIE8HNyqo3HKol6AU5eZgCXpn59aJ9uP0TMyH+Z9VU/O4Nt+Mtu9WFIhpzvpl3N8mD+V6nKiqVufVMbQserlNhDnbWgmE9Z6gxug=="
     ignoreDifferences:
-      - jsonPointers:
+      - group: admissionregistration.k8s.io
+        jsonPointers:
           - /webhooks/0/clientConfig/caBundle
         kind: MutatingWebhookConfiguration
     syncPolicy:
