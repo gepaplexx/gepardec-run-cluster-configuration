@@ -214,14 +214,14 @@ applications:
   ####################### Grafana Instance ######################
   grafana-instance:
     name: grafana-instance
-    enabled: true
+    enabled: false
     argoProject: gepaplexx
     destination:
       namespace: grafana-operator-system
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "0.0.1"
       chart: "gp-grafana-instance"
       helm:
         parameters:

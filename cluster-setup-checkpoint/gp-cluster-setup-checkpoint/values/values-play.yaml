@@ -90,7 +90,7 @@ applications:
   ####################### Grafana Operator ######################
   grafana-operator:
     name: grafana-operator
-    enabled: true # TODO: Manuelle Schritte siehe https://gepardec.atlassian.net/wiki/spaces/G/pages/2460352513/Grafana
+    enabled: true 
     argoProject: gepaplexx
     destination:
       namespace: grafana-operator-system
@@ -99,10 +99,6 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "*"
       chart: "gp-grafana-operator"
-      helm:
-        parameters:
-          - name: "provisioner.nfs.path"
-            value: "/data/col1/play"
     syncPolicy:
       automated:
         prune: true
