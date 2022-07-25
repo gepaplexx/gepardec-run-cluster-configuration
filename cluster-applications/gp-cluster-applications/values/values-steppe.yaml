@@ -224,7 +224,8 @@ applications:
         targetRevision: "2.0.0"
         chart: gp-hashicorp-vault
       ignoreDifferences:
-        - jsonPointers:
+        - group: admissionregistration.k8s.io
+          jsonPointers:
             - /webhooks/0/clientConfig/caBundle
           kind: MutatingWebhookConfiguration
       syncPolicy:
