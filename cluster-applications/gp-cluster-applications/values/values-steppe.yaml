@@ -237,3 +237,25 @@ applications:
         prune: true
         selfHeal: true
 
+    ##################### VAULT ######################
+    vault:
+      name: vault
+      enabled: false
+      argoProject: gepaplexx
+      destination:
+        namespace: gp-vault
+        create: true
+      source:
+        repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+        targetRevision: "2.0.0"
+        chart: gp-hashicorp-vault
+      ignoreDifferences:
+        - group: admissionregistration.k8s.io
+          jsonPointers:
+            - /webhooks/0/clientConfig/caBundle
+          kind: MutatingWebhookConfiguration
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
