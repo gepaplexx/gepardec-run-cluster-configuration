@@ -92,7 +92,7 @@ applications:
   ####################### Grafana Operator ######################
   grafana-operator:
     name: grafana-operator
-    enabled: false
+    enabled: true
     argoProject: gepaplexx
     destination:
       namespace: grafana-operator-system
