@@ -225,7 +225,7 @@ applications:
       chart: "gp-grafana-instance"
       helm:
         parameters:
-          - name: "grafana.datasource.prometheus.url"
+          - name: "datasource.prometheus.url"
             value: "https://thanos-querier-openshift-monitoring.apps.play.gepaplexx.com:443"
     ignoreDifferences:
       - jsonPointers:
