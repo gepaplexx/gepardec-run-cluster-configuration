@@ -22,9 +22,11 @@ spec:
 {{ toYaml .ignoreDifferences | indent 4 }}
 {{- end }}
   syncPolicy:
+    {{- if .syncPolicy.automated }}
     automated:
       prune: {{ .syncPolicy.automated.prune }}
       selfHeal: {{ .syncPolicy.automated.selfHeal }}
+    {{- end }}
     syncOptions:
       - CreateNamespace={{ .destination.create }}
 ...
