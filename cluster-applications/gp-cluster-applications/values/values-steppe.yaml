@@ -221,7 +221,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.5"
+      targetRevision: "0.0.6"
       chart: "gp-grafana-instance"
       helm:
         parameters:
