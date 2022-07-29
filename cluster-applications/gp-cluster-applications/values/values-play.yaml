@@ -207,7 +207,9 @@ applications:
       targetRevision: "main"
       path: "clusters/play/applications"
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
   ####################### Grafana Instance ######################
   grafana-instance:
