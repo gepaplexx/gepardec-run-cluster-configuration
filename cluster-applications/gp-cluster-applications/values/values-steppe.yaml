@@ -154,6 +154,13 @@ applications:
         parameters:
           - name: "argocd.route.hostname"
             value: "argocd.apps.steppe.gepaplexx.com"
+          - name: "argocd.dex.config"
+            value: " |
+            staticClients:
+            - id: argo-workflows-sso
+              name: Argo Workflow
+              redirectURIs:
+              - https://workflows.apps.gepaplexx.com/oauth2/callback"
           - name: "argo_workflows.server.ingress.hosts[0]"
             value: "workflows.apps.steppe.gepaplexx.com"
           - name: "argo_workflows.server.ingress.tls[0].hosts[0]"
