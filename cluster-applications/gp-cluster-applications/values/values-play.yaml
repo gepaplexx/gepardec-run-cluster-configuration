@@ -147,7 +147,7 @@ applications:
       namespace: gepaplexx-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cicd-tools
       targetRevision: "*"
       helm:
