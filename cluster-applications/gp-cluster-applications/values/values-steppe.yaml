@@ -163,7 +163,7 @@ applications:
           - name: "argo_workflows.server.sso.issuer"
             value: "argocd.apps.steppe.gepaplexx.com/api/dex"
           - name: "argo_workflows.server.sso.redirectUrl"
-            value: "workflows.apps.steppe.gepaplexx.com/oauth2/callback"
+            value: "argocd.apps.steppe.gepaplexx.com/oauth2/callback"
           - name: "argo_rollouts.dashboard.ingress.hosts[0]"
             value: "rollouts.apps.steppe.gepaplexx.com"
           - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
