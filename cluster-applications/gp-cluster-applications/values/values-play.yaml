@@ -154,6 +154,13 @@ applications:
         parameters:
           - name: "argocd.route.hostname"
             value: "argocd.apps.play.gepaplexx.com"
+          - name: "argocd.dex.config"
+            value: "staticClients:
+              - id: argo-workflows-sso
+                name: Argo Workflow
+                redirectURIs:
+                - https://workflows.apps.gepaplexx.com/oauth2/callback
+                secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET"
           - name: "argo_workflows.server.ingress.hosts[0]"
             value: "workflows.apps.play.gepaplexx.com"
           - name: "argo_workflows.server.ingress.tls[0].hosts[0]"
@@ -163,7 +170,7 @@ applications:
           - name: "argo_workflows.server.sso.issuer"
             value: "https://argocd.apps.play.gepaplexx.com/api/dex"
           - name: "argo_workflows.server.sso.redirectUrl"
-            value: "https://argocd.apps.play.gepaplexx.com/oauth2/callback"
+            value: "https://workflows.apps.play.gepaplexx.com/oauth2/callback"
           - name: "argo_rollouts.dashboard.ingress.hosts[0]"
             value: "rollouts.apps.play.gepaplexx.com"
           - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
