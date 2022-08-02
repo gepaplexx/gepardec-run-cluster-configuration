@@ -137,7 +137,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-rook-ceph-operator
-      targetRevision: "0.2.2"
+      targetRevision: "0.2.3"
     syncPolicy:
       automated:
         prune: true
