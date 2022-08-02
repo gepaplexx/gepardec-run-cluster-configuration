@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.6"
+      targetRevision: "1.2.7"
       helm:
         parameters:
           - name: "alertmanager.config"
@@ -188,7 +188,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.1.2"
+      targetRevision: "0.1.3"
     syncPolicy:
       automated:
         prune: true
