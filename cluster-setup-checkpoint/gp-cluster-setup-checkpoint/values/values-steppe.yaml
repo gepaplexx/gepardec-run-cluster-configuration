@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-storage-cephcluster
-      targetRevision: "0.3.25"
+      targetRevision: "0.3.*"
       helm:
         parameters:
           - name: "cephcluster.runOnInfra"
@@ -30,9 +30,9 @@ applications:
         jsonPointers:
           - /spec/monitoring/createPrometheusRules
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
 
   ################### CLUSTER-LOGGING OPERATOR ##########################
   clusterLoggingOperator:
@@ -45,7 +45,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-operator
-      targetRevision: "1.1.0"
+      targetRevision: "1.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -61,7 +61,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.3"
+      targetRevision: "0.0.*"
       chart: "gp-kasten-operator"
     syncPolicy:
       automated:
@@ -78,12 +78,29 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.1.0"
+      targetRevision: "0.1.*"
       chart: "gp-nfs-provisioner"
       helm:
         parameters:
           - name: "provisioner.nfs.path"
             value: "/data/col1/steppe"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ####################### Grafana Operator ######################
+  grafana-operator:
+    name: grafana-operator
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: grafana-operator-system
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "0.0.*"
+      chart: "gp-grafana-operator"
     syncPolicy:
       automated:
         prune: true

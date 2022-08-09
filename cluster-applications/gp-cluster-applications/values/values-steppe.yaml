@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-update-checker
-      targetRevision: "1.2.1"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "clustername"
@@ -39,7 +39,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
-      targetRevision: "1.3.0"
+      targetRevision: "1.3.*"
       helm:
         parameters:
           - name: "elasticsearch.resources.requests.memory"
@@ -62,7 +62,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-eventrouter
-      targetRevision: "0.1.1"
+      targetRevision: "0.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.6"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "alertmanager.config"
@@ -87,9 +87,9 @@ applications:
           - name: "infranodes.enabled"
             value: "true"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+        #prune: true
+        #selfHeal: true
 
   ##################### OPENSHIFT IMAGE REGISTRY ######################
   internalRegistry:
@@ -102,7 +102,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-ocp-internal-registry
-      targetRevision: "1.1.1"
+      targetRevision: "1.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -118,7 +118,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.5"
+      targetRevision: "0.0.*"
       chart: "gp-kasten-instance"
       helm:
         parameters:
@@ -149,7 +149,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.4.1"
+      targetRevision: "0.4.*"
       helm:
         parameters:
           - name: "argocd.route.hostname"
@@ -188,7 +188,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.1.2"
+      targetRevision: "0.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -211,6 +211,32 @@ applications:
         prune: true
         selfHeal: true
 
+  ####################### Grafana Instance ######################
+  grafana-instance:
+    name: grafana-instance
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: grafana-operator-system
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "0.0.*"
+      chart: "gp-grafana-instance"
+      helm:
+        parameters:
+          - name: "datasource.prometheus.url"
+            value: "https://thanos-querier-openshift-monitoring.apps.steppe.gepaplexx.com:443"
+    ignoreDifferences:
+      - jsonPointers:
+          - /spec/datasources/0/secureJsonData/httpHeaderValue1
+        kind: GrafanaDataSource
+        group: integreatly.org
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
     ##################### VAULT ######################
     vault:
       name: vault
@@ -221,7 +247,7 @@ applications:
         create: true
       source:
         repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-        targetRevision: "2.0.0"
+        targetRevision: "2.0.*"
         chart: gp-hashicorp-vault
       ignoreDifferences:
         - group: admissionregistration.k8s.io
@@ -232,3 +258,4 @@ applications:
         automated:
           prune: true
           selfHeal: true
+
