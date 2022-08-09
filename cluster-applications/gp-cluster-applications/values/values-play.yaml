@@ -259,6 +259,6 @@ applications:
           - /webhooks/0/clientConfig/caBundle
         kind: MutatingWebhookConfiguration
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+   #     prune: true
+   #     selfHeal: true
