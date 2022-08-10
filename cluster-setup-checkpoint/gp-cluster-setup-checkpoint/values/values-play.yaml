@@ -28,9 +28,9 @@ applications:
         jsonPointers:
           - /spec/monitoring/createPrometheusRules
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+        #prune: true
+        #selfHeal: true
 
   ################### CLUSTER-LOGGING OPERATOR ##########################
   clusterLoggingOperator:
