@@ -143,9 +143,9 @@ applications:
           - name: "sealedSecret.postgresql.username"
             value: "AgAPFjq7TwO3nNRDgdXgTtqlTZBb1iho1OcFL/9KguA+DL7Ijwh7Iqeb+3zD7OOaH3HpQzFxbwq9Kagku5Eel9+FWlhuD0NsCLKBBC60ro6WnngsFTsJufsUNitaMFneDbmgqYsLB28AjsIoj+v+4U276Ng2+ncumeWOer16ohRcNh/LwZxeFPUoKNe3I2GqEMM+8MlDZAZQ8HgZY/Pl3KfvinrvvdrGns94Yz+b0ciAv+98dCWvvkeAzaI1pU/zc7VYevezTLHmKo715uKYhTBbyAGvmNr7rQxieVGFFvWUEcI8yl5JoDPbqpGzVkoezSBBIvpTCgGwKupxJnjy4eKObtOzIqjt7waU7uHvKC5rnLnBeBH3NLBE8XcgkNIQjYxaFUfL+hyT+Xa3/33CLaieptEx4A2MV5+9ZSbEI7RWj9Qmyzc0FZC79SJKsQho/lZGho3xs0ErOlx7pN8GvhZoS4fFc8jad5oyS/sCFL7F+iWeqSHMwRVHtm6F87wwozJnOxEUW40/qPVzxAQLuNzzLbkMcmCTelLwoUf2D6ZgdUpiH5HhtRblCdihGTED05RhNxkzkK2QH+IiylHMX2sw4/j1f8a/k1AJ0zZ7CT5DVkXkDJr9RUvw/27a1rQ4aVlAJ88HjHEr4cy+LajrFJcwQcgDPrQI91UKdeGbg7IM/bbu+lF1KQyiic82R/Yj9D3hNrHiZl7El6giX56l"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
   gepaplexx-cicd-eventbus:
@@ -160,9 +160,9 @@ applications:
       chart: gepaplexx-cicd-eventbus
       targetRevision: "*"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
 
   ##################### GEPAPLEXX-CICD ######################
   gepaplexx-cicd:
