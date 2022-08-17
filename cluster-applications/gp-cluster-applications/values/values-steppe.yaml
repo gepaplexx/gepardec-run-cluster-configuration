@@ -87,9 +87,9 @@ applications:
           - name: "infranodes.enabled"
             value: "true"
     syncPolicy:
-      automated: {}
-        #prune: true
-        #selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### OPENSHIFT IMAGE REGISTRY ######################
   internalRegistry:
