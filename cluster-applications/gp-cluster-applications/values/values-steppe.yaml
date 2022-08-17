@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-update-checker
-      targetRevision: "1.2.1"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "clustername"
@@ -39,7 +39,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
-      targetRevision: "1.3.0"
+      targetRevision: "1.3.*"
       helm:
         parameters:
           - name: "elasticsearch.resources.requests.memory"
@@ -62,7 +62,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-eventrouter
-      targetRevision: "0.1.1"
+      targetRevision: "0.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -79,7 +79,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.7"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "alertmanager.config"
@@ -87,9 +87,9 @@ applications:
           - name: "infranodes.enabled"
             value: "true"
     syncPolicy:
-      automated: {}
-        #prune: true
-        #selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### OPENSHIFT IMAGE REGISTRY ######################
   internalRegistry:
@@ -102,37 +102,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-ocp-internal-registry
-      targetRevision: "1.1.1"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
-  ####################### KASTEN K10 BACKUP ######################
-  kasten-instance:
-    name: k10
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: k10
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.5"
-      chart: "gp-kasten-instance"
-      helm:
-        parameters:
-          - name: "kasten.auth.clusterApiURL"
-            value: "api.steppe.gepaplexx.com"
-          - name: "kasten.route.host"
-            value: "kasten.apps.steppe.gepaplexx.com"
-          - name: "kasten.clusterName"
-            value: "steppe"
-    ignoreDifferences:
-      - jsonPointers:
-          - /spec/auth/openshift/clientSecret
-        kind: K10
-        group: apik10.kasten.io
+      targetRevision: "1.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -149,7 +119,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.4.2"
+      targetRevision: "0.4.*"
       helm:
         parameters:
           - name: "argocd.route.hostname"
@@ -188,7 +158,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.1.3"
+      targetRevision: "0.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -221,7 +191,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.6"
+      targetRevision: "0.0.*"
       chart: "gp-grafana-instance"
       helm:
         parameters:
@@ -247,7 +217,7 @@ applications:
         create: true
       source:
         repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-        targetRevision: "2.0.0"
+        targetRevision: "2.0.*"
         chart: gp-hashicorp-vault
       ignoreDifferences:
         - group: admissionregistration.k8s.io
