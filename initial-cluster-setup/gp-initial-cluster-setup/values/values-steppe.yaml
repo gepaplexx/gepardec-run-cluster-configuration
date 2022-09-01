@@ -247,3 +247,19 @@ applications:
       automated:
         prune: true
         selfHeal: true
+  ##################### KEYCLOAK-OPERATOR ######################
+  keycloak-operator:
+    name: keycloak-operator
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-sso
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-keycloak-operator
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
