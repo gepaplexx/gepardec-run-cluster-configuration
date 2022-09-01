@@ -96,7 +96,7 @@ applications:
       helm:
         parameters:
           - name: "ingress.hostname"
-            value: "sso.apps.{{ .env }}.gepaplexx.com"
+            value: "sso.apps.play.gepaplexx.com"
           - name: "persistence.auth.password"
             value: "AgBsTRVF6DGROo0dOE+iKgmOGfnfsJDfRND4ReJpEL5GCpECGQB8jVUCmjWBJ7pr4KyC/F5JEYfGDds9AVlaRNpDioSVUVJDG4i5oOw2ZxWSXC+3+xQYpmOBITLQ191eWAjtWyeMsEwl4Hl/kQHcIzKH7eFRJh9mbBv4fXpUJCQS/Ej1CdKBOcNz3l3Xq39vX2zbysVaCTqAPRKtZb7KzFH6CTwNYS43Ck4tO53BMeMXLSk0TFQjQUvscvqGEYB4SQbf0t2gWatn+bSwJttBGKm6qJO5YgBiWRQdObN5h22czeyYiVoSnUgumGwxETIlaWt+COTP7OyfyHjVcmVkM2KQZDcOF3uR2u8QTgmcIoDPYL5zS6hZO5eY6PkazfWbsezIcbtHRFuLYE/6QjedRyqCCrHfJJdHz11P+KpaIJ2XhbpLAnAxgkBdNPG8djeDnFCNjILz8t2HctAnN6P1gcxPIOPNxYwGzCf4FISVMb/vFqBJazVMlET6NnCIUKH6coW1jPbsVbi68tGiYQk4Y0FykdMnTAoueJqf/sucQ67DkY3XTtHfDtOd5eHIirIEm8sivdRXu4kIA5U/tgdOAX3hTJmUbp2ZcqJcCA0mlsOcAsmiCGtClxaZ8KU681rU1pad2f84QgiNYiJAO+NsgdM1Hcu633z2FXlMUeLtHWvs5ptvjIAe4X9Ekn2RkRivpWSDhJrM/DGxCBZhsNuHHFXZDrpcpJbGnnHC0ShqQtD1jg=="
           - name: "provider.openshift.clientSecret"
