@@ -134,6 +134,8 @@ applications:
             value: "https://sso.apps.steppe.gepaplexx.com/realms/internal"
           - name: "argo_workflows.sso.redirectUrl"
             value: "https://workflows.apps.steppe.gepaplexx.com/oauth2/callback"
+          - name: "argo_workflows.rbac.clusterscoped.enabled"
+            value: "true"
           - name: "argo_workflows.sso.clientSecret.secret"
             value: "AgCMMsqOkdtG+QmmpJgp8VxfMrUo9Fov0MbAgy7dHzde8ICV0AYqw2Kvr6ctvgoQaB3TUr4KGNv21JpmkF/tTECzMeuSvTcpVzDv+oRpXVBaAzyEVPNzviCZ0TOJ3nucAxQVYcPUW7xWuwkXguXprbBBwB3jz37kPj4TX6Zuy1ocLT8j5wjItToxbcJ5oaN4jHTZq4pvSWesVruvnhTrqa18b8Ix4SSiQ6uIcrJe9laHx39lWcGplc91Fs0YG6hCJEhTB21BGyQsTa3A+5yylR3eR7rSmfi7k7en9uAFgQdpm185NKDHrswUlvj+2doeWZH8ARltnJ6IYLOBYVBC4PMCnEeSzhboj1uQQ1m7xCtpowobZCd/wS9QR5AEQYabqNEnt3LYwf0y1xvGi9xYxZR4+824j1ZDztHJwMDDsPpxm7nzbkXHlaS7ijFAr2TVU7/i2Nd2gPLS51LmIP1N41mSJErUSre3n/f/OmAScORkHZ2+6HVMGFa1xDaHC/3wb9fcW5B8YKnvKU6FgCjHfNhsEtBADOODLCxp7F9pAmqHreFL1rNH4GC0uWO404CZOH/qP4AB5pRclEGKXuJk7y8juSZW+13wc2LYw38BcxFBvuY2OuUZrbylZ9TQ1QLmOnuFTVnM8nYgzDbTxml8MH/CXyCBwnf4JuwCcs934OSAgX7QgxiBk7WCa1cQTMFGMbe5JgSPbJ8MSXRz/EUMV+LOm4x4TZavAh4VM+52amFioQ=="
           - name: "sealedSecret.postgresql.password"
