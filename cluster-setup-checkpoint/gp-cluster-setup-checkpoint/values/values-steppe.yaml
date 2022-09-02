@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-storage-cephcluster
-      targetRevision: "0.3.25"
+      targetRevision: "0.3.*"
       helm:
         parameters:
           - name: "cephcluster.runOnInfra"
@@ -41,24 +41,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-operator
-      targetRevision: "1.1.0"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
-  ####################### KASTEN K10 OPERATOR ######################
-  kasten-operator:
-    name: k10-operator
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: k10
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.3"
-      chart: "gp-kasten-operator"
+      targetRevision: "1.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -74,7 +57,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.1.0"
+      targetRevision: "0.1.*"
       chart: "gp-nfs-provisioner"
       helm:
         parameters:
@@ -95,7 +78,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.1"
+      targetRevision: "0.0.*"
       chart: "gp-grafana-operator"
     syncPolicy:
       automated:

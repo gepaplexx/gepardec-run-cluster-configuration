@@ -14,7 +14,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-update-checker
-      targetRevision: "1.2.1"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "clustername"
@@ -39,7 +39,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
-      targetRevision: "1.3.0"
+      targetRevision: "1.3.*"
       helm:
         parameters:
           - name: "elasticsearch.resources.requests.memory"
@@ -62,7 +62,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-eventrouter
-      targetRevision: "0.1.1"
+      targetRevision: "0.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -79,17 +79,17 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-monitoring-config
-      targetRevision: "1.2.7"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "alertmanager.config"
-            value: "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"
+            value: "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"
           - name: "infranodes.enabled"
             value: "true"
     syncPolicy:
-      automated: {}
-        #prune: true
-        #selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### OPENSHIFT IMAGE REGISTRY ######################
   internalRegistry:
@@ -102,37 +102,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-ocp-internal-registry
-      targetRevision: "1.1.1"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
-  ####################### KASTEN K10 BACKUP ######################
-  kasten-instance:
-    name: k10
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: k10
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.5"
-      chart: "gp-kasten-instance"
-      helm:
-        parameters:
-          - name: "kasten.auth.clusterApiURL"
-            value: "api.steppe.gepaplexx.com"
-          - name: "kasten.route.host"
-            value: "kasten.apps.steppe.gepaplexx.com"
-          - name: "kasten.clusterName"
-            value: "steppe"
-    ignoreDifferences:
-      - jsonPointers:
-          - /spec/auth/openshift/clientSecret
-        kind: K10
-        group: apik10.kasten.io
+      targetRevision: "1.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -149,7 +119,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.4.2"
+      targetRevision: "0.5.*"
       helm:
         parameters:
           - name: "argocd.route.hostname"
@@ -188,7 +158,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.1.3"
+      targetRevision: "0.1.*"
     syncPolicy:
       automated:
         prune: true
@@ -221,7 +191,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.6"
+      targetRevision: "0.0.*"
       chart: "gp-grafana-instance"
       helm:
         parameters:
@@ -247,7 +217,7 @@ applications:
         create: true
       source:
         repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-        targetRevision: "2.0.0"
+        targetRevision: "2.0.*"
         chart: gp-hashicorp-vault
       ignoreDifferences:
         - group: admissionregistration.k8s.io
