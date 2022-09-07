@@ -215,25 +215,29 @@ applications:
         prune: true
         selfHeal: true
 
-    ##################### VAULT ######################
-    vault:
-      name: vault
-      enabled: false
-      argoProject: gepaplexx
-      destination:
-        namespace: gp-vault
-        create: true
-      source:
-        repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-        targetRevision: "2.0.*"
-        chart: gp-hashicorp-vault
-      ignoreDifferences:
-        - group: admissionregistration.k8s.io
-          jsonPointers:
-            - /webhooks/0/clientConfig/caBundle
-          kind: MutatingWebhookConfiguration
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+  ##################### VAULT ######################
+  vault:
+    name: vault
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-vault
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "2.0.*"
+      chart: gp-hashicorp-vault
+      helm:
+        parameters:
+          - name: "autoUnseal.creds"
+            value: "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"
+    ignoreDifferences:
+      - group: admissionregistration.k8s.io
+        jsonPointers:
+          - /webhooks/0/clientConfig/caBundle
+        kind: MutatingWebhookConfiguration
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 

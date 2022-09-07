@@ -240,3 +240,4 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
