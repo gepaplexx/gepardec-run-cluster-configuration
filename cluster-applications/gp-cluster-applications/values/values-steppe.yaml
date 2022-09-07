@@ -116,11 +116,6 @@ applications:
     destination:
       namespace: gepaplexx-cicd-tools
       create: true
-    ignoreDifferences:
-      - jsonPointers:
-          - /secret
-        kind: OAuthClient
-        group: oauth.openshift.io
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
