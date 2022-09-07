@@ -130,20 +130,30 @@ applications:
             value: "workflows.apps.play.gepaplexx.com"
           - name: "argo_workflows.server.ingress.tls[0].secretName"
             value: "workflows.apps.play.gepaplexx.com-tls"
-          - name: "argo_rollouts.dashboard.ingress.hosts[0]"
-            value: "rollouts.apps.play.gepaplexx.com"
-          - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
-            value: "rollouts.apps.play.gepaplexx.com"
-          - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
-            value: "rollouts.apps.play.gepaplexx.com"
+          - name: "argo_workflows.sso.issuer"
+            value: "https://sso.apps.play.gepaplexx.com/realms/internal"
+          - name: "argo_workflows.sso.redirectUrl"
+            value: "https://workflows.apps.play.gepaplexx.com/oauth2/callback"
+          - name: "argo_workflows.rbac.clusterscoped.enabled"
+            value: "true"
+          - name: "argo_workflows.sso.clientSecret.secret"
+            value: "AgCZs5qFDk5qmSwnADV+AvUH3yvL+nBE1UQwJkTu5y1yHsxuTfGWgE5O7QJFPQOoarkg0yzTytcLGyXG9z2UMraCoFDS1dEEk3jUG/nIFfYLzFuURuN6OEhk/rCA6jmZsJwH/K1dOOrK9O5V/HNCPeD6ALd3WwEi569MrjgMXqFw916YR/2QKrHt2W8Kw5HlRcytU1KZ6Et3hXO/IrwBAFZzeIfNdYBLtdzQRh8+L9hqPZ38TPWEBIakhm4uv3jx58IPL2eK8vJB81dC07GfGnGzSYZI/OrsBksPao02EeX9W/vgaRqn7JEvIzsWgGBEdqIEA0U5AbHKyxuIPgj+Lt0h1DPw9Mgm/Zl63b8ZCGLNZagXfvnTlkCEJq4Qj231byn/fcp43zohM+GztYXE4kL9ugK3PlDrw6W0gMki9a5ONR0e9920WQrOOdVm07iSn3Yt8xIeDyUfz4+YOtkBt1hiqEKVeyapJ8SCNEnf9ya/1BkwAEfZD1Qc3E2ahV58RCKTncPjh45YQzBfCPt7NOC+leKCHbHuv3PKN11EPftz8trNfJElUomeu8EYD0+VK8RfDfnMtKJhzpmatLjpb+0DAsNV9AFDht5d6LHEVyTcTclebZFgDFweHbZTpyhPOLGVIzRF+chL3QxUtGB/cjpBZ8m0PagclWpYupuS9pUzP1Bu8x/B+HIOBcjCnB7FP3IbiLdrn0FvzsEncFe9qhJPV7iia7LPmnzPysfs6Cpo6A=="
           - name: "sealedSecret.postgresql.password"
             value: "AgADpL3zJdj+LPzRmRlDwSElM1CnysyWIa0gHJwJoRKElitke/4/b2mMsatXBG99UWezr0Ezf01I7YtiOGUFDhFZvOwIEOI3+KGp4ahrdBYedKSRHBYBGb8RcCnhXfUOmjfUw6XdmXnt7Wovs5A5aNztIhfLsQM6LuhBbIXDW4DE0qI2a84HO3nVkV+drAMJmSOVCZU3Fo7pvDgcMuaTAVNsVg4sgWvSoGOdqiwYIDhxj75XuXs8CBPc26j6RgCPYABdegWc5qe6pLZsS7o2hke1GXVgQYLBIlCfI3VNeimr0qj1wloBvAz8DVA5qSMlfgIJ65CU9HCAsrUh00H+xJsN6pecMbq43OhwIa0e1rWXHRs+IpA4w3hxmI3FgLa57/+3lbmD7BPPQ1FnbQXddttH8Cagty4UYUPkDzxQUAQIX3OUJJUIw3reekNxUS4OgtfIJ+Uc2GlGaAnZInT9KDJWZvF5S5GJ6dstzacw9G4em88vP/DVN0iLvOgdJwNqamaenlymT8sxXy083fk26/eWU1otPDNN1RqHQWsKOW68cGYwMyFX8WeMcUZne3mspSYDg84B5X4PbZ/8D8Wf9TAGHwsm4Ymesm84P3DFvzDTDaEViddPeHh3Xrxih8plHOhayzHnmsX1rfdqg5/7fV6BHh5htgPsnFsxWLdVMXHzwAM+MEJl2U0vMcr6lwpa8nLJKhIJqg=="
           - name: "sealedSecret.postgresql.postgresPassword"
             value: "AgC4XBri1BTYmNzo7y918GDQmJzz/g5S6afe92czQBUxGxCLzwBTJdFvmbScYNNicDDPHJHqTPdtpMFUzAj3lUKDxYYbQ0sjsjhL+FYm95N9dTQqUlwmT708Eo0HomZXwHUvbmdqAdyWGpDh1TgzpINVaGPTtCwzEID3Z/Ptco8KECGJOuMdRzfusIM/wdWm2GNmivgnXeu/TjAXZIrB2if4hj7UjpmD9q1IUVvqZoIoimyEcvaOFDHwCK1KD2ndOJGPN4Fsfu8TuVe8RXBn5AqmSirG/XwsJk4ZcM5HLNGRByQ8IoTQPyavicjcvI8lk8yqhfG2C4t9fR5Vt8oZD20OESVA/vY8+Y0Y5/KlcVDKEcBxmwxYsqP/9GlNBB4iaFs11HWgFA2uDJyHwYyXtT6vtcmh+xz+GNlPJzG27qtHCrK349XkY2qoz5L4/vtbSoD4kJnDnJgtAQhcwYuZQE+B/9IJixHbweLqkcSfagxKDNILSiHWZ9GHdQrzvu6w4uxOabomVmwcT0qbvAgO3zopTLe/XxKwi5gzTTjF5FSu5I3Y/+kReJ8bPrSx2flr5jlVPF4FdGy9tBbAHA7/1HSWn6GdnoTBXQnmAQy28Cu1vgr6IApiaiIIQ62dwXoOSrRezk9apQ1It2SsZZkfDasDdNuflX0ZLyIBc9AnWP+C+0EpVY7QbkAAdmeolTxfB8qwUmBWIw=="
           - name: "sealedSecret.postgresql.username"
             value: "AgAPFjq7TwO3nNRDgdXgTtqlTZBb1iho1OcFL/9KguA+DL7Ijwh7Iqeb+3zD7OOaH3HpQzFxbwq9Kagku5Eel9+FWlhuD0NsCLKBBC60ro6WnngsFTsJufsUNitaMFneDbmgqYsLB28AjsIoj+v+4U276Ng2+ncumeWOer16ohRcNh/LwZxeFPUoKNe3I2GqEMM+8MlDZAZQ8HgZY/Pl3KfvinrvvdrGns94Yz+b0ciAv+98dCWvvkeAzaI1pU/zc7VYevezTLHmKo715uKYhTBbyAGvmNr7rQxieVGFFvWUEcI8yl5JoDPbqpGzVkoezSBBIvpTCgGwKupxJnjy4eKObtOzIqjt7waU7uHvKC5rnLnBeBH3NLBE8XcgkNIQjYxaFUfL+hyT+Xa3/33CLaieptEx4A2MV5+9ZSbEI7RWj9Qmyzc0FZC79SJKsQho/lZGho3xs0ErOlx7pN8GvhZoS4fFc8jad5oyS/sCFL7F+iWeqSHMwRVHtm6F87wwozJnOxEUW40/qPVzxAQLuNzzLbkMcmCTelLwoUf2D6ZgdUpiH5HhtRblCdihGTED05RhNxkzkK2QH+IiylHMX2sw4/j1f8a/k1AJ0zZ7CT5DVkXkDJr9RUvw/27a1rQ4aVlAJ88HjHEr4cy+LajrFJcwQcgDPrQI91UKdeGbg7IM/bbu+lF1KQyiic82R/Yj9D3hNrHiZl7El6giX56l"
+          - name: "argo_rollouts.dashboard.ingress.hosts[0]"
+            value: "rollouts.apps.play.gepaplexx.com"
+          - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
+            value: "rollouts.apps.play.gepaplexx.com"
+          - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
+            value: "rollouts.apps.play.gepaplexx.com"
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
   gepaplexx-cicd-eventbus:
