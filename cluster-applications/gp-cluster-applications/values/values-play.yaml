@@ -117,7 +117,7 @@ applications:
       namespace: gepaplexx-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
       targetRevision: "*"
       helm:
@@ -144,6 +144,8 @@ applications:
             value: "AgC4XBri1BTYmNzo7y918GDQmJzz/g5S6afe92czQBUxGxCLzwBTJdFvmbScYNNicDDPHJHqTPdtpMFUzAj3lUKDxYYbQ0sjsjhL+FYm95N9dTQqUlwmT708Eo0HomZXwHUvbmdqAdyWGpDh1TgzpINVaGPTtCwzEID3Z/Ptco8KECGJOuMdRzfusIM/wdWm2GNmivgnXeu/TjAXZIrB2if4hj7UjpmD9q1IUVvqZoIoimyEcvaOFDHwCK1KD2ndOJGPN4Fsfu8TuVe8RXBn5AqmSirG/XwsJk4ZcM5HLNGRByQ8IoTQPyavicjcvI8lk8yqhfG2C4t9fR5Vt8oZD20OESVA/vY8+Y0Y5/KlcVDKEcBxmwxYsqP/9GlNBB4iaFs11HWgFA2uDJyHwYyXtT6vtcmh+xz+GNlPJzG27qtHCrK349XkY2qoz5L4/vtbSoD4kJnDnJgtAQhcwYuZQE+B/9IJixHbweLqkcSfagxKDNILSiHWZ9GHdQrzvu6w4uxOabomVmwcT0qbvAgO3zopTLe/XxKwi5gzTTjF5FSu5I3Y/+kReJ8bPrSx2flr5jlVPF4FdGy9tBbAHA7/1HSWn6GdnoTBXQnmAQy28Cu1vgr6IApiaiIIQ62dwXoOSrRezk9apQ1It2SsZZkfDasDdNuflX0ZLyIBc9AnWP+C+0EpVY7QbkAAdmeolTxfB8qwUmBWIw=="
           - name: "sealedSecret.postgresql.username"
             value: "AgAPFjq7TwO3nNRDgdXgTtqlTZBb1iho1OcFL/9KguA+DL7Ijwh7Iqeb+3zD7OOaH3HpQzFxbwq9Kagku5Eel9+FWlhuD0NsCLKBBC60ro6WnngsFTsJufsUNitaMFneDbmgqYsLB28AjsIoj+v+4U276Ng2+ncumeWOer16ohRcNh/LwZxeFPUoKNe3I2GqEMM+8MlDZAZQ8HgZY/Pl3KfvinrvvdrGns94Yz+b0ciAv+98dCWvvkeAzaI1pU/zc7VYevezTLHmKo715uKYhTBbyAGvmNr7rQxieVGFFvWUEcI8yl5JoDPbqpGzVkoezSBBIvpTCgGwKupxJnjy4eKObtOzIqjt7waU7uHvKC5rnLnBeBH3NLBE8XcgkNIQjYxaFUfL+hyT+Xa3/33CLaieptEx4A2MV5+9ZSbEI7RWj9Qmyzc0FZC79SJKsQho/lZGho3xs0ErOlx7pN8GvhZoS4fFc8jad5oyS/sCFL7F+iWeqSHMwRVHtm6F87wwozJnOxEUW40/qPVzxAQLuNzzLbkMcmCTelLwoUf2D6ZgdUpiH5HhtRblCdihGTED05RhNxkzkK2QH+IiylHMX2sw4/j1f8a/k1AJ0zZ7CT5DVkXkDJr9RUvw/27a1rQ4aVlAJ88HjHEr4cy+LajrFJcwQcgDPrQI91UKdeGbg7IM/bbu+lF1KQyiic82R/Yj9D3hNrHiZl7El6giX56l"
+          - name: "argo_workflows.archive.secretkey"
+            value: "AgAbdLoDu7P+Taw1YKZ9n2p0qIm12S3BH0rlew21vOu2DbSrjXKk5KCM7JgAtMp2LIUAE+JNIMhMWGsDi/eSOePi9fjkRE/XE6YYv37XSGqbKRAcQmpbdCl6wTeT+ovkx1Jy/+atD5ihEd91HBpuOeq87K1LDUAsSwFV638Okf7POuNhyd/YX0Cyp8EyPKKvOA1aHK/kSDHnqAr4biObORHMqSR/+D60d94sA6YByRjHN0E6PTTzyHdJ2JE+A0iXKxCk0a3iiJppa1vYij7Yc4qIvkRnADtPY/wnBrx/HVKWMA924Hz3QEYT5UMFTtQALGjVR0ciFFIA3FBR9L6p7WCJGAkDTe0jdih20skDKKwRcwGxfHZ3P0xituaYjrjYWrRbD64XVJJVzM4tnQpkZIGYUohufzys/plp2quDyPuIArzNziMaqFGYuPW9uRs+s6yoebpSwBEJz72IISTBhnm4PoUZ9JQ0mEkKhXlT9t93zJZF7dyJ47aISk9u3TEONhUBnvb0vlk3CRFaWj/3221ZCHGfK4qQfTXlcu2XwkaPW2NCBEYnVFxLwNFDRQtxkdrf9FJVkKcllyy3tkki1WVkwAeMwqvn60a+PVZKffUIqrsjTm3ScQ/sCx65Tk+JbjCXTy9X900YkcJ5siAl8FuGVdB/Ep0zDS7d1jy9YlaQ18a1WfDwJAUQEJcIqNA7XKynFjs1fqm7qP8gfaLFZxxIGguX8dXqgB0n0Mlk/6lXl465Oqc="
           - name: "argo_rollouts.dashboard.ingress.hosts[0]"
             value: "rollouts.apps.play.gepaplexx.com"
           - name: "argo_rollouts.dashboard.ingress.tls[0].hosts[0]"
@@ -151,7 +153,9 @@ applications:
           - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
             value: "rollouts.apps.play.gepaplexx.com"
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
   gepaplexx-cicd-eventbus:
