@@ -110,3 +110,19 @@ applications:
       automated:
         prune: true
         selfHeal: true
+  ##################### KYVERNO/Cluster-Policies ######################
+  kyverno:
+    name: kyverno
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-cluster-policies
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-kyverno
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
