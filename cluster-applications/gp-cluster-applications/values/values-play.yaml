@@ -154,7 +154,7 @@ applications:
             value: "rollouts.apps.play.gepaplexx.com"
     syncPolicy:
       automated:
-        prune: true
+        prune: false
         selfHeal: true
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
