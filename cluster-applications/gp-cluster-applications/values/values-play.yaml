@@ -151,9 +151,7 @@ applications:
           - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
             value: "rollouts.apps.play.gepaplexx.com"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
   gepaplexx-cicd-eventbus:
