@@ -117,7 +117,7 @@ applications:
       namespace: gepaplexx-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts"
       chart: gp-cicd-tools
       targetRevision: "*"
       helm:
@@ -151,7 +151,9 @@ applications:
           - name: "argo_rollouts.dashboard.ingress.tls[0].secretName"
             value: "rollouts.apps.play.gepaplexx.com"
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
   gepaplexx-cicd-eventbus:
