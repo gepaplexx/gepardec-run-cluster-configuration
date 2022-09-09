@@ -171,8 +171,8 @@ applications:
       targetRevision: "*"
     syncPolicy:
       automated:
-        prune: true
-        selfHeal: true
+        prune: false
+        selfHeal: false
 
   ##################### GEPAPLEXX-CICD ######################
   gepaplexx-cicd:
