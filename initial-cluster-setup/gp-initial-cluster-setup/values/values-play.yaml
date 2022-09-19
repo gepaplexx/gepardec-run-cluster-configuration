@@ -82,7 +82,7 @@ applications:
             value: "true"
           - name: "ldap.bindPassword"
             value: "AgBSSNd02IO//RZnmakYOOMzjHtSMbWs9sySl/4B/2uNLgAf3OZM3yDqMDqvwSJ/N3QEDpCo4ZLpfLw7lJgffPowI623GCzgEnRKziQRrcuqN0RXJ1kYY90vEVcW2Wgs372ggzEU0xkZGHHIRG6UKHtrMby9YwxPZ8dumq8Wy8yOVzy2O/L1lz6zKy+09CY7s8bjs0Rnqsla92Km4SMSF+J/5VH60NnG9Y17CY6f+/tLW5gdVXYDzuq/3XCRSbnd38WrjV1e/K8the1imWep20LCqd8by27CQfXG5/GTB4gRDhsft8YOPTDtN9ucJRabps1rF01/5reFKTAOsIHUqhMAkOc5VrEyAOmdUFVO5hMtGpDpRI0n9ACZ7BzwePZhWExCTDpl6A1i4naKYnKj0SNJjrlds1cbYCr7FGx7veJWkSsh3HumP4bNli7dH4UAF7jQWrElF1nyCvzf4V5HzvqsAoPkmD+yp67XRTYzTJfY62TSCVLGlECWwkl0h47PfYvQXmJMJ3v+QOqk1dD8AbCGmJDyRZqYz1u0i0kFZB5KuDDeLAlVVWODXxg2rjgsed7Hf1PmhXz/Sw83B7UGm+Rqb2Sfw8nt/jxuTofk6ESBRBkPb4d8yLd9cx2jUDx+iZ/CKXbdd38UHwQmHOPPSjZ9xt9bMKosPe9a+xXBUBLSh9OxDj+lznE2hHYyjVZkT3IUFaJmm6Cgt8o35PMfFg=="
-          - name: "ldap.bindDN"
+          - name: "ldap.bindDn"
             value: ""
           - name: "ldapUrl"
             value: "AgBitdw1/lomuLWoDHGSY+/zNdyyxq/YTsfSAMKyC3AICgV4BJ6UQqyyvWU/r9vVAsG5qsd/ulvOkFs7MVpADMFfVRgvqcZ5eGcbsZMdoyiEoMsm0jIPnP33JgWWkNVpQ9PRpBNOt+hPe4aYu17H9onC3Ii6RjziyANJLN/0IFluOCPMqElXVbuReg7U892sOxjwb2I4vvY8P/gld4TyLo2C+H2Uq34U3PUBcX7niV33J1ElmAhXTVlISRkPsGl5w0u05ZOquY3rQDbQ58+rnOO51evpqcVK6/Wqgwaw9hCCujAoRRgAGRPAmNmMBpcVhV09LTz4GbaK/0DS9IpSIjr0biNh99QPcChhOrkCORdr1zKor3r2+Y1HiMnHB6VoWIjnJjpisWFHNIKeLW5ku2WIDZp7/uWd/Rrj9SyowExKOidHA8Acs5t+b9LFEXblmFp2A3LISpeLhgjAt6XN1kw1TmpyxK84GzJqTwYi96YZ942PY/Vix5aYtLZBULOYYxgSSd7WXiFGBM7w0/4jTXSmm11NltjRtbOg5kUcLZCIZFF/MBjzRmd3BYuX3Wr5Waud7ybLeceTdsZBlGTb1ey/+m+lRhhY1xFZGZomiIKk597WDabIhsPNbVD6BMRSw8D8qznJ/3ODEpbC9idnvLY8Zyz26IWyY2qIgY5RwRtr0TKKc33k/CDZldIv/GBt85mw3dNK0rjBoKBTMQtHTL5R3y9y8FvNNp+2eMrdnBc+cRgwvd99vOfrOCWZ8mqlUpU="
