@@ -91,9 +91,7 @@ applications:
           - name: "ldap.groupsQuery"
             value: "AgC5JW2/BSw19jHWtX6orfVFfp/Q6eH5qzGJEKRGtqRoif3Vb5WPAOb/reoqMWNgF+XkmekjnacPuf+jzga6+AYcWDajs6KGpD2Don9IOx1XN9UyY/9apGCmhtVg45YsHD5mOMc95d3fFjuL9dfBpiTObyK9QhFNdo7cQKLD5uG161haQ6WL5grObnn16/AgOxsO4rG7Chx0YZa6RH9M5C1QM/aqbGprWa3bVj6hjDR9kA76j/p7SLkD2saBAJoOfADDc7mODyDu9T/5hdjHbT72rPsui7K2HgV9dehspMHj6Ra+SsB225nLU+O/KBT+RW6dUSXB07Rjr7ggZv9JVY9H/kZ2d5UL7rvt+myzrv56wbFg2tgWuL6Qz7womdqw6mNMA/rYT/winSM5dEKqeHOu05u/ouyGAe3d3zd3N79PW80PZjyzcUIMPeSTMDHgy/kcL+kC/3omFbFXmUvXsSUp6WjKAHvYYbGM3F/0E5MPMr9wiu58zVgjEL6aml97uMHGMSA3C8tcFzwkq9b16YsxTDcVaba16fyK4HbQb2RdL8Rq3nT5th40nQaRf96VTefk0fT+98PYeCfZdLedF2fS1ffFlJs4QTS+JMGMzV3q75sGS1QHFoJdqnWliNIH3LAxuIxWaYl5qUPSx0dWdGKCcw2pSlki1+rmT2s9nueQP5cYZPBz2yVXgfryAo52An4sQNHH+Nj8G9AsnEZ8kji37MP65p9fUcSdFjNdhWBQd+PpIreD"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
 
   ###################### OAUTH GROUP SYNC  ######################
   oauthGroupSync:
