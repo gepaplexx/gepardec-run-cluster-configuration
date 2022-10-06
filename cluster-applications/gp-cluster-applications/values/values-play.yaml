@@ -29,27 +29,27 @@ applications:
         selfHeal: true
 
   ####################### CLUSTER-LOGGING #######################
-  clusterLogging:
-    name: cluster-logging-instance
-    enabled: true
-    destination:
-      namespace: openshift-logging
-      create: false
-    argoProject: gepaplexx
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-cluster-logging-instance
-      targetRevision: "*"
-      helm:
-        parameters:
-          - name: "elasticsearch.resources.requests.memory"
-            value: "8Gi"
-          - name: "elasticsearch.resources.limits.memory"
-            value: "8Gi"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+#  clusterLogging:
+#    name: cluster-logging-instance
+#    enabled: true
+#    destination:
+#      namespace: openshift-logging
+#      create: false
+#    argoProject: gepaplexx
+#    source:
+#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+#      chart: gp-cluster-logging-instance
+#      targetRevision: "*"
+#      helm:
+#        parameters:
+#          - name: "elasticsearch.resources.requests.memory"
+#            value: "8Gi"
+#          - name: "elasticsearch.resources.limits.memory"
+#            value: "8Gi"
+#    syncPolicy:
+#      automated:
+#        prune: true
+#        selfHeal: true
 
   ####################### CLUSTER-LOGGING-EVENTROUTER #######################
   clusterLoggingEventrouter:
