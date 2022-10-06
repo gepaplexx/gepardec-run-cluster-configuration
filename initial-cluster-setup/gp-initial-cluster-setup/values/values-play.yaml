@@ -53,7 +53,7 @@ applications:
       namespace: gp-infrastructure
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-identity-provider
       targetRevision: "*"
       helm:
