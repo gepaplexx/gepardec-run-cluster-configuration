@@ -13,7 +13,7 @@ applications:
       namespace: gp-infrastructure
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO wieder umstellen
       chart: gp-patch-operator
       targetRevision: "*"
     syncPolicy:
@@ -53,7 +53,7 @@ applications:
       namespace: gp-infrastructure
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO wieder umstellen
       chart: gp-identity-provider
       targetRevision: "*"
       helm:
@@ -75,7 +75,7 @@ applications:
           - name: "git.enable"
             value: "true"
           - name: "htpasswd.enable"
-            value: "true"
+            value: "false" #TODO wieder umstellen
           - name: "htpasswd.data"
             value: "AgAKDrNtxXyshcqK3/NHGmTYKQZuHG1JrRDdO04XQxfIIQsCQAKbhsgvV+ML2tqIG7F7qg+4zNVM3Z6fLtNAnyHZh/acTVN1V9XxB1eW5gNPwooVVvET5Nr2ivD3n5vIuhASP/bWzrU4w92T7Ha3Ghl8WofypDwYuT6wIvSL3FcE+PelJYVJkyufQ9WNM5vmaDIEEkzWl5S4CJikY1RlGPm7SkkXFGRymPVKj8/nDrybjFUTln/HogMKiGNnwOg36q52HTAikY9jPGowJcfFRgeMOFgh3yu0RimxgG0ZeheF4DrxxC2z8oUrLtot7tM62Fzy/58hl5cNtU780qW4tu6MdeOlvhP5WBdDB81QBORxsp/+ybPjxtiZFvLB+FaMJkzt5K5Z0I0EIhWeNetHj9bqb46c/ZfutHOxuJzwlBgrGBSBvmstO7nVax2f2kwP0GRurcIBhLXfieROU4NGsUJcQnKavXqFpxj56uAkB3Fa7nmfAp7WGLlt0iV9dXkggCm7N/ISHVuQQkWhuZtqZ5cpriQbjac/oCHKo4UV6DUO3dQnhFq3JT85tnL2nJpPg/kzYeHgjlKS1Vnh9tts4n9yjqTzkV5xSXJ15B/gOHLbtWW12Tf25ly3bHqbQ8wmQm4C6egLT+Ffw4ldLfIYxdnIZCcXdVOZWmD7mOKbdDI3o7rXefc6gpUnOxE+e1/D5IZq3GH0szk4aK+izx0pIv2ILKrhnRHMGgpbviaWaNcvmlG9UMQWo0EcJ2Rxs8eCf4RsbEgosXF0mwQfcyX0cj6Gj0mEB9s="
           - name: "ldap.enable"
