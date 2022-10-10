@@ -43,7 +43,7 @@ applications:
       helm:
         parameters:
           - name: "lokistack.backend.secretkey"
-            value: "AgCUNj9o+OfdzKKqtESMmPI+/h1yn9bMZ3H+nCnsmIjt2KHKC/NlpZJRtkryIhwLSE2Xt3ZqdN+JS30LiSw177JatHV2RBWGqO7ayDsZTotqwFpJa9fr3oO79cLgq1TuTV5MKkR8BvOTcqlr6cPGED0Z0I6tBTk8oHAOxD/yUh/3Ziwie0yC8sc8fnQOH4rMq6dpCKcrC6FJ1jq+8C6XegwEkIzbcJSvKHWDk0RJ6Btmy5zdZSudcOdxNLubkIG/WEuHqzz9Jkq+EhDADIGEgpGCLX8OVn+kAYCMrA8/yMAzTDRhnnDBNw5UkB+/fhnorAtdgrpJomLUjuts/Cwaok8NFhbEDZmtFkqsFmofuOHP8zt6CveaShRWXPp5BR3hfhEwIP3ACCSU2Ty6zHtZzDKDt32ovvZsH6vx5L424Vpo0VVhnFgzv/nrELu5qCl3G5t7UTR1XDNQ/6D+1exmRrNVjlkJRCiDd0F6UsqrvLQy+0Q5u/VP4t0Ms2+Q4uO4ZB7JeQmq8W4FnBSUdAjEIvrsK9yO8wmpoje+lF8fJt/+zQ9LlEkDMHjgoVhPQaRt6h/dteBUaLytsCx31qVn/JtBfHylSrCYHS6WbZzFTtvAIXT3aJKZXJIdUJ/sBBvHWfKXlvj1R1yjvZUa6Bak+Mg+MHdYxAxZ/8FbzetR4+9vx1gulz6eZYfSvfHaPHFVL3rJcHSfjmCiYjQd/tgeZKK2ZAI/zqzdpvVu4heO96BA/FJf+KA="
+            value: "AgC4s/uPlWj2Jh9zPKakfU58vleIrAbwSuBC4JqNRQfTbqgki/gwvdwW1IiNlYeCtWTRC+LNDJLJufpI6QHeS9QevTVPn+ggo6F53BQ6ZgkU6UXwNzQI0POefkygDQu0safKu42pKFoi3i1VJt00+KAnV3FTBtZ8GgKHk1mSq3VVAxXOZI8z4KXaprVC1BP095G5KSnVG1IuU2UzLmcAq3EsJYXOs0437yzD/ga/yJposeXlWEYWgKcnhsCq2UvtC6lohHhsRh6FnK7Hxr1XoFXl9BCDKTeNdSiU5vH0tPXuct6yYgK3SzMxYm9VeQFOa2Qi7r7/L3jbGHswiogP9Ywnl28j8+cLdg6luVlYc8uwp/+K3Ez3+7qEFY7zUIvujoLRpiKGRfNflrMdNkjbpjCxUphFtVuiLj9qcdLSD0zZiEgH+g027Vb2LzVqeTeya0sVgbu3CaIOYc5KalmjaSG/qxCS25FW+dtIBxQPS6uON2rg3VU1S6xAg/04s49rPStkKnyY3upM3PMuIL8pR3laySkBNCz/LHawS+Es5uu8cmMsTBXAc6Yr8AmHa70R68+JZ0kRjbsuSwDizxtynn6nbtluXkx96jN8EBjwflNo6kjVev+vqThc0ENrz9lX20e/FCzzri3Vz87Gjt4fMWq3nqZSkuUxYPJCqpinKHExMN3VCAd3Tnr3Pec92L3R1fQ9wLwDOMjW+DiezUf7oLQ4bnKMJ6IxgyJO3eFkv9MLZ4MBNrE="
           - name: "lokistack.minio.enabled"
             value: "true"
     syncPolicy:
