@@ -45,7 +45,7 @@ applications:
           - name: "lokistack.backend.secretkey"
             value: "AgCUNj9o+OfdzKKqtESMmPI+/h1yn9bMZ3H+nCnsmIjt2KHKC/NlpZJRtkryIhwLSE2Xt3ZqdN+JS30LiSw177JatHV2RBWGqO7ayDsZTotqwFpJa9fr3oO79cLgq1TuTV5MKkR8BvOTcqlr6cPGED0Z0I6tBTk8oHAOxD/yUh/3Ziwie0yC8sc8fnQOH4rMq6dpCKcrC6FJ1jq+8C6XegwEkIzbcJSvKHWDk0RJ6Btmy5zdZSudcOdxNLubkIG/WEuHqzz9Jkq+EhDADIGEgpGCLX8OVn+kAYCMrA8/yMAzTDRhnnDBNw5UkB+/fhnorAtdgrpJomLUjuts/Cwaok8NFhbEDZmtFkqsFmofuOHP8zt6CveaShRWXPp5BR3hfhEwIP3ACCSU2Ty6zHtZzDKDt32ovvZsH6vx5L424Vpo0VVhnFgzv/nrELu5qCl3G5t7UTR1XDNQ/6D+1exmRrNVjlkJRCiDd0F6UsqrvLQy+0Q5u/VP4t0Ms2+Q4uO4ZB7JeQmq8W4FnBSUdAjEIvrsK9yO8wmpoje+lF8fJt/+zQ9LlEkDMHjgoVhPQaRt6h/dteBUaLytsCx31qVn/JtBfHylSrCYHS6WbZzFTtvAIXT3aJKZXJIdUJ/sBBvHWfKXlvj1R1yjvZUa6Bak+Mg+MHdYxAxZ/8FbzetR4+9vx1gulz6eZYfSvfHaPHFVL3rJcHSfjmCiYjQd/tgeZKK2ZAI/zqzdpvVu4heO96BA/FJf+KA="
           - name: "lokistack.minio.enabled"
-            value: true
+            value: "true"
     syncPolicy:
       automated:
         prune: true
