@@ -194,7 +194,7 @@ applications:
       namespace: grafana-operator-system
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       targetRevision: "*"
       chart: "gp-grafana-instance"
       helm:
