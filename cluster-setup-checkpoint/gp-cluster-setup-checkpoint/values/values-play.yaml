@@ -107,7 +107,9 @@ applications:
           - name: "provider.openshift.clientSecret"
             value: "AgCOOc9m+zqrK68KKGoLwsxxTGHrjyeX+5Ih8QrkjKsegb+/Qxxo/tZb2J+FzmXo0VBNgJvY9fGe8XbBhUDuCsbCwsGZAtNdhC6AJwNwqcqEVn5pRsDib79J88ncRjREhNdt+I6v4PIRVgr+lASsU8OKbA9+bMKHRPxkZSQPU37Mj6liJFtCAcBW98sXysSE1/ZpIAizeAEuonuEVsMdJ3esvfI6l5chK9Bw6LQjuzQuOrkdEE5ibXD4ax7AdpC2xhPEuwTyOclptJkeUIzfE4jAEJg6gf7D1zEbERL/qtI3Mj0XRlCES1RFDwEjoiuLQyfOq2Mf3r67mE63r7myqlNJpnszmHPHD2f8wt2sIQrOq2h3B8t0WLYFiVXRV+qF9Puf7jAdUFca/I+3c0y14R/VeClCQBxhSoDuxg+pb03wnQcDWVcid2s6vpGoEOciAkp1HiuJi8BkCYFUIqNarrIDxEATaHORvDiM/cgohVH014dxp3MQleA5IOyMkZEFKmJIM986xFcldONMneQqh8whcCp2v9sujYHZSCLd+ehfqujIhqi25iaQ/IuKrVQtPYjd3AMilcw4PD3TXVJxj/AKOyxIk9eNDRwSAgR5FJVs2vkOWIR+IlwLExGzH4kFG+kJhWm6k20vURy35S5NjBSk9haaTKi7iRG9tMQRB6tdyIIdGjtjfrZJv3W9Fdg+eSGRfKqRXpFUSDUwhuMngf/cv78LW7jeDIOtfzZkSTeUG/xt0CHF"
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
   ##################### KYVERNO/Cluster-Policies ######################
   kyverno:
     name: kyverno
