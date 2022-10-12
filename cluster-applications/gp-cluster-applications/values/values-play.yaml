@@ -46,6 +46,8 @@ applications:
             value: "AgC4s/uPlWj2Jh9zPKakfU58vleIrAbwSuBC4JqNRQfTbqgki/gwvdwW1IiNlYeCtWTRC+LNDJLJufpI6QHeS9QevTVPn+ggo6F53BQ6ZgkU6UXwNzQI0POefkygDQu0safKu42pKFoi3i1VJt00+KAnV3FTBtZ8GgKHk1mSq3VVAxXOZI8z4KXaprVC1BP095G5KSnVG1IuU2UzLmcAq3EsJYXOs0437yzD/ga/yJposeXlWEYWgKcnhsCq2UvtC6lohHhsRh6FnK7Hxr1XoFXl9BCDKTeNdSiU5vH0tPXuct6yYgK3SzMxYm9VeQFOa2Qi7r7/L3jbGHswiogP9Ywnl28j8+cLdg6luVlYc8uwp/+K3Ez3+7qEFY7zUIvujoLRpiKGRfNflrMdNkjbpjCxUphFtVuiLj9qcdLSD0zZiEgH+g027Vb2LzVqeTeya0sVgbu3CaIOYc5KalmjaSG/qxCS25FW+dtIBxQPS6uON2rg3VU1S6xAg/04s49rPStkKnyY3upM3PMuIL8pR3laySkBNCz/LHawS+Es5uu8cmMsTBXAc6Yr8AmHa70R68+JZ0kRjbsuSwDizxtynn6nbtluXkx96jN8EBjwflNo6kjVev+vqThc0ENrz9lX20e/FCzzri3Vz87Gjt4fMWq3nqZSkuUxYPJCqpinKHExMN3VCAd3Tnr3Pec92L3R1fQ9wLwDOMjW+DiezUf7oLQ4bnKMJ6IxgyJO3eFkv9MLZ4MBNrE="
           - name: "lokistack.minio.enabled"
             value: "true"
+          - name: "infranodes.enabled"
+            value: "false"
     syncPolicy:
       automated:
         prune: true
