@@ -95,9 +95,11 @@ applications:
           - name: "ldap.groupMappings[2]"
             value: "CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local: ldap-ro"
     ignoreDifferences:
-      - group: core
+      - group: ""
         name: ldap-group-syncer
         kind: ConfigMap
+        jsonPointers:
+          - /data/sync.yaml
     syncPolicy:
       automated:
         prune: true
