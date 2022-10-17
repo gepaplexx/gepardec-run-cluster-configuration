@@ -96,8 +96,7 @@ applications:
             value: '"CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-ro'
     ignoreDifferences:
       - group: v1
-        jsonPointers:
-          - /data/sync.yaml
+        name: ldap-group-syncer
         kind: ConfigMap
     syncPolicy:
       automated:
