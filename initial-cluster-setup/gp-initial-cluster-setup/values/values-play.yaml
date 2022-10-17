@@ -88,14 +88,16 @@ applications:
             value: "AgCCyVHM9MJ4BvRq9JEIE5+/BhHIWaqTvzytKg4rkHzknNEV6P1jFBNuKUY5x27OtMuiAKa0QklBj7TvpmmXFKyIw5hBP8Xom5OBU4oVK/8QOkTs+t79eAJjdlVyrd5v5OmBcfGwZlSv9eL6mcE8R0eGc6zXnNiNoxuSDroYbW8f1zka2MCzbGMy2M2kMcXy2ZxY5MQ2T7qlNa/ENDIsCIsEep37tSzaHIrjLKkb5nF/TG+VycxDBP9i2XMtW1IHMPC7/WbKQtqPAi2iFMqT256NQmpZb7aP6cFjaRZYWW8mfwAzu5uWdscr4RgSebTxeTUoUhWGxj8Vs5KhMGOIdV3HPzxfGFYI0kFCm/EYMAXMNXvbGOHjfiCZYWkWfcw/FVMs/JaU04GDFFx8KNezIh4871qNztfsAm1tcR1x8xt8Und5c7aa3hfLF7rMIyjNl1RP1EqSQtplPyeNpDrzG+8AlfdCRwBHxk6Yb5+IoSXGgXXy7w90j89nHQrKyki+AoxwGrsxy02YiaJUpqfQtJomDauN4wNo87c/S/GWa97jyXbHK1pn2O/SVD1thxVpFBuFoO0Nv1OyN3C/XEC1E63vQc47r+MC0SnAOdG+Wkh2Q3Yy7jXv11XRgI57mRDIXQtZjiI9newsYikpxR2ey0x3KeHEdO9evVu83xhi6FSmm4PVIY9/teGZ1ufitOppKDVHqQW2lzf3hqmAal8eoIl4azjU5ljvBonTVK+Obx5j+AUUCoAwZrBU477wDcLn1ncaQ4Ji4SWbGkVafe117xVFoU8="
           - name: "ldap.usersQuery"
             value: "AgCGUAI/Jg7xX9g81IKrz4+3dXfXYxSwbJ8DQ0QcXD71Dj2RPk7vxbXrLKtVhhWTteKTEGcBdQFk+rlxZYoBtwNrCxPipmR9ibthuSHMcGbMAzIOjp9sl0z2hOXBebDbYRh1BaWXf7lXFvGVk0xFJSdOjaHmDWFJMoCSIYja5NQTUBf46eWi0cgo5XpiDpzV0GkgwGB4z6Azfdu/O8UUmDdoQFRqhj4tQDtHNGz2ZuOJpDnJAltL5Yj/FOVxuWS8PterGY2wyPhoBEAJDjK916IRg6VSFl5IqeIQOOiz9FVN7pE4Xrndy++2xYQnvxlNTWNWkjG5KGnaSWwPqv2/KapAvTErezYWjSiWkb7Xv/hXBKMRgjbgqnco27/5+7vmsai2WbeElwwQyx+Xp/V5vV+cZbLpfZA/4xRp+/4vfF3wOsafD88GSp6Q+3ATGLl6Ter7g/ErCLydXmCQwKw9GCHUclMwcso6yJjLwl/MqJblRT78KbLIN9fwcXWetX9IuWLXXKiVr7VRwEkEdviEjKZIJVOmP79Q1RgJ2KVRGMNj1OEyi60PBrMSktuTWwKJq+619MTJ/r8hleqhRhoE8jRsglmUfSeZhIoqGJEjTHwWdlhy2NM65Ye+i54zrKUSgA/0nUJOvuRoFsglF1JVbIeOvcSMQ+Ok04ZyY7JA2Z3ZVGd2d4tLycRtYjxphgK+b0ZXNa7VCHwRoZebNDasBPQR8EIOYaOYQq68AfU1nZYAROrYwX0="
-          - name: "ldap.groupMappings.\"CN=OC Editors,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local\""
-            value: 'ldap-editor'
-          - name: "ldap.groupMappings.\"CN=OC_Administrators,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local\""
-            value: 'ldap-admin'
-          - name: "ldap.groupMappings.\"CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local\""
-            value: 'ldap-ro'
+          - name: "ldap.groupMappings[0]"
+            value: '"CN=OC Editors,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-editor'
+          - name: "ldap.groupMappings[1]"
+            value: '"CN=OC_Administrators,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-admin'
+          - name: "ldap.groupMappings[2]"
+            value: '"CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-ro'
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
   ###################### OAUTH GROUP SYNC  ######################
   oauthGroupSync:
