@@ -94,6 +94,11 @@ applications:
             value: '"CN=OC_Administrators,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-admin'
           - name: "ldap.groupMappings[2]"
             value: '"CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-ro'
+    ignoreDifferences:
+      - group: v1
+        jsonPointers:
+          - /data/sync.yaml
+        kind: ConfigMap
     syncPolicy:
       automated:
         prune: true
