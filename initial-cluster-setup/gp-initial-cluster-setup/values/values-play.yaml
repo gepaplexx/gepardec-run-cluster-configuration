@@ -89,11 +89,11 @@ applications:
           - name: "ldap.usersQuery"
             value: "AgCGUAI/Jg7xX9g81IKrz4+3dXfXYxSwbJ8DQ0QcXD71Dj2RPk7vxbXrLKtVhhWTteKTEGcBdQFk+rlxZYoBtwNrCxPipmR9ibthuSHMcGbMAzIOjp9sl0z2hOXBebDbYRh1BaWXf7lXFvGVk0xFJSdOjaHmDWFJMoCSIYja5NQTUBf46eWi0cgo5XpiDpzV0GkgwGB4z6Azfdu/O8UUmDdoQFRqhj4tQDtHNGz2ZuOJpDnJAltL5Yj/FOVxuWS8PterGY2wyPhoBEAJDjK916IRg6VSFl5IqeIQOOiz9FVN7pE4Xrndy++2xYQnvxlNTWNWkjG5KGnaSWwPqv2/KapAvTErezYWjSiWkb7Xv/hXBKMRgjbgqnco27/5+7vmsai2WbeElwwQyx+Xp/V5vV+cZbLpfZA/4xRp+/4vfF3wOsafD88GSp6Q+3ATGLl6Ter7g/ErCLydXmCQwKw9GCHUclMwcso6yJjLwl/MqJblRT78KbLIN9fwcXWetX9IuWLXXKiVr7VRwEkEdviEjKZIJVOmP79Q1RgJ2KVRGMNj1OEyi60PBrMSktuTWwKJq+619MTJ/r8hleqhRhoE8jRsglmUfSeZhIoqGJEjTHwWdlhy2NM65Ye+i54zrKUSgA/0nUJOvuRoFsglF1JVbIeOvcSMQ+Ok04ZyY7JA2Z3ZVGd2d4tLycRtYjxphgK+b0ZXNa7VCHwRoZebNDasBPQR8EIOYaOYQq68AfU1nZYAROrYwX0="
           - name: "ldap.groupMappings[0]"
-            value: '"CN=OC Editors,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-editor'
+            value: "\"CN=OC Editors,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local\": ldap-editor"
           - name: "ldap.groupMappings[1]"
-            value: '"CN=OC_Administrators,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-admin'
+            value: "CN=OC_Administrators,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local: ldap-admin"
           - name: "ldap.groupMappings[2]"
-            value: '"CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local": ldap-ro'
+            value: "CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local: ldap-ro"
     ignoreDifferences:
       - group: v1
         name: ldap-group-syncer
