@@ -100,6 +100,8 @@ applications:
       targetRevision: "*"
       helm:
         parameters:
+          - name: features.enabled
+            value: "openshift-integration,token_exchange,impersonation,admin_fine_grained_authz"
           - name: "ingress.hostname"
             value: "sso.apps.play.gepaplexx.com"
           - name: "persistence.auth.password"
