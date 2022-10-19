@@ -101,7 +101,7 @@ applications:
       helm:
         parameters:
           - name: features.enabled
-            value: "openshift-integration,token_exchange,impersonation,admin_fine_grained_authz"
+            value: "openshift-integration,token_exchange,impersonation,admin_fine_grained_authz" # TODO: remove when upgrading to version 0.3.* 
           - name: "ingress.hostname"
             value: "sso.apps.play.gepaplexx.com"
           - name: "persistence.auth.password"
