@@ -124,6 +124,8 @@ applications:
       targetRevision: "*"
       helm:
         parameters:
+          - name: "argo_workflows.images.pullPolicy"
+            value: "Always"
           - name: "argocd.route.hostname"
             value: "argocd.apps.play.gepaplexx.com"
           - name: "argo_workflows.server.ingress.hosts[0]"
