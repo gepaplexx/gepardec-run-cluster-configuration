@@ -97,9 +97,11 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-keycloak-instance
-      targetRevision: "*"
+      targetRevision: "0.1.*"
       helm:
         parameters:
+          - name: features.enabled
+            value: "openshift-integration,token_exchange,impersonation,admin_fine_grained_authz" # TODO: remove when upgrading to version 0.3.* 
           - name: "ingress.hostname"
             value: "sso.apps.play.gepaplexx.com"
           - name: "persistence.auth.password"
