@@ -265,7 +265,7 @@ applications:
       targetRevision: "0.1.*"
       helm:
         parameters:
-          - name: "update.approval"
+          - name: "subscription.installPlanApproval"
             value: "manual"
     syncPolicy:
       automated:

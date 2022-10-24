@@ -44,7 +44,7 @@ applications:
       targetRevision: "1.1.*"
       helm:
         parameters:
-          - name: "clusterlogging.subscription.updatestrategy"
+          - name: "clusterlogging.subscription.installPlanApproval"
             values: "manual"
     syncPolicy:
       automated:
