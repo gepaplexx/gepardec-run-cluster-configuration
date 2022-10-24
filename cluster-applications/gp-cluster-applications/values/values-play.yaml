@@ -225,9 +225,9 @@ applications:
         kind: Grafana
         group: integreatly.org
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
 
   ##################### VAULT ######################
   vault:
