@@ -42,6 +42,10 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-operator
       targetRevision: "1.1.*"
+      helm:
+        parameters:
+          - name: "clusterlogging.subscription.installPlanApproval"
+            values: "manual"
     syncPolicy:
       automated:
         prune: true
@@ -80,6 +84,10 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "0.0.*"
       chart: "gp-grafana-operator"
+      helm:
+        parameters:
+          - name: "subscription.installPlanApproval"
+            value: "manual"
     syncPolicy:
       automated:
         prune: true
