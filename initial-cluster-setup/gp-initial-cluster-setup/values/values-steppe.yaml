@@ -19,7 +19,7 @@ applications:
       helm:
         parameters:
           - name: "subscription.installPlanApproval"
-            values: "manual"
+            value: "manual"
     syncPolicy:
       automated:
         prune: true

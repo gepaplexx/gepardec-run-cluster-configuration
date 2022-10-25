@@ -45,7 +45,7 @@ applications:
       helm:
         parameters:
           - name: "clusterlogging.subscription.installPlanApproval"
-            values: "manual"
+            value: "manual"
     syncPolicy:
       automated:
         prune: true
