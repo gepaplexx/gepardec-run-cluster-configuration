@@ -19,6 +19,8 @@ applications:
         parameters:
           - name: "clustername"
             value: "play"
+          - name: "checker.desiredChannel"
+            value: "fast"
           - name: "consoleUrl"
             value: "console.apps.play.gepaplexx.com"
           - name: "slack.channel"
@@ -124,6 +126,8 @@ applications:
       targetRevision: "*"
       helm:
         parameters:
+          - name: "argo_workflows.images.pullPolicy"
+            value: "Always"
           - name: "argocd.route.hostname"
             value: "argocd.apps.play.gepaplexx.com"
           - name: "argo_workflows.server.ingress.hosts[0]"
@@ -223,9 +227,9 @@ applications:
         kind: Grafana
         group: integreatly.org
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
 
   ##################### VAULT ######################
   vault:

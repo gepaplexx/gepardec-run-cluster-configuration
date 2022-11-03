@@ -23,6 +23,8 @@ applications:
             value: "console.apps.steppe.gepaplexx.com"
           - name: "slack.channel"
             value: "AgAWMAT81M6A9TwsJ7XxyYsdAez6oHWq8xJLy501cPSrzoMqNw7Bs1ms9MLLJMjPlRY3O2Z8qh3G/b5aJOwNl1Dp5BF5phiOJB/VeWrKkSJE8LGAlx+3y5blzXA+NkdINJlm9ZoUyNLgQ+Z2k3SgYjjBESpwvo7dVf8oUnj/mqmILHH8GCMa5ROwO+4RK1Yi+zt30yGgngJIuGj/UtP0QRUKFqSnsAlmqwlvefMgurcC5fl6FkF6rQHuJylaFg2F9U/M8V/iZOlDc0RyUjlbpocX6mqpKOhJO/RVp8seqsCegpjUa/iihU649S5EWhdk3TBjrAY3QEcQA7QpWXoimGLJAIYnGUMfaPqUYtr+m5WGEeaXJQjMOktJQHp4LmDZRcJiTAkbPVQW63CT1/1WwwArpuRGIwmXp5L58QB02yhRQcGW3y6Bb+Ot0cpwfEJv6tDTZOPyyNrixhen9RMaV6WoNH8bWEe08mld2/JxpgvC+g/WsvSK8Ces2OSbm0dleAO7KXOK71KyY/Oc31WWA02ee9A/FEialwAEK4ziLNVy9eQF/kh/wdfvTGuW3Qfqgxpb8SmYz56mlbzL7UhavlUjSYJNSA5FcOWwsULleUHU1anQw8OhJL9CM+kckX3BO4ShnWBriWwdvoAhOIsbRvxYLbAzTQ9zJieQSh04JvYmRCX7Gz9x8vG8zdo7tC+OkZE5zN9BdhkVCsS3vGZ8HElJI+Vf3zcc0+E0YBg0LCThDvFY3ZJb9V0FzUpu+/9YWwCEvcwHzjpvZ3rS0gbRd8w9Fvyg5342jWqZfMawy/U8azw="
+          - name: "updater.delay"
+            value: "3"
     syncPolicy:
       automated:
         prune: true
