@@ -19,6 +19,8 @@ applications:
         parameters:
           - name: "clustername"
             value: "play"
+          - name: "checker.desiredChannel"
+            value: "fast"
           - name: "consoleUrl"
             value: "console.apps.play.gepaplexx.com"
           - name: "slack.channel"
