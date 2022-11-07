@@ -41,7 +41,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
-      targetRevision: "*"
+      targetRevision: "2.0.*"
       helm:
         parameters:
           - name: "lokistack.backend.secretkey"
