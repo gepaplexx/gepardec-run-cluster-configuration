@@ -49,7 +49,7 @@ applications:
           - name: "lokistack.minio.enabled"
             value: "true"
           - name: "infranodes.enabled"
-            value: "true"
+            value: "false"
     syncPolicy:
       automated:
         prune: true
