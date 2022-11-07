@@ -169,10 +169,6 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
       targetRevision: "*"
-      helm:
-        parameters:
-          - name: "eventbus.persistence.enabled"
-            value: "false"
     syncPolicy:
       automated:
         prune: true
