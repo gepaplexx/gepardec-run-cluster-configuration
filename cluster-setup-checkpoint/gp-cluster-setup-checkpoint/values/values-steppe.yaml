@@ -41,32 +41,11 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-operator
-      targetRevision: "1.1.*"
+      targetRevision: "2.0.*"
       helm:
         parameters:
           - name: "clusterlogging.subscription.installPlanApproval"
             value: "manual"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
-  ####################### NFS-STORAGE-PROVISIONER ######################
-  nfs-provisioner:
-    name: nfs
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: nfs-storage-provisioner
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.1.*"
-      chart: "gp-nfs-provisioner"
-      helm:
-        parameters:
-          - name: "provisioner.nfs.path"
-            value: "/data/col1/steppe"
     syncPolicy:
       automated:
         prune: true
