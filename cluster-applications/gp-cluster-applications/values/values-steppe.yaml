@@ -41,13 +41,15 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
-      targetRevision: "1.3.*"
+      targetRevision: "*"
       helm:
         parameters:
-          - name: "elasticsearch.resources.requests.memory"
-            value: "10Gi" # FIXME
-          - name: "elasticsearch.resources.limits.memory"
-            value: "10Gi" # FIXME
+          - name: "lokistack.backend.secretkey"
+            value: "AgAiTGPE8PLYowS4j+kQ9DyZuqKmaSj3NHlxy4aFr7rqefHSXsWuM6uIQ+CgJNekZ6OJcI5a47gZNzjarPXxlsxeWMqKEZifrN1hXcaL9EwQc4ZzQkPZRgOvyeu0VpWKLzAJ/H99xEm09//fBHPq2CFuyAJbeJLMey/sbirsatiGbhKk1I4XQCjiQhxHp+V8MIaOkUPEKJdAvKTKPASsDoMr2yIhSq/F66Ova7JEcp8Vl6UgTqpHW5sqClt5uUmEUNHPFhFBGNjlUFNhTu5YSOF9yaWrIer0dyYyRFC345lLbt7S22sSW20YWw97oX6RoVyme5tceOGuJqUaG2Nhbb3ZghVTW1WPKg5ejAutasKH+cbx8K93qz2ZudRi8v7fUetGyux/vwccWKwWPnbtcXmpmxon+rkJSJA7rqFP8d9Gn1vKY0RKsz99Vh49W8mgrnSNayXk1DBbmBVmxm2v5u0psVJrFVbJfhQp4/eifq2svCm6/yjlpLYQ6NWmo2JDk5WVmR02TuscKzP4VORxpRlzORNvfHDUPbemN3/H0tZMmNylbCygwenwaLOvm0IhqjGttDVE3IelzcqgPUr2xpZu1JSi5Qapa/cnC1I4vOTo1Ly9asD07EdsabcE8dpYbU+Ur03M60KM2G/AV4DYGfwh4d+Kug34RP+L7Wwi9UgsWBijJLnHft4g+sdm+31yJXZiIfk9H7VeU/nK0A+g3KjnBmhTVhNWgoOkwqFMoFX6F56+i/Q="
+          - name: "lokistack.minio.enabled"
+            value: "true"
+          - name: "infranodes.enabled"
+            value: "true"
     syncPolicy:
       automated:
         prune: true
