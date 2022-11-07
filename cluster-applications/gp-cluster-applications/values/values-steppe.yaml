@@ -197,16 +197,29 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.0.*"
+      targetRevision: "0.2.*"
       chart: "gp-grafana-instance"
       helm:
         parameters:
           - name: "datasource.prometheus.url"
             value: "https://thanos-querier-openshift-monitoring.apps.steppe.gepaplexx.com:443"
+          - name: "ingress.hostname"
+            value: "grafana.apps.steppe.gepaplexx.com"
+          - name: "sso.keycloak.clientSecret"
+            value: "AgAwaEqhpzcWtEHi+FlMfIHCFjwrZMebgoB9t2POP3nwlCfsIHHgRZiiXtHqtXQyjRjVsog5a00msUs2Gh4T7izX/mpODcQanKRty0BsPLzPRdtYZtEeJ8FJMVNbvW4mEMUApmGCeIxBoIOEDMsTxo2VG1GSkyt9BsNd2s3lJGno1iyL1mU5SoIp88mmwGa5Am1pcwqJDmJmhW0n/qhsM9w9pe4G0gjKewiLrr5q6AawEXCJSPLpkW3idcpZ18Gj9NzLXYJzI7iIVw6WzydLtMjX47mV0YXibi6fDIAEoQAe4XRGsJmEbBVKFAij/SjI2G3oJGjiWRPqEHZTsUJ6BxH1LjCHSHwaziSLWvleSRtwZHz/3FO2rDoCAoE6KJPXSjmFJnOIlIG1ZG+CZFT0Tzd1fKfrAFThK9wqYadLva25vir1UCROqI14sZnt85DpbPLYIPRe6XTA9YMeoB2iv4hzzbOoShHWh0lIzYhjwSWle7tYP7SvQ6JwA4yvfLgVWLhncHJ4Fx3mMPmDRROET1Zi41oqXGHCpj9pc2IHG9G8UCfFAvSjZADZlNWJ/BIlpF2yR5o4tulZa4pSANjckLLJTlw4BMwbrjCuWmyzYSCQLQMmZXlAXjUCnCaabfTqLEpkrSaj956kGAfFU5EhpP5u4QULJjFwRUZ2wnkWtZi426NhE6DlcpX2+g73kKf+o/gnvuVOm0NRezhWxusT5LU7Fd+rhPzWyvitIFURYxsodQ=="
+          - name: "sso.keycloak.realmUrl"
+            value: "https://sso.apps.steppe.gepaplexx.com/realms/internal"
     ignoreDifferences:
       - jsonPointers:
           - /spec/datasources/0/secureJsonData/httpHeaderValue1
+          - /spec/datasources/1/secureJsonData/httpHeaderValue1
+          - /spec/datasources/2/secureJsonData/httpHeaderValue1
+          - /spec/datasources/3/secureJsonData/httpHeaderValue1
         kind: GrafanaDataSource
+        group: integreatly.org
+      - jsonPointers:
+          - /spec/config/auth.generic_oauth/client_secret
+        kind: Grafana
         group: integreatly.org
     syncPolicy:
       automated:
