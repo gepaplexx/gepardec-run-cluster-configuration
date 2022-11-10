@@ -46,6 +46,8 @@ applications:
         parameters:
           - name: "clusterlogging.subscription.installPlanApproval"
             value: "manual"
+          - name: "loki.subscription.installPlanApproval"
+            value: "manual"
     syncPolicy:
       automated:
         prune: true
