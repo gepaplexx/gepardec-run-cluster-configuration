@@ -51,10 +51,9 @@ applications:
           - name: "infranodes.enabled"
             value: "false"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
+      automated: {}
+#        prune: true
+#        selfHeal: true
   ####################### CLUSTER-LOGGING-EVENTROUTER #######################
   clusterLoggingEventrouter:
     name: cluster-logging-eventrouter
