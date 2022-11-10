@@ -184,7 +184,7 @@ applications:
       create: false
     source:
       repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
-      targetRevision: "main"
+      targetRevision: "stable"
       path: "clusters/steppe/applications"
     syncPolicy:
       automated:
