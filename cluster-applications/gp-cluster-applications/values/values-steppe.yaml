@@ -205,8 +205,6 @@ applications:
       chart: "gp-grafana-instance"
       helm:
         parameters:
-          - name: "datasource.prometheus.url"
-            value: "https://thanos-querier-openshift-monitoring.apps.steppe.gepaplexx.com:443"
           - name: "ingress.hostname"
             value: "grafana.apps.steppe.gepaplexx.com"
           - name: "sso.keycloak.clientSecret"
@@ -214,13 +212,6 @@ applications:
           - name: "sso.keycloak.realmUrl"
             value: "https://sso.apps.steppe.gepaplexx.com/realms/internal"
     ignoreDifferences:
-      - jsonPointers:
-          - /spec/datasources/0/secureJsonData/httpHeaderValue1
-          - /spec/datasources/1/secureJsonData/httpHeaderValue1
-          - /spec/datasources/2/secureJsonData/httpHeaderValue1
-          - /spec/datasources/3/secureJsonData/httpHeaderValue1
-        kind: GrafanaDataSource
-        group: integreatly.org
       - jsonPointers:
           - /spec/config/auth.generic_oauth/client_secret
         kind: Grafana
