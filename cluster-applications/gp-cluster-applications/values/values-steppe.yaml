@@ -253,7 +253,7 @@ applications:
     enabled: true
     argoProject: gepaplexx
     destination:
-      namespace: gp-eso
+      namespace: gp-external-secrets-operator
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
