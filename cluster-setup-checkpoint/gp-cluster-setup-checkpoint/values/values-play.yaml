@@ -115,7 +115,7 @@ applications:
     argoProject: gepaplexx
     destination:
       namespace: gp-external-secrets
-      create: true
+      create: false
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "*"
