@@ -50,10 +50,12 @@ applications:
             value: "true"
           - name: "infranodes.enabled"
             value: "false"
+          - name: "minio.persistence.size"
+            value: "300Gi"
     syncPolicy:
-      automated: {}
-#        prune: true
-#        selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
   ####################### CLUSTER-LOGGING-EVENTROUTER #######################
   clusterLoggingEventrouter:
     name: cluster-logging-eventrouter
