@@ -101,9 +101,9 @@ applications:
         jsonPointers:
           - /data/sync.yaml
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
 
   ###################### OAUTH GROUP SYNC  ######################
   oauthGroupSync:
