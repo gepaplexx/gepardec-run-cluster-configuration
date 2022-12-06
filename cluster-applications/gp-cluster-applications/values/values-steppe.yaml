@@ -49,7 +49,7 @@ applications:
           - name: "lokistack.minio.enabled"
             value: "true"
           - name: "infranodes.enabled"
-            value: "true"
+            value: "false"
           - name: "lokistack.configuration.size"
             value: "1x.extra-small"
           - name: "minio.podSecurityContext.fsGroup"
