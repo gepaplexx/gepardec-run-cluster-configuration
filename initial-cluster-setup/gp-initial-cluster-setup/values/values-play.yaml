@@ -142,9 +142,9 @@ applications:
           - name: "argocd.workflowrepository.sshPrivateKey"
             value: "AgBNvIMgQPX1ql346GTyulruk4ljFlheSnTL6qjPjbgrKNRz3mrlXokLSIVIZlPETtPxSnleu1jfJowwPFBlRpGSSSDwH2E1pt2nnbpE88iGvF1IVds+fzTwXsowR94OcLCWA11rPIUiexA1snvCp5nWcDz8ZxMtyFpcce/NGh1JB5zA6uFTP2tPhlYvtwfKNw2prOWo5fEMR0eWWO45qgIbPssNFPM9bTf00ita2VUMMi7AC495X/4Gld7b+ArYASzrpXkMRMhxnwU7pKCotZ82JuJaL5OPzTHrOQoLiHynjwg7NUi7WWzh2dfXBkI2xi+PeTIcriS3is1TWy58c4wVT08xsy8UPLhqR8IBddG/FXSJjjlJ5Ww8DbWCWHtNEQVZTzOc8gBOW+gz0XNyK+BM8wJnwjvCAnMxxlT8o62FMRwTOrXRKOVzXJd02ByE9k2F1ym3Fbm3FepnBFeOStDFU2TGbFuirJa2LI6OoZqY4op2Kfd8i58z2GdrTvR1/QBH4e1VD1NariUckvwBXa2SxVxLK/uqQVvR8tDJUikM7TU7O85mNR6fTEt4E1M2+77o9ud8BLcCeBc+XAXEZwQl342GdclLfNjgMXiQVGE1isPNbQmwQZp8tDWBtYpWO1EiJ5KVP8lDzVW+y1Vsd7rFBhws5hHt54iBHItTa1fcwy8HqjJ/PwK80RkYCz7JCuSs2Zw2lsPAg7RuSNpRa0Dd0LmkgXSvcFn2QJ+7It46FNjwrmEm7Uh8rGaGQ1SJUUipW0JIPnUZE57Qt2ASe4qbVwmaSaS/ka4FNzfNLu9Eu4TRVPYFaqddKneVP4zQkZLllhB6sdTjKPDv3u1b/H/OY1EfbnFod9x/0C4NzxPtnlY/NGonQ7M76UezCv8BDnCUpCZu4CwoRZ6J2Prq7kEYGLyX+rFU2OI+LxNV47K5rMnFTB4TYEHl5y3YBMHRdIt9T5IiqMWGWLzEG6SQNjiRR1KGo4iWC6GwvZ5EU+AD6++MTdwltjHi7OavRN89XOYu9xEiqgOQ7S1W+ERpKlWvt37+u1Jnb/awbE63RUL30qmo8AeyvHcmcYYplKFCTnQhuyhy8w6BwPsIY/5v0XoTrbLhzEYDgbUfq4Gh3rkCSS8irBECPZA3il5aeWaeg/hku0GJy/YGLQlcKEq7PnoI0REokCRp/JvUP66jzkfjlBiVrvuIb1UG2Us0gBubV0JNur2w+7Su+lJAyyrZ0+6IdCO8j83VazW94TioxBnTbRmg55h3e9lYqgSHP+LgW/6I8d0RSWrQctaOiFndQobfZ39dXzwYWATvbADNZRawFTbCxIAO14dKqlKRcL+gVt+SXDvWKr2P9Pd1BlyOiU0RyaIMWVKJ/GTxaYTxc6/2fPmhsTojhj9UabnXVA+dxuz2FxQHZZBCMJ++YtXbfx5VNW59IdRpfh5Pj0ug232E5Mw1fPj623jkTfkmCEIB+sxHbz4OPebkfSx8GaU1I9CzAxbHHOmh3Ph2JHjV2tYR4P2GXzJCnYqgpBWfdJAt6ETxD4F2N69rFO71ckWtTq9eNtQnsk07jpebfK+RxWrC3e6l96VEOo+/VsFvhBOpcePaYEg9c65XOuMxtXCKPluq+EGI7VZN3qaKadqlrVnxsXWWNX9CUITY1WRvobbszT/mQQOWyA+blOeU4ApHgiXmfUqe1GFB53lexQkOrp6UCTey5bY="
     syncPolicy:
-      automated: {}
-#        prune: true
-#        selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ########################## ROOK/CEPH OPERATOR ##########################
   rookCephOperator:
