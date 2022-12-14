@@ -189,7 +189,7 @@ applications:
       create: false
     source:
       repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
-      targetRevision: "develop"
+      targetRevision: "main"
       path: "clusters/play/applications"
     syncPolicy:
       automated:
