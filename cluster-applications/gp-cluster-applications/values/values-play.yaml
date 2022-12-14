@@ -39,7 +39,7 @@ applications:
       create: false
     argoProject: gepaplexx
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-logging-instance
       targetRevision: "*"
       helm:
