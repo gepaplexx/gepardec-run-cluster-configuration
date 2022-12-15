@@ -137,7 +137,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.6.*"
+      targetRevision: "0.7.*"
       helm:
         parameters:
           - name: "argocd.route.hostname"
