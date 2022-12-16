@@ -130,7 +130,7 @@ applications:
       create: false
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "0.1.*"
+      targetRevision: "0.2.*"
       chart: gp-external-secrets-configuration
       helm:
         parameters:
