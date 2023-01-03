@@ -52,6 +52,8 @@ applications:
             value: "false"
           - name: "minio.persistence.size"
             value: "300Gi"
+          - name: "clusterlogforwarder.clusterName"
+            value: "play"
     syncPolicy:
       automated:
         prune: true

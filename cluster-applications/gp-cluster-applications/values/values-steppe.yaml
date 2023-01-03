@@ -52,14 +52,8 @@ applications:
             value: "false"
           - name: "lokistack.configuration.size"
             value: "1x.extra-small"
-          - name: "minio.podSecurityContext.fsGroup"
-            value: "1000710000"
-          - name: "minio.containerSecurityContext.runAsUser"
-            value: "1000710000"
-          - name: "minio.provisioning.podSecurityContext.fsGroup"
-            value: "1000710000"
-          - name: "minio.provisioning.containerSecurityContext.runAsUser"
-            value: "1000710000"
+          - name: "clusterlogforwarder.clusterName"
+            value: "steppe"
     syncPolicy:
       automated:
         prune: true
