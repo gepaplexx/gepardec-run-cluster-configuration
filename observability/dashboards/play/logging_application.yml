@@ -1,0 +1,299 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  namespace: grafana-operator-system
+  name: logging-application
+  labels:
+    dashboard: system
+spec:
+  customFolderName: Gepardec Run
+  json: >
+    {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
+      "description": "",
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 17,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P5897D7B40533B99C"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "bars",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 4,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "P5897D7B40533B99C"
+              },
+              "editorMode": "code",
+              "expr": "sum(count_over_time({kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}} Message: {{.message}}\" |~ \"$Level\" |~\"$Search\"[$__interval]))",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Timeline",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P5897D7B40533B99C"
+          },
+          "description": "",
+          "gridPos": {
+            "h": 22,
+            "w": 24,
+            "x": 0,
+            "y": 5
+          },
+          "id": 2,
+          "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": false,
+            "showCommonLabels": false,
+            "showLabels": false,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": true
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "P5897D7B40533B99C"
+              },
+              "editorMode": "code",
+              "expr": "{kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Level\" |~\"$Search\"",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Logs",
+          "transparent": true,
+          "type": "logs"
+        }
+      ],
+      "schemaVersion": 37,
+      "style": "dark",
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": false,
+              "text": "",
+              "value": ""
+            },
+            "datasource": {
+              "type": "loki",
+              "uid": "P5897D7B40533B99C"
+            },
+            "definition": "",
+            "hide": 0,
+            "includeAll": false,
+            "multi": true,
+            "name": "Namespace",
+            "options": [],
+            "query": {
+              "label": "kubernetes_namespace_name",
+              "refId": "LokiVariableQueryEditor-VariableQuery",
+              "stream": "",
+              "type": 1
+            },
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          },
+          {
+            "allValue": ".+",
+            "current": {
+              "selected": false,
+              "text": "All",
+              "value": "$__all"
+            },
+            "datasource": {
+              "type": "loki",
+              "uid": "P5897D7B40533B99C"
+            },
+            "definition": "",
+            "description": "Falls hier nichts angezeigt wird muss wahrscheinlich die Zeit erweitert werden. Danach nochmal den Namespace wechseln.",
+            "hide": 0,
+            "includeAll": true,
+            "multi": true,
+            "name": "Pod",
+            "options": [],
+            "query": {
+              "label": "kubernetes_pod_name",
+              "refId": "LokiVariableQueryEditor-VariableQuery",
+              "stream": "{kubernetes_namespace_name=\"$Namespace\"}",
+              "type": 1
+            },
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": ".+",
+              "value": ".+"
+            },
+            "hide": 0,
+            "name": "Level",
+            "options": [
+              {
+                "selected": true,
+                "text": ".+",
+                "value": ".+"
+              }
+            ],
+            "query": ".+",
+            "skipUrlSync": false,
+            "type": "textbox"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "",
+              "value": ""
+            },
+            "hide": 0,
+            "name": "Search",
+            "options": [
+              {
+                "selected": true,
+                "text": "",
+                "value": ""
+              }
+            ],
+            "query": "",
+            "skipUrlSync": false,
+            "type": "textbox"
+          }
+        ]
+      },
+      "time": {
+        "from": "now-15m",
+        "to": "now"
+      },
+      "timepicker": {
+        "refresh_intervals": [
+          "5s",
+          "10s",
+          "30s",
+          "1m",
+          "5m",
+          "15m",
+          "30m",
+          "1h",
+          "2h",
+          "1d"
+        ]
+      },
+      "timezone": "",
+      "title": "Logging Application",
+      "uid": "wbwrUp5Vk",
+      "version": 9,
+      "weekStart": ""
+    }
