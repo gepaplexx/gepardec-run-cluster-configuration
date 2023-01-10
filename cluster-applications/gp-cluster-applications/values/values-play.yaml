@@ -237,6 +237,23 @@ applications:
         prune: true
         selfHeal: true
 
+  ####################### Grafana Dashboards ######################
+  grafana-dashboards:
+    name: grafana-dashboards
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: grafana-operator-system
+      create: true
+    source:
+      repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
+      targetRevision: "main"
+      path: "observability/dashboards/play"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
   ##################### VAULT ######################
   vault:
     name: vault
