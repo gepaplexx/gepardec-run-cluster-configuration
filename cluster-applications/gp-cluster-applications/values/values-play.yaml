@@ -246,7 +246,7 @@ applications:
       namespace: gp-vault
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       targetRevision: "*"
       chart: gp-hashicorp-vault
       helm:
@@ -259,6 +259,6 @@ applications:
           - /webhooks/0/clientConfig/caBundle
         kind: MutatingWebhookConfiguration
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#        prune: true
+#        selfHeal: true
