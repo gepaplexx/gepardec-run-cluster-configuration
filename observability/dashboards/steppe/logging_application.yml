@@ -271,7 +271,7 @@ spec:
       },
       "timezone": "",
       "title": "Logging Application",
-      "uid": "wbwrUp5Vk",
+      "uid": "logging-application",
       "version": 9,
       "weekStart": ""
     }
