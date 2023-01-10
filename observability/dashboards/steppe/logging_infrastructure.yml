@@ -21,7 +21,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "P916232D695CCCA1A"
+            "uid": "logging-infrastructure"
           },
           "fieldConfig": {
             "defaults": {
@@ -97,7 +97,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "P916232D695CCCA1A"
+                "uid": "logging-infrastructure"
               },
               "editorMode": "code",
               "expr": "sum(count_over_time({kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | level =~ \"$Level\" |~ \"$Search\"[$__interval]))",
@@ -111,7 +111,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "P916232D695CCCA1A"
+            "uid": "logging-infrastructure"
           },
           "gridPos": {
             "h": 25,
@@ -135,7 +135,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "P916232D695CCCA1A"
+                "uid": "logging-infrastructure"
               },
               "editorMode": "code",
               "expr": "{kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | level =~ \"$Level\" | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Search\"",
@@ -161,7 +161,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "P916232D695CCCA1A"
+              "uid": "logging-infrastructure"
             },
             "definition": "",
             "hide": 0,
@@ -191,7 +191,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "P916232D695CCCA1A"
+              "uid": "logging-infrastructure"
             },
             "definition": "",
             "hide": 0,

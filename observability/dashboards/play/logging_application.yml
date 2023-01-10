@@ -20,7 +20,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "P5897D7B40533B99C"
+            "uid": "logging-application"
           },
           "fieldConfig": {
             "defaults": {
@@ -97,7 +97,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "P5897D7B40533B99C"
+                "uid": "logging-application"
               },
               "editorMode": "code",
               "expr": "sum(count_over_time({kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}} Message: {{.message}}\" |~ \"$Level\" |~\"$Search\"[$__interval]))",
@@ -111,7 +111,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "P5897D7B40533B99C"
+            "uid": "logging-application"
           },
           "description": "",
           "gridPos": {
@@ -135,7 +135,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "P5897D7B40533B99C"
+                "uid": "logging-application"
               },
               "editorMode": "code",
               "expr": "{kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Level\" |~\"$Search\"",
@@ -161,7 +161,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "P5897D7B40533B99C"
+              "uid": "logging-application"
             },
             "definition": "",
             "hide": 0,
@@ -190,7 +190,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "P5897D7B40533B99C"
+              "uid": "logging-application"
             },
             "definition": "",
             "description": "Falls hier nichts angezeigt wird muss wahrscheinlich die Zeit erweitert werden. Danach nochmal den Namespace wechseln.",
