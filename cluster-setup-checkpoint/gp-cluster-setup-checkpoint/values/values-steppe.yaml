@@ -19,8 +19,6 @@ applications:
         parameters:
           - name: "cephcluster.runOnInfra"
             value: "true"
-          - name: "cephcluster.monitoring.enabled"
-            value: "false"
           - name: "cephcluster.monitoring.createPrometheusRules"
             value: "false"
     ignoreDifferences:
