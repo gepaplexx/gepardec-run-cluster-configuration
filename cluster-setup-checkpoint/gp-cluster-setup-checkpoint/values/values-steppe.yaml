@@ -21,6 +21,8 @@ applications:
             value: "true"
           - name: "cephcluster.monitoring.createPrometheusRules"
             value: "false"
+          - name: "cephcluster.cephClusterSpec.healthCheck.livenessProbe.osd.disabled"
+            value: "true"
     ignoreDifferences:
       - group: ceph.rook.io
         kind: CephCluster
