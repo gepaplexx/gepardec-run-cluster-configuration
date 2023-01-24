@@ -107,9 +107,9 @@ applications:
           - name: "clusterMonitoring.prometheusK8s.remoteWrite.password"
             value: "AgA0hmzB5fD+FhG1QR39LBTZ6zNfbD7S5ajfKmICYOBupYYQixv2ajdw3JEp5K65w+Cy0AmZ14ZTPsn1IBI2S1Ql514y3JPzQcO43FOlrZFLdT+OZ2tuzcLzYwiXhuoeEAP1rsFezC41YypQZeVfgqBO25Zi697BmB57DR/jsWcjRCyNlJOqqENI5MPtegU4F3S7ArhEhDvwICoh+8FexJ6P7yv1TslybquPVQB0yu9syYfF2XJnV8PYLkGBgzOiHFztzaFSVGP/RCuOFbEN0ycXt9oEmp86wdbhGT+0slRqyJdMR6lo3U/FbQCYHakomrlQHzf8TNoGlVUZFFbiOiJ8k8lFHUa6i6TGbjEi01vIC1RRZUTc+EMwagwYaYWn8jYRp/9dN4I2zh3dz8Em+UCQoojDC1LiUBA/pK/Fm0ZVh7Ks4ZC9HWZVoQ9aUIpsfr1ngKEF36o0Ongmrl5BZ3Tz1npGaZHlnQlXCql+8tddW9SI89o06p5a8UXUnNWmKMOMZ4a2CYIZU7JI20GhfPuVPX8PSJGdKry8J246kmRavINJORlTzSe4NLUSzWD3PRy5DWYN0Ea3ptSw5WcmYSE6u81qKfQ83R8f+0ReyNOdFXeCXakcfrZxK+jx2d0au//Zt6HtORPJpjRmiUZ+NTcWnUaexPQli/cq4h46LthDqSai92GZK0gOSzjBccJ2EG4BHRsNFa2jQhkqxNaaOZcmJUG80VnNmBB1NLsbzTeShUUyUhc="
     syncPolicy:
-      automated: {}
-#        prune: true
-#        selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### OPENSHIFT IMAGE REGISTRY ######################
   internalRegistry:
