@@ -1,0 +1,35 @@
+name: Template Applications for renovate bot comparison
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  template-versions:
+    name: Create and commit version template
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.8.0
+      - name: create templates
+        run: |
+          bin/version-check.sh
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: updated templated argo applications for renovate bot
+          branch: main
+          file_pattern: 'versions/*.yaml'
+          commit_user_name: gepardec-complete
+          commit_author: gepardec-complete <gepardec-complete@github.com> # defaults to author of the commit that triggered the run
+          # Optional. Disable dirty check and always try to create a commit and push
+          skip_dirty_check: true
+          # Optional. Prevents the shell from expanding filenames.
+          # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+          disable_globbing: true
