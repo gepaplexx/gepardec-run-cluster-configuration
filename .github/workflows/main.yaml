@@ -28,8 +28,21 @@ jobs:
           file_pattern: 'versions/*.yaml'
           commit_user_name: gepardec-complete
           commit_author: gepardec-complete <gepardec-complete@github.com> # defaults to author of the commit that triggered the run
-          # Optional. Disable dirty check and always try to create a commit and push
-          skip_dirty_check: true
           # Optional. Prevents the shell from expanding filenames.
           # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
           disable_globbing: true
+  notify:
+    name: Slack Notifications
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    needs:
+      - template-versions
+    steps:
+      - name: Notify Slack channel on failure
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_ICON: https://github.com/fhochleitner/logos/raw/master/helm.png
+          SLACK_USERNAME: ${{ github.repository }}
+          SLACK_COLOR: '#ff0033'
+          SLACK_FOOTER: ''
