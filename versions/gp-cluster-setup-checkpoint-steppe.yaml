@@ -108,7 +108,7 @@ spec:
       - name: provider.openshift.clientSecret
         value: AgC7STOdSNPlXNoNu+tSHxpfLgjTflEBQ+V9EgXg+emeLzA9s+PKNnnbaH9wiiWIyB3el2qOHMsgUR93EsxAA9Rwnzf9getFfPlffR/dcyjqCdhL0c///s8AWQQ6OP8Dqap0OheLJVpbaFYtlylkhidN+YlRVdQ3kFE39hQYq0MJxzTC01IrYPp/SDQP8MKUVrOcBqomBCuQdlQNavpb2pmSIqVc4UQtuYAKyQ4QjiiNqipHCTvzfDdAJIjEfohqGoZZSUbb3w7iK5/j0BBlTTHlZ7pPgx4/TA3WhKJJZkPlKMvnnO5i0zqYtglA5KjZAoJXu1hVHVOMbuOdl6O6OxI+Vi7FTOWj7PbfplvxpNWyLPK6WYs6CR3ZP19XJU8lAahI5gHTKTlASXuUnLlv1Y45TBMyZSO1QvlBHvjpEAYQs+G19CR3vMQoXK1HONwC56TA9yA3lpXCQooLMsyqjt9bCzVKkjWx2T+Y802NcnxCJzGWVM3AzTv8zK6iOAtCsR8aS1YMPjXDomcDTl61qgU1PyDptN+wX1MtG5fLJ29FP4Z4099woNOhMPlsb04tRCTbJEVisvzq7XF+C5uVbwi0l72fHVJ8y3O+JxYSUdKa52uQa8t2LeJiiB3H5yozQkHESvjPOHJa5NMxij+yktDY+0/c4q50xDwNAUnZPpfg1XZJNppEEOfMLrWXG5jL+/1/J7DEA+ZBmHv2gziwS8HvLh6nRwI8tHVyD+trHCqDDJjJA15G
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.1.*
+    targetRevision: 0.3.*
   ignoreDifferences:
     - group: oauth.openshift.io
       jsonPointers:
