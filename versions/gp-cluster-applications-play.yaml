@@ -93,9 +93,6 @@ spec:
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
 ...
