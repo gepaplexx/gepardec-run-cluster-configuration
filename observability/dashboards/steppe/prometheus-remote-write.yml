@@ -392,6 +392,11 @@ spec:
         "list": [
           {
             "allValue": "prometheus-k8s-.+",
+            "current": {
+              "selected": true,
+              "text": "All",
+              "value": "$__all"
+            },
             "hide": 0,
             "includeAll": true,
             "multi": false,
