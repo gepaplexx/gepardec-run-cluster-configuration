@@ -392,18 +392,13 @@ spec:
         "list": [
           {
             "allValue": "prometheus-k8s-.+",
-            "current": {
-              "selected": true,
-              "text": "prometheus-k8s-1",
-              "value": "prometheus-k8s-1"
-            },
             "hide": 0,
             "includeAll": true,
             "multi": false,
             "name": "prometheusPod",
             "options": [
               {
-                "selected": false,
+                "selected": true,
                 "text": "All",
                 "value": "$__all"
               },
@@ -413,7 +408,7 @@ spec:
                 "value": "prometheus-k8s-0"
               },
               {
-                "selected": true,
+                "selected": false,
                 "text": "prometheus-k8s-1",
                 "value": "prometheus-k8s-1"
               }
