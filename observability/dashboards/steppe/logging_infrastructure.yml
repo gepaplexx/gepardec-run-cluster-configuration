@@ -176,7 +176,7 @@ spec:
               "stream": "",
               "type": 1
             },
-            "refresh": 1,
+            "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
@@ -205,7 +205,7 @@ spec:
               "stream": "{kubernetes_namespace_name=\"$Namespace\"}",
               "type": 1
             },
-            "refresh": 1,
+            "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 1,
