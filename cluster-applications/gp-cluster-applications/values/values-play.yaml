@@ -272,6 +272,10 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       targetRevision: "*"
       chart: "gp-multena-instance"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### VAULT ######################
   vault:
