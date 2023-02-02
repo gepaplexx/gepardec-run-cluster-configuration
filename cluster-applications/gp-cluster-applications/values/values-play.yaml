@@ -260,6 +260,19 @@ applications:
         prune: true
         selfHeal: true
 
+  ####################### Multena Instance ######################
+  multena-instance:
+    name: multena-instance
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: grafana-operator-system
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      targetRevision: "*"
+      chart: "gp-multena-instance"
+
   ##################### VAULT ######################
   vault:
     name: vault
