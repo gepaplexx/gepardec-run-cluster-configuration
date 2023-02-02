@@ -117,7 +117,7 @@ applications:
       namespace: gp-external-secrets
       create: false
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       targetRevision: "*"
       chart: gp-external-secrets-configuration
     syncPolicy:
