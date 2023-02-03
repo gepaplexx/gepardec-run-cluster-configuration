@@ -288,7 +288,7 @@ spec:
   source:
     chart: gp-oauth-group-sync
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.1.*
+    targetRevision: 0.2.*
   syncPolicy:
     automated:
       prune: true

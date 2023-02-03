@@ -327,6 +327,30 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: multena-instance
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+spec:
+  destination:
+    namespace: grafana-operator-system
+    server: 'https://kubernetes.default.svc'
+  project: gepaplexx
+  source:
+    chart: gp-multena-instance
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: vault
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
