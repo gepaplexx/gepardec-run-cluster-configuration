@@ -256,7 +256,8 @@ applications:
       targetRevision: "main"
       path: "observability/dashboards/"
       directory:
-        include: "{observability/dashboards/all/*,observability/dashboards/play/*}"
+        recurse: true
+        include: "{all/*,play/*}"
     syncPolicy:
       automated:
         prune: true
