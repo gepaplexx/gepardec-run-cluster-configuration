@@ -150,7 +150,9 @@ spec:
       ],
       "schemaVersion": 37,
       "style": "dark",
-      "tags": [],
+      "tags": [
+        "owner: Herbert Wirnsberger"    
+      ],
       "templating": {
         "list": [
           {

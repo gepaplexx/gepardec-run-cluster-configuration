@@ -445,7 +445,9 @@ spec:
       "refresh": false,
       "schemaVersion": 37,
       "style": "dark",
-      "tags": [],
+      "tags": [
+        "owner: Constantin Winkler"    
+      ],
       "templating": {
         "list": []
       },
