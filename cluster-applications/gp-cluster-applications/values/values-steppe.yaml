@@ -250,7 +250,10 @@ applications:
     source:
       repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
       targetRevision: "main"
-      path: "observability/dashboards/steppe"
+      path: "observability/dashboards/"
+      directory:
+        recurse: true
+        include: "{all/*,steppe/*}"
     syncPolicy:
       automated:
         prune: true
