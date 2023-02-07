@@ -254,6 +254,7 @@ applications:
     source:
       repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
       targetRevision: "main"
+      path: "observability/dashboards/"
       directory:
         include: "{observability/dashboards/all/*,observability/dashboards/play/*}"
     syncPolicy:
