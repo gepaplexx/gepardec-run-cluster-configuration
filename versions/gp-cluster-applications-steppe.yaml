@@ -250,7 +250,10 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
-    path: observability/dashboards/steppe
+    directory:
+      include: '{all/*,steppe/*}'
+      recurse: true
+    path: observability/dashboards/
     repoURL: https://github.com/gepaplexx/gepardec-run-cluster-configuration
     targetRevision: main
   syncPolicy:
