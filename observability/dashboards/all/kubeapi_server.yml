@@ -446,7 +446,8 @@ spec:
       "schemaVersion": 37,
       "style": "dark",
       "tags": [
-        "owner: Constantin Winkler"    
+        "Ansprechperson: Constantin Winkler",
+        "Themengebiet: Betrieb"
       ],
       "templating": {
         "list": []

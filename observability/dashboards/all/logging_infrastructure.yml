@@ -7,7 +7,7 @@ metadata:
     dashboard: system
 spec:
   customFolderName: Gepardec Run
-  json: >
+  json: |
     {
       "description": "",
       "editable": true,
@@ -100,7 +100,7 @@ spec:
                 "uid": "logging-infrastructure"
               },
               "editorMode": "code",
-              "expr": "sum(count_over_time({kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | level =~ \"$Level\" |~ \"$Search\"[$__interval]))",
+              "expr": "sum(count_over_time({kubernetes_namespace_name=~\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | level =~ \"$Level\" |~ \"$Search\"[$__interval]))",
               "queryType": "range",
               "refId": "A"
             }
@@ -138,7 +138,7 @@ spec:
                 "uid": "logging-infrastructure"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | level =~ \"$Level\" | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Search\"",
+              "expr": "{kubernetes_namespace_name=~\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | level =~ \"$Level\" | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Search\"",
               "queryType": "range",
               "refId": "A"
             }
@@ -151,7 +151,8 @@ spec:
       "schemaVersion": 37,
       "style": "dark",
       "tags": [
-        "owner: Herbert Wirnsberger"    
+        "Ansprechperson: Herbert Wirnsberger",
+        "Themengebiet: Monitoring"
       ],
       "templating": {
         "list": [
@@ -169,7 +170,7 @@ spec:
             "hide": 0,
             "includeAll": false,
             "label": "",
-            "multi": false,
+            "multi": true,
             "name": "Namespace",
             "options": [],
             "query": {
@@ -204,7 +205,7 @@ spec:
             "query": {
               "label": "kubernetes_pod_name",
               "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "{kubernetes_namespace_name=\"$Namespace\"}",
+              "stream": "{kubernetes_namespace_name=~\"$Namespace\"}",
               "type": 1
             },
             "refresh": 2,
@@ -254,7 +255,7 @@ spec:
         ]
       },
       "time": {
-        "from": "now-1h",
+        "from": "now-15m",
         "to": "now"
       },
       "timepicker": {
@@ -274,6 +275,6 @@ spec:
       "timezone": "",
       "title": "Logging Infrastructure",
       "uid": "logging-infrastructure",
-      "version": 19,
+      "version": 5,
       "weekStart": ""
     }

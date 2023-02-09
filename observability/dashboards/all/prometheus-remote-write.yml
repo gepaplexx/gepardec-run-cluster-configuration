@@ -388,7 +388,8 @@ spec:
       "schemaVersion": 37,
       "style": "dark",
       "tags": [
-        "owner: Herbert Wirnsberger"    
+        "Ansprechperson: Herbert Wirnsberger",
+        "Themengebiet: Monitoring"
       ],
       "templating": {
         "list": [
