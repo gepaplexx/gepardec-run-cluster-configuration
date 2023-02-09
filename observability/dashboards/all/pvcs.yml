@@ -405,7 +405,7 @@ spec:
           "type": "logs"
         }
       ],
-      "refresh": "5s",
+      "refresh": "",
       "schemaVersion": 37,
       "style": "dark",
       "tags": [
