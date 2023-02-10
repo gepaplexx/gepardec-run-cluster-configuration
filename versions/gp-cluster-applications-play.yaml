@@ -131,6 +131,8 @@ spec:
         value: console.apps.play.gepaplexx.com
       - name: slack.channel
         value: AgBfDGv6D04mh/nf4Few4hJXYljbGYg6TUBMzdXu3ptBh1qYHAKavBLP3TXuznUUgkLVbB9cjTC/QIjZ8TrjfnjYt5BzFU0NhRHV6TLC8sYyIEq2b26s5vg4PtwIdPOD0nY/YWDLk7qzw7qLS2/NWAIaFW4g4MmQZxdHhBHATLh0aEuh5rP9DFL8bsH8EGPk+6CYsziKIbZMz3ihfyfV3cFT5EbmUg3u0mwVYH46VJquE1p53EezrCc0vGh0nwEjdubBlV14kLd4dlL2nEBl+D3b/41jc7gJ3vsG+Xj1t46yfEOsRaQtv90WnZ35PF/gPbBQNQnvay8cW2qnJT96hIEUKeszPzrgR80f1JJemIc5O10GZFXMOuZwAmBx9mqhJ0L0m9aPo1KkDVfP82opcJdhUJQJtAMyMulu6M0cRKQGZFvgOtQE+KyeFRdMpBLj18FMQ812rhWMbyFTGEFkLYp1DrXPlx0JMN4mWRkgOhSKWNVRJ5y9buvo2sSdWuP9Svkipbc3RT04JWX3MG0/E7uwFGlF5NTq1LSzDd49WXd71M+vk0twN3GqlarcnbA5wYMJnGvMhMy5LtHYcshaA5cfm89F9HWmrNrSa04R4NLL8Ep/j7CMU14oJRTvP67uMg8xo9aUqb2beO9trQIB5G7alFGweL1OsNVSTAp13/NdZWGroQ4G/xXeIBqTjpKzdEG7SkyXkb6WZpwdUnazJTLrv0NCtl/JX55i8wFQ7egwEpC9BcFvQuhYHtLRb3xsugx/EnIoMuTWBhKau8+0oo/NIExkkzWyu8uoElgB5BfoE8R8
+      - name: updater.delay
+        value: "14"
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
   syncPolicy:
