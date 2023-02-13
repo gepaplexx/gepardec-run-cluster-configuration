@@ -8,6 +8,15 @@ metadata:
   name: {{ .name }}
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "{{ .name }} | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "{{ .name }} | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "{{ .name }} | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "{{ .name }} | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "{{ .name }} | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "{{ .name }} | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "{{ .name }} | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "{{ .name }} | sync-succeeded"
 spec:
   destination:
     {{- if (.destination.namespace ) }}
