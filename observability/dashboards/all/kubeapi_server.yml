@@ -46,7 +46,8 @@ spec:
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "palette-classic"
+                "mode": "continuous-RdYlGr",
+                "seriesBy": "last"
               },
               "custom": {
                 "axisCenteredZero": false,
@@ -75,10 +76,12 @@ spec:
                   "mode": "none"
                 },
                 "thresholdsStyle": {
-                  "mode": "off"
+                  "mode": "line"
                 }
               },
               "mappings": [],
+              "max": 5,
+              "min": 2,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -88,7 +91,7 @@ spec:
                   },
                   {
                     "color": "red",
-                    "value": 80
+                    "value": 1
                   }
                 ]
               }
@@ -101,13 +104,13 @@ spec:
             "x": 0,
             "y": 0
           },
-          "id": 9,
+          "id": 7,
           "options": {
             "legend": {
               "calcs": [],
               "displayMode": "list",
               "placement": "bottom",
-              "showLegend": true
+              "showLegend": false
             },
             "tooltip": {
               "mode": "single",
@@ -121,13 +124,13 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "rate((apiserver_request_total{namespace=\"openshift-apiserver\"}[5m]))",
+              "expr": "namespace:container_cpu_usage:sum{namespace=\"openshift-kube-apiserver\"}",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "KubeApi requests rate",
+          "title": "Kubeapi namespace cpu ",
           "type": "timeseries"
         },
         {
@@ -146,8 +149,8 @@ spec:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
+                "drawStyle": "bars",
+                "fillOpacity": 100,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
@@ -155,7 +158,7 @@ spec:
                   "viz": false
                 },
                 "lineInterpolation": "linear",
-                "lineWidth": 1,
+                "lineWidth": 2,
                 "pointSize": 5,
                 "scaleDistribution": {
                   "type": "linear"
@@ -185,7 +188,146 @@ spec:
                 ]
               }
             },
-            "overrides": []
+            "overrides": [
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "acme.cert-manager.io",
+                      "actions.kio.kasten.io",
+                      "admissionregistration.k8s.io",
+                      "apiextensions.k8s.io",
+                      "apik10.kasten.io",
+                      "apiregistration.k8s.io",
+                      "apiserver.openshift.io",
+                      "apps",
+                      "apps.kio.kasten.io",
+                      "apps.open-cluster-management.io",
+                      "apps.openshift.io",
+                      "argoproj.io",
+                      "auth.kio.kasten.io",
+                      "authentication.k8s.io",
+                      "authorization.k8s.io",
+                      "authorization.openshift.io",
+                      "autoscaling",
+                      "autoscaling.openshift.io",
+                      "awx.ansible.com",
+                      "batch",
+                      "binding.operators.coreos.com",
+                      "bitnami.com",
+                      "broker.amq.io",
+                      "build.openshift.io",
+                      "ceph.rook.io",
+                      "cert-manager.io",
+                      "certificates.k8s.io",
+                      "cloudcredential.openshift.io",
+                      "cluster.core.oam.dev",
+                      "config.kio.kasten.io",
+                      "config.openshift.io",
+                      "console.openshift.io",
+                      "controlplane.operator.openshift.io",
+                      "coordination.k8s.io",
+                      "core.libopenstorage.org",
+                      "core.oam.dev",
+                      "core.observatorium.io",
+                      "costmanagement-metrics-cfg.openshift.io",
+                      "cr.kanister.io",
+                      "dataflow.argoproj.io",
+                      "dex.coreos.com",
+                      "discovery.k8s.io",
+                      "dist.kio.kasten.io",
+                      "events.k8s.io",
+                      "extensions",
+                      "extensions.istio.io",
+                      "external-secrets.io",
+                      "flowcontrol.apiserver.k8s.io",
+                      "generators.external-secrets.io",
+                      "helm.openshift.io",
+                      "image.openshift.io",
+                      "imageregistry.operator.openshift.io",
+                      "ingress.operator.openshift.io",
+                      "install.istio.io",
+                      "integreatly.org",
+                      "jaegertracing.io",
+                      "k8s.cni.cncf.io",
+                      "k8s.keycloak.org",
+                      "k8s.ovn.org",
+                      "keda.sh",
+                      "keycloak.org",
+                      "kyverno.io",
+                      "logging.openshift.io",
+                      "loki.grafana.com",
+                      "machine.openshift.io",
+                      "machineconfiguration.openshift.io",
+                      "metal3.io",
+                      "metrics.k8s.io",
+                      "migration.k8s.io",
+                      "monitoring.coreos.com",
+                      "network.openshift.io",
+                      "network.operator.openshift.io",
+                      "networking.istio.io",
+                      "networking.k8s.io",
+                      "node.k8s.io",
+                      "oadp.openshift.io",
+                      "oauth.openshift.io",
+                      "objectbucket.io",
+                      "observability.open-cluster-management.io",
+                      "operator.external-secrets.io",
+                      "operator.openshift.io",
+                      "operators.coreos.com",
+                      "packages.operators.coreos.com",
+                      "performance.openshift.io",
+                      "pipelines.openshift.io",
+                      "platform.stackrox.io",
+                      "play.gepaplexx.com.v1beta1.external.metrics.k8s.io",
+                      "policy",
+                      "policy.open-cluster-management.io",
+                      "postgres-operator.crunchydata.com",
+                      "project.openshift.io",
+                      "quay.redhat.com",
+                      "quota.openshift.io",
+                      "rbac.authorization.k8s.io",
+                      "redhatcop.redhat.io",
+                      "reporting.kio.kasten.io",
+                      "route.openshift.io",
+                      "samples.operator.openshift.io",
+                      "scheduling.k8s.io",
+                      "security.internal.openshift.io",
+                      "security.istio.io",
+                      "security.openshift.io",
+                      "servicebinding.io",
+                      "snapshot.storage.k8s.io",
+                      "standard.oam.dev",
+                      "storage.k8s.io",
+                      "template.openshift.io",
+                      "trident.netapp.io",
+                      "triliovault.trilio.io",
+                      "tuned.openshift.io",
+                      "user.openshift.io",
+                      "velero.io",
+                      "wgpolicyk8s.io",
+                      "whereabouts.cni.cncf.io",
+                      "work.open-cluster-management.io"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
           },
           "gridPos": {
             "h": 23,
@@ -197,13 +339,14 @@ spec:
           "options": {
             "legend": {
               "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "width": 200
             },
             "tooltip": {
               "mode": "single",
-              "sort": "none"
+              "sort": "asc"
             }
           },
           "targets": [
@@ -214,6 +357,7 @@ spec:
               },
               "editorMode": "builder",
               "expr": "sum by(api) (rate({kubernetes_pod_name=~\"apiserver.+|kube-apiserver-.+\"} |= `Trace` != `GuaranteedUpdate` != `recursive` |~ `List|Get|Update|Delete|Patch|Create` |= `apirequestcounts` | json | level = `info` | line_format `{{.message}}` | pattern `<_> <_> <_> <_> Trace[<traceid>]: \"<method>\" url:<url>,user-agent:<useragent> <_>` | line_format `{{.url}}` | pattern `<_>/apis/apiserver.openshift.io/v1/apirequestcounts/<ns>/` | line_format `{{.ns}}` | pattern `<_>.<_>.<api>` [$__interval]))",
+              "legendFormat": "{{api}}",
               "queryType": "range",
               "refId": "A"
             }
@@ -284,13 +428,14 @@ spec:
             "x": 0,
             "y": 8
           },
-          "id": 7,
+          "id": 9,
           "options": {
             "legend": {
               "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "width": 200
             },
             "tooltip": {
               "mode": "single",
@@ -303,14 +448,14 @@ spec:
                 "type": "prometheus",
                 "uid": "prometheus"
               },
-              "editorMode": "code",
-              "expr": "namespace:container_cpu_usage:sum{namespace=\"openshift-kube-apiserver\"}",
-              "legendFormat": "__auto",
+              "editorMode": "builder",
+              "expr": "sum by(verb, code) (rate(apiserver_request_total{namespace=\"openshift-apiserver\"}[5m]))",
+              "legendFormat": "{{verb}} {{code}}",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "Kubeapi namespace cpu ",
+          "title": "KubeApi requests rate",
           "type": "timeseries"
         },
         {
@@ -329,7 +474,7 @@ spec:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
-                "drawStyle": "line",
+                "drawStyle": "bars",
                 "fillOpacity": 0,
                 "gradientMode": "none",
                 "hideFrom": {
@@ -338,7 +483,7 @@ spec:
                   "viz": false
                 },
                 "lineInterpolation": "linear",
-                "lineWidth": 1,
+                "lineWidth": 2,
                 "pointSize": 5,
                 "scaleDistribution": {
                   "type": "linear"
@@ -368,7 +513,194 @@ spec:
                 ]
               }
             },
-            "overrides": []
+            "overrides": [
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "alertmanagers",
+                      "analysisruns",
+                      "analysistemplates",
+                      "apiservices",
+                      "applicationrevisions",
+                      "applications",
+                      "applicationsets",
+                      "argocds",
+                      "baremetalhosts",
+                      "baukasten-argocd-test",
+                      "blueprints",
+                      "certificaterequests",
+                      "certificates",
+                      "clusteroperators",
+                      "clusterpolicies",
+                      "clusterpolicyreports",
+                      "clusterrolebindings",
+                      "clusterroles",
+                      "clustersecretstores",
+                      "clusterserviceversions",
+                      "clusterversions",
+                      "clusterworkflowtemplates",
+                      "componentdefinitions",
+                      "configs",
+                      "controllerconfigs",
+                      "controllerrevisions",
+                      "costmanagement-metrics-operator",
+                      "costmanagementmetricsconfigs",
+                      "credentialsrequests",
+                      "cronjobs",
+                      "daemonsets",
+                      "default",
+                      "definitionrevisions",
+                      "deployments",
+                      "endpointslices",
+                      "eventsources",
+                      "externalsecrets",
+                      "felix-test",
+                      "flowschemas",
+                      "gattma-keycloak",
+                      "gattma-pg",
+                      "gepaplexx-cicd-eventbus",
+                      "gepaplexx-cicd-tools",
+                      "gepardec-sso-dev",
+                      "gepardec-sso-test",
+                      "gp-cluster-policies",
+                      "gp-external-secrets",
+                      "gp-infrastructure",
+                      "gp-sso",
+                      "grafana-operator-system",
+                      "grafanadashboards",
+                      "grafananotificationchannels",
+                      "grafanas",
+                      "helmchartrepositories",
+                      "images",
+                      "imagestreams",
+                      "installplans",
+                      "ippools",
+                      "jobs",
+                      "keycloakclients",
+                      "keycloakrealmimports",
+                      "kube-node-lease",
+                      "kube-public",
+                      "kube-system",
+                      "kubeletconfigs",
+                      "machineconfigpools",
+                      "machineconfigs",
+                      "machinehealthchecks",
+                      "machines",
+                      "machinesets",
+                      "mega-backend-herbert-test",
+                      "mega-backend-main",
+                      "mega-cicd",
+                      "mega-frontend-environment-test",
+                      "mega-frontend-main",
+                      "networks",
+                      "oauthclients",
+                      "olmconfigs",
+                      "openshift",
+                      "openshift-apiserver",
+                      "openshift-apiserver-operator",
+                      "openshift-authentication",
+                      "openshift-authentication-operator",
+                      "openshift-cloud-credential-operator",
+                      "openshift-cluster-machine-approver",
+                      "openshift-cluster-node-tuning-operator",
+                      "openshift-cluster-storage-operator",
+                      "openshift-config-operator",
+                      "openshift-console",
+                      "openshift-controller-manager",
+                      "openshift-dns",
+                      "openshift-etcd",
+                      "openshift-etcd-operator",
+                      "openshift-gitops",
+                      "openshift-host-network",
+                      "openshift-image-registry",
+                      "openshift-ingress",
+                      "openshift-kube-apiserver",
+                      "openshift-kube-apiserver-operator",
+                      "openshift-kube-controller-manager",
+                      "openshift-kube-controller-manager-operator",
+                      "openshift-kube-scheduler",
+                      "openshift-logging",
+                      "openshift-machine-api",
+                      "openshift-machine-config-operator",
+                      "openshift-marketplace",
+                      "openshift-monitoring",
+                      "openshift-multus",
+                      "openshift-network-diagnostics",
+                      "openshift-network-operator",
+                      "openshift-oauth-apiserver",
+                      "openshift-operator-lifecycle-manager",
+                      "openshift-operators",
+                      "openshift-ovn-kubernetes",
+                      "openshift-service-ca",
+                      "openshift-service-ca-operator",
+                      "openshift-user-workload-monitoring",
+                      "openshiftapiservers",
+                      "operatorgroups",
+                      "operators",
+                      "orders",
+                      "overlappingrangeipreservations",
+                      "patches",
+                      "pgupgrades",
+                      "poddisruptionbudgets",
+                      "podnetworkconnectivitychecks",
+                      "policydefinitions",
+                      "postgresclusters",
+                      "prioritylevelconfigurations",
+                      "projecthelmchartrepositories",
+                      "projects",
+                      "prometheuses",
+                      "prometheusrules",
+                      "refreshtokens",
+                      "replicasets",
+                      "reports",
+                      "resourcelockers",
+                      "rolebindings",
+                      "roles",
+                      "rollouts",
+                      "rook-ceph",
+                      "scch-grafana-playground",
+                      "sealedsecrets",
+                      "secretstores",
+                      "securitycontextconstraints",
+                      "sensors",
+                      "servicebindings",
+                      "servicemonitors",
+                      "shahin-pg",
+                      "statefulsets",
+                      "storageclasses",
+                      "subjectaccessreviews",
+                      "subscriptions",
+                      "templates",
+                      "thanosrulers",
+                      "tokenreviews",
+                      "traitdefinitions",
+                      "validatingwebhookconfigurations",
+                      "vela-system",
+                      "volumeattachments",
+                      "workflowartifactgctasks",
+                      "workflows",
+                      "workflowtaskresults"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
           },
           "gridPos": {
             "h": 23,
@@ -380,9 +712,10 @@ spec:
           "options": {
             "legend": {
               "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "width": 200
             },
             "tooltip": {
               "mode": "single",
@@ -397,6 +730,7 @@ spec:
               },
               "editorMode": "code",
               "expr": "sum by(ns) (rate({kubernetes_pod_name=~\"apiserver.+|kube-apiserver-.+\"} |= `Trace` != `GuaranteedUpdate` != `recursive` |~ `List|Get|Update|Delete|Patch|Create` | json | level = `info` | line_format `{{.message}}` | pattern `<_> <_> <_> <_> Trace[<traceid>]: \"<method>\" url:<url>,user-agent:<useragent> <trace2>` | line_format `{{.url}}` | pattern `<_>/api/v1/namespaces/<ns>/` | line_format `{{.url}}` | pattern `<_>/apis/<ns>/` | pattern `<_>/apis/apps/v1/namespaces/<ns>/` | pattern `<_>/apis/<api>/<_>/<ns>/` | pattern `<_>/apis/<api>/<_>/namespaces/<ns>/` [$__interval]))",
+              "legendFormat": "{{ns}}",
               "queryType": "range",
               "refId": "A"
             }
@@ -410,14 +744,14 @@ spec:
             "uid": "logging-infrastructure"
           },
           "gridPos": {
-            "h": 17,
+            "h": 16,
             "w": 12,
             "x": 12,
             "y": 23
           },
           "id": 4,
           "options": {
-            "dedupStrategy": "none",
+            "dedupStrategy": "signature",
             "enableLogDetails": true,
             "prettifyLogMessage": false,
             "showCommonLabels": false,
@@ -433,7 +767,7 @@ spec:
                 "uid": "logging-infrastructure"
               },
               "editorMode": "builder",
-              "expr": "{kubernetes_pod_name=~\"apiserver.+|kube-apiserver-.+\"} |= `Trace` != `GuaranteedUpdate` != `recursive` |~ `List|Get|Update|Delete|Patch|Create` | json | level = `info` | line_format `{{.message}}` | pattern `<_> <_> Trace[<traceid>]: <uff>` | line_format `{{.traceid}}: {{.uff}}`",
+              "expr": "{kubernetes_pod_name=~\"apiserver.+|kube-apiserver-.+\"} |= `Trace` != `GuaranteedUpdate` != `recursive` |~ `$Verbs` | json | level = `info` | line_format `{{.message}}` | pattern `<_> <_> Trace[<traceid>]: <uff>` | line_format `{{.traceid}}: {{.uff}}`",
               "queryType": "range",
               "refId": "A"
             }
@@ -450,16 +784,74 @@ spec:
         "Themengebiet: Betrieb"
       ],
       "templating": {
-        "list": []
+        "list": [
+          {
+            "allValue": "List|Get|Update|Delete|Patch|Create",
+            "current": {
+              "selected": true,
+              "text": [
+                "Delete"
+              ],
+              "value": [
+                "Delete"
+              ]
+            },
+            "hide": 0,
+            "includeAll": true,
+            "multi": true,
+            "name": "Verbs",
+            "options": [
+              {
+                "selected": false,
+                "text": "All",
+                "value": "$__all"
+              },
+              {
+                "selected": false,
+                "text": "List",
+                "value": "List"
+              },
+              {
+                "selected": false,
+                "text": "Get",
+                "value": "Get"
+              },
+              {
+                "selected": false,
+                "text": "Update",
+                "value": "Update"
+              },
+              {
+                "selected": true,
+                "text": "Delete",
+                "value": "Delete"
+              },
+              {
+                "selected": false,
+                "text": "Patch",
+                "value": "Patch"
+              },
+              {
+                "selected": false,
+                "text": "Create",
+                "value": "Create"
+              }
+            ],
+            "query": "List, Get, Update, Delete, Patch, Create",
+            "queryValue": "",
+            "skipUrlSync": false,
+            "type": "custom"
+          }
+        ]
       },
       "time": {
-        "from": "now-3h",
+        "from": "now-6h",
         "to": "now"
       },
       "timepicker": {},
       "timezone": "",
-      "title": "Kubeapi server zerklauben",
-      "uid": "kubeapi-server-dashboard",
-      "version": 104,
+      "title": "Kubeapi-Server",
+      "uid": "kubeapi-server",
+      "version": 232697,
       "weekStart": ""
     }
