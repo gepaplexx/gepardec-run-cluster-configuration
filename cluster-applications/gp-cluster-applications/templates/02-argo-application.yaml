@@ -26,6 +26,7 @@ spec:
     automated:
       prune: {{ .syncPolicy.automated.prune }}
       selfHeal: {{ .syncPolicy.automated.selfHeal }}
+      replace: {{ .syncPolicy.automated.replace | default "false"}}
     {{- end }}
     syncOptions:
       - CreateNamespace={{ .destination.create }}
