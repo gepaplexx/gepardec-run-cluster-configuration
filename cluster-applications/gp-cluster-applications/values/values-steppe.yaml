@@ -141,7 +141,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.8.*"
+      targetRevision: "0.9.*"
       helm:
         parameters:
           - name: "argo_workflows.images.pullPolicy"
@@ -186,7 +186,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.1.*"
+      targetRevision: "0.2.*"
     syncPolicy:
       automated:
         prune: true
