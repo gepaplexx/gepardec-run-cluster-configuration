@@ -123,7 +123,7 @@ applications:
       automated:
         prune: true
         selfHeal: true
-        replace: true
+      replace: true
 
   ##################### EXTERNAL SECRETS CONFIGURATION ######################
   external-secrets:
