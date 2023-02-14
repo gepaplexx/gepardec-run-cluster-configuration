@@ -57,7 +57,7 @@
               "keepTime": false,
               "tags": [],
               "targetBlank": true,
-              "title": "View  Pods of Namespace on OpenShift",
+              "title": "View Pods of Namespace on OpenShift",
               "tooltip": "Uses the alphabetically first element of Namespace!",
               "type": "link",
               "url": "https://console.apps.$Cluster.gepaplexx.com/k8s/ns/$Namespace/pods"
@@ -79,10 +79,10 @@
                     "axisCenteredZero": false,
                     "axisColorMode": "text",
                     "axisLabel": "",
-                    "axisPlacement": "hidden",
+                    "axisPlacement": "auto",
                     "barAlignment": 0,
                     "drawStyle": "bars",
-                    "fillOpacity": 100,
+                    "fillOpacity": 0,
                     "gradientMode": "none",
                     "hideFrom": {
                       "legend": false,
@@ -95,7 +95,7 @@
                     "scaleDistribution": {
                       "type": "linear"
                     },
-                    "showPoints": "never",
+                    "showPoints": "auto",
                     "spanNulls": false,
                     "stacking": {
                       "group": "A",
@@ -113,10 +113,13 @@
                       {
                         "color": "green",
                         "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
                       }
                     ]
-                  },
-                  "unit": "short"
+                  }
                 },
                 "overrides": []
               },
@@ -132,10 +135,10 @@
                   "calcs": [],
                   "displayMode": "list",
                   "placement": "bottom",
-                  "showLegend": false
+                  "showLegend": true
                 },
                 "tooltip": {
-                  "mode": "multi",
+                  "mode": "single",
                   "sort": "none"
                 }
               },
@@ -160,8 +163,9 @@
                 "type": "loki",
                 "uid": "logging-infrastructure"
               },
+              "description": "",
               "gridPos": {
-                "h": 25,
+                "h": 22,
                 "w": 24,
                 "x": 0,
                 "y": 5
@@ -206,12 +210,8 @@
               {
                 "current": {
                   "selected": true,
-                  "text": [
-                    "openshift-apiserver"
-                  ],
-                  "value": [
-                    "openshift-apiserver"
-                  ]
+                  "text": [],
+                  "value": []
                 },
                 "datasource": {
                   "type": "loki",
@@ -237,7 +237,7 @@
                 "type": "query"
               },
               {
-                "allValue": ".*",
+                "allValue": "",
                 "current": {
                   "selected": false,
                   "text": "All",
@@ -262,7 +262,7 @@
                 "refresh": 2,
                 "regex": "",
                 "skipUrlSync": false,
-                "sort": 1,
+                "sort": 0,
                 "type": "query"
               },
               {
@@ -304,11 +304,30 @@
                 "type": "textbox"
               },
               {
+                "current": {
+                  "selected": false,
+                  "text": "play",
+                  "value": "play"
+                },
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "prometheus"
+                },
+                "definition": "label_values(cluster_discriminator)",
                 "hide": 2,
+                "includeAll": false,
+                "multi": false,
                 "name": "Cluster",
-                "query": "play",
+                "options": [],
+                "query": {
+                  "query": "label_values(cluster_discriminator)",
+                  "refId": "StandardVariableQuery"
+                },
+                "refresh": 1,
+                "regex": "",
                 "skipUrlSync": false,
-                "type": "constant"
+                "sort": 0,
+                "type": "query"
               }
             ]
           },
