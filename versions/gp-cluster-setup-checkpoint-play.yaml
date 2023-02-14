@@ -6,6 +6,15 @@ metadata:
   name: cluster-logging-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-logging-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-logging-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-logging-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-logging-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-logging-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-logging-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-logging-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-logging-operator | sync-succeeded"
 spec:
   destination:
     namespace: openshift-logging
@@ -21,6 +30,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -30,6 +40,15 @@ metadata:
   name: external-secrets-configuration
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "external-secrets-configuration | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "external-secrets-configuration | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "external-secrets-configuration | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "external-secrets-configuration | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "external-secrets-configuration | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "external-secrets-configuration | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "external-secrets-configuration | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "external-secrets-configuration | sync-succeeded"
 spec:
   destination:
     namespace: gp-external-secrets
@@ -45,6 +64,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -54,6 +74,15 @@ metadata:
   name: grafana-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "grafana-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "grafana-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "grafana-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "grafana-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "grafana-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "grafana-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "grafana-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "grafana-operator | sync-succeeded"
 spec:
   destination:
     namespace: grafana-operator-system
@@ -69,6 +98,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -78,6 +108,15 @@ metadata:
   name: keycloak-instance
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "keycloak-instance | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "keycloak-instance | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "keycloak-instance | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "keycloak-instance | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "keycloak-instance | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "keycloak-instance | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "keycloak-instance | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "keycloak-instance | sync-succeeded"
 spec:
   destination:
     namespace: gp-sso
@@ -108,6 +147,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -117,6 +157,15 @@ metadata:
   name: kyverno
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "kyverno | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "kyverno | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "kyverno | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "kyverno | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "kyverno | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "kyverno | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "kyverno | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "kyverno | sync-succeeded"
 spec:
   destination:
     namespace: gp-cluster-policies
@@ -132,6 +181,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=true
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -141,6 +191,15 @@ metadata:
   name: rook-ceph-instance
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "rook-ceph-instance | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "rook-ceph-instance | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "rook-ceph-instance | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "rook-ceph-instance | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "rook-ceph-instance | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "rook-ceph-instance | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "rook-ceph-instance | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "rook-ceph-instance | sync-succeeded"
 spec:
   destination:
     namespace: rook-ceph
@@ -162,4 +221,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...

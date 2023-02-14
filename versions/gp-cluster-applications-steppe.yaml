@@ -6,6 +6,15 @@ metadata:
   name: cluster-logging-instance
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-logging-instance | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-logging-instance | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-logging-instance | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-logging-instance | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-logging-instance | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-logging-instance | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-logging-instance | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-logging-instance | sync-succeeded"
 spec:
   destination:
     namespace: openshift-logging
@@ -43,6 +52,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -52,6 +62,15 @@ metadata:
   name: cluster-logging-eventrouter
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-logging-eventrouter | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-logging-eventrouter | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-logging-eventrouter | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-logging-eventrouter | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-logging-eventrouter | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-logging-eventrouter | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-logging-eventrouter | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-logging-eventrouter | sync-succeeded"
 spec:
   destination:
     namespace: openshift-logging
@@ -67,6 +86,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -76,6 +96,15 @@ metadata:
   name: cluster-monitoring
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-monitoring | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-monitoring | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-monitoring | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-monitoring | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-monitoring | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-monitoring | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-monitoring | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-monitoring | sync-succeeded"
 spec:
   destination:
     namespace: openshift-monitoring
@@ -101,6 +130,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -110,6 +140,15 @@ metadata:
   name: cluster-updater
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-updater | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-updater | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-updater | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-updater | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-updater | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-updater | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-updater | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-updater | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -135,6 +174,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -144,6 +184,15 @@ metadata:
   name: gepaplexx-cicd
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "gepaplexx-cicd | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "gepaplexx-cicd | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "gepaplexx-cicd | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "gepaplexx-cicd | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "gepaplexx-cicd | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "gepaplexx-cicd | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "gepaplexx-cicd | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "gepaplexx-cicd | sync-succeeded"
 spec:
   destination:
     namespace: openshift-gitops
@@ -159,6 +208,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -168,6 +218,15 @@ metadata:
   name: gepaplexx-cicd-eventbus
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "gepaplexx-cicd-eventbus | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "gepaplexx-cicd-eventbus | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "gepaplexx-cicd-eventbus | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "gepaplexx-cicd-eventbus | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "gepaplexx-cicd-eventbus | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "gepaplexx-cicd-eventbus | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "gepaplexx-cicd-eventbus | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "gepaplexx-cicd-eventbus | sync-succeeded"
 spec:
   destination:
     namespace: gepaplexx-cicd-eventbus
@@ -176,13 +235,14 @@ spec:
   source:
     chart: gepaplexx-cicd-eventbus
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.1.*
+    targetRevision: 0.2.*
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -192,6 +252,15 @@ metadata:
   name: gepaplexx-cicd-tools
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "gepaplexx-cicd-tools | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "gepaplexx-cicd-tools | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "gepaplexx-cicd-tools | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "gepaplexx-cicd-tools | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "gepaplexx-cicd-tools | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "gepaplexx-cicd-tools | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "gepaplexx-cicd-tools | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "gepaplexx-cicd-tools | sync-succeeded"
 spec:
   destination:
     namespace: gepaplexx-cicd-tools
@@ -228,13 +297,14 @@ spec:
       - name: argo_workflows.archive.secretkey
         value: AgCdVQv/iTeSdCJARICffov30pChhZogJjlQBUdM24a5sxdXtnWeCxEaRzTUqybNRCAZQHN8N+hiH0LY+65Mf35mUVhjoP1ukgnk99Tyw2qrormrVfUXZcPclhiGJ922joIMr2vCQABVV2cJJTbtQW30b05TaE4Qz1IwwE7qYi7Qc6aXcNH2Hya9uWwRSKWqWWc4gtYkWl+Gv8/eIbmEj21Jpfpr9nt/uaWL1DBquDjpxr2j1pwLv3WR+iVSd2bxHxr5J8SSK5MJe9Dz3KdZvaleuL/dUJxFDiBlVk+iCEx0u/mLUZfjop3F8Ji9mx+LgFtG5q4D07IjQOSCGBIfVvlg9UEzn+MAjIJShHpZGgtjIRFGNKBnaX14YPRCP612UpL6Y1qyvUYCIbk1K6q2o6pIgONeMY6qBTCZehl0fYZw7/Vn30ayqJx9DtBsh9N7UYTle+fgdUXhvLNvXt2TnI9qQLo8bV+3YXAwDJLnK3vz3+yTOfvqeLY3fUQYvPDbh/20IVjA2kNtR2sKpayzSaApot8S3lKnQFEXjkm0acl/jEWdFI7+NWEhkEZ4uAHBAdQbCZzelZjOBd5RG4hbIxPYvIqSDgwojwP9h5GE+DupSxytJukQ2slrVxTWky/wrItgsWuiWGZVp6uQ0PsnukGKt8OrKyrzW/q+ERfJHpSPsQtiApZcjW07eDHv65H7DSmAzEd35yUkhaSCmoKGwfy6tYQphTzXbcwG+0elS7H0drnrSn0=
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.8.*
+    targetRevision: 0.9.*
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -244,6 +314,15 @@ metadata:
   name: grafana-dashboards
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "grafana-dashboards | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "grafana-dashboards | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "grafana-dashboards | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "grafana-dashboards | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "grafana-dashboards | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "grafana-dashboards | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "grafana-dashboards | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "grafana-dashboards | sync-succeeded"
 spec:
   destination:
     namespace: grafana-operator-system
@@ -262,6 +341,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -271,6 +351,15 @@ metadata:
   name: grafana-instance
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "grafana-instance | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "grafana-instance | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "grafana-instance | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "grafana-instance | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "grafana-instance | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "grafana-instance | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "grafana-instance | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "grafana-instance | sync-succeeded"
 spec:
   destination:
     namespace: grafana-operator-system
@@ -299,6 +388,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -308,6 +398,15 @@ metadata:
   name: openshift-registry
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "openshift-registry | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "openshift-registry | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "openshift-registry | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "openshift-registry | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "openshift-registry | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "openshift-registry | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "openshift-registry | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "openshift-registry | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -323,6 +422,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -332,6 +432,15 @@ metadata:
   name: vault
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "vault | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "vault | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "vault | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "vault | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "vault | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "vault | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "vault | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "vault | sync-succeeded"
 spec:
   destination:
     namespace: gp-vault
@@ -356,4 +465,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
