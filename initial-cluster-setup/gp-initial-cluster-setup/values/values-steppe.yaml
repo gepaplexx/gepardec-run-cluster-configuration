@@ -171,7 +171,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cert-manager
-      targetRevision: "1.7.*"
+      targetRevision: "1.8.*"
     syncPolicy:
       automated:
         prune: true
