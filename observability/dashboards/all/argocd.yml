@@ -195,6 +195,176 @@ spec:
             "x": 0,
             "y": 0
           },
+          "id": 16,
+          "panels": [],
+          "title": "Apps status",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "description": "Zeigt die Syncevents an. Auch jene, die nicht von unserem Haupt ArgoCD verwaltet werden.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 14,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "builder",
+              "expr": "sum by(name) (rate(argocd_app_sync_total{namespace=\"$namespace\"}[$__rate_interval]))",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Sync events",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "description": "Status timeline über degraded Applications",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "fillOpacity": 70,
+                "lineWidth": 0,
+                "spanNulls": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 8
+          },
+          "id": 10,
+          "options": {
+            "alignValue": "center",
+            "legend": {
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "mergeValues": false,
+            "rowHeight": 0.9,
+            "showValue": "never",
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "builder",
+              "expr": "sum by(name) (argocd_app_info{namespace=\"$namespace\", health_status!~\"Healthy|Progressing\"})",
+              "legendFormat": "{{name}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Degraded | Missing Apps",
+          "type": "state-timeline"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 16
+          },
           "id": 22,
           "panels": [],
           "title": "ArgoCD Health",
@@ -205,6 +375,243 @@ spec:
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "description": "Änderungsrate(Farbe) von Objekten pro Applikation",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "fillOpacity": 70,
+                "lineWidth": 10,
+                "spanNulls": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 24,
+            "x": 0,
+            "y": 17
+          },
+          "id": 26,
+          "options": {
+            "alignValue": "left",
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "mergeValues": true,
+            "rowHeight": 0.9,
+            "showValue": "auto",
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "builder",
+              "expr": "sum by(name) (rate(argocd_app_k8s_request_total{namespace=\"$namespace\"}[1m])) > 0",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "K8s requests total / min",
+          "type": "state-timeline"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "description": "95 Quantill der Latenz zu Redis.\nAlles über 125ms ist sehr kritisch, im Regelfall sollten es so um die 20ms sein.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "fillOpacity": 100,
+                "gradientMode": "scheme",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1
+              },
+              "mappings": [],
+              "max": 125,
+              "min": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 27
+          },
+          "id": 18,
+          "options": {
+            "bucketOffset": 0,
+            "combine": false,
+            "legend": {
+              "calcs": [],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": false
+            }
+          },
+          "pluginVersion": "9.3.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "builder",
+              "expr": "sum by(namespace) (histogram_quantile(0.95, argocd_redis_request_duration_seconds_bucket{namespace=\"$namespace\"}))",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Redis request duration / ms (Histogramm)",
+          "type": "histogram"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "description": "Requests an den KubeAPI Server, die noch nicht ausgeführt wurden. Im Regelfall 0",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "line+area"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 27
+          },
+          "id": 20,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+              },
+              "editorMode": "builder",
+              "expr": "sum by(pod) (argocd_kubectl_exec_pending{namespace=\"$namespace\"})",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Pending Kubectl exec",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "description": "\"Application reconciliation performance.\"\n\nVermutlich, wie schnell Änderungen an Ressourcen durchgeführt werden konnten.",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -246,7 +653,8 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "semi-dark-green"
+                    "color": "semi-dark-green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -261,7 +669,7 @@ spec:
             "h": 12,
             "w": 12,
             "x": 0,
-            "y": 1
+            "y": 35
           },
           "id": 2,
           "options": {
@@ -297,324 +705,7 @@ spec:
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds",
-                "seriesBy": "max"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "points",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 2,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "line+area"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 3
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 12,
-            "w": 12,
-            "x": 12,
-            "y": 1
-          },
-          "id": 4,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": false
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "builder",
-              "expr": "sum(rate(argocd_app_reconcile_count{namespace=\"$namespace\"}[$__rate_interval]))",
-              "legendFormat": "{{namespace}}",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Reconcilation Events Rate",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "continuous-GrYlRd"
-              },
-              "custom": {
-                "fillOpacity": 100,
-                "gradientMode": "scheme",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineWidth": 1
-              },
-              "mappings": [],
-              "max": 125,
-              "min": 100,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 13
-          },
-          "id": 18,
-          "options": {
-            "bucketOffset": 0,
-            "combine": false,
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": false
-            }
-          },
-          "pluginVersion": "9.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "builder",
-              "expr": "sum by(namespace) (histogram_quantile(0.95, argocd_redis_request_duration_seconds_bucket{namespace=\"$namespace\"}))",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Redis request duration / ms",
-          "type": "histogram"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "continuous-YlBl"
-              },
-              "custom": {
-                "fillOpacity": 80,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineWidth": 1
-              },
-              "mappings": [],
-              "max": 125,
-              "min": 50,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 13
-          },
-          "id": 24,
-          "options": {
-            "bucketOffset": 0,
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": false
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "builder",
-              "expr": "sum by(namespace) (histogram_quantile(0.95, argocd_app_reconcile_bucket{namespace=\"$namespace\"}))",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Reconcile performance 95q for gitops argo",
-          "type": "histogram"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "line+area"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 1
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 21
-          },
-          "id": 20,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "builder",
-              "expr": "sum by(pod) (argocd_kubectl_exec_pending{namespace=\"$namespace\"})",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Pending Kubectl exec",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
+          "description": "Latenz zum git server. ",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -656,7 +747,8 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -671,7 +763,7 @@ spec:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 21
+            "y": 35
           },
           "id": 6,
           "options": {
@@ -707,93 +799,12 @@ spec:
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "description": "Wie viele Änderungen pro Intervall durchgeführt wurden",
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "continuous-GrYlRd"
-              },
-              "custom": {
-                "fillOpacity": 70,
-                "lineWidth": 10,
-                "spanNulls": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 24,
-            "x": 0,
-            "y": 29
-          },
-          "id": 26,
-          "options": {
-            "alignValue": "left",
-            "legend": {
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "mergeValues": true,
-            "rowHeight": 0.9,
-            "showValue": "auto",
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "9.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "builder",
-              "expr": "sum by(name) (rate(argocd_app_k8s_request_total{namespace=\"$namespace\"}[1m])) > 0",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "K8s requests total / min",
-          "type": "state-timeline"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 39
-          },
-          "id": 16,
-          "panels": [],
-          "title": "Apps status",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
+                "mode": "thresholds",
+                "seriesBy": "max"
               },
               "custom": {
                 "axisCenteredZero": false,
@@ -822,7 +833,7 @@ spec:
                   "mode": "none"
                 },
                 "thresholdsStyle": {
-                  "mode": "off"
+                  "mode": "line+area"
                 }
               },
               "mappings": [],
@@ -830,7 +841,12 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 3
                   }
                 ]
               }
@@ -838,18 +854,19 @@ spec:
             "overrides": []
           },
           "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 40
+            "h": 12,
+            "w": 12,
+            "x": 12,
+            "y": 43
           },
-          "id": 14,
+          "id": 4,
+          "interval": "1m",
           "options": {
             "legend": {
               "calcs": [],
               "displayMode": "table",
               "placement": "right",
-              "showLegend": true
+              "showLegend": false
             },
             "tooltip": {
               "mode": "single",
@@ -863,13 +880,13 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "builder",
-              "expr": "sum by(name) (rate(argocd_app_sync_total{namespace=\"$namespace\"}[$__rate_interval]))",
-              "legendFormat": "__auto",
+              "expr": "sum(rate(argocd_app_reconcile_count{namespace=\"$namespace\"}[$__rate_interval]))",
+              "legendFormat": "{{namespace}}",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "Sync events",
+          "title": "Reconcilation Events Rate",
           "type": "timeseries"
         },
         {
@@ -877,22 +894,31 @@ spec:
             "type": "prometheus",
             "uid": "prometheus"
           },
+          "description": "Konfidenzintervall in denen 95 % aller Werte liegen",
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "thresholds"
+                "mode": "continuous-YlBl"
               },
               "custom": {
-                "fillOpacity": 70,
-                "lineWidth": 0,
-                "spanNulls": false
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1
               },
               "mappings": [],
+              "max": 125,
+              "min": 50,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -901,27 +927,20 @@ spec:
           },
           "gridPos": {
             "h": 8,
-            "w": 24,
+            "w": 12,
             "x": 0,
             "y": 47
           },
-          "id": 10,
+          "id": 24,
           "options": {
-            "alignValue": "center",
+            "bucketOffset": 0,
             "legend": {
-              "displayMode": "table",
+              "calcs": [],
+              "displayMode": "list",
               "placement": "bottom",
               "showLegend": false
-            },
-            "mergeValues": false,
-            "rowHeight": 0.9,
-            "showValue": "never",
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
             }
           },
-          "pluginVersion": "9.3.1",
           "targets": [
             {
               "datasource": {
@@ -929,14 +948,14 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "builder",
-              "expr": "sum by(name) (argocd_app_info{namespace=\"$namespace\", health_status!~\"Healthy|Progressing\"})",
-              "legendFormat": "{{name}}",
+              "expr": "histogram_quantile(0.95, sum by(le) (argocd_app_reconcile_bucket{namespace=\"$namespace\"}))",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "Degraded | Missing Apps",
-          "type": "state-timeline"
+          "title": "Reconcile performance 95q for gitops argo",
+          "type": "histogram"
         },
         {
           "collapsed": false,
@@ -956,48 +975,12 @@ spec:
             "type": "loki",
             "uid": "logging-infrastructure"
           },
-          "gridPos": {
-            "h": 8,
-            "w": 10,
-            "x": 0,
-            "y": 56
-          },
-          "id": 12,
-          "options": {
-            "dedupStrategy": "signature",
-            "enableLogDetails": true,
-            "prettifyLogMessage": false,
-            "showCommonLabels": false,
-            "showLabels": false,
-            "showTime": false,
-            "sortOrder": "Ascending",
-            "wrapLogMessage": false
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "logging-infrastructure"
-              },
-              "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"$namespace\"} |= `Initiated` != `dest-namespace` | json | line_format `{{.message}}` | pattern `<_> <_> <_> <_> <_> <_> '<version>'\" application=<application>` | line_format `{{.application}} synced to {{.version}}`",
-              "queryType": "range",
-              "refId": "A"
-            }
-          ],
-          "title": "Sync events",
-          "type": "logs"
-        },
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "logging-infrastructure"
-          },
+          "description": "Wie viel Log Nachrichten mit dem jeweiligen Level pro Intervall geloggt wurden.",
           "fieldConfig": {
             "defaults": {
               "color": {
                 "fixedColor": "yellow",
-                "mode": "continuous-RdYlGr",
+                "mode": "palette-classic",
                 "seriesBy": "max"
               },
               "custom": {
@@ -1006,7 +989,7 @@ spec:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
-                "drawStyle": "bars",
+                "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
                 "hideFrom": {
@@ -1035,42 +1018,18 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
             },
-            "overrides": [
-              {
-                "__systemRef": "hideSeriesFrom",
-                "matcher": {
-                  "id": "byNames",
-                  "options": {
-                    "mode": "exclude",
-                    "names": [
-                      "error"
-                    ],
-                    "prefix": "All except:",
-                    "readOnly": true
-                  }
-                },
-                "properties": [
-                  {
-                    "id": "custom.hideFrom",
-                    "value": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": true
-                    }
-                  }
-                ]
-              }
-            ]
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
-            "w": 14,
-            "x": 10,
+            "w": 24,
+            "x": 0,
             "y": 56
           },
           "id": 27,
@@ -1095,7 +1054,7 @@ spec:
                 "uid": "logging-infrastructure"
               },
               "editorMode": "builder",
-              "expr": "sum by(level) (rate({kubernetes_namespace_name=\"$namespace\"} [1m]))",
+              "expr": "sum by(level) (rate({kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} [1m]))",
               "legendFormat": "{{level}}",
               "queryType": "range",
               "refId": "A"
@@ -1134,13 +1093,64 @@ spec:
                 "uid": "logging-infrastructure"
               },
               "editorMode": "builder",
-              "expr": "{kubernetes_namespace_name=\"$namespace\"} | level = `error` | json | line_format `{{.message}}`",
+              "expr": "{kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} | json | line_format `{{.message}}`",
               "queryType": "range",
               "refId": "A"
             }
           ],
           "title": "Error log",
           "type": "logs"
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 84
+          },
+          "id": 30,
+          "panels": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "logging-infrastructure"
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 10,
+                "x": 0,
+                "y": 42
+              },
+              "id": 12,
+              "options": {
+                "dedupStrategy": "signature",
+                "enableLogDetails": true,
+                "prettifyLogMessage": false,
+                "showCommonLabels": false,
+                "showLabels": false,
+                "showTime": false,
+                "sortOrder": "Ascending",
+                "wrapLogMessage": false
+              },
+              "targets": [
+                {
+                  "datasource": {
+                    "type": "loki",
+                    "uid": "logging-infrastructure"
+                  },
+                  "editorMode": "code",
+                  "expr": "{kubernetes_namespace_name=\"$namespace\"} |= `Initiated` != `dest-namespace` | json | line_format `{{.message}}` | pattern `<_> <_> <_> <_> <_> <_> '<version>'\" application=<application>` | line_format `{{.application}} synced to {{.version}}`",
+                  "queryType": "range",
+                  "refId": "A"
+                }
+              ],
+              "title": "Sync events",
+              "type": "logs"
+            }
+          ],
+          "title": "Misc",
+          "type": "row"
         }
       ],
       "refresh": false,
@@ -1182,6 +1192,54 @@ spec:
             "skipUrlSync": false,
             "sort": 1,
             "type": "query"
+          },
+          {
+            "current": {
+              "selected": true,
+              "text": [
+                "info",
+                "warn",
+                "error",
+                "default"
+              ],
+              "value": [
+                "info",
+                "warn",
+                "error",
+                "default"
+              ]
+            },
+            "hide": 0,
+            "includeAll": false,
+            "label": "Level",
+            "multi": true,
+            "name": "Level",
+            "options": [
+              {
+                "selected": true,
+                "text": "info",
+                "value": "info"
+              },
+              {
+                "selected": true,
+                "text": "warn",
+                "value": "warn"
+              },
+              {
+                "selected": true,
+                "text": "error",
+                "value": "error"
+              },
+              {
+                "selected": true,
+                "text": "default",
+                "value": "default"
+              }
+            ],
+            "query": "info, warn, error, default",
+            "queryValue": "",
+            "skipUrlSync": false,
+            "type": "custom"
           }
         ]
       },
@@ -1191,8 +1249,8 @@ spec:
       },
       "timepicker": {},
       "timezone": "",
-      "title": "ArgoCD - custom",
+      "title": "ArgoCD - Custom",
       "uid": "argo-custom",
-      "version": 10,
+      "version": 12,
       "weekStart": ""
     }
