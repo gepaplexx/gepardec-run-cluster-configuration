@@ -267,7 +267,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "2.1.*"
+      targetRevision: "2.2.*"
       chart: gp-hashicorp-vault
       helm:
         parameters:
