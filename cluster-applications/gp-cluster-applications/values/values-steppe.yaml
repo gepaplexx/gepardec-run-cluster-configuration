@@ -139,7 +139,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "0.10.*"
+      targetRevision: "0.12.*"
       helm:
         parameters:
           - name: "argo_workflows.images.pullPolicy"
