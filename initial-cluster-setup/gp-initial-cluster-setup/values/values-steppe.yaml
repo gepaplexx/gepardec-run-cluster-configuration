@@ -112,7 +112,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cluster-config
-      targetRevision: "1.7.*"
+      targetRevision: "1.9.*"
       helm:
         parameters:
           - name: "argocd.workflowrepository.username"
