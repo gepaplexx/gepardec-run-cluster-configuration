@@ -288,9 +288,9 @@ applications:
       chart: gp-keycloak-operator
       targetRevision: "*"
     syncPolicy:
-      automated: {}
-        # prune: true
-        # selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### EXTERNAL SECRETS ######################
   external-secrets:
