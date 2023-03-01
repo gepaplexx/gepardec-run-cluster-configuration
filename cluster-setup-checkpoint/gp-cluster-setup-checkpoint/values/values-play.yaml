@@ -90,9 +90,9 @@ applications:
           - name: "clientProperties"
             value: "AgCFHkqn8Gry5AauW9xrWriDYuu/9bUQgG6gyyXtjomS2duqpBhsRJ8ETT/cosnSzQFLy1Q7KLpvBzFDLEoNQqmucbOWXGdlTPGPHAIZOPzitWCM18DyaC3JHkuFlK6th7eJICOM4FwtjZn4MQyg1GLYtMN3atKlfGxbOa4eEKVOsrhtFEL5a0DgmKEJ/Kj69giFfc+eY2Z0E/MVIICY+uazSlLrokgilqO9hBnv1oE/7TGoYM3595xeNCXaN/vhaq792p7FXE7zVSKHz22kCQa6wwZWXcAUeOZgJi0lm43Dap/+1Ffcp3Zky5KZOanGil9EkTF9DG2xD+i/vLPvmiI394LqUWW5fbM9YPsPKjAKBUQ9TzjvTTG8MMbJhgQso6o3Jiq57t4NvuoNmhEFSsz1hOpvuwZki7QYaYkywvwFMwXXx0q7xcxbeBC2C7FGDMNJDXLocdnsGK88INPkRjuabIwec+HA8yOYuYVG+VtccRpB33ch9FZLV/sh5U8ErBGF6sMznm4Q52l58uy8NqMkT5qiZAvDHxVNE6MsdnJI4DUZVuiS/8+loQiK5hVuXIDnP27wkwO9sgCtOX7rAx4IUwUhE2kX0bFGnf4+oACsyI4DtoBlmcuttmWyy3qpEgtP8vGaaLsK1pNok4AusBV8aLWAAwUqZOYSxsnhnoyrbwE23o3iumpPdd8ArgYSE6h4QJ3p48KFfOzCVrR48Uzhhj8uLABV0e38lORXWtrO+CLEv7lhKB4rNjfUm2O0TrleA7qrx2XQ+7bNF6BqZ1oGMNwR2a9P5lSFYYe2MoUjyqcpFfJbeOwJBWeCSekaogZbl4WQQVSdx/sCRP20H8Jmz3/4p306OVtR/M/3sj/t+hJGaOHUWJpklYuNQZMr4M9D/+NmYAPSdRZ3LXdNuzGhpqbkw6eWSSjhnjfGpmMi6cdd36+WUt2/YKrGlOIe9LLl0GbRJ8H4OCkyb+ZLjoMHpmNJD/KrzshCz4PzvjAmYGR94ouw0PCwwGLM1qiS+vGgDgm8vJm6O8fdMvD1jONrzKliYJeZ41oXGbUG/xt9otUUR0+Q"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+        # prune: true
+        # selfHeal: true
   ##################### KYVERNO/Cluster-Policies ######################
   kyverno:
     name: kyverno
