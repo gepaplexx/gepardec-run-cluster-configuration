@@ -15,6 +15,12 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-storage-cephcluster
       targetRevision: "*"
+      helm:
+        parameters:
+          - name: "cephcluster.monitoring.createPrometheusRules"
+            value: "false"
+          - name: "cephcluster.cephClusterSpec.healthCheck.livenessProbe.osd.disabled"
+            value: "true"
     ignoreDifferences:
       - group: ceph.rook.io
         kind: CephCluster
