@@ -207,6 +207,12 @@ spec:
   project: gepaplexx
   source:
     chart: gp-storage-cephcluster
+    helm:
+      parameters:
+      - name: cephcluster.monitoring.createPrometheusRules
+        value: "false"
+      - name: cephcluster.cephClusterSpec.healthCheck.livenessProbe.osd.disabled
+        value: "true"
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
   ignoreDifferences:
