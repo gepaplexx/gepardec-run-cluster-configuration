@@ -374,7 +374,7 @@ spec:
       - name: sso.keycloak.realmUrl
         value: https://sso.apps.steppe.gepaplexx.com/realms/internal
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.2.*
+    targetRevision: 0.3.*
   ignoreDifferences:
     - group: integreatly.org
       jsonPointers:
