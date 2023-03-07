@@ -6,6 +6,15 @@ metadata:
   name: cert-manager
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cert-manager | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cert-manager | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cert-manager | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cert-manager | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cert-manager | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cert-manager | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cert-manager | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cert-manager | sync-succeeded"
 spec:
   destination:
     namespace: cert-manager
@@ -21,6 +30,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -30,6 +40,15 @@ metadata:
   name: certificate-patches
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "certificate-patches | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "certificate-patches | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "certificate-patches | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "certificate-patches | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "certificate-patches | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "certificate-patches | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "certificate-patches | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "certificate-patches | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -49,6 +68,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -58,6 +78,15 @@ metadata:
   name: cluster-config
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-config | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-config | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-config | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-config | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-config | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-config | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-config | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-config | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -71,6 +100,8 @@ spec:
         value: AgAQYQVFrdCMm9n+Fa4RPUf3i42IgwBHKhPtvBVAMxAgo8F4FqoFRZhsaZ3uL8m6SjCDeGfpzO9IkguGXfzLjrxIiocf8lTgiu6vLp014f3C6IZIyZBKwoBE0RdIPQqHd4CXhwRZxJ+ABkYCVl+oD5YidHBJlQXsiE2AvwZk3TDekryf6wFohwKqJHr5AuUUA7RTPwyEOHF8ZkDXqZArz9M6eMJydLOjsbhbn5aSY70BMpB206yvZHkxqTRddmVn/cQ3ypCF0oKWyK2s9ifne6Iv6QSzD/AcMjZz/EIB4/LlG3sUCaNUVfyRRte2WyvGpoAceojQEWbbyeUQEOwepYQ4BNjg0N6A1ctfOX28xiOr9U421glBBWGqRKODDwlev21NxE2suxdXJuohEoPyKFxcqLNuFbuxqryuXAIWiQD06a598dmUUcQamRSUK5UmvbahZBXS3889C697ZQalf3UhWjSlf8i11nVELgVNkXCDDghZFN/cEtYyAsqdBT7P++wRA+fKLHsYfvh2FJOHGx10H43xk5UDtQ8uwfL05lJhg9xsag4cplNiTE52YSoiAoUcT/dWVsVRSvs5q0dHG2xnqEXdfodSCr6D18ly6iiJbtkepRZz/ST5qmJxYcP0ti6hcsV6drK04DolJglZ12Jw0Sal26fkbvfhR6vOjde23L/oFcUkztZ4jlemu0Oi/UWoBSx0v2RQhF6yTR96e4XWGA==
       - name: argocd.workflowrepository.sshPrivateKey
         value: AgBNvIMgQPX1ql346GTyulruk4ljFlheSnTL6qjPjbgrKNRz3mrlXokLSIVIZlPETtPxSnleu1jfJowwPFBlRpGSSSDwH2E1pt2nnbpE88iGvF1IVds+fzTwXsowR94OcLCWA11rPIUiexA1snvCp5nWcDz8ZxMtyFpcce/NGh1JB5zA6uFTP2tPhlYvtwfKNw2prOWo5fEMR0eWWO45qgIbPssNFPM9bTf00ita2VUMMi7AC495X/4Gld7b+ArYASzrpXkMRMhxnwU7pKCotZ82JuJaL5OPzTHrOQoLiHynjwg7NUi7WWzh2dfXBkI2xi+PeTIcriS3is1TWy58c4wVT08xsy8UPLhqR8IBddG/FXSJjjlJ5Ww8DbWCWHtNEQVZTzOc8gBOW+gz0XNyK+BM8wJnwjvCAnMxxlT8o62FMRwTOrXRKOVzXJd02ByE9k2F1ym3Fbm3FepnBFeOStDFU2TGbFuirJa2LI6OoZqY4op2Kfd8i58z2GdrTvR1/QBH4e1VD1NariUckvwBXa2SxVxLK/uqQVvR8tDJUikM7TU7O85mNR6fTEt4E1M2+77o9ud8BLcCeBc+XAXEZwQl342GdclLfNjgMXiQVGE1isPNbQmwQZp8tDWBtYpWO1EiJ5KVP8lDzVW+y1Vsd7rFBhws5hHt54iBHItTa1fcwy8HqjJ/PwK80RkYCz7JCuSs2Zw2lsPAg7RuSNpRa0Dd0LmkgXSvcFn2QJ+7It46FNjwrmEm7Uh8rGaGQ1SJUUipW0JIPnUZE57Qt2ASe4qbVwmaSaS/ka4FNzfNLu9Eu4TRVPYFaqddKneVP4zQkZLllhB6sdTjKPDv3u1b/H/OY1EfbnFod9x/0C4NzxPtnlY/NGonQ7M76UezCv8BDnCUpCZu4CwoRZ6J2Prq7kEYGLyX+rFU2OI+LxNV47K5rMnFTB4TYEHl5y3YBMHRdIt9T5IiqMWGWLzEG6SQNjiRR1KGo4iWC6GwvZ5EU+AD6++MTdwltjHi7OavRN89XOYu9xEiqgOQ7S1W+ERpKlWvt37+u1Jnb/awbE63RUL30qmo8AeyvHcmcYYplKFCTnQhuyhy8w6BwPsIY/5v0XoTrbLhzEYDgbUfq4Gh3rkCSS8irBECPZA3il5aeWaeg/hku0GJy/YGLQlcKEq7PnoI0REokCRp/JvUP66jzkfjlBiVrvuIb1UG2Us0gBubV0JNur2w+7Su+lJAyyrZ0+6IdCO8j83VazW94TioxBnTbRmg55h3e9lYqgSHP+LgW/6I8d0RSWrQctaOiFndQobfZ39dXzwYWATvbADNZRawFTbCxIAO14dKqlKRcL+gVt+SXDvWKr2P9Pd1BlyOiU0RyaIMWVKJ/GTxaYTxc6/2fPmhsTojhj9UabnXVA+dxuz2FxQHZZBCMJ++YtXbfx5VNW59IdRpfh5Pj0ug232E5Mw1fPj623jkTfkmCEIB+sxHbz4OPebkfSx8GaU1I9CzAxbHHOmh3Ph2JHjV2tYR4P2GXzJCnYqgpBWfdJAt6ETxD4F2N69rFO71ckWtTq9eNtQnsk07jpebfK+RxWrC3e6l96VEOo+/VsFvhBOpcePaYEg9c65XOuMxtXCKPluq+EGI7VZN3qaKadqlrVnxsXWWNX9CUITY1WRvobbszT/mQQOWyA+blOeU4ApHgiXmfUqe1GFB53lexQkOrp6UCTey5bY=
+      - name: argocd.notifications.argocdURL
+        value: https://openshift-gitops-server-openshift-gitops.apps.play.gepaplexx.com
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
   syncPolicy:
@@ -79,6 +110,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -88,6 +120,15 @@ metadata:
   name: cluster-issuer
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cluster-issuer | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cluster-issuer | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cluster-issuer | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cluster-issuer | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cluster-issuer | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cluster-issuer | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cluster-issuer | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cluster-issuer | sync-succeeded"
 spec:
   destination:
     namespace: cert-manager
@@ -119,6 +160,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -128,6 +170,15 @@ metadata:
   name: console-patches
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "console-patches | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "console-patches | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "console-patches | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "console-patches | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "console-patches | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "console-patches | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "console-patches | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "console-patches | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -149,6 +200,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -158,6 +210,15 @@ metadata:
   name: external-secrets
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "external-secrets | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "external-secrets | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "external-secrets | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "external-secrets | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "external-secrets | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "external-secrets | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "external-secrets | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "external-secrets | sync-succeeded"
 spec:
   destination:
     namespace: gp-external-secrets
@@ -173,6 +234,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -182,6 +244,15 @@ metadata:
   name: identity-provider
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "identity-provider | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "identity-provider | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "identity-provider | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "identity-provider | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "identity-provider | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "identity-provider | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "identity-provider | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "identity-provider | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -241,6 +312,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -250,6 +322,15 @@ metadata:
   name: openshift-registry-mirror
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "openshift-registry-mirror | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "openshift-registry-mirror | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "openshift-registry-mirror | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "openshift-registry-mirror | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "openshift-registry-mirror | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "openshift-registry-mirror | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "openshift-registry-mirror | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "openshift-registry-mirror | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -265,6 +346,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -274,6 +356,15 @@ metadata:
   name: keycloak-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "keycloak-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "keycloak-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "keycloak-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "keycloak-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "keycloak-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "keycloak-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "keycloak-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "keycloak-operator | sync-succeeded"
 spec:
   destination:
     namespace: gp-sso
@@ -289,6 +380,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -298,6 +390,15 @@ metadata:
   name: oauth-group-sync
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "oauth-group-sync | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "oauth-group-sync | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "oauth-group-sync | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "oauth-group-sync | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "oauth-group-sync | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "oauth-group-sync | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "oauth-group-sync | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "oauth-group-sync | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -313,6 +414,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -322,9 +424,18 @@ metadata:
   name: patch-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "patch-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "patch-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "patch-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "patch-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "patch-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "patch-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "patch-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "patch-operator | sync-succeeded"
 spec:
   destination:
-    namespace: gp-infrastructure
+    namespace: openshift-operators
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
@@ -337,6 +448,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -346,6 +458,15 @@ metadata:
   name: rook-ceph-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "rook-ceph-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "rook-ceph-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "rook-ceph-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "rook-ceph-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "rook-ceph-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "rook-ceph-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "rook-ceph-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "rook-ceph-operator | sync-succeeded"
 spec:
   destination:
     namespace: rook-ceph
@@ -361,6 +482,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
 ---
 # Source: gp-cluster-setup/templates/02-argo-application.yaml
@@ -370,6 +492,15 @@ metadata:
   name: sealed-secrets-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "sealed-secrets-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "sealed-secrets-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "sealed-secrets-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "sealed-secrets-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "sealed-secrets-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "sealed-secrets-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "sealed-secrets-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "sealed-secrets-operator | sync-succeeded"
 spec:
   destination:
     namespace: gp-infrastructure
@@ -391,4 +522,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - Replace=false
 ...
