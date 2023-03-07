@@ -270,9 +270,9 @@ applications:
           - name: "subscription.installPlanApproval"
             value: "manual"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+        # prune: true
+        # selfHeal: true
 
   ##################### EXTERNAL SECRETS ######################
   external-secrets:
