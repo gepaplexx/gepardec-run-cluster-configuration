@@ -264,15 +264,15 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-keycloak-operator
-      targetRevision: "0.1.*"
+      targetRevision: "0.2.*"
       helm:
         parameters:
           - name: "subscription.installPlanApproval"
             value: "manual"
     syncPolicy:
-      automated: {}
-        # prune: true
-        # selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
 
   ##################### EXTERNAL SECRETS ######################
   external-secrets:

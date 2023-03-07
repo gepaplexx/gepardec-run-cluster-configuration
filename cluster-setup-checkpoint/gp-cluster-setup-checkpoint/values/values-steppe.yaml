@@ -93,8 +93,8 @@ applications:
         group: oauth.openshift.io
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-keycloak-instance
-      targetRevision: "0.4.*"
+      chart: gp-keycloak-configuration
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "keycloak.ingress.hostname"
