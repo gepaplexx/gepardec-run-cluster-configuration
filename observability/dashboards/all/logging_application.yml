@@ -299,11 +299,6 @@ spec:
             "type": "textbox"
           },
           {
-            "current": {
-              "selected": false,
-              "text": "play",
-              "value": "play"
-            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
@@ -347,6 +342,6 @@ spec:
       "timezone": "",
       "title": "Logging Application",
       "uid": "logging-application",
-      "version": 2,
+      "version": 10,
       "weekStart": ""
     }
