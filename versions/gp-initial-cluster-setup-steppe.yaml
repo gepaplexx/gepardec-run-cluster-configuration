@@ -417,7 +417,7 @@ metadata:
     notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "patch-operator | sync-succeeded"
 spec:
   destination:
-    namespace: gp-infrastructure
+    namespace: openshift-operators
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
