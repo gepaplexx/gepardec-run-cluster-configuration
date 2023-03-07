@@ -9,34 +9,12 @@ spec:
   customFolderName: Gepardec Run
   json: |
     {
-      "annotations": {
-        "list": [
-          {
-            "builtIn": 1,
-            "datasource": {
-              "type": "grafana",
-              "uid": "-- Grafana --"
-            },
-            "enable": true,
-            "hide": true,
-            "iconColor": "rgba(0, 211, 255, 1)",
-            "name": "Annotations & Alerts",
-            "target": {
-              "limit": 100,
-              "matchAny": false,
-              "tags": [],
-              "type": "dashboard"
-            },
-            "type": "dashboard"
-          }
-        ]
-      },
       "description": "",
       "editable": true,
       "fiscalYearStartMonth": 0,
       "gnetId": 13186,
       "graphTooltip": 0,
-      "id": 83,
+      "id": 12,
       "links": [
         {
           "asDropdown": false,
@@ -79,10 +57,10 @@ spec:
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
-                "axisPlacement": "auto",
+                "axisPlacement": "hidden",
                 "barAlignment": 0,
                 "drawStyle": "bars",
-                "fillOpacity": 0,
+                "fillOpacity": 100,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
@@ -95,7 +73,7 @@ spec:
                 "scaleDistribution": {
                   "type": "linear"
                 },
-                "showPoints": "auto",
+                "showPoints": "never",
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -113,13 +91,10 @@ spec:
                   {
                     "color": "green",
                     "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
                   }
                 ]
-              }
+              },
+              "unit": "short"
             },
             "overrides": []
           },
@@ -135,10 +110,10 @@ spec:
               "calcs": [],
               "displayMode": "list",
               "placement": "bottom",
-              "showLegend": true
+              "showLegend": false
             },
             "tooltip": {
-              "mode": "single",
+              "mode": "multi",
               "sort": "none"
             }
           },
@@ -163,9 +138,8 @@ spec:
             "type": "loki",
             "uid": "logging-infrastructure"
           },
-          "description": "",
           "gridPos": {
-            "h": 22,
+            "h": 25,
             "w": 24,
             "x": 0,
             "y": 5
@@ -209,9 +183,9 @@ spec:
         "list": [
           {
             "current": {
-              "selected": true,
-              "text": [],
-              "value": []
+              "selected": false,
+              "text": "",
+              "value": ""
             },
             "datasource": {
               "type": "loki",
@@ -262,7 +236,7 @@ spec:
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
-            "sort": 0,
+            "sort": 1,
             "type": "query"
           },
           {
@@ -304,11 +278,6 @@ spec:
             "type": "textbox"
           },
           {
-            "current": {
-              "selected": false,
-              "text": "play",
-              "value": "play"
-            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
@@ -352,6 +321,6 @@ spec:
       "timezone": "",
       "title": "Logging Infrastructure",
       "uid": "logging-infrastructure",
-      "version": 14,
+      "version": 15,
       "weekStart": ""
     }
