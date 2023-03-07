@@ -2,40 +2,18 @@ apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDashboard
 metadata:
   namespace: grafana-operator-system
-  name: logging-infrastructure
+  name: logging-application
   labels:
     dashboard: system
 spec:
   customFolderName: Gepardec Run
   json: |
     {
-      "annotations": {
-        "list": [
-          {
-            "builtIn": 1,
-            "datasource": {
-              "type": "grafana",
-              "uid": "-- Grafana --"
-            },
-            "enable": true,
-            "hide": true,
-            "iconColor": "rgba(0, 211, 255, 1)",
-            "name": "Annotations & Alerts",
-            "target": {
-              "limit": 100,
-              "matchAny": false,
-              "tags": [],
-              "type": "dashboard"
-            },
-            "type": "dashboard"
-          }
-        ]
-      },
       "description": "",
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 105,
+      "id": 17,
       "links": [
         {
           "asDropdown": false,
@@ -205,9 +183,9 @@ spec:
         "list": [
           {
             "current": {
-              "selected": true,
-              "text": [],
-              "value": []
+              "selected": false,
+              "text": "",
+              "value": ""
             },
             "datasource": {
               "type": "loki",
@@ -342,6 +320,6 @@ spec:
       "timezone": "",
       "title": "Logging Application",
       "uid": "logging-application",
-      "version": 10,
+      "version": 11,
       "weekStart": ""
     }
