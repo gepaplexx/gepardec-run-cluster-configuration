@@ -15,7 +15,32 @@ spec:
       "gnetId": 13186,
       "graphTooltip": 0,
       "id": 12,
-      "links": [],
+      "links": [
+        {
+          "asDropdown": false,
+          "icon": "doc",
+          "includeVars": false,
+          "keepTime": false,
+          "tags": [],
+          "targetBlank": true,
+          "title": "View Query in Explore Tab",
+          "tooltip": "",
+          "type": "link",
+          "url": "explore?orgId=1&left=%7B%22datasource%22:%22logging-infrastructure%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%22logging-infrastructure%22%7D,%22editorMode%22:%22code%22,%22expr%22:%22%7Bkubernetes_namespace_name%3D~%5C%22${Namespace:pipe}%5C%22,%20kubernetes_pod_name%3D~%5C%22${Pod:pipe}%5C%22%7D%20%7C%20json%20%7C%20line_format%20%5C%22Level:%20%7B%7B.level%7D%7D%5C%5Ct%5C%5CtPod:%20%7B%7B.kubernetes_pod_name%7D%7D%5C%5Ct%5C%5CtContainer:%20%7B%7B.kubernetes_container_name%7D%7D%5C%5Ct%5C%5CtHost:%20%7B%7B.kubernetes_host%7D%7D%5C%5Ct%5C%5CtPodIP:%20%7B%7B.kubernetes_pod_ip%7D%7D%5C%5CnMessage:%20%7B%7B.message%7D%7D%5C%22%22,%22queryType%22:%22range%22%7D%5D,%22range%22:%7B%22from%22:%22$__from%22,%22to%22:%22$__to%22%7D%7D"
+        },
+        {
+          "asDropdown": false,
+          "icon": "cloud",
+          "includeVars": false,
+          "keepTime": false,
+          "tags": [],
+          "targetBlank": true,
+          "title": "View Pods of Namespace on OpenShift",
+          "tooltip": "Uses the alphabetically first element of Namespace!",
+          "type": "link",
+          "url": "https://console.apps.$Cluster.gepaplexx.com/k8s/ns/$Namespace/pods"
+        }
+      ],
       "liveNow": false,
       "panels": [
         {
@@ -186,7 +211,7 @@ spec:
             "type": "query"
           },
           {
-            "allValue": ".+",
+            "allValue": "",
             "current": {
               "selected": false,
               "text": "All",
@@ -251,6 +276,27 @@ spec:
             "query": "",
             "skipUrlSync": false,
             "type": "textbox"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "prometheus"
+            },
+            "definition": "label_values(cluster_discriminator)",
+            "hide": 2,
+            "includeAll": false,
+            "multi": false,
+            "name": "Cluster",
+            "options": [],
+            "query": {
+              "query": "label_values(cluster_discriminator)",
+              "refId": "StandardVariableQuery"
+            },
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
           }
         ]
       },
@@ -275,6 +321,6 @@ spec:
       "timezone": "",
       "title": "Logging Infrastructure",
       "uid": "logging-infrastructure",
-      "version": 5,
+      "version": 15,
       "weekStart": ""
     }
