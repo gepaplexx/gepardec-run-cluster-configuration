@@ -282,3 +282,20 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
+  ##################### PIPELINES ######################
+  pipelines:
+    name: pipelines
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-pipelines
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: gp-pipelines
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
