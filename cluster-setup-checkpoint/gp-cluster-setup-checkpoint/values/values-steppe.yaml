@@ -97,6 +97,8 @@ applications:
       targetRevision: "1.2.*"
       helm:
         parameters:
+          - name: "cluster"
+            value: "steppe"
           - name: "keycloak.ingress.hostname"
             value: "sso.apps.steppe.gepaplexx.com"
           - name: "keycloak.persistence.auth.password"
