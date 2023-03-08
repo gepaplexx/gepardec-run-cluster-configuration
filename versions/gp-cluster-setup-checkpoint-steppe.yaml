@@ -137,17 +137,21 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
-    chart: gp-keycloak-instance
+    chart: gp-keycloak-configuration
     helm:
       parameters:
-      - name: ingress.hostname
+      - name: cluster
+        value: steppe
+      - name: keycloak.ingress.hostname
         value: sso.apps.steppe.gepaplexx.com
-      - name: persistence.auth.password
+      - name: keycloak.persistence.auth.password
         value: AgAMSOPW2yGpqVUYUSJqoVblyMd/RHcnqmhGfzmTOeZu9qyL+1iMmw09xb4kJl0akn3SY0q3DxVlCrJyhmjYv4uny7mtiQsSBMf9GbMwX/FfJpO1ed5ocdvuPI8LcCmAeJksLwcoPx7U18xe9vm65HTUovE2lfT25X9WI7ZMH0jTAgtgAt1pD6yzvlq2f0/qyIUeguR5Wz6ztBm6H8qjJmzfZlH7nyxnFj0gP773dO5EOqnTLI6B7FnRfOmbyZT4kiRhYluA92psvTaukxF8fbrNlTvUdlTJRYCb0Em3JeoZHnw43AG6u8W/AyBDplxeZ590WTZc8x3Jr5WHtmdqCfL9r/HimMnBBVx16sRFqnHJE1EKvhJ6z9gHtznyEkRTAUL7Us5HhNrgpyISUPgOSHAx81bC85kJlzEicw2vDUqYfnYJ8bDw0fhwQa4jMBWXffn0t+D6mczr6TBf5YYMn5Nh7hWfvOebeyojPRUYcnyo0jaelzfmC1n6D0PPTOyg0thi1p3U9FSsJDOr7s+jzq57+DSkDmsnWq5AnilcfUcEe6PJ/Oq4QYI2E29UOYFdPQPTf3HiifBw5NgdVsnoA63q8kXGgwG/4251q05QrY7K7FRfWyPdlXrrKw64dmB0GqV09Mp2yYwhb/727awC76uodxcWzoyBUlO/djN2OJQaSWf2JI0iSr6pNsbdCVwY8F6E1HcAl2vNvt9xXh4vIRrmrGxGwVEJOpC1NTKLMU7H/Q==
-      - name: provider.openshift.clientSecret
+      - name: keycloak.provider.openshift.clientSecret
         value: AgC7STOdSNPlXNoNu+tSHxpfLgjTflEBQ+V9EgXg+emeLzA9s+PKNnnbaH9wiiWIyB3el2qOHMsgUR93EsxAA9Rwnzf9getFfPlffR/dcyjqCdhL0c///s8AWQQ6OP8Dqap0OheLJVpbaFYtlylkhidN+YlRVdQ3kFE39hQYq0MJxzTC01IrYPp/SDQP8MKUVrOcBqomBCuQdlQNavpb2pmSIqVc4UQtuYAKyQ4QjiiNqipHCTvzfDdAJIjEfohqGoZZSUbb3w7iK5/j0BBlTTHlZ7pPgx4/TA3WhKJJZkPlKMvnnO5i0zqYtglA5KjZAoJXu1hVHVOMbuOdl6O6OxI+Vi7FTOWj7PbfplvxpNWyLPK6WYs6CR3ZP19XJU8lAahI5gHTKTlASXuUnLlv1Y45TBMyZSO1QvlBHvjpEAYQs+G19CR3vMQoXK1HONwC56TA9yA3lpXCQooLMsyqjt9bCzVKkjWx2T+Y802NcnxCJzGWVM3AzTv8zK6iOAtCsR8aS1YMPjXDomcDTl61qgU1PyDptN+wX1MtG5fLJ29FP4Z4099woNOhMPlsb04tRCTbJEVisvzq7XF+C5uVbwi0l72fHVJ8y3O+JxYSUdKa52uQa8t2LeJiiB3H5yozQkHESvjPOHJa5NMxij+yktDY+0/c4q50xDwNAUnZPpfg1XZJNppEEOfMLrWXG5jL+/1/J7DEA+ZBmHv2gziwS8HvLh6nRwI8tHVyD+trHCqDDJjJA15G
+      - name: clientProperties
+        value: AgDPWF+vM9zlSr8yPWRZx1iS1L8FurVWCtN/8nnPEOqVrEiWt8miouqNhwEbaTgs0XZagy9QK4FuetZ/WnMz066xXTtBuBtln3l/TvDuGkqX4FylaqX0xEkchvDU6nCgjjsMwWTAu0DLRhqFez5NVPy1gl2kn93GcMz2IOlceOpP0rUwhTO/wLlOyBexepowcOGnnZ8nZULcolUn60jTWaF1zqzYCvnz86EbumTXXzbpUhwatsVyw8Y0XDh9uRENZZLyklCTkOlX6w5EokHtnOHerVCmok4pCzGSgKxnUoyht7bjuKbA9Ul/ARIIdX8NenpuXAzc4iRnb1YWLk7rp9b41unq3Jt16U8DGMBo1Lc3jqrDfy0AW8pfRmG8z6RKe5Z47xLgU7UDDRleL2GIs+WqMNd9dHyOKn06A/hTgiemHjWLCpD9uVUn8xBnl6d6SO0KjuZGPQfi46DmnMClKDMgLXH7N0EQVOrMMNE7bcCCx6/j54riqHq2EmpQg27ADDFAOBdIs2GgBjVHUypFNH9kpIP3q4M7DEY0anbqVJxMw+sNnTXfC/uPRvNYwsXwfSld2oCwXZ1oqsGeaDIN/7DBvWTkOcsV7bRo0LTLx6rhkQT71Vc+Jq22FDh1XpIjsjdYB0x7pz70SNlDyfDTRqQh5jZCgVMU50i2AlmwrDN1jONM4in/KZnYFiA0klpROgVAbAuny7uWDPPDPp66+27aR7wUiT9GXSCCfmtYKd3j7+HuzOSHWpCeUwKU9ieceT29HwrZV4QxA028PGv+dI68RghPgiOJ33MQTdWOCZEftHcHgYBDAFLk/R7VEXTC47YKuwbc9COPbHNtLQipSg8tWei8ZU62MetJS2ntbCzyb4v+DBiHDf2K/+fvmvokurZoXqXtQEqPlXSjgA1dJt5+HNnfUoSro05PnPOT6bUzA961YrLqkFEsPBzA23zFYL+KDCe0CpGXSmv6GqGwWfybJgsyetp6HnHwmVUdGuU1LkXaFLKCefXY9B85r9DOSS/PdKVpxWzl3O7o3GnmLtlv7K2uoCTfmok89NfEP2XQ2SBne9cv
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.4.*
+    targetRevision: 1.2.*
   ignoreDifferences:
     - group: oauth.openshift.io
       jsonPointers:

@@ -465,6 +465,40 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: pipelines
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "pipelines | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "pipelines | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "pipelines | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "pipelines | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "pipelines | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "pipelines | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "pipelines | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "pipelines | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-pipelines
+    server: 'https://kubernetes.default.svc'
+  project: gepaplexx
+  source:
+    chart: gp-pipelines
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: vault
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
