@@ -233,7 +233,7 @@ spec:
   source:
     chart: gepaplexx-cicd-eventbus
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.2.*
+    targetRevision: 0.3.*
   syncPolicy:
     automated:
       prune: true
