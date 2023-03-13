@@ -355,7 +355,7 @@ spec:
       - name: subscription.installPlanApproval
         value: manual
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.1.*
+    targetRevision: 0.2.*
   syncPolicy:
     automated:
       prune: true
@@ -389,7 +389,7 @@ spec:
   source:
     chart: gp-oauth-group-sync
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.3.*
+    targetRevision: 0.5.*
   syncPolicy:
     automated:
       prune: true
@@ -417,7 +417,7 @@ metadata:
     notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "patch-operator | sync-succeeded"
 spec:
   destination:
-    namespace: gp-infrastructure
+    namespace: openshift-operators
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
