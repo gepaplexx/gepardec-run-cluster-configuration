@@ -137,9 +137,9 @@ applications:
       namespace: gepaplexx-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       chart: gp-cicd-tools
-      targetRevision: "0.15.*"
+      targetRevision: "0.16.*"
       helm:
         parameters:
           - name: "argo_workflows.images.pullPolicy"
