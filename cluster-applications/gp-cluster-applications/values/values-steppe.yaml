@@ -184,7 +184,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gepaplexx-cicd-eventbus
-      targetRevision: "0.2.*"
+      targetRevision: "0.3.*"
     syncPolicy:
       automated:
         prune: true
