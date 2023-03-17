@@ -263,7 +263,7 @@ applications:
 
   ####################### Multena Instance ######################
   multena-instance:
-    name: multena-instance
+    name: multena-proxy
     enabled: true
     argoProject: gepaplexx
     destination:
@@ -272,7 +272,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       targetRevision: "*"
-      chart: "gp-multena-instance"
+      chart: "gp-multena-proxy"
     syncPolicy: {}
 
   ##################### VAULT ######################
