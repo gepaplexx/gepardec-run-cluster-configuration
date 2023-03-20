@@ -207,9 +207,9 @@ applications:
       targetRevision: "main"
       path: "clusters/play/applications"
     syncPolicy:
-      automated: {} # gattma: für Tests deaktiviert
-        # prune: true
-        # selfHeal: true
+      automated: 
+        prune: true
+        selfHeal: true
 
   ####################### Grafana Instance ######################
   grafana-instance:
