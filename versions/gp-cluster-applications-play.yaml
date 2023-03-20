@@ -205,9 +205,6 @@ spec:
     repoURL: git@github.com:gepaplexx/gepaplexx-cicd.git
     targetRevision: main
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=false
       - Replace=false
