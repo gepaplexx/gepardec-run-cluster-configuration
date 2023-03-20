@@ -262,17 +262,17 @@ applications:
         selfHeal: true
 
   ####################### Multena Instance ######################
-  multena-instance:
-    name: multena-proxy
+  multena:
+    name: multena
     enabled: true
     argoProject: gepaplexx
     destination:
-      namespace: grafana-operator-system
+      namespace: multena
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
       targetRevision: "*"
-      chart: "gp-multena-proxy"
+      chart: "gp-multena-instance"
     syncPolicy: {}
 
   ##################### VAULT ######################
