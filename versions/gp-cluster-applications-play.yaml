@@ -205,6 +205,9 @@ spec:
     repoURL: git@github.com:gepaplexx/gepaplexx-cicd.git
     targetRevision: main
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=false
       - Replace=false
@@ -428,21 +431,21 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: multena-instance
+  name: multena
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
   annotations:
-    notifications.argoproj.io/subscribe.on-created.grafana: "multena-instance | created"
-    notifications.argoproj.io/subscribe.on-deleted.grafana: "multena-instance | deleted"
-    notifications.argoproj.io/subscribe.on-deployed.grafana: "multena-instance | deployed"
-    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "multena-instance | degraded"
-    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "multena-instance | sync-failed"
-    notifications.argoproj.io/subscribe.on-sync-running.grafana: "multena-instance | sync-running"
-    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "multena-instance | sync-status-unknown"
-    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "multena-instance | sync-succeeded"
+    notifications.argoproj.io/subscribe.on-created.grafana: "multena | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "multena | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "multena | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "multena | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "multena | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "multena | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "multena | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "multena | sync-succeeded"
 spec:
   destination:
-    namespace: grafana-operator-system
+    namespace: multena
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
