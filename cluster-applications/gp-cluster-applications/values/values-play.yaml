@@ -267,7 +267,7 @@ applications:
     enabled: true
     argoProject: gepaplexx
     destination:
-      namespace: multena
+      namespace: grafana-operator-system
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
