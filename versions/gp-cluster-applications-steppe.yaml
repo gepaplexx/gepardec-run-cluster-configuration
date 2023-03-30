@@ -294,9 +294,12 @@ spec:
         value: AgADG6AfLve+xdSl1yMW2a/Q5oMkowFPOpSTWq0XozeDh4yVdaz842R4QamOLkoxtq+w4273x7j9hLLDoGo/QtTbmWGh0W9A6vYsVak8jsSiRmjNMrO2y8T4rNEBMQkIG7OdfLpkwqIw6fcWhXLIIMEWsOL7Ek99uvbwhETC6nmGoWB0YEFNOakU28ihLNzhzT4OdmYEG7MGIiBDezYFWHToj0Bj2agTj3es2w4sbC+WXBzlrgdgDaj/aEAg+Qc1i4yXgoNtOdLXyga1TCjqhwLpCKmqNz9bF0GP1PbOxB2gYOHH/tecRCVu6PuVeGU/od+Bra2dCwC4/fPfq7EstoWqzGMusIEdeYOq9z27Hz2fRCGCWfDFetWKou7KkkPr9Vy2CC1JKZSl4E3Xqk7SbwUyPLVJ85vu0uEWrvGK0b8v6BxJLSJPS5jjNg9rt+lzIQblDNTZmqrhZ0e5LgHHnTNuHaNkxTzIthODUd+cjrzhfydkLo7JKpNEGb1Oew5RKZU8cWXj1XRFcB8GH3dNyc/z/GGdirqoyqquU8FGMDQVttiQ9berV7I3Qh+24JWTAKAS+q27Ft75aHKjOGrbEP6r68FLSW2P+YjfyCbzeaKVOU17UWDCrHQTy3jMXso0/rZi1Bfb+wUwJkgfn1q6FEjfxPABTlWrjttNyjtMixLP4N97riRY8++3RZ/9N42FgscgigdrDCigGcaLLVD0
       - name: argo_workflows.archive.secretkey
         value: AgCdVQv/iTeSdCJARICffov30pChhZogJjlQBUdM24a5sxdXtnWeCxEaRzTUqybNRCAZQHN8N+hiH0LY+65Mf35mUVhjoP1ukgnk99Tyw2qrormrVfUXZcPclhiGJ922joIMr2vCQABVV2cJJTbtQW30b05TaE4Qz1IwwE7qYi7Qc6aXcNH2Hya9uWwRSKWqWWc4gtYkWl+Gv8/eIbmEj21Jpfpr9nt/uaWL1DBquDjpxr2j1pwLv3WR+iVSd2bxHxr5J8SSK5MJe9Dz3KdZvaleuL/dUJxFDiBlVk+iCEx0u/mLUZfjop3F8Ji9mx+LgFtG5q4D07IjQOSCGBIfVvlg9UEzn+MAjIJShHpZGgtjIRFGNKBnaX14YPRCP612UpL6Y1qyvUYCIbk1K6q2o6pIgONeMY6qBTCZehl0fYZw7/Vn30ayqJx9DtBsh9N7UYTle+fgdUXhvLNvXt2TnI9qQLo8bV+3YXAwDJLnK3vz3+yTOfvqeLY3fUQYvPDbh/20IVjA2kNtR2sKpayzSaApot8S3lKnQFEXjkm0acl/jEWdFI7+NWEhkEZ4uAHBAdQbCZzelZjOBd5RG4hbIxPYvIqSDgwojwP9h5GE+DupSxytJukQ2slrVxTWky/wrItgsWuiWGZVp6uQ0PsnukGKt8OrKyrzW/q+ERfJHpSPsQtiApZcjW07eDHv65H7DSmAzEd35yUkhaSCmoKGwfy6tYQphTzXbcwG+0elS7H0drnrSn0=
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
-    targetRevision: 0.17.*
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 0.18.*
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
