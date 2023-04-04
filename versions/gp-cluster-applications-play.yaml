@@ -49,9 +49,6 @@ spec:
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=false
       - Replace=false
@@ -445,7 +442,7 @@ metadata:
     notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "multena | sync-succeeded"
 spec:
   destination:
-    namespace: multena
+    namespace: grafana-operator-system
     server: 'https://kubernetes.default.svc'
   project: gepaplexx
   source:
