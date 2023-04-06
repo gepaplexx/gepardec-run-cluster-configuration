@@ -501,7 +501,7 @@ spec:
       - name: podSecurityContext.enabled
         value: "false"
     repoURL: https://bitnami-labs.github.io/sealed-secrets
-    targetRevision: 2.8.*
+    targetRevision: 2.7.*
   syncPolicy:
     automated:
       prune: true
