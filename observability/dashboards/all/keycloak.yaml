@@ -176,7 +176,7 @@ spec:
             "colorMode": "none",
             "graphMode": "none",
             "justifyMode": "auto",
-            "orientation": "horizontal",
+            "orientation": "auto",
             "reduceOptions": {
               "calcs": [
                 "lastNotNull"
@@ -194,7 +194,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_jvm_uptime{pod=~\"$pod\", job=\"$serviceID\"}/1000",
+              "expr": "sum by (container) (base_jvm_uptime{pod=~\"$pod\", job=\"$serviceID\"}/1000)",
               "legendFormat": " ",
               "range": true,
               "refId": "A"
@@ -296,7 +296,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "builder",
-              "expr": "rate(base_gc_total{job=~\"$serviceID\", pod=~\"$pod\"}[5m])",
+              "expr": "sum by (name) (rate(base_gc_total{job=~\"$serviceID\", pod=~\"$pod\"}[5m]))",
               "intervalFactor": 2,
               "legendFormat": "{{ name }}",
               "range": true,
@@ -399,7 +399,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "rate(base_gc_time_total{pod=~\"$pod\", job=\"$serviceID\"}[5m])",
+              "expr": "sum by (name) (rate(base_gc_time_total{pod=~\"$pod\", job=\"$serviceID\"}[5m]))",
               "legendFormat": "{{ name }}",
               "range": true,
               "refId": "A"
@@ -789,7 +789,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_memory_usedHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"}",
+              "expr": "sum by (name) (base_memory_usedHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"})",
               "intervalFactor": 2,
               "legendFormat": "Used Heap",
               "range": true,
@@ -800,7 +800,7 @@ spec:
                 "type": "prometheus",
                 "uid": "prometheus"
               },
-              "expr": "base_memory_committedHeap_bytes{pod=~\"$pod\", job=\"$serviceID\"}",
+              "expr": "sum by (name) (base_memory_committedHeap_bytes{pod=~\"$pod\", job=\"$serviceID\"})",
               "intervalFactor": 2,
               "legendFormat": "Commited Heap",
               "refId": "C"
@@ -810,7 +810,7 @@ spec:
                 "type": "prometheus",
                 "uid": "prometheus"
               },
-              "expr": "base_memory_maxHeap_bytes{pod=~\"$pod\", job=\"$serviceID\"}",
+              "expr": "sum by (name) (base_memory_maxHeap_bytes{pod=~\"$pod\", job=\"$serviceID\"})",
               "intervalFactor": 2,
               "legendFormat": "Max Heap",
               "refId": "B"
@@ -911,7 +911,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_thread_count{pod=~\"$pod\",job=\"$serviceID\"}",
+              "expr": "sum by (name) (base_thread_count{pod=~\"$pod\",job=\"$serviceID\"})",
               "intervalFactor": 2,
               "legendFormat": "Thread Count",
               "range": true,
@@ -1015,7 +1015,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_memory_usedNonHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"}",
+              "expr": "sum by (name) (base_memory_usedNonHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"})",
               "intervalFactor": 2,
               "legendFormat": "Used Non Heap",
               "range": true,
@@ -1026,7 +1026,7 @@ spec:
                 "type": "prometheus",
                 "uid": "prometheus"
               },
-              "expr": "base_memory_committedNonHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"}",
+              "expr": "sum by (name) (base_memory_committedNonHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"})",
               "intervalFactor": 2,
               "legendFormat": "Commited Non Heap",
               "refId": "B"
@@ -1105,7 +1105,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_classloader_loadedClasses_count{pod=~\"$pod\", job=\"$serviceID\"}",
+              "expr": "sum by (container) (base_classloader_loadedClasses_count{pod=~\"$pod\", job=\"$serviceID\"})",
               "range": true,
               "refId": "A"
             }
@@ -1183,7 +1183,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_classloader_loadedClasses_total{pod=~\"$pod\", job=\"$serviceID\"}",
+              "expr": "sum by (container) (base_classloader_loadedClasses_total{pod=~\"$pod\", job=\"$serviceID\"})",
               "range": true,
               "refId": "A"
             }
@@ -1261,7 +1261,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "base_classloader_unloadedClasses_total{pod=~\"$pod\", job=\"$serviceID\"}",
+              "expr": "sum by (container) (base_classloader_unloadedClasses_total{pod=~\"$pod\", job=\"$serviceID\"})",
               "range": true,
               "refId": "A"
             }
