@@ -27,67 +27,6 @@ applications:
         prune: true
         selfHeal: true
 
-  ###################### IDENTITY PROVIDER ######################
-  identityProvider:
-    name: identity-provider
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: gp-infrastructure
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts"
-      chart: gp-identity-provider
-      targetRevision: "*"
-      helm:
-        parameters:
-          - name: "google.clientSecret"
-            value: "AgBhDriAER+Skk0XxmdeKoJgfn94MFwIqrNtxHuttUlkkBdoMyjZdAVgmMM6+apXRFUZ39aH1+mwtNZkxn2n4zLGjXnkbvCxruh5hjuq64m+sInZDmbxqu7vTNeKOUy7VcaoYtz2JsoVRYderanZ65t6IJVygAa1aB7UwprbJ2NcFRtu971OY1b4tVGPc/BMZx8L/1pAyPG84KruAer2GpOdzB0YBdX26QjbXUelCjuQaTzIsunL6UHz5bH1igBadcYakSXpiHyllJ0MHaaSSdAOWPbnCSz6V6tzCRK3eB7+kx3N4Nkld7AbbBBBpxJC2je8JXsZXQtVby4U0M29k2ugBx8Pqfr+/hFUHB+Yxcq0h1DS0oWN676YS2Z/lStiUoMj4umMH4l6MIL5gwhepGiEn/ZeaCFyM9EPQwwY60fLlFYNiDR6yJd7Rm8SwvD9sf8W7JVMbt95ecevZrNv8fqv9Gh+qgT+t/5H2Nhro8vSIaiB6CbguYca9W0IISldw4tZtzNde8fl9J3z8eBWZ7kxRii4KOU4Knn/sQerAe4lpPzDoTBuHokLPEuZ4KowVCthMMzY79a5YlVq9OWtQEKGvqozbXleofJV3Inn5tIhUGL1eyD959YfTSLw8Jf7hkZfhte/XVRCOMkIkG0S1JyG2XsMgM8HAdSRmJe0wnV5O+kWzj+dFThsI8t05zRys7YX9HFIfIfhA724rZ7tQTlvxpKD6k1zLa0="
-          - name: "google.clientId"
-            value: "AgBXS0FRsCpbYJob1gg7gfavulPEywy54Wntp51W2NMYD0oA9NpBHs84//uF6u1sNZRZ1v2f8dtSl2W66sXLI6PAXkrBALwA9wFAzEm76PXSyVNA+pBqieiMxP3u2y3jw9j+guffMxz1I9Mm+aGIAPft5+BCdZeXRlWGj31XUhzhTBZfNm4qyPQVuW49V7R6UaO5aD4HalvSKH8mohS06hQcAdNurEK8tGgwJfN69foAYF8hC67I6hB2oHjinmeO3dfL5TF6fltYPHLBPtvLnvZEvrrea/+e6Z3nTmJ/98mUrfOJA/lKdNbimsm1+UsRmJRfEZgcZbLyXzfD1BhTQprHB7Lr8e6O3Epsp/NJcfKiGES0RJ9ZqjFCnAmpm02fuuBfv08c6PWcZlqJSRiuNAVTNNqixICyhC5xGaRu1EKvnIu6S212JRrWZnxEkAJ1lShvuxQOgAUipMcpSoJvBbPUp/+3DCKDtqBVvjfVNbaXv/SDscGksesAeQseWdQGChDg7E86I9Qe+NLtd/JyncPFfu72xJ+ZVPVat09w+U7F7ifTeR4eWQXY5B1s5EVKisHTJ+mBqWTLYw2ymco3yp+YhmojWzqKa4k1m6iiMNvegzlDy6GFrX/lNh7Bezzsm9p8SATRtHkY429k8AkIIdpjTWh8Qu5HkWzySqENErIg+vlT3daP7iFdPRFXMTAEAnU6hrxNqV3mRj76KvaKRydbIPEp/Hh9an2dvjp5vBqe2dCDNmU8uO9g3NzMlURUaUqS8HzGsmkH0FA/TCHObTdNIGfYbR0BYr8="
-          - name: "google.restrDomain"
-            value: "AgBdq2tkOx9B1POGbZ7csUklUs4D/LYk0H7YOJTVJzkW6nfwX8kcqQPTGaba3tJCUsFf2NZW46n2GAjwu7BQfhvGKPSHiLsl6KaLt8n20fFBIirXcG5Ww076zj1EKh0wQwNFTmQEr4dXx/vX3Z2mcTImYu4eXcwu2YV80cqERTdsg8NpaBV17xu0nTKoHxhlJ9YCdzxc19BAeH9FCjMKzCbsi+FbB9FHqFHsbLchBdt7M5LXyRfaT+rx19QSbxcaak8iUD1PRl+z2jt/70c2U7a/I7HpGI512G05KkaQ/gOy9qtYmwqHDwl1jwqmWWCtDjYuR5Oda/oJt9H4B1fUGuUHDgXoLRA+ThAu/ccSg5AYBa9npOeqQmiNm3NpI5DkEOetYuwNJTaDyJr39RMz7W/hIlLF71ZLgYH5KbYgpLGJhmmD4HQGwoZIxuo1pEbIwpgxCdb2Hh18AtMPzHif1NSumiq+FLaKGfKpYOypZNRVJz6Czo/HZc5/yiJzec62zS0VpBfDkfpk0TgyRuEJupxrpWvzqq12wmQ0PtHgOpczvgGfZEOtKF5ugygmtFbvabvvtoOuDT4rQiMi+20VWgJL1q06Vvs9LcN4XF0c3ZoEF1auzwM2xxtHjPQa2INMXnx1CBwzSyT0LdERKxpnEL7aVBO0QZR40R1FU6K5mma0PCYAKRfdOWtNOeoV0ypjmYUeh9/5a2eKgClNXoA="
-          - name: "google.enable"
-            value: "true"
-          - name: "git.clientSecret"
-            value: "AgCqn/mMIstXEuUnWLBs42VVObXpFx7MzPNkphejWOhnvNM3nrWQZy3fC6k0lzWcOJzPM9++ndMvcgA2BFeJi/lZ97wjnCizVsJrsLXmDgRgYQKbs24Q52PHJJ/w2TziGeMdm3GOA3SEoMbjznK2PzyPA4GefDjz/rPS1nfrnucxeyIr9jAWL/cohD2Pv2m+3sK+WzXatnKAXYezPWj4vHVf69tj3rCTsxSaKi3Jrj1lec6R7lszsJRIIQdNmf/ncC6fRsI+CCDta8cizxwegOiuC8K9PTCETeT9i8vupwU/VROS6444jyiZva59jBN4sp562/DANJLEzCVl/DlRpQCiEVBUN/sWMiRgu5fn5YeI6yIxs37kBKIvEuFTXZY4JO2DzcKtl/VoiG214TV4nQp/mutpaagaEcrKOaIqXcYPHOp/ySgd/774F9DKGO5KUgj7XJtpmdjWA0lfHWc+cH65GZKm3LVckiicMJfxq/5t6aV5/EPKu+zk2PzcQw+ujFTVRNLDPjRkF2LGP3VXNWDd4ZLTznpslMKmrdszIIsx3t1mK44QlGknF+YHeGhuJZKWagzu1deqokL0v+xvZN67qDSwZjzBINoYq/OcXQ3aePGLurx17YLyEe62utnB6hK5epoKfeQSJULfSNJSHvVFE+OqA+K+rIMEcEc3IXZNTzfrl5gfdPdzVX7owQNhadatKtfqb7wzfNaxYGKnizDY8dVtGgRcHb2Z8C3AxKue/rk/T66lbTdl"
-          - name: "git.clientId"
-            value: "AgCX8OWJ5kKWyJRmsXZ/fAzVe9TuqDveSrO6tqRwGzMB+b/tusLo4ycCHzJc6hYR4A513rw3vTbI5OS5BTfa1wTaOJcTmGzE1zbZmIpJk5VWAZsENNSqI05lutO3Nwz6WnOHjaZ4psTyj/6JLecLteZxkKSU046Hn2wq2C3w5cC6Ut5VCMF/IPi1Svd8vS/41aUkvxP2Y07ZlMXoI1UU9Cz5MwBpxE+YG3N6c1NydDA1CKGsjeYT/SGifWQ12+yvmqYnjXsvcQNtPVLDkp/0w989DldbCUHUbEcfHc4N8TaFZI7c80PKf34rg2v2pbEenexG83q87jSR2/mpM0cVCH1Suz+nMxFRI73eEftXT542vYm+eKIlfl0kjkdQ96dQ5CLUGQEYVJZvzDRO+nVRauH6cUD8BYlDgjMtelU6MOsGtPzZnA/sIZ5nDPBNy5Nx4CM3myYYi+XnZREjC/9IxerLQEiEHba0W30IX6/1DQWW9l0e7Jq2mWPjwSYFozbSuuCBwaI3fx0pHa78Nvk6yrslqyUGhfbFfcpj4CuiRhIefBvPwqnvkF/wCPI2pNHQXfuavqn2KCvvt5TkTO3gL3eOx9QjpeizRIBr5GeyczFVBu/bLsi7No+gJNZIMsawVIxV2r9Q4WLxtbU251DN+0DWmGWDCQ297fpQ8bwsTolkfPFLHNy/jISdGrYq3wjfGXwJRAlYLw233fb9Qw7Ah4nLk5b4oQ=="
-          - name: "git.restrOrgs"
-            value: "AgBB44zhpVbncCKsTCuuAiKSf0jtEH0Gvj8tVBX8g9GzoCq0CS9bK2dWtTuwzEF+ZpDU2aE9h0mz2YXwjvL9XuMZWW75Uwo/dNkcLWBn7qWyzzNA35nKhCK5jRXLlj8rxbtN9ZuQdSiEZp7GlTWZjW4prRC/Dtb+PtF55kQwecr1yX+cnojSfKj6MltD842iTALuo1bvatWTgCg4DhDISM6PpwjKHcULjctpwinWN9GM4kWauozwiNnkDoMzG0X8F5d6eDhuHmxFq9jDPK3MH9hD+1vE/1Lay7PCmEatWyJ3nQKfWLP5XJ9yFrRg67Js2I6+PhHRujpYcEVGrtB/3WTLluTLa3fU6EImhVdVMb3qjmgGNZf/Nvtlh2P7N6x4R9OHmAI0i+VUwf+jMCNO+N7fWDnrTklTdc+p9x+6ra+Rw5I0jk9qY2b6DKHewDrbBCBjvgZQhxBTEIquS77y0pPBvR+d1YtJ0KAQTVxUIVnL/CmiegNbDH2Fn7CrBq+RDDA3N+YttO4+7PxylZovqFAt2PiJs1Abt2uDn1j7wqh5q+IC8VE3GwTGZh5NMulnjcRA9gXhsvhbEjmtA4mN+92iZw5eFR0egzdptUfTeuICplj4uzlWHSQ9p4fZbqKbg2aCwlRUucM5P/jkJWXIubXAIEz7fO/136f0Nql4imDdIQWuCCy67eiQ0Fu84GsEC9JsHl2tCASZFSH7miIJiTW9kAIWog=="
-          - name: "git.enable"
-            value: "true"
-          - name: "htpasswd.enable"
-            value: "true"
-          - name: "htpasswd.data"
-            value: "AgCLdtbwL5Ii1JX/xvNIqAbfEEh6CRl04i5Cvrej+R4vziM+eMiQ30qKC843ZxWQzS0tsonlD2rL2kULZ6AqpvHNAxazftKpahRkxflovgfzYybzU5YNgTGIXadSbq/TA6eJQRrUDevpt9/9X2vvGwUUqVRrmzDF9/pme5yuuni/kghZy5DLTHmcE4MNCCi/5HxfxMFUucqRML4HqQ8c8hcwodUti0ggeRxNEqTAfnt0i9MubEfl4jkdTyfyctrDwVQ0x3Rkb6bpCi10pE4t2n2uOCH+X1uuPbkZL32wyIY497qxdRK2c+Q/8/Qwu51dMzk72UuFIFr0WPllbUmD/KZLOvSYawtHU7ZQtM25c9QmTDT9SRVqAKPbKgVfrCsAtUNx0L6U9u+hucpblsr1iV88RKuc7N5KZ0av2Ct2Qn1k4IHH6o+gM6zILikABsHdJ4uVahSlEc1RDLnrOlOYPIkfmNJwOADdThsEFNXDA6zFkDvEgrY/0sFu2BASBkaSaWeaDfzjdUJEWx63jV1Y9FD7c3r+oo5q0dwSjEu05yiD79BR4gQzaHcADkmDxZAM+xRj94xpgRah1iSzcSABiOL6CtRRKnYO5Ahy1rk3LevyPDETihpmMe1Wovjg9MHMkf1Z91TAwQfwNqH0gkNscse4NofuVxk3saUKqC4ZM0JXM5waMIWIBmDNHO6c6tf2r4pjcbaxLtr3+4R7tg5JkBVox5aXoc67aui6XM4GsMXF587KE9TvAmD8Zrl6Ix8CyhapPW/vRAXtKmamM0Wt6ZOBlHluI7V4yUHpRKvchqXGFYoRjj5kEtwhx05xN+vJCUMFxyf4tIKQqcOi30CUJCKElL7ZX5SmV2tWgUQhYEebG+uygBSZzVzgDJ4lYCFOKMYY3rHuCR6vpBWNQN7BoqSMiV8/gf6J88ZGkePyNsrI4xUy6TIhAHKa5tmDGO5/qb0dsoSd9yBKz09Zbz0q+pnIa6xnKp35hHjVmVT3nD0XpEx2m1dWbjA4O9j4C99vjgrl/6s5mNRlND8VWTjWhQXS6TW6lpKJFqUCRz1BtGpUU9rjMH0E1j4M1O/rKqaveSTUViK/XtZVC3HzDyjCojLHIirGMG/mHrvY27C+HYUDFKqegdGdWoufFk32QlAk2Lqdq/BxC/8yKnAjIDyZR8uj88vou+ea7e83JBtImgi4VE0zX03v82ZezPwWkoCw6DWG+CA1+S72Go0QzD5G4nL31gS5bvSmKdIUdeEXaRRL2pkSiUd2BNqvMcCG9Mka7BXApMoXyzQ/KCDL2v2YO7tlEGraZt3FaXpvbDkbRPReUJHvY30WOEX0rwDJrP5sFz31+0qv1i/AREOOTmiTBCNjds/NZRjAZYn6ueUqongbnyrvU6LUf3SbcRUTWsIsN2P4UM60esukUJSFhu9N3VteN04YrZ/eYKHsOVGGSkUjwCoa1BKlItmk0nbtbiFoR1tSFuAohZ29mU0LLuLa8N0gOeE2V63nPn2A5QmWNuuaC+G9VcbGH8a3+rDCwGP0BSOh0aGxn+Gbc/2+TCcg3f5SjsRBGdWqTprJzUs6UL/HTbRm5BXatysl0YvrBUqygJeiNxSaMB/Q/YdXaTYrSanXJEzZ1zKW2jWt173M01xMPJvggPDrP2k="
-          - name: "ldap.enable"
-            value: "true"
-          - name: "ldap.bindPassword"
-            value: "AgBO1NWT87dkOA8eMT3YaJDd/uDwC2UWLykI1NIRIYGuvdYYCoql0lylACko8ayNhT4TjGAvsst9d7e8ktmkc6SwaVzKk9PZkgMgstQmrpH02iRtRn0Kcj7F4iDisGSLH8cbPXTQkF+etYwsYhPvHarURNw6zvG3X36sCXwhScBwl6QG2vH6fyRHBjvtfs5123T2WRV1R6GfYsUlXpVBwtt22lSYSaRwN9MZOm72LZA8Mky8WE1/ibwTLqxD7Z9EBpmcb6zQwDJzsJMdtsSfOmTyfZmE0YbxExMzcy+lEAGRE80MpyFSHL7xI5tvriHqn6S9kJ/8EglVRMWk833qFsJ9aCXCJywywc4d2L/W4Vcf9N889yx7WxdMTmcU04SRJCTNSldtnTPq+cFS8zL51pa7C8zgS6F+BFj05TslNjsj0KaZlux8oZkOX1nCHzakaNalT5wBqKk4CiwEg0sNUxCd9/ImmymEYy6RbUzqgWAutntdgUzXlQ0z6N0RfOxZ8KfB/rRdle3S2O/AOjUrqFc7WPUjKql+LBCYeRzcKdRzeppycp19ipPW7EUflCWLJW0m1xNPGZ4vaSwP3/ztqosyWine3+bBCFWcGaZbKl+q2DuFFTPHLCYXT6J41yI0goejsYxzpFDkEP89tZbuGlchqG1YGVDKtl4s6iG4DirM4CHEEYUsnmKo1X/TDQkSoRqA93bJXqaY7VqNWo+KFw=="
-          - name: "ldap.bindDn"
-            value: "AgALBZgG/g4gn5vlJLkg3LnqG4/r00630ZI5/jHMjaGIDzAxXUew7bHFPrOn4IKCgYI5S3dsFizUgJzCvdvt+KBBrHLF+/ewTrLmHcenJYt/jklYxxkCAMmZvigvMFvKM6Bu2cWvRUEjypJHmoWbAJ/x6za11kMBPKen2IgJDPA3aLZ5EBY/6QoIzll9iV2z19IqdJHXFYGyEKHn4RMVSFFYv7JLJSzay5ox75WiAxMCtjcGDgygC+pvreqX9gqYDNNxhnqOIGzcm0XtDxDQoB0wdE2HNudhUqKvVSIVUTKgsuCOb0r9YsumQ6oQJtj8i1AhdsS0PoRi4z1TH7J9T9oDtu95T35hidiE2sngf2kBXAf1XqIDCURzTIK0QjnegSb1QB71y8GEfofQ7Wkf8pZLfKZddWbdC2RmBkkcD1eQGsPZZ3RYNa8YJdqiRxtg4KxjXgMxvwZ/ePUzo76A6cE8GT81tC0JL+8BxApwMTN2D2+jrJFVl3+vEgRpswPcSPF7d0s/he1eSGQMG6afMS+ju2kZx4vijjy0Ta5/i09r4gKp4TzwSoD7zvnH9N9xCH8BDIERf8sFrn2n8e6juni0pvLhW7t9dpjBRHqUoANHUy1OB6yofUaVEqHTqVHfGcfzB5pK6hpJOy+JTkVVmcW86zyN2sEJ6OOZ16iHktBBATPHsPdIY/b6dryyxrdN4guXGyqgC2QPme0SD4C0eeHncA7fF+OorB1ydqHwws/3QdBQZ3UiVYDna25tDWNP3ug="
-          - name: "ldap.ldapUrl"
-            value: "AgCCyVHM9MJ4BvRq9JEIE5+/BhHIWaqTvzytKg4rkHzknNEV6P1jFBNuKUY5x27OtMuiAKa0QklBj7TvpmmXFKyIw5hBP8Xom5OBU4oVK/8QOkTs+t79eAJjdlVyrd5v5OmBcfGwZlSv9eL6mcE8R0eGc6zXnNiNoxuSDroYbW8f1zka2MCzbGMy2M2kMcXy2ZxY5MQ2T7qlNa/ENDIsCIsEep37tSzaHIrjLKkb5nF/TG+VycxDBP9i2XMtW1IHMPC7/WbKQtqPAi2iFMqT256NQmpZb7aP6cFjaRZYWW8mfwAzu5uWdscr4RgSebTxeTUoUhWGxj8Vs5KhMGOIdV3HPzxfGFYI0kFCm/EYMAXMNXvbGOHjfiCZYWkWfcw/FVMs/JaU04GDFFx8KNezIh4871qNztfsAm1tcR1x8xt8Und5c7aa3hfLF7rMIyjNl1RP1EqSQtplPyeNpDrzG+8AlfdCRwBHxk6Yb5+IoSXGgXXy7w90j89nHQrKyki+AoxwGrsxy02YiaJUpqfQtJomDauN4wNo87c/S/GWa97jyXbHK1pn2O/SVD1thxVpFBuFoO0Nv1OyN3C/XEC1E63vQc47r+MC0SnAOdG+Wkh2Q3Yy7jXv11XRgI57mRDIXQtZjiI9newsYikpxR2ey0x3KeHEdO9evVu83xhi6FSmm4PVIY9/teGZ1ufitOppKDVHqQW2lzf3hqmAal8eoIl4azjU5ljvBonTVK+Obx5j+AUUCoAwZrBU477wDcLn1ncaQ4Ji4SWbGkVafe117xVFoU8="
-          - name: "ldap.usersQuery"
-            value: "AgCGUAI/Jg7xX9g81IKrz4+3dXfXYxSwbJ8DQ0QcXD71Dj2RPk7vxbXrLKtVhhWTteKTEGcBdQFk+rlxZYoBtwNrCxPipmR9ibthuSHMcGbMAzIOjp9sl0z2hOXBebDbYRh1BaWXf7lXFvGVk0xFJSdOjaHmDWFJMoCSIYja5NQTUBf46eWi0cgo5XpiDpzV0GkgwGB4z6Azfdu/O8UUmDdoQFRqhj4tQDtHNGz2ZuOJpDnJAltL5Yj/FOVxuWS8PterGY2wyPhoBEAJDjK916IRg6VSFl5IqeIQOOiz9FVN7pE4Xrndy++2xYQnvxlNTWNWkjG5KGnaSWwPqv2/KapAvTErezYWjSiWkb7Xv/hXBKMRgjbgqnco27/5+7vmsai2WbeElwwQyx+Xp/V5vV+cZbLpfZA/4xRp+/4vfF3wOsafD88GSp6Q+3ATGLl6Ter7g/ErCLydXmCQwKw9GCHUclMwcso6yJjLwl/MqJblRT78KbLIN9fwcXWetX9IuWLXXKiVr7VRwEkEdviEjKZIJVOmP79Q1RgJ2KVRGMNj1OEyi60PBrMSktuTWwKJq+619MTJ/r8hleqhRhoE8jRsglmUfSeZhIoqGJEjTHwWdlhy2NM65Ye+i54zrKUSgA/0nUJOvuRoFsglF1JVbIeOvcSMQ+Ok04ZyY7JA2Z3ZVGd2d4tLycRtYjxphgK+b0ZXNa7VCHwRoZebNDasBPQR8EIOYaOYQq68AfU1nZYAROrYwX0="
-          - name: "ldap.groupMappings[0]"
-            value: "CN=OC Editors,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local: ldap-editor"
-          - name: "ldap.groupMappings[1]"
-            value: "CN=OC_Administrators,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local: ldap-admin"
-          - name: "ldap.groupMappings[2]"
-            value: "CN=OC_Readonly_Users,OU=Groups,OU=GEPAPLEXX,DC=gp,DC=local: ldap-ro"
-    ignoreDifferences:
-      - group: ""
-        name: ldap-group-syncer
-        kind: ConfigMap
-        jsonPointers:
-          - /data/sync.yaml
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
   ###################### OAUTH GROUP SYNC  ######################
   oauthGroupSync:
     name: oauth-group-sync
