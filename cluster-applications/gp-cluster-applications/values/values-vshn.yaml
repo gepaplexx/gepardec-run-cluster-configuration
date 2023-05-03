@@ -47,22 +47,6 @@ applications:
         prune: true
         selfHeal: true
 
-  ##################### OPENSHIFT IMAGE REGISTRY ######################
-  internalRegistry:
-    name: openshift-registry
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: gp-infrastructure
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-ocp-internal-registry
-      targetRevision: "*"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
 
   ##################### GEPAPLEXX-CICD-TOOLS ######################
   gepaplexx-cicd-tools:
