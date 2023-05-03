@@ -4,23 +4,6 @@ project:
 
 applications:
 
-  ################### CLUSTER-LOGGING OPERATOR ##########################
-  clusterLoggingOperator:
-    name: cluster-logging-operator
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: openshift-logging
-      create: false
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-cluster-logging-operator
-      targetRevision: "*"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
   ####################### Grafana Operator ######################
   grafana-operator:
     name: grafana-operator
