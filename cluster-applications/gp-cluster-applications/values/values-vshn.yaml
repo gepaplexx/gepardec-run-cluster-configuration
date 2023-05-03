@@ -1,6 +1,6 @@
 project:
   create: false
-  name: gepaplexx
+  name: gepardec-run
 
 applications:
   ##################### KEYCLOAK-INSTANCE ######################
