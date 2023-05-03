@@ -70,23 +70,6 @@ applications:
         prune: true
         selfHeal: true
 
-  ##################### IMAGE REGISTRY CACHE ######################
-  internalRegistryMirror:
-    name: openshift-registry-mirror
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: gp-infrastructure
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-pull-through-cache
-      targetRevision: "*"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
   ##################### CERT-MANAGER ######################
   certManager:
     name: cert-manager
