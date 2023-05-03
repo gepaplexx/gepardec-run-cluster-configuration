@@ -71,39 +71,6 @@ applications:
         selfHeal: true
 
 
-  ##################### CLUSTER-ISSUER ######################
-  clusterIssuer:
-    name: cluster-issuer
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: cert-manager
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-cluster-issuer
-      targetRevision: "*"
-      helm:
-        parameters:
-          - name: "solvers.dnsZones[0]"
-            value: "play.gepaplexx.com"
-          - name: "solvers.accessKeyId"
-            value: "AKIATM2YI3GT32L3MCWJ"
-          - name: "solvers.secretName"
-            value: "play-route53-credentials-secret"
-          - name: "solvers.secretAccessKey"
-            value: "AgC0OKJ+SdWpMBkeYIqiJlI/73eayOLWxGKefEncyxLSD3aL1BvuW+h9yD4tmsQogonxWcWC1Eh4ifNz1VGw4j3BJOa2frNnxnUDPgEq6gysqG2tinl/wtbfwEAxNbiQHcukX4/r/hdvRK/Gx2M/gPrW2GyM+4oFV31hnlDG8KyZqRszhAtYnrjE0j8ptzSVIfH85KBbeN/lIX8i+ECuPpEOApfaWvuHNfkCoILR+sGHmtgsRNJcPcu57zGXErUfoMvb7VSs2Mqwt02H1rn7x8L6v+E0dcpc5X2N3V6ToaSQcCgYNB31B3cJJsNzQ7funPc373AFlVoaEHH9UAiXSqWifcFzhQ03+nEzVlQkBSOEBJsj2NcFuLZmzg4k7DTBM2A772J/qx8a3bBtfJlATHunIAhnoB+c8EXMghQCeZ9S1eKyBNOwB8yfrhnuWrbKyzrT9pykneaKM19vXZUXWjfSW/Yk0OW5NkXO2JO47x9hWUgC5gy+M2+hNHJ2mpdFxgEi4wO+NBtSYpKQQJTY2clqE6m+fkcvZJ/NsYbsEmgEGhsm1kKg+bkz2T7MB6ZejjMlqMGgmgx8fw2kaQQhJbaecYsVOrOvrjhs//V/lctKBy6C5ZMZ5oouglzzZZ4DCpSGnwi6sKcBEDwhVFA1BSs+m/B4S0bQr/LrxeoPSh5M00bf5kfLwPtlF15WJDeAs94QJBvc7NLJG9mvR285HzqkdJ0UcJiJ9kAt5FJocaMlHvhwMZs3w1nD"
-          - name: "certificates.defaultIngress"
-            value: "*.apps.play.gepaplexx.com"
-          - name: "certificates.console"
-            value: "console.apps.play.gepaplexx.com"
-          - name: "certificates.api"
-            value: "api.play.gepaplexx.com"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
   ##################### CONSOLE-PATCHES ######################
   consolePatches:
     name: console-patches
