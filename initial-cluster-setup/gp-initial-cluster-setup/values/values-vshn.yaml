@@ -70,29 +70,6 @@ applications:
         prune: true
         selfHeal: true
 
-
-  ##################### CONSOLE-PATCHES ######################
-  consolePatches:
-    name: console-patches
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: gp-infrastructure
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-console-patches
-      targetRevision: "*"
-      helm:
-        parameters:
-          - name: "route.nameOverride"
-            value: "true"
-          - name: "route.hostname"
-            value: "apps.play.gepaplexx.com"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
   ##################### KEYCLOAK-OPERATOR ######################
   keycloak-operator:
     name: keycloak-operator
