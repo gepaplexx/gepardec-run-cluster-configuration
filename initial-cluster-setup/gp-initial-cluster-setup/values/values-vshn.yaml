@@ -70,26 +70,6 @@ applications:
         prune: true
         selfHeal: true
 
-  ##################### CERTIFICATES-PATCHES ######################
-  certificatesPatches:
-    name: certificate-patches
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: gp-infrastructure
-      create: true
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-certificates-patches
-      targetRevision: "*"
-      helm:
-        parameters:
-          - name: "apiserver.customApiUrl"
-            value: "api.play.gepaplexx.com"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
 
   ##################### CLUSTER-ISSUER ######################
   clusterIssuer:
