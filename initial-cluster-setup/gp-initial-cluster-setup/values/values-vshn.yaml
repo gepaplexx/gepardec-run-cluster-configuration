@@ -70,23 +70,6 @@ applications:
         prune: true
         selfHeal: true
 
-  ########################## ROOK/CEPH OPERATOR ##########################
-  rookCephOperator:
-    name: rook-ceph-operator
-    enabled: true
-    argoProject: gepaplexx
-    destination:
-      namespace: rook-ceph
-      create: false
-    source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-rook-ceph-operator
-      targetRevision: "*"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
-
   ##################### IMAGE REGISTRY CACHE ######################
   internalRegistryMirror:
     name: openshift-registry-mirror
