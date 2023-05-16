@@ -67,7 +67,7 @@ spec:
       - name: subscription.installPlanApproval
         value: manual
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 0.3.*
+    targetRevision: 1.0.*
   syncPolicy:
     automated:
       prune: true
