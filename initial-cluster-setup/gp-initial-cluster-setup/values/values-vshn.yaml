@@ -4,47 +4,6 @@ name: gepardec-run
 
 applications:
 
-#  ################## SEALED SECRETS OPERATOR ####################
-#  sealedSecretsOperator:
-#    name: sealed-secrets-operator
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-infrastructure
-#      create: false
-#    source:
-#      chart: sealed-secrets
-#      repoURL: https://bitnami-labs.github.io/sealed-secrets
-#      targetRevision: 2.*
-#      helm:
-#        parameters:
-#          - name: containerSecurityContext.enabled
-#            value: 'false'
-#          - name: podSecurityContext.enabled
-#            value: 'false'
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
-#  ###################### OAUTH GROUP SYNC  ######################
-#  oauthGroupSync:
-#    name: oauth-group-sync
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-infrastructure
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-oauth-group-sync
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
-#
 #  ####################### CLUSTER-CONFIG ########################
 #  clusterConfig:
 #    name: cluster-config
