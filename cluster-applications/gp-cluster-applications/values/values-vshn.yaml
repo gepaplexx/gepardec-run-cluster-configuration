@@ -79,23 +79,6 @@ applications:
 #        prune: true
 #        selfHeal: true
 #
-#  ####################### CLUSTER-LOGGING-EVENTROUTER #######################
-#  clusterLoggingEventrouter:
-#    name: cluster-logging-eventrouter
-#    enabled: true
-#    destination:
-#      namespace: openshift-logging
-#      create: false
-#    argoProject: gepaplexx
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-cluster-logging-eventrouter
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
 #
 #  ##################### GEPAPLEXX-CICD-TOOLS ######################
 #  gepaplexx-cicd-tools:
