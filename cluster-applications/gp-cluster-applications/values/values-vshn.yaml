@@ -262,7 +262,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "0.1.*"
       chart: gp-alertmanager
     syncPolicy:
       automated:
