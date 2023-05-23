@@ -251,3 +251,20 @@ applications:
 #      automated:
 #        prune: true
 #        selfHeal: true
+
+##################### ALERTMANAGER ######################
+  alertmanager:
+    name: alertmanager
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: openshift-user-workload-monitoring
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: gp-alertmanager
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
