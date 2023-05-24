@@ -1,6 +1,6 @@
-#project:
-create: true
-name: gepardec-run
+project:
+  create: true
+  name: gepardec-run
 
 applications:
 
