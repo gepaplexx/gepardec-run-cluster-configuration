@@ -23,7 +23,7 @@ applications:
       helm:
         parameters:
           - name: "keycloak.ingress.hostname"
-            value: "sso.apps.c-gepa-play.vshnmanaged.com"
+            value: "sso.apps.c-gepa-play.gepa.vshnmanaged.com"
           - name: "cluster"
             value: "c-gepa-play"
           - name: "host"
