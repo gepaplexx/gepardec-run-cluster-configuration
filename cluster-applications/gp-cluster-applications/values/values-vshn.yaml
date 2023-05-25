@@ -174,7 +174,7 @@ applications:
           - name: "ingress.hostname"
             value: "grafana.play.run.gepardec.com"
           - name: "sso.keycloak.realmUrl"
-            value: "https://sso.apps.c-gepa-play.gepa.vshnmanaged.net/realms/internal"
+            value: "https://sso.play.run.gepardec.com/realms/internal"
     ignoreDifferences:
       - jsonPointers:
           - /spec/config/auth.generic_oauth/client_secret
