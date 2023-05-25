@@ -220,7 +220,7 @@ applications:
       helm:
         parameters:
           - name: "multena.jwksCertUrl"
-            value: https://gp-sso-service.gp-sso.svc.cluster.local:8443/realms/internal/protocol/openid-connect/certs
+            value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
     syncPolicy:
       automated:
         prune: true
