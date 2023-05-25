@@ -3,37 +3,35 @@ project:
   name: gepardec-run
 
 applications:
-##################### KEYCLOAK-INSTANCE ######################
-#  keycloak-instance:
-#    name: keycloak-instance
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-sso
-#      create: false
-#    ignoreDifferences:
-#      - jsonPointers:
-#          - /secret
-#        kind: OAuthClient
-#        group: oauth.openshift.io
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-keycloak-configuration
-#      targetRevision: "*"
-#      helm:
-#        parameters:
-#          - name: "keycloak.ingress.hostname"
-#            value: "sso.apps.play.gepaplexx.com"
-#          - name: "keycloak.persistence.auth.password"
-#            value: "AgBsTRVF6DGROo0dOE+iKgmOGfnfsJDfRND4ReJpEL5GCpECGQB8jVUCmjWBJ7pr4KyC/F5JEYfGDds9AVlaRNpDioSVUVJDG4i5oOw2ZxWSXC+3+xQYpmOBITLQ191eWAjtWyeMsEwl4Hl/kQHcIzKH7eFRJh9mbBv4fXpUJCQS/Ej1CdKBOcNz3l3Xq39vX2zbysVaCTqAPRKtZb7KzFH6CTwNYS43Ck4tO53BMeMXLSk0TFQjQUvscvqGEYB4SQbf0t2gWatn+bSwJttBGKm6qJO5YgBiWRQdObN5h22czeyYiVoSnUgumGwxETIlaWt+COTP7OyfyHjVcmVkM2KQZDcOF3uR2u8QTgmcIoDPYL5zS6hZO5eY6PkazfWbsezIcbtHRFuLYE/6QjedRyqCCrHfJJdHz11P+KpaIJ2XhbpLAnAxgkBdNPG8djeDnFCNjILz8t2HctAnN6P1gcxPIOPNxYwGzCf4FISVMb/vFqBJazVMlET6NnCIUKH6coW1jPbsVbi68tGiYQk4Y0FykdMnTAoueJqf/sucQ67DkY3XTtHfDtOd5eHIirIEm8sivdRXu4kIA5U/tgdOAX3hTJmUbp2ZcqJcCA0mlsOcAsmiCGtClxaZ8KU681rU1pad2f84QgiNYiJAO+NsgdM1Hcu633z2FXlMUeLtHWvs5ptvjIAe4X9Ekn2RkRivpWSDhJrM/DGxCBZhsNuHHFXZDrpcpJbGnnHC0ShqQtD1jg=="
-#          - name: "keycloak.provider.openshift.clientSecret"
-#            value: "AgCOOc9m+zqrK68KKGoLwsxxTGHrjyeX+5Ih8QrkjKsegb+/Qxxo/tZb2J+FzmXo0VBNgJvY9fGe8XbBhUDuCsbCwsGZAtNdhC6AJwNwqcqEVn5pRsDib79J88ncRjREhNdt+I6v4PIRVgr+lASsU8OKbA9+bMKHRPxkZSQPU37Mj6liJFtCAcBW98sXysSE1/ZpIAizeAEuonuEVsMdJ3esvfI6l5chK9Bw6LQjuzQuOrkdEE5ibXD4ax7AdpC2xhPEuwTyOclptJkeUIzfE4jAEJg6gf7D1zEbERL/qtI3Mj0XRlCES1RFDwEjoiuLQyfOq2Mf3r67mE63r7myqlNJpnszmHPHD2f8wt2sIQrOq2h3B8t0WLYFiVXRV+qF9Puf7jAdUFca/I+3c0y14R/VeClCQBxhSoDuxg+pb03wnQcDWVcid2s6vpGoEOciAkp1HiuJi8BkCYFUIqNarrIDxEATaHORvDiM/cgohVH014dxp3MQleA5IOyMkZEFKmJIM986xFcldONMneQqh8whcCp2v9sujYHZSCLd+ehfqujIhqi25iaQ/IuKrVQtPYjd3AMilcw4PD3TXVJxj/AKOyxIk9eNDRwSAgR5FJVs2vkOWIR+IlwLExGzH4kFG+kJhWm6k20vURy35S5NjBSk9haaTKi7iRG9tMQRB6tdyIIdGjtjfrZJv3W9Fdg+eSGRfKqRXpFUSDUwhuMngf/cv78LW7jeDIOtfzZkSTeUG/xt0CHF"
-#          - name: "clientProperties"
-#            value: "AgCFHkqn8Gry5AauW9xrWriDYuu/9bUQgG6gyyXtjomS2duqpBhsRJ8ETT/cosnSzQFLy1Q7KLpvBzFDLEoNQqmucbOWXGdlTPGPHAIZOPzitWCM18DyaC3JHkuFlK6th7eJICOM4FwtjZn4MQyg1GLYtMN3atKlfGxbOa4eEKVOsrhtFEL5a0DgmKEJ/Kj69giFfc+eY2Z0E/MVIICY+uazSlLrokgilqO9hBnv1oE/7TGoYM3595xeNCXaN/vhaq792p7FXE7zVSKHz22kCQa6wwZWXcAUeOZgJi0lm43Dap/+1Ffcp3Zky5KZOanGil9EkTF9DG2xD+i/vLPvmiI394LqUWW5fbM9YPsPKjAKBUQ9TzjvTTG8MMbJhgQso6o3Jiq57t4NvuoNmhEFSsz1hOpvuwZki7QYaYkywvwFMwXXx0q7xcxbeBC2C7FGDMNJDXLocdnsGK88INPkRjuabIwec+HA8yOYuYVG+VtccRpB33ch9FZLV/sh5U8ErBGF6sMznm4Q52l58uy8NqMkT5qiZAvDHxVNE6MsdnJI4DUZVuiS/8+loQiK5hVuXIDnP27wkwO9sgCtOX7rAx4IUwUhE2kX0bFGnf4+oACsyI4DtoBlmcuttmWyy3qpEgtP8vGaaLsK1pNok4AusBV8aLWAAwUqZOYSxsnhnoyrbwE23o3iumpPdd8ArgYSE6h4QJ3p48KFfOzCVrR48Uzhhj8uLABV0e38lORXWtrO+CLEv7lhKB4rNjfUm2O0TrleA7qrx2XQ+7bNF6BqZ1oGMNwR2a9P5lSFYYe2MoUjyqcpFfJbeOwJBWeCSekaogZbl4WQQVSdx/sCRP20H8Jmz3/4p306OVtR/M/3sj/t+hJGaOHUWJpklYuNQZMr4M9D/+NmYAPSdRZ3LXdNuzGhpqbkw6eWSSjhnjfGpmMi6cdd36+WUt2/YKrGlOIe9LLl0GbRJ8H4OCkyb+ZLjoMHpmNJD/KrzshCz4PzvjAmYGR94ouw0PCwwGLM1qiS+vGgDgm8vJm6O8fdMvD1jONrzKliYJeZ41oXGbUG/xt9otUUR0+Q"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+#################### KEYCLOAK-INSTANCE ######################
+  keycloak-instance:
+    name: keycloak-instance
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-sso
+      create: false
+    ignoreDifferences:
+      - jsonPointers:
+          - /secret
+        kind: OAuthClient
+        group: oauth.openshift.io
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-keycloak-configuration
+      targetRevision: "2.0.*"
+      helm:
+        parameters:
+          - name: "keycloak.ingress.hostname"
+            value: "sso.apps.c-gepa-play.vshnmanaged.com"
+          - name: "cluster"
+            value: "c-gepa-play"
+          - name: "host"
+            value: "gepa.vshnmanaged.net"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ##################### EXTERNAL SECRETS CONFIGURATION ######################
 #  external-secrets:
