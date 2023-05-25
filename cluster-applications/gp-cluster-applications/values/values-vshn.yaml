@@ -160,34 +160,32 @@ applications:
 #        selfHeal: true
 #
 #  ####################### Grafana Instance ######################
-#  grafana-instance:
-#    name: grafana-instance
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: "gp-grafana-instance"
-#      helm:
-#        parameters:
-#          - name: "ingress.hostname"
-#            value: "grafana.apps.play.gepaplexx.com"
-#          - name: "sso.keycloak.clientSecret"
-#            value: "AgAwaEqhpzcWtEHi+FlMfIHCFjwrZMebgoB9t2POP3nwlCfsIHHgRZiiXtHqtXQyjRjVsog5a00msUs2Gh4T7izX/mpODcQanKRty0BsPLzPRdtYZtEeJ8FJMVNbvW4mEMUApmGCeIxBoIOEDMsTxo2VG1GSkyt9BsNd2s3lJGno1iyL1mU5SoIp88mmwGa5Am1pcwqJDmJmhW0n/qhsM9w9pe4G0gjKewiLrr5q6AawEXCJSPLpkW3idcpZ18Gj9NzLXYJzI7iIVw6WzydLtMjX47mV0YXibi6fDIAEoQAe4XRGsJmEbBVKFAij/SjI2G3oJGjiWRPqEHZTsUJ6BxH1LjCHSHwaziSLWvleSRtwZHz/3FO2rDoCAoE6KJPXSjmFJnOIlIG1ZG+CZFT0Tzd1fKfrAFThK9wqYadLva25vir1UCROqI14sZnt85DpbPLYIPRe6XTA9YMeoB2iv4hzzbOoShHWh0lIzYhjwSWle7tYP7SvQ6JwA4yvfLgVWLhncHJ4Fx3mMPmDRROET1Zi41oqXGHCpj9pc2IHG9G8UCfFAvSjZADZlNWJ/BIlpF2yR5o4tulZa4pSANjckLLJTlw4BMwbrjCuWmyzYSCQLQMmZXlAXjUCnCaabfTqLEpkrSaj956kGAfFU5EhpP5u4QULJjFwRUZ2wnkWtZi426NhE6DlcpX2+g73kKf+o/gnvuVOm0NRezhWxusT5LU7Fd+rhPzWyvitIFURYxsodQ=="
-#          - name: "sso.keycloak.realmUrl"
-#            value: "https://sso.apps.play.gepaplexx.com/realms/internal"
-#    ignoreDifferences:
-#      - jsonPointers:
-#          - /spec/config/auth.generic_oauth/client_secret
-#        kind: Grafana
-#        group: integreatly.org
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  grafana-instance:
+    name: grafana-instance
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-grafana-instance"
+      helm:
+        parameters:
+          - name: "ingress.hostname"
+            value: "grafana.play.run.gepardec.com"
+          - name: "sso.keycloak.realmUrl"
+            value: "https://sso.apps.c-gepa-play.gepa.vshnmanaged.net/realms/internal"
+    ignoreDifferences:
+      - jsonPointers:
+          - /spec/config/auth.generic_oauth/client_secret
+        kind: Grafana
+        group: integreatly.org
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ####################### Grafana Dashboards ######################
 #  grafana-dashboards:
@@ -210,25 +208,25 @@ applications:
 #        selfHeal: true
 #
 #  ####################### Multena ######################
-#  multena:
-#    name: multena
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: "gp-multena"
-#      helm:
-#        parameters:
-#          - name: "multena.jwksCertUrl"
-#            value: https://gp-sso-service.gp-sso.svc.cluster.local:8443/realms/internal/protocol/openid-connect/certs
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  multena:
+    name: multena
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-multena"
+      helm:
+        parameters:
+          - name: "multena.jwksCertUrl"
+            value: https://gp-sso-service.gp-sso.svc.cluster.local:8443/realms/internal/protocol/openid-connect/certs
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ##################### VAULT ######################
 #  vault:
