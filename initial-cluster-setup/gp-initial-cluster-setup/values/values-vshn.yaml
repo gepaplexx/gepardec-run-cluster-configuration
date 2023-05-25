@@ -79,3 +79,29 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
+  ##################### VAULT ######################
+  vault:
+    name: vault
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-vault
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: gp-hashicorp-vault
+      helm:
+        parameters:
+          - name: "ingress.hostname"
+            value: "vault.play.run.gepardec.com"
+    ignoreDifferences:
+      - group: admissionregistration.k8s.io
+        jsonPointers:
+          - /webhooks/0/clientConfig/caBundle
+        kind: MutatingWebhookConfiguration
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
