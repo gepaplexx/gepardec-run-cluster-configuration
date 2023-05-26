@@ -1,0 +1,164 @@
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alertmanager
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "alertmanager | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "alertmanager | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "alertmanager | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "alertmanager | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "alertmanager | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "alertmanager | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "alertmanager | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "alertmanager | sync-succeeded"
+spec:
+  destination:
+    namespace: openshift-user-workload-monitoring
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-alertmanager
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 0.1.*
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-instance
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "grafana-instance | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "grafana-instance | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "grafana-instance | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "grafana-instance | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "grafana-instance | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "grafana-instance | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "grafana-instance | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "grafana-instance | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-grafana
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-grafana-instance
+    helm:
+      parameters:
+      - name: ingress.hostname
+        value: grafana.play.run.gepardec.com
+      - name: sso.keycloak.realmUrl
+        value: https://sso.play.run.gepardec.com/realms/internal
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: '*'
+  ignoreDifferences:
+    - group: integreatly.org
+      jsonPointers:
+      - /spec/config/auth.generic_oauth/client_secret
+      kind: Grafana
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-instance
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "keycloak-instance | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "keycloak-instance | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "keycloak-instance | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "keycloak-instance | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "keycloak-instance | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "keycloak-instance | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "keycloak-instance | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "keycloak-instance | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-sso
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-keycloak-configuration
+    helm:
+      parameters:
+      - name: keycloak.ingress.hostname
+        value: sso.play.run.gepardec.com
+      - name: cluster
+        value: c-gepa-play
+      - name: host
+        value: gepa.vshnmanaged.net
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 2.0.*
+  ignoreDifferences:
+    - group: oauth.openshift.io
+      jsonPointers:
+      - /secret
+      kind: OAuthClient
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multena
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "multena | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "multena | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "multena | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "multena | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "multena | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "multena | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "multena | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "multena | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-grafana
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-multena
+    helm:
+      parameters:
+      - name: multena.jwksCertUrl
+        value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
