@@ -56,7 +56,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "1.0.*"
       chart: gp-external-secrets-operator
     syncPolicy:
       automated:
