@@ -117,8 +117,8 @@ applications:
         selfHeal: true
 
   ##################### GEPAPLEXX-CICD-EVENTBUS ######################
-  gepaplexx-cicd-eventbus:
-    name: gepaplexx-cicd-eventbus
+  cicd-eventbus:
+    name: cicd-eventbus
     enabled: true
     argoProject: gepardec-run
     destination:
