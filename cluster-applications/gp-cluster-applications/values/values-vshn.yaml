@@ -91,17 +91,11 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO final umstellen!
       chart: gp-cicd-tools
-      targetRevision: "*"
+      targetRevision: "*" # TODO Version fixieren
       helm:
         parameters:
           - name: "argocd.route.hostname"
             value: "argocd.play.run.gepardec.com"
-          - name: "argo_events.enabled"
-            value: "false"
-          - name: "argo_workflows.enabled"
-            value: "false"
-          - name: "argo_workflows.enabled"
-            value: "false"
 
 #          - name: "argo_workflows.server.ingress.hosts[0]"
 #            value: "workflows.play.run.gepardec.com"
