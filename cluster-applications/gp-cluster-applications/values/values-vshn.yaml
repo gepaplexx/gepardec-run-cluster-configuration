@@ -186,24 +186,24 @@ applications:
         selfHeal: true
 #
 #  ####################### Grafana Dashboards ######################
-#  grafana-dashboards:
-#    name: grafana-dashboards
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
-#      targetRevision: "main"
-#      path: "observability/dashboards/"
-#      directory:
-#        recurse: true
-#        include: "{all/*,play/*}"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  grafana-dashboards:
+    name: grafana-dashboards
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
+      targetRevision: "main"
+      path: "observability/dashboards/"
+      directory:
+        recurse: true
+        include: "{all/*,play/*}"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ####################### Multena ######################
   multena:
