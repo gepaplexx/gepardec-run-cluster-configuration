@@ -81,8 +81,8 @@ applications:
 #
 #
   ##################### GEPAPLEXX-CICD-TOOLS ######################
-  gepardec-run-cicd-tools:
-    name: gepardec-run-cicd-tools
+  cicd-tools:
+    name: cicd-tools
     enabled: true
     argoProject: gepaplexx
     destination:
