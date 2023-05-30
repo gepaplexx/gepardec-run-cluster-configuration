@@ -115,23 +115,23 @@ applications:
       automated:
         prune: true
         selfHeal: true
-#
-#  ##################### GEPAPLEXX-CICD-EVENTBUS ######################
-#  gepaplexx-cicd-eventbus:
-#    name: gepaplexx-cicd-eventbus
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gepaplexx-cicd-eventbus
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gepaplexx-cicd-eventbus
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+
+  ##################### GEPAPLEXX-CICD-EVENTBUS ######################
+  gepaplexx-cicd-eventbus:
+    name: gepaplexx-cicd-eventbus
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-cicd-eventbus
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO Umstellen wenn final
+      chart: gp-cicd-eventbus
+      targetRevision: "*" # TODO Version fixieren
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ##################### GEPAPLEXX-CICD ######################
 #  gepaplexx-cicd:
