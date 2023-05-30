@@ -34,22 +34,22 @@ applications:
         selfHeal: true
 #
 #  ##################### EXTERNAL SECRETS CONFIGURATION ######################
-#  external-secrets:
-#    name: external-secrets-configuration
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-external-secrets
-#      create: false
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: gp-external-secrets-configuration
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
+  external-secrets:
+    name: external-secrets-configuration
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-external-secrets
+      create: false
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: gp-external-secrets-configuration
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
 #  ####################### CLUSTER-UPDATER #######################
 #  clusterUpdater:
 #    name: cluster-updater
