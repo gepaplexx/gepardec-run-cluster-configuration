@@ -94,7 +94,7 @@ applications:
       targetRevision: "*" # TODO Version fixieren
       helm:
         parameters:
-          - name: "argocd.route.hostname"
+          - name: "argocd.ingress.hostname"
             value: "argocd.play.run.gepardec.com"
 
 #          - name: "argo_workflows.server.ingress.hosts[0]"
