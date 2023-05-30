@@ -18,16 +18,18 @@ applications:
         group: oauth.openshift.io
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      chart: gp-keycloak-configuration
-      targetRevision: "2.0.*"
+      chart: gp-keycloak-instance
+      targetRevision: "1.1.*"
       helm:
         parameters:
-          - name: "keycloak.ingress.hostname"
+          - name: "ingress.hostname"
             value: "sso.play.run.gepardec.com"
-          - name: "cluster"
-            value: "c-gepa-play"
-          - name: "host"
-            value: "gepa.vshnmanaged.net"
+          - name: "keycloakConfigCli.enabled"
+            value: "true"
+          - name: "keycloakConfigCli.cluster"
+            value: "play"
+          - name: "keycloakConfigCli.identityProvider.openshift.baseUrl"
+            value: "https://api.c-gepa-play.gepa.vshnmanaged.net:6443"
     syncPolicy:
       automated:
         prune: true
