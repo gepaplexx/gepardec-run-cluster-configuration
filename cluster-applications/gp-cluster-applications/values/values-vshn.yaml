@@ -124,9 +124,9 @@ applications:
         prune: true
         selfHeal: true
 
-  ##################### GEPAPLEXX-CICD ######################
-  gepaplexx-cicd:
-    name: gepaplexx-cicd
+###################### GEPAPLEXX-CICD ######################
+  gepardec-run-cicd:
+    name: gepardec-run-cicd
     enabled: true
     argoProject: gepardec-run
     destination:
@@ -141,7 +141,7 @@ applications:
         prune: true
         selfHeal: true
 
-#  ####################### Grafana Instance ######################
+######################### Grafana Instance ######################
   grafana-instance:
     name: grafana-instance
     enabled: true
