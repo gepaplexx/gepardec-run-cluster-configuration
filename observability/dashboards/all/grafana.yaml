@@ -424,7 +424,7 @@ spec:
                 "uid": "logging-application"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=~\"$namespace\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\"",
+              "expr": "{kubernetes_namespace_name=\"$namespace\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\"",
               "queryType": "range",
               "refId": "A"
             }
@@ -2003,7 +2003,7 @@ spec:
             "hide": 2,
             "label": "",
             "name": "namespace",
-            "query": "grafana-operator-system",
+            "query": "gp-grafana",
             "skipUrlSync": false,
             "type": "constant"
           },
