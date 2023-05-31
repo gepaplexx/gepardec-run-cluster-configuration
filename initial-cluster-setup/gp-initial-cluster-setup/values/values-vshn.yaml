@@ -113,6 +113,7 @@ applications:
     argoProject: gepardec-run
     destination:
       namespace: gp-kyverno
+      create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" #TODO use correct repo and version after finalizing GPX-659
       chart: gp-kyverno
