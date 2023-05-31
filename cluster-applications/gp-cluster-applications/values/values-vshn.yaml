@@ -94,18 +94,8 @@ applications:
       targetRevision: "*" # TODO Version fixieren
       helm:
         parameters:
-          - name: "argocd.ingress.hostname"
-            value: "argocd.play.run.gepardec.com"
-          - name: "argo_workflows.server.ingress.hosts[0]"
-            value: "workflows.play.run.gepardec.com"
-          - name: "argo_workflows.server.ingress.tls[0].hosts[0]"
-            value: "workflows.play.run.gepardec.com"
-          - name: "argo_workflows.server.ingress.tls[0].secretName"
-            value: "workflows.play.run.gepardec.com-tls"
-          - name: "argo_workflows.server.sso.issuer"
-            value: "https://sso.play.run.gepardec.com/realms/internal"
-          - name: "argo_workflows.server.sso.redirectUrl"
-            value: "https://workflows.play.run.gepardec.com/oauth2/callback"
+          - name: "clustername"
+            value: "play"
           - name: "argo_workflows.rbac.clusterscoped.enabled"
             value: "true"
     syncPolicy:
