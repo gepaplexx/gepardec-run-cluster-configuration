@@ -110,7 +110,7 @@ applications:
   kyverno:
     name: kyverno
     enabled: true
-    argoProject: gepaplexx
+    argoProject: gepardec-run
     destination:
       namespace: gp-kyverno
     source:
