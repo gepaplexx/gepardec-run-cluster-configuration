@@ -37,6 +37,115 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: cicd-eventbus
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cicd-eventbus | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cicd-eventbus | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cicd-eventbus | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cicd-eventbus | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cicd-eventbus | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cicd-eventbus | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cicd-eventbus | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cicd-eventbus | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-cicd-eventbus
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-cicd-eventbus
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cicd-tools
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cicd-tools | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cicd-tools | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cicd-tools | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cicd-tools | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cicd-tools | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cicd-tools | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cicd-tools | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cicd-tools | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-cicd-tools
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-cicd-tools
+    helm:
+      parameters:
+      - name: argocd.ingress.hostname
+        value: argocd.play.run.gepardec.com
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-dashboards
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "grafana-dashboards | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "grafana-dashboards | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "grafana-dashboards | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "grafana-dashboards | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "grafana-dashboards | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "grafana-dashboards | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "grafana-dashboards | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "grafana-dashboards | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-grafana
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    directory:
+      include: '{all/*,play/*}'
+      recurse: true
+    path: observability/dashboards/
+    repoURL: https://github.com/gepaplexx/gepardec-run-cluster-configuration
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: grafana-instance
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
@@ -100,17 +209,19 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: gepardec-run
   source:
-    chart: gp-keycloak-configuration
+    chart: gp-keycloak-instance
     helm:
       parameters:
-      - name: keycloak.ingress.hostname
+      - name: ingress.hostname
         value: sso.play.run.gepardec.com
-      - name: cluster
-        value: c-gepa-play
-      - name: host
-        value: gepa.vshnmanaged.net
+      - name: keycloakConfigCli.enabled
+        value: "true"
+      - name: keycloakConfigCli.cluster
+        value: play
+      - name: keycloakConfigCli.identityProvider.openshift.baseUrl
+        value: https://api.c-gepa-play.gepa.vshnmanaged.net:6443
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 2.0.*
+    targetRevision: 1.1.*
   ignoreDifferences:
     - group: oauth.openshift.io
       jsonPointers:
