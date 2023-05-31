@@ -124,23 +124,23 @@ applications:
         prune: true
         selfHeal: true
 
-#  ##################### GEPAPLEXX-CICD ######################
-#  gepaplexx-cicd:
-#    name: gepaplexx-cicd
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: openshift-gitops
-#      create: false
-#    source:
-#      repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
-#      targetRevision: "main"
-#      path: "clusters/play/applications"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
+  ##################### GEPAPLEXX-CICD ######################
+  gepaplexx-cicd:
+    name: gepaplexx-cicd
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gepardec-run-gitops
+      create: false
+    source:
+      repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
+      targetRevision: "feature/gpx-661" # TODO umändern auf main, sobald fertig
+      path: "clusters/play/applications"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
 #  ####################### Grafana Instance ######################
   grafana-instance:
     name: grafana-instance
