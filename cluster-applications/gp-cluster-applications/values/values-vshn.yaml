@@ -101,7 +101,7 @@ applications:
           - name: "argo_workflows.server.sso.issuer"
             value: "https://sso.play.run.gepardec.com/realms/internal"
           - name: "argo_workflows.server.sso.redirectUrl"
-            value: "https://workflows.play.run.gepardec/oauth2/callback"
+            value: "https://workflows.play.run.gepardec.com/oauth2/callback"
     syncPolicy:
       automated:
         prune: true
