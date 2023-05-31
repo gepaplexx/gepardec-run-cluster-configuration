@@ -237,7 +237,7 @@ applications:
         selfHeal: true
 
 ##################### ONE-TIME-SECRET ######################
-  onte-time-secret:
+  one-time-secret:
     name: one-time-secret
     enabled: true
     argoProject: gepardec-run
