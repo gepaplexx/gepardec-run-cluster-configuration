@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: gepaplexx-cicd
-  namespace: openshift-gitops
+  name: gepardec-run-cicd
+  namespace: gepardec-run-gitops
 spec:
   clusterResourceWhitelist:
     - group: '*'
@@ -16,8 +16,8 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: gepaplexx
-  namespace: openshift-gitops
+  name: gepardec-run
+  namespace: gepardec-run-gitops
 spec:
   clusterResourceWhitelist:
     - group: '*'

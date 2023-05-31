@@ -3,55 +3,55 @@ project:
   name: gepardec-run
 
 applications:
-##################### KEYCLOAK-INSTANCE ######################
-#  keycloak-instance:
-#    name: keycloak-instance
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-sso
-#      create: false
-#    ignoreDifferences:
-#      - jsonPointers:
-#          - /secret
-#        kind: OAuthClient
-#        group: oauth.openshift.io
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-keycloak-configuration
-#      targetRevision: "*"
-#      helm:
-#        parameters:
-#          - name: "keycloak.ingress.hostname"
-#            value: "sso.apps.play.gepaplexx.com"
-#          - name: "keycloak.persistence.auth.password"
-#            value: "AgBsTRVF6DGROo0dOE+iKgmOGfnfsJDfRND4ReJpEL5GCpECGQB8jVUCmjWBJ7pr4KyC/F5JEYfGDds9AVlaRNpDioSVUVJDG4i5oOw2ZxWSXC+3+xQYpmOBITLQ191eWAjtWyeMsEwl4Hl/kQHcIzKH7eFRJh9mbBv4fXpUJCQS/Ej1CdKBOcNz3l3Xq39vX2zbysVaCTqAPRKtZb7KzFH6CTwNYS43Ck4tO53BMeMXLSk0TFQjQUvscvqGEYB4SQbf0t2gWatn+bSwJttBGKm6qJO5YgBiWRQdObN5h22czeyYiVoSnUgumGwxETIlaWt+COTP7OyfyHjVcmVkM2KQZDcOF3uR2u8QTgmcIoDPYL5zS6hZO5eY6PkazfWbsezIcbtHRFuLYE/6QjedRyqCCrHfJJdHz11P+KpaIJ2XhbpLAnAxgkBdNPG8djeDnFCNjILz8t2HctAnN6P1gcxPIOPNxYwGzCf4FISVMb/vFqBJazVMlET6NnCIUKH6coW1jPbsVbi68tGiYQk4Y0FykdMnTAoueJqf/sucQ67DkY3XTtHfDtOd5eHIirIEm8sivdRXu4kIA5U/tgdOAX3hTJmUbp2ZcqJcCA0mlsOcAsmiCGtClxaZ8KU681rU1pad2f84QgiNYiJAO+NsgdM1Hcu633z2FXlMUeLtHWvs5ptvjIAe4X9Ekn2RkRivpWSDhJrM/DGxCBZhsNuHHFXZDrpcpJbGnnHC0ShqQtD1jg=="
-#          - name: "keycloak.provider.openshift.clientSecret"
-#            value: "AgCOOc9m+zqrK68KKGoLwsxxTGHrjyeX+5Ih8QrkjKsegb+/Qxxo/tZb2J+FzmXo0VBNgJvY9fGe8XbBhUDuCsbCwsGZAtNdhC6AJwNwqcqEVn5pRsDib79J88ncRjREhNdt+I6v4PIRVgr+lASsU8OKbA9+bMKHRPxkZSQPU37Mj6liJFtCAcBW98sXysSE1/ZpIAizeAEuonuEVsMdJ3esvfI6l5chK9Bw6LQjuzQuOrkdEE5ibXD4ax7AdpC2xhPEuwTyOclptJkeUIzfE4jAEJg6gf7D1zEbERL/qtI3Mj0XRlCES1RFDwEjoiuLQyfOq2Mf3r67mE63r7myqlNJpnszmHPHD2f8wt2sIQrOq2h3B8t0WLYFiVXRV+qF9Puf7jAdUFca/I+3c0y14R/VeClCQBxhSoDuxg+pb03wnQcDWVcid2s6vpGoEOciAkp1HiuJi8BkCYFUIqNarrIDxEATaHORvDiM/cgohVH014dxp3MQleA5IOyMkZEFKmJIM986xFcldONMneQqh8whcCp2v9sujYHZSCLd+ehfqujIhqi25iaQ/IuKrVQtPYjd3AMilcw4PD3TXVJxj/AKOyxIk9eNDRwSAgR5FJVs2vkOWIR+IlwLExGzH4kFG+kJhWm6k20vURy35S5NjBSk9haaTKi7iRG9tMQRB6tdyIIdGjtjfrZJv3W9Fdg+eSGRfKqRXpFUSDUwhuMngf/cv78LW7jeDIOtfzZkSTeUG/xt0CHF"
-#          - name: "clientProperties"
-#            value: "AgCFHkqn8Gry5AauW9xrWriDYuu/9bUQgG6gyyXtjomS2duqpBhsRJ8ETT/cosnSzQFLy1Q7KLpvBzFDLEoNQqmucbOWXGdlTPGPHAIZOPzitWCM18DyaC3JHkuFlK6th7eJICOM4FwtjZn4MQyg1GLYtMN3atKlfGxbOa4eEKVOsrhtFEL5a0DgmKEJ/Kj69giFfc+eY2Z0E/MVIICY+uazSlLrokgilqO9hBnv1oE/7TGoYM3595xeNCXaN/vhaq792p7FXE7zVSKHz22kCQa6wwZWXcAUeOZgJi0lm43Dap/+1Ffcp3Zky5KZOanGil9EkTF9DG2xD+i/vLPvmiI394LqUWW5fbM9YPsPKjAKBUQ9TzjvTTG8MMbJhgQso6o3Jiq57t4NvuoNmhEFSsz1hOpvuwZki7QYaYkywvwFMwXXx0q7xcxbeBC2C7FGDMNJDXLocdnsGK88INPkRjuabIwec+HA8yOYuYVG+VtccRpB33ch9FZLV/sh5U8ErBGF6sMznm4Q52l58uy8NqMkT5qiZAvDHxVNE6MsdnJI4DUZVuiS/8+loQiK5hVuXIDnP27wkwO9sgCtOX7rAx4IUwUhE2kX0bFGnf4+oACsyI4DtoBlmcuttmWyy3qpEgtP8vGaaLsK1pNok4AusBV8aLWAAwUqZOYSxsnhnoyrbwE23o3iumpPdd8ArgYSE6h4QJ3p48KFfOzCVrR48Uzhhj8uLABV0e38lORXWtrO+CLEv7lhKB4rNjfUm2O0TrleA7qrx2XQ+7bNF6BqZ1oGMNwR2a9P5lSFYYe2MoUjyqcpFfJbeOwJBWeCSekaogZbl4WQQVSdx/sCRP20H8Jmz3/4p306OVtR/M/3sj/t+hJGaOHUWJpklYuNQZMr4M9D/+NmYAPSdRZ3LXdNuzGhpqbkw6eWSSjhnjfGpmMi6cdd36+WUt2/YKrGlOIe9LLl0GbRJ8H4OCkyb+ZLjoMHpmNJD/KrzshCz4PzvjAmYGR94ouw0PCwwGLM1qiS+vGgDgm8vJm6O8fdMvD1jONrzKliYJeZ41oXGbUG/xt9otUUR0+Q"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+#################### KEYCLOAK-INSTANCE ######################
+  keycloak-instance:
+    name: keycloak-instance
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-sso
+      create: false
+    ignoreDifferences:
+      - jsonPointers:
+          - /secret
+        kind: OAuthClient
+        group: oauth.openshift.io
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-keycloak-instance
+      targetRevision: "1.1.*"
+      helm:
+        parameters:
+          - name: "ingress.hostname"
+            value: "sso.play.run.gepardec.com"
+          - name: "keycloakConfigCli.enabled"
+            value: "true"
+          - name: "keycloakConfigCli.cluster"
+            value: "play"
+          - name: "keycloakConfigCli.identityProvider.openshift.baseUrl"
+            value: "https://api.c-gepa-play.gepa.vshnmanaged.net:6443"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ##################### EXTERNAL SECRETS CONFIGURATION ######################
-#  external-secrets:
-#    name: external-secrets-configuration
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-external-secrets
-#      create: false
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: gp-external-secrets-configuration
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
+  external-secrets:
+    name: external-secrets-configuration
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-external-secrets
+      create: false
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "1.0.*"
+      chart: gp-external-secrets-configuration
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
 #  ####################### CLUSTER-UPDATER #######################
 #  clusterUpdater:
 #    name: cluster-updater
@@ -79,85 +79,59 @@ applications:
 #        prune: true
 #        selfHeal: true
 #
-#  ####################### CLUSTER-LOGGING-EVENTROUTER #######################
-#  clusterLoggingEventrouter:
-#    name: cluster-logging-eventrouter
-#    enabled: true
-#    destination:
-#      namespace: openshift-logging
-#      create: false
-#    argoProject: gepaplexx
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-cluster-logging-eventrouter
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
 #
-#
-#  ##################### GEPAPLEXX-CICD-TOOLS ######################
-#  gepaplexx-cicd-tools:
-#    name: gepaplexx-cicd-tools
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gepaplexx-cicd-tools
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-cicd-tools
-#      targetRevision: "*"
-#      helm:
-#        parameters:
-#          - name: "argo_workflows.images.pullPolicy"
-#            value: "Always"
-#          - name: "argocd.route.hostname"
-#            value: "argocd.apps.play.gepaplexx.com"
+  ##################### GEPAPLEXX-CICD-TOOLS ######################
+  cicd-tools:
+    name: cicd-tools
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-cicd-tools
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO final umstellen!
+      chart: gp-cicd-tools
+      targetRevision: "*" # TODO Version fixieren
+      helm:
+        parameters:
+          - name: "argocd.ingress.hostname"
+            value: "argocd.play.run.gepardec.com"
+
 #          - name: "argo_workflows.server.ingress.hosts[0]"
-#            value: "workflows.apps.play.gepaplexx.com"
+#            value: "workflows.play.run.gepardec.com"
 #          - name: "argo_workflows.server.ingress.tls[0].hosts[0]"
-#            value: "workflows.apps.play.gepaplexx.com"
+#            value: "workflows.run.gepardec.com"
 #          - name: "argo_workflows.server.ingress.tls[0].secretName"
-#            value: "workflows.apps.play.gepaplexx.com-tls"
+#            value: "workflows.run.gepardec.com-tls"
 #          - name: "argo_workflows.server.sso.issuer"
-#            value: "https://sso.apps.play.gepaplexx.com/realms/internal"
+#            value: "https://sso.play.run.gepardec.com/realms/internal"
 #          - name: "argo_workflows.server.sso.redirectUrl"
-#            value: "https://workflows.apps.play.gepaplexx.com/oauth2/callback"
+#            value: "https://workflows.play.run.gepardec.com/oauth2/callback"
 #          - name: "argo_workflows.rbac.clusterscoped.enabled"
 #            value: "true"
-#          - name: "argo_workflows.rbac.clientSecret"
-#            value: "AgCZs5qFDk5qmSwnADV+AvUH3yvL+nBE1UQwJkTu5y1yHsxuTfGWgE5O7QJFPQOoarkg0yzTytcLGyXG9z2UMraCoFDS1dEEk3jUG/nIFfYLzFuURuN6OEhk/rCA6jmZsJwH/K1dOOrK9O5V/HNCPeD6ALd3WwEi569MrjgMXqFw916YR/2QKrHt2W8Kw5HlRcytU1KZ6Et3hXO/IrwBAFZzeIfNdYBLtdzQRh8+L9hqPZ38TPWEBIakhm4uv3jx58IPL2eK8vJB81dC07GfGnGzSYZI/OrsBksPao02EeX9W/vgaRqn7JEvIzsWgGBEdqIEA0U5AbHKyxuIPgj+Lt0h1DPw9Mgm/Zl63b8ZCGLNZagXfvnTlkCEJq4Qj231byn/fcp43zohM+GztYXE4kL9ugK3PlDrw6W0gMki9a5ONR0e9920WQrOOdVm07iSn3Yt8xIeDyUfz4+YOtkBt1hiqEKVeyapJ8SCNEnf9ya/1BkwAEfZD1Qc3E2ahV58RCKTncPjh45YQzBfCPt7NOC+leKCHbHuv3PKN11EPftz8trNfJElUomeu8EYD0+VK8RfDfnMtKJhzpmatLjpb+0DAsNV9AFDht5d6LHEVyTcTclebZFgDFweHbZTpyhPOLGVIzRF+chL3QxUtGB/cjpBZ8m0PagclWpYupuS9pUzP1Bu8x/B+HIOBcjCnB7FP3IbiLdrn0FvzsEncFe9qhJPV7iia7LPmnzPysfs6Cpo6A=="
-#          - name: "sealedSecret.postgresql.password"
-#            value: "AgADpL3zJdj+LPzRmRlDwSElM1CnysyWIa0gHJwJoRKElitke/4/b2mMsatXBG99UWezr0Ezf01I7YtiOGUFDhFZvOwIEOI3+KGp4ahrdBYedKSRHBYBGb8RcCnhXfUOmjfUw6XdmXnt7Wovs5A5aNztIhfLsQM6LuhBbIXDW4DE0qI2a84HO3nVkV+drAMJmSOVCZU3Fo7pvDgcMuaTAVNsVg4sgWvSoGOdqiwYIDhxj75XuXs8CBPc26j6RgCPYABdegWc5qe6pLZsS7o2hke1GXVgQYLBIlCfI3VNeimr0qj1wloBvAz8DVA5qSMlfgIJ65CU9HCAsrUh00H+xJsN6pecMbq43OhwIa0e1rWXHRs+IpA4w3hxmI3FgLa57/+3lbmD7BPPQ1FnbQXddttH8Cagty4UYUPkDzxQUAQIX3OUJJUIw3reekNxUS4OgtfIJ+Uc2GlGaAnZInT9KDJWZvF5S5GJ6dstzacw9G4em88vP/DVN0iLvOgdJwNqamaenlymT8sxXy083fk26/eWU1otPDNN1RqHQWsKOW68cGYwMyFX8WeMcUZne3mspSYDg84B5X4PbZ/8D8Wf9TAGHwsm4Ymesm84P3DFvzDTDaEViddPeHh3Xrxih8plHOhayzHnmsX1rfdqg5/7fV6BHh5htgPsnFsxWLdVMXHzwAM+MEJl2U0vMcr6lwpa8nLJKhIJqg=="
-#          - name: "sealedSecret.postgresql.postgresPassword"
-#            value: "AgC4XBri1BTYmNzo7y918GDQmJzz/g5S6afe92czQBUxGxCLzwBTJdFvmbScYNNicDDPHJHqTPdtpMFUzAj3lUKDxYYbQ0sjsjhL+FYm95N9dTQqUlwmT708Eo0HomZXwHUvbmdqAdyWGpDh1TgzpINVaGPTtCwzEID3Z/Ptco8KECGJOuMdRzfusIM/wdWm2GNmivgnXeu/TjAXZIrB2if4hj7UjpmD9q1IUVvqZoIoimyEcvaOFDHwCK1KD2ndOJGPN4Fsfu8TuVe8RXBn5AqmSirG/XwsJk4ZcM5HLNGRByQ8IoTQPyavicjcvI8lk8yqhfG2C4t9fR5Vt8oZD20OESVA/vY8+Y0Y5/KlcVDKEcBxmwxYsqP/9GlNBB4iaFs11HWgFA2uDJyHwYyXtT6vtcmh+xz+GNlPJzG27qtHCrK349XkY2qoz5L4/vtbSoD4kJnDnJgtAQhcwYuZQE+B/9IJixHbweLqkcSfagxKDNILSiHWZ9GHdQrzvu6w4uxOabomVmwcT0qbvAgO3zopTLe/XxKwi5gzTTjF5FSu5I3Y/+kReJ8bPrSx2flr5jlVPF4FdGy9tBbAHA7/1HSWn6GdnoTBXQnmAQy28Cu1vgr6IApiaiIIQ62dwXoOSrRezk9apQ1It2SsZZkfDasDdNuflX0ZLyIBc9AnWP+C+0EpVY7QbkAAdmeolTxfB8qwUmBWIw=="
-#          - name: "sealedSecret.postgresql.username"
-#            value: "AgAPFjq7TwO3nNRDgdXgTtqlTZBb1iho1OcFL/9KguA+DL7Ijwh7Iqeb+3zD7OOaH3HpQzFxbwq9Kagku5Eel9+FWlhuD0NsCLKBBC60ro6WnngsFTsJufsUNitaMFneDbmgqYsLB28AjsIoj+v+4U276Ng2+ncumeWOer16ohRcNh/LwZxeFPUoKNe3I2GqEMM+8MlDZAZQ8HgZY/Pl3KfvinrvvdrGns94Yz+b0ciAv+98dCWvvkeAzaI1pU/zc7VYevezTLHmKo715uKYhTBbyAGvmNr7rQxieVGFFvWUEcI8yl5JoDPbqpGzVkoezSBBIvpTCgGwKupxJnjy4eKObtOzIqjt7waU7uHvKC5rnLnBeBH3NLBE8XcgkNIQjYxaFUfL+hyT+Xa3/33CLaieptEx4A2MV5+9ZSbEI7RWj9Qmyzc0FZC79SJKsQho/lZGho3xs0ErOlx7pN8GvhZoS4fFc8jad5oyS/sCFL7F+iWeqSHMwRVHtm6F87wwozJnOxEUW40/qPVzxAQLuNzzLbkMcmCTelLwoUf2D6ZgdUpiH5HhtRblCdihGTED05RhNxkzkK2QH+IiylHMX2sw4/j1f8a/k1AJ0zZ7CT5DVkXkDJr9RUvw/27a1rQ4aVlAJ88HjHEr4cy+LajrFJcwQcgDPrQI91UKdeGbg7IM/bbu+lF1KQyiic82R/Yj9D3hNrHiZl7El6giX56l"
 #          - name: "argo_workflows.archive.secretkey"
 #            value: "AgAbdLoDu7P+Taw1YKZ9n2p0qIm12S3BH0rlew21vOu2DbSrjXKk5KCM7JgAtMp2LIUAE+JNIMhMWGsDi/eSOePi9fjkRE/XE6YYv37XSGqbKRAcQmpbdCl6wTeT+ovkx1Jy/+atD5ihEd91HBpuOeq87K1LDUAsSwFV638Okf7POuNhyd/YX0Cyp8EyPKKvOA1aHK/kSDHnqAr4biObORHMqSR/+D60d94sA6YByRjHN0E6PTTzyHdJ2JE+A0iXKxCk0a3iiJppa1vYij7Yc4qIvkRnADtPY/wnBrx/HVKWMA924Hz3QEYT5UMFTtQALGjVR0ciFFIA3FBR9L6p7WCJGAkDTe0jdih20skDKKwRcwGxfHZ3P0xituaYjrjYWrRbD64XVJJVzM4tnQpkZIGYUohufzys/plp2quDyPuIArzNziMaqFGYuPW9uRs+s6yoebpSwBEJz72IISTBhnm4PoUZ9JQ0mEkKhXlT9t93zJZF7dyJ47aISk9u3TEONhUBnvb0vlk3CRFaWj/3221ZCHGfK4qQfTXlcu2XwkaPW2NCBEYnVFxLwNFDRQtxkdrf9FJVkKcllyy3tkki1WVkwAeMwqvn60a+PVZKffUIqrsjTm3ScQ/sCx65Tk+JbjCXTy9X900YkcJ5siAl8FuGVdB/Ep0zDS7d1jy9YlaQ18a1WfDwJAUQEJcIqNA7XKynFjs1fqm7qP8gfaLFZxxIGguX8dXqgB0n0Mlk/6lXl465Oqc="
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
-#  ##################### GEPAPLEXX-CICD-EVENTBUS ######################
-#  gepaplexx-cicd-eventbus:
-#    name: gepaplexx-cicd-eventbus
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gepaplexx-cicd-eventbus
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gepaplexx-cicd-eventbus
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ##################### GEPAPLEXX-CICD-EVENTBUS ######################
+  cicd-eventbus:
+    name: cicd-eventbus
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-cicd-eventbus
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO Umstellen wenn final
+      chart: gp-cicd-eventbus
+      targetRevision: "*" # TODO Version fixieren
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ##################### GEPAPLEXX-CICD ######################
 #  gepaplexx-cicd:
@@ -177,94 +151,87 @@ applications:
 #        selfHeal: true
 #
 #  ####################### Grafana Instance ######################
-#  grafana-instance:
-#    name: grafana-instance
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: "gp-grafana-instance"
-#      helm:
-#        parameters:
-#          - name: "ingress.hostname"
-#            value: "grafana.apps.play.gepaplexx.com"
-#          - name: "sso.keycloak.clientSecret"
-#            value: "AgAwaEqhpzcWtEHi+FlMfIHCFjwrZMebgoB9t2POP3nwlCfsIHHgRZiiXtHqtXQyjRjVsog5a00msUs2Gh4T7izX/mpODcQanKRty0BsPLzPRdtYZtEeJ8FJMVNbvW4mEMUApmGCeIxBoIOEDMsTxo2VG1GSkyt9BsNd2s3lJGno1iyL1mU5SoIp88mmwGa5Am1pcwqJDmJmhW0n/qhsM9w9pe4G0gjKewiLrr5q6AawEXCJSPLpkW3idcpZ18Gj9NzLXYJzI7iIVw6WzydLtMjX47mV0YXibi6fDIAEoQAe4XRGsJmEbBVKFAij/SjI2G3oJGjiWRPqEHZTsUJ6BxH1LjCHSHwaziSLWvleSRtwZHz/3FO2rDoCAoE6KJPXSjmFJnOIlIG1ZG+CZFT0Tzd1fKfrAFThK9wqYadLva25vir1UCROqI14sZnt85DpbPLYIPRe6XTA9YMeoB2iv4hzzbOoShHWh0lIzYhjwSWle7tYP7SvQ6JwA4yvfLgVWLhncHJ4Fx3mMPmDRROET1Zi41oqXGHCpj9pc2IHG9G8UCfFAvSjZADZlNWJ/BIlpF2yR5o4tulZa4pSANjckLLJTlw4BMwbrjCuWmyzYSCQLQMmZXlAXjUCnCaabfTqLEpkrSaj956kGAfFU5EhpP5u4QULJjFwRUZ2wnkWtZi426NhE6DlcpX2+g73kKf+o/gnvuVOm0NRezhWxusT5LU7Fd+rhPzWyvitIFURYxsodQ=="
-#          - name: "sso.keycloak.realmUrl"
-#            value: "https://sso.apps.play.gepaplexx.com/realms/internal"
-#    ignoreDifferences:
-#      - jsonPointers:
-#          - /spec/config/auth.generic_oauth/client_secret
-#        kind: Grafana
-#        group: integreatly.org
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  grafana-instance:
+    name: grafana-instance
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-grafana-instance"
+      helm:
+        parameters:
+          - name: "ingress.hostname"
+            value: "grafana.play.run.gepardec.com"
+          - name: "sso.keycloak.realmUrl"
+            value: "https://sso.play.run.gepardec.com/realms/internal"
+    ignoreDifferences:
+      - jsonPointers:
+          - /spec/config/auth.generic_oauth/client_secret
+        kind: Grafana
+        group: integreatly.org
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ####################### Grafana Dashboards ######################
-#  grafana-dashboards:
-#    name: grafana-dashboards
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
-#      targetRevision: "main"
-#      path: "observability/dashboards/"
-#      directory:
-#        recurse: true
-#        include: "{all/*,play/*}"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  grafana-dashboards:
+    name: grafana-dashboards
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
+      targetRevision: "main"
+      path: "observability/dashboards/"
+      directory:
+        recurse: true
+        include: "{all/*,play/*}"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
-#  ####################### Multena Instance ######################
-#  multena:
-#    name: multena
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
-#      targetRevision: "*"
-#      chart: "gp-multena-instance"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
-#  ##################### VAULT ######################
-#  vault:
-#    name: vault
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-vault
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: gp-hashicorp-vault
-#      helm:
-#        parameters:
-#          - name: "autoUnseal.creds"
-#            value: "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"
-#    ignoreDifferences:
-#      - group: admissionregistration.k8s.io
-#        jsonPointers:
-#          - /webhooks/0/clientConfig/caBundle
-#        kind: MutatingWebhookConfiguration
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+#  ####################### Multena ######################
+  multena:
+    name: multena
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-multena"
+      helm:
+        parameters:
+          - name: "multena.jwksCertUrl"
+            value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+##################### ALERTMANAGER ######################
+  alertmanager:
+    name: alertmanager
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: openshift-user-workload-monitoring
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "0.1.*"
+      chart: gp-alertmanager
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true

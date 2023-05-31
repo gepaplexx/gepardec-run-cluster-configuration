@@ -1,50 +1,9 @@
-#project:
-create: true
-name: gepardec-run
+project:
+  create: true
+  name: gepardec-run
 
 applications:
 
-#  ################## SEALED SECRETS OPERATOR ####################
-#  sealedSecretsOperator:
-#    name: sealed-secrets-operator
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-infrastructure
-#      create: false
-#    source:
-#      chart: sealed-secrets
-#      repoURL: https://bitnami-labs.github.io/sealed-secrets
-#      targetRevision: 2.*
-#      helm:
-#        parameters:
-#          - name: containerSecurityContext.enabled
-#            value: 'false'
-#          - name: podSecurityContext.enabled
-#            value: 'false'
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
-#  ###################### OAUTH GROUP SYNC  ######################
-#  oauthGroupSync:
-#    name: oauth-group-sync
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-infrastructure
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-oauth-group-sync
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
-#
 #  ####################### CLUSTER-CONFIG ########################
 #  clusterConfig:
 #    name: cluster-config
@@ -70,53 +29,97 @@ applications:
 #        prune: true
 #        selfHeal: true
 #
-#  ##################### KEYCLOAK-OPERATOR ######################
-#  keycloak-operator:
-#    name: keycloak-operator
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-sso
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      chart: gp-keycloak-operator
-#      targetRevision: "*"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  ##################### KEYCLOAK-OPERATOR ######################
+  keycloak-operator:
+    name: keycloak-operator
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-sso
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      chart: gp-keycloak-operator
+      targetRevision: "1.0.*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 #
 #  ##################### EXTERNAL SECRETS ######################
-#  external-secrets:
-#    name: external-secrets
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: gp-external-secrets
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: gp-external-secrets-operator
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
-#
+  external-secrets:
+    name: external-secrets
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-external-secrets
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "1.0.*"
+      chart: gp-external-secrets-operator
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
 #  ####################### Grafana Operator ######################
-#  grafana-operator:
-#    name: grafana-operator
-#    enabled: true
-#    argoProject: gepaplexx
-#    destination:
-#      namespace: grafana-operator-system
-#      create: true
-#    source:
-#      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-#      targetRevision: "*"
-#      chart: "gp-grafana-operator"
-#    syncPolicy:
-#      automated:
-#        prune: true
-#        selfHeal: true
+  grafana-operator:
+    name: grafana-operator
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-grafana
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: "gp-grafana-operator"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ##################### VAULT ######################
+  vault:
+    name: vault
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-vault
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "*"
+      chart: gp-hashicorp-vault
+      helm:
+        parameters:
+          - name: "ingress.hostname"
+            value: "vault.play.run.gepardec.com"
+    ignoreDifferences:
+      - group: admissionregistration.k8s.io
+        jsonPointers:
+          - /webhooks/0/clientConfig/caBundle
+        kind: MutatingWebhookConfiguration
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
+  ##################### KYVERNO/Cluster-Policies ######################
+  kyverno:
+    name: kyverno
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-kyverno
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" #TODO use correct repo and version after finalizing GPX-659
+      chart: gp-kyverno
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      replace: true

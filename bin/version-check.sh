@@ -5,8 +5,8 @@ PRG=`basename $0`
 DIR=$(dirname $0)
 HOME=${DIR-.}/..
 
-ARGO_APPLICATIONS="cluster-applications cluster-setup-checkpoint initial-cluster-setup"
-CLUSTERS="play steppe"
+ARGO_APPLICATIONS="cluster-applications initial-cluster-setup"
+CLUSTERS="vshn"
 
 for f in $(find $HOME -name Chart.yaml); do
     chart=$(dirname $f)

@@ -1,0 +1,111 @@
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-operator
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "grafana-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "grafana-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "grafana-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "grafana-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "grafana-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "grafana-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "grafana-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "grafana-operator | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-grafana
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-grafana-operator
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-operator
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "keycloak-operator | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "keycloak-operator | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "keycloak-operator | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "keycloak-operator | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "keycloak-operator | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "keycloak-operator | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "keycloak-operator | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "keycloak-operator | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-sso
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-keycloak-operator
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.0.*
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "vault | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "vault | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "vault | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "vault | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "vault | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "vault | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "vault | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "vault | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-vault
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-hashicorp-vault
+    helm:
+      parameters:
+      - name: ingress.hostname
+        value: vault.play.run.gepardec.com
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: '*'
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      jsonPointers:
+      - /webhooks/0/clientConfig/caBundle
+      kind: MutatingWebhookConfiguration
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
