@@ -105,3 +105,20 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
+  ##################### KYVERNO/Cluster-Policies ######################
+  kyverno:
+    name: kyverno
+    enabled: true
+    argoProject: gepaplexx
+    destination:
+      namespace: gp-kyverno
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" #TODO use correct repo and version after finalizing GPX-659
+      chart: gp-kyverno
+      targetRevision: "*"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      replace: true
