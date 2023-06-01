@@ -89,9 +89,9 @@ applications:
       namespace: gp-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO final umstellen!
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "*" # TODO Version fixieren
+      targetRevision: "1.0.*"
       helm:
         parameters:
           - name: "clustername"
@@ -116,9 +116,9 @@ applications:
       namespace: gp-cicd-eventbus
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/" # TODO Umstellen wenn final
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-eventbus
-      targetRevision: "*" # TODO Version fixieren
+      targetRevision: "1.0.*"
     syncPolicy:
       automated:
         prune: true
@@ -134,7 +134,7 @@ applications:
       create: false
     source:
       repoURL: "git@github.com:gepaplexx/gepaplexx-cicd.git"
-      targetRevision: "feature/gpx-661" # TODO umändern auf main, sobald fertig
+      targetRevision: "main"
       path: "clusters/play/applications"
     syncPolicy:
       automated:
