@@ -222,10 +222,10 @@ applications:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "0.1.*"
       chart: gp-alertmanager
-    syncPolicy: {}
-#      automated:
-#        prune: true
-#        selfHeal: true
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 
 ##################### ONE-TIME-SECRET ######################
   one-time-secret:
