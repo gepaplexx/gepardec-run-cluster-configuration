@@ -3,6 +3,40 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: external-secrets
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "external-secrets | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "external-secrets | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "external-secrets | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "external-secrets | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "external-secrets | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "external-secrets | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "external-secrets | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "external-secrets | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-external-secrets
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-external-secrets-operator
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.0.*
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: grafana-operator
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
@@ -71,6 +105,40 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: kyverno
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "kyverno | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "kyverno | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "kyverno | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "kyverno | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "kyverno | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "kyverno | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "kyverno | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "kyverno | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-kyverno
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-kyverno
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: vault
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
@@ -95,7 +163,7 @@ spec:
       - name: ingress.hostname
         value: vault.play.run.gepardec.com
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: '*'
+    targetRevision: 2.2.*
   ignoreDifferences:
     - group: admissionregistration.k8s.io
       jsonPointers:

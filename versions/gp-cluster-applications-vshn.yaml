@@ -92,8 +92,14 @@ spec:
     chart: gp-cicd-tools
     helm:
       parameters:
-      - name: argocd.ingress.hostname
-        value: argocd.play.run.gepardec.com
+      - name: clustername
+        value: play
+      - name: argo_workflows.rbac.clusterscoped.enabled
+        value: "true"
+      - name: argo_workflows.server.sso.issuer
+        value: https://sso.play.run.gepardec.com/realms/internal
+      - name: argo_workflows.server.sso.redirectUrl
+        value: https://workflows.play.run.gepardec.com/oauth2/callback
     repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
     targetRevision: '*'
   syncPolicy:
@@ -102,6 +108,74 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-secrets-configuration
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "external-secrets-configuration | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "external-secrets-configuration | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "external-secrets-configuration | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "external-secrets-configuration | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "external-secrets-configuration | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "external-secrets-configuration | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "external-secrets-configuration | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "external-secrets-configuration | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-external-secrets
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-external-secrets-configuration
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.0.*
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gepardec-run-cicd
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "gepardec-run-cicd | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "gepardec-run-cicd | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "gepardec-run-cicd | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "gepardec-run-cicd | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "gepardec-run-cicd | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "gepardec-run-cicd | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "gepardec-run-cicd | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "gepardec-run-cicd | sync-succeeded"
+spec:
+  destination:
+    namespace: gepardec-run-gitops
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    path: clusters/play/applications
+    repoURL: git@github.com:gepaplexx/gepaplexx-cicd.git
+    targetRevision: feature/gpx-661
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
       - Replace=false
 ...
 ---
@@ -265,6 +339,44 @@ spec:
         value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: one-time-secret
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "one-time-secret | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "one-time-secret | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "one-time-secret | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "one-time-secret | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "one-time-secret | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "one-time-secret | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "one-time-secret | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "one-time-secret | sync-succeeded"
+spec:
+  destination:
+    namespace: gp-one-time-secret
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-one-time-secret
+    helm:
+      parameters:
+      - name: ingress.hostname
+        value: secret.play.run.gepardec.com
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.0.*
   syncPolicy:
     automated:
       prune: true
