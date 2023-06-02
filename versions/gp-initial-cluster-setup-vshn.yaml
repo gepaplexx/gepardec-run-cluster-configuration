@@ -163,7 +163,7 @@ spec:
       - name: ingress.hostname
         value: vault.play.run.gepardec.com
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 2.2.*
+    targetRevision: 2.3.*
   ignoreDifferences:
     - group: admissionregistration.k8s.io
       jsonPointers:
