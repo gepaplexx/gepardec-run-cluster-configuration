@@ -56,8 +56,8 @@ spec:
   project: gepardec-run
   source:
     chart: gp-cicd-eventbus
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
-    targetRevision: '*'
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.0.*
   syncPolicy:
     automated:
       prune: true
@@ -100,8 +100,8 @@ spec:
         value: https://sso.play.run.gepardec.com/realms/internal
       - name: argo_workflows.server.sso.redirectUrl
         value: https://workflows.play.run.gepardec.com/oauth2/callback
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
-    targetRevision: '*'
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.0.*
   syncPolicy:
     automated:
       prune: true
@@ -169,7 +169,7 @@ spec:
   source:
     path: clusters/play/applications
     repoURL: git@github.com:gepaplexx/gepaplexx-cicd.git
-    targetRevision: feature/gpx-661
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
