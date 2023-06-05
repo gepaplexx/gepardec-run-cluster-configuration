@@ -247,3 +247,20 @@ applications:
       automated:
         prune: true
         selfHeal: true
+
+  ##################### CERT-MANAGER OPENSHIFT ROUTES ######################
+  cert-manager-route-extension:
+    name: cert-manager-route-extension
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: syn-cert-manager
+      create: false
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "0.1.*"
+      chart: gp-cert-manager-routes
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
