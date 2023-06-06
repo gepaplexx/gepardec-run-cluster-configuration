@@ -37,6 +37,40 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: cert-manager-route-extension
+  finalizers:
+  - "resources-finalizer.argocd.argoproj.io"
+  annotations:
+    notifications.argoproj.io/subscribe.on-created.grafana: "cert-manager-route-extension | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "cert-manager-route-extension | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "cert-manager-route-extension | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "cert-manager-route-extension | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "cert-manager-route-extension | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "cert-manager-route-extension | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "cert-manager-route-extension | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "cert-manager-route-extension | sync-succeeded"
+spec:
+  destination:
+    namespace: syn-cert-manager
+    server: 'https://kubernetes.default.svc'
+  project: gepardec-run
+  source:
+    chart: gp-cert-manager-routes
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 0.1.*
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
+      - Replace=false
+...
+---
+# Source: gp-cluster-setup/templates/02-argo-application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: cicd-eventbus
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
