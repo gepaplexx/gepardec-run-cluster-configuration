@@ -184,10 +184,10 @@ applications:
       directory:
         recurse: true
         include: "{all/*,play/*}"
-    syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+    syncPolicy: {}
+#      automated:
+#        prune: true
+#        selfHeal: true
 #
 #  ####################### Multena ######################
   multena:
