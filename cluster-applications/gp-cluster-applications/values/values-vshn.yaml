@@ -198,7 +198,7 @@ applications:
       namespace: gp-grafana
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "*"
       chart: "gp-multena"
       helm:
@@ -206,7 +206,9 @@ applications:
           - name: "multena.jwksCertUrl"
             value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
 ##################### ALERTMANAGER ######################
   alertmanager:
