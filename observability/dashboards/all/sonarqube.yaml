@@ -27,7 +27,7 @@ spec:
       },
       "editable": true,
       "fiscalYearStartMonth": 0,
-      "graphTooltip": 0,
+      "graphTooltip": 1,
       "id": 15,
       "links": [],
       "liveNow": false,
@@ -77,7 +77,8 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -252,7 +253,8 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -423,7 +425,8 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -517,6 +520,6 @@ spec:
       "timezone": "",
       "title": "Sonarqube",
       "uid": "e2c4de0f-5be7-46d5-9bf1-01548e00356e",
-      "version": 10,
+      "version": 12,
       "weekStart": ""
     }
