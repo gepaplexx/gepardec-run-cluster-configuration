@@ -242,9 +242,6 @@ spec:
     repoURL: https://github.com/gepaplexx/gepardec-run-cluster-configuration
     targetRevision: main
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
