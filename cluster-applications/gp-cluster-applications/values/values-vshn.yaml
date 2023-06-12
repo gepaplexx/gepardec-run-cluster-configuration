@@ -91,7 +91,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "1.0.*"
+      targetRevision: "1.1.*"
       helm:
         parameters:
           - name: "clustername"
