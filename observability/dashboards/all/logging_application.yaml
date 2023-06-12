@@ -45,7 +45,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logging-application"
+            "uid": "logs-multena"
           },
           "fieldConfig": {
             "defaults": {
@@ -122,7 +122,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logging-application"
+                "uid": "logs-multena"
               },
               "editorMode": "code",
               "expr": "sum(count_over_time({kubernetes_namespace_name=~\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}} Message: {{.message}}\" |~ \"$Level\" |~\"$Search\"[$__interval]))",
@@ -136,7 +136,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logging-application"
+            "uid": "logs-multena"
           },
           "description": "",
           "gridPos": {
@@ -160,7 +160,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logging-application"
+                "uid": "logs-multena"
               },
               "editorMode": "code",
               "expr": "{kubernetes_namespace_name=~\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Level\" |~\"$Search\"",
@@ -189,7 +189,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logging-application"
+              "uid": "logs-multena"
             },
             "definition": "",
             "hide": 0,
@@ -218,7 +218,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logging-application"
+              "uid": "logs-multena"
             },
             "definition": "",
             "hide": 0,
@@ -279,7 +279,7 @@ spec:
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "prometheus"
+              "uid": "metrics-multena"
             },
             "definition": "label_values(cluster_discriminator)",
             "hide": 2,
