@@ -135,7 +135,7 @@ spec:
       - name: argo_workflows.server.sso.redirectUrl
         value: https://workflows.play.run.gepardec.com/oauth2/callback
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.0.*
+    targetRevision: 1.1.*
   syncPolicy:
     automated:
       prune: true
@@ -242,6 +242,9 @@ spec:
     repoURL: https://github.com/gepaplexx/gepardec-run-cluster-configuration
     targetRevision: main
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
