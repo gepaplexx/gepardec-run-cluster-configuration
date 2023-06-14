@@ -25,11 +25,10 @@ spec:
           }
         ]
       },
-      "description": "",
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 1,
-      "id": 16,
+      "id": 15,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -48,10 +47,9 @@ spec:
                 "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
-                "axisSoftMax": 50,
                 "barAlignment": 0,
                 "drawStyle": "line",
-                "fillOpacity": 0,
+                "fillOpacity": 5,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
@@ -60,265 +58,7 @@ spec:
                 },
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 5,
-            "x": 0,
-            "y": 0
-          },
-          "id": 4,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "9.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "rate(org_eclipse_jetty_webapp_WebAppContext_5xx_responses_total{pod=\"$pod\"}[5m])",
-              "legendFormat": "5xx response rate",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "5xx response rate",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "axisSoftMax": 50,
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 5,
-            "x": 5,
-            "y": 0
-          },
-          "id": 3,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "9.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "rate(org_eclipse_jetty_webapp_WebAppContext_4xx_responses_total{pod=\"$pod\"}[5m])",
-              "hide": false,
-              "legendFormat": "4xx response rate",
-              "range": true,
-              "refId": "B"
-            }
-          ],
-          "title": "4xx response rate",
-          "transformations": [],
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "decimals": 0,
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 20
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 3,
-            "x": 10,
-            "y": 0
-          },
-          "id": 2,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "9.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "nexus_analytics_repository_total_count{pod=\"$pod\"}",
-              "hide": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Repositories",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
+                "pointSize": 7,
                 "scaleDistribution": {
                   "type": "linear"
                 },
@@ -352,13 +92,13 @@ spec:
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "requested"
+                  "options": "jmx-exporter"
                 },
                 "properties": [
                   {
                     "id": "color",
                     "value": {
-                      "fixedColor": "yellow",
+                      "fixedColor": "semi-dark-blue",
                       "mode": "fixed"
                     }
                   }
@@ -367,13 +107,28 @@ spec:
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "{container=\"nexus\"}"
+                  "options": "requested"
                 },
                 "properties": [
                   {
                     "id": "color",
                     "value": {
-                      "fixedColor": "blue",
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "total memory"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-red",
                       "mode": "fixed"
                     }
                   }
@@ -382,12 +137,12 @@ spec:
             ]
           },
           "gridPos": {
-            "h": 12,
+            "h": 9,
             "w": 12,
             "x": 0,
-            "y": 8
+            "y": 0
           },
-          "id": 1,
+          "id": 4,
           "options": {
             "legend": {
               "calcs": [],
@@ -400,6 +155,7 @@ spec:
               "sort": "none"
             }
           },
+          "pluginVersion": "9.5.2",
           "targets": [
             {
               "datasource": {
@@ -407,11 +163,10 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "jvm_memory_total_used{pod=\"$pod\"}",
-              "hide": false,
-              "legendFormat": "jvm_memory_used",
+              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", container!=\"\", image!=\"\"}) by (container)",
+              "legendFormat": "__auto",
               "range": true,
-              "refId": "D"
+              "refId": "A"
             },
             {
               "datasource": {
@@ -419,23 +174,23 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", container!=\"\", image!=\"\"}) by (container)",
+              "expr": "sum(\n    kube_pod_container_resource_requests{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", resource=\"memory\"}\n)\n",
               "hide": false,
-              "legendFormat": "__auto",
+              "legendFormat": "requested",
               "range": true,
-              "refId": "E"
+              "refId": "B"
             },
             {
               "datasource": {
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "editorMode": "builder",
-              "expr": "sum(\n    kube_pod_container_resource_requests{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", resource=\"memory\"}\n)",
+              "editorMode": "code",
+              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", container!=\"\", image!=\"\"})",
               "hide": false,
-              "legendFormat": "requested",
+              "legendFormat": "total memory",
               "range": true,
-              "refId": "A"
+              "refId": "C"
             },
             {
               "datasource": {
@@ -447,7 +202,7 @@ spec:
               "hide": false,
               "legendFormat": "limit",
               "range": true,
-              "refId": "B"
+              "refId": "D"
             }
           ],
           "title": "Memory",
@@ -458,7 +213,6 @@ spec:
             "type": "prometheus",
             "uid": "metrics-multena"
           },
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -513,13 +267,28 @@ spec:
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "limit"
+                  "options": "jmx-exporter"
                 },
                 "properties": [
                   {
                     "id": "color",
                     "value": {
-                      "fixedColor": "red",
+                      "fixedColor": "dark-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "requested"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
                       "mode": "fixed"
                     }
                   }
@@ -528,12 +297,12 @@ spec:
             ]
           },
           "gridPos": {
-            "h": 12,
+            "h": 9,
             "w": 12,
             "x": 12,
-            "y": 8
+            "y": 0
           },
-          "id": 6,
+          "id": 2,
           "options": {
             "legend": {
               "calcs": [],
@@ -569,18 +338,6 @@ spec:
               "legendFormat": "requested",
               "range": true,
               "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "sum(\n    kube_pod_container_resource_limits{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", resource=\"cpu\"}\n)",
-              "hide": false,
-              "legendFormat": "limit",
-              "range": true,
-              "refId": "C"
             }
           ],
           "title": "CPU Usage",
@@ -592,12 +349,12 @@ spec:
             "uid": "logs-multena"
           },
           "gridPos": {
-            "h": 16,
-            "w": 13,
+            "h": 19,
+            "w": 12,
             "x": 0,
-            "y": 20
+            "y": 9
           },
-          "id": 5,
+          "id": 1,
           "options": {
             "dedupStrategy": "none",
             "enableLogDetails": true,
@@ -622,29 +379,121 @@ spec:
           ],
           "title": "Logs WARNING|ERROR",
           "type": "logs"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "metrics-multena"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "id": 3,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "metrics-multena"
+              },
+              "editorMode": "code",
+              "expr": "sonarqube_asyncexecution_workercount",
+              "legendFormat": "Async Worker Count",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Worker Count",
+          "type": "timeseries"
         }
       ],
       "refresh": "",
       "schemaVersion": 38,
       "style": "dark",
       "tags": [
-        "Themengebiet: cicd-tools",
+        "Applikation: Sonarqube",
         "Ansprechperson: Tobias Meindl",
-        "Applikation: Nexus"
+        "Themengebiet: cicd-tools"
       ],
       "templating": {
         "list": [
           {
             "current": {
               "selected": false,
-              "text": "cluster-nexus-68cf8bfffd-v8zp2",
-              "value": "cluster-nexus-68cf8bfffd-v8zp2"
+              "text": "cluster-sonarqube-68bf89d9b6-kwdv2",
+              "value": "cluster-sonarqube-68bf89d9b6-kwdv2"
             },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
             },
-            "definition": "label_values(com_sonatype_nexus_plugins_healthcheck_ui_HealthCheckStatusComponent_update_timer,pod)",
+            "definition": "label_values(sonarqube_asyncexecution_workercount,pod)",
             "hide": 0,
             "includeAll": false,
             "label": "Pod",
@@ -652,7 +501,7 @@ spec:
             "name": "pod",
             "options": [],
             "query": {
-              "query": "label_values(com_sonatype_nexus_plugins_healthcheck_ui_HealthCheckStatusComponent_update_timer,pod)",
+              "query": "label_values(sonarqube_asyncexecution_workercount,pod)",
               "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
             "refresh": 1,
@@ -669,8 +518,8 @@ spec:
       },
       "timepicker": {},
       "timezone": "",
-      "title": "Nexus",
-      "uid": "f5cc2ad3-26f0-4a33-9abe-81eb30b8298f",
-      "version": 12,
+      "title": "Sonarqube",
+      "uid": "e2c4de0f-5be7-46d5-9bf1-01548e00356e",
+      "version": 15,
       "weekStart": ""
     }
