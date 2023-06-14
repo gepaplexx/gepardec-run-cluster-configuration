@@ -91,7 +91,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "1.0.*"
+      targetRevision: "1.1.*"
       helm:
         parameters:
           - name: "clustername"
@@ -165,9 +165,7 @@ applications:
         kind: Grafana
         group: integreatly.org
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
 #
 #  ####################### Grafana Dashboards ######################
   grafana-dashboards:
