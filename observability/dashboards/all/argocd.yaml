@@ -203,7 +203,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Zeigt die Syncevents an. Auch jene, die nicht von unserem Haupt ArgoCD verwaltet werden.",
           "fieldConfig": {
@@ -277,7 +277,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "sum by(name) (rate(argocd_app_sync_total{namespace=\"$namespace\"}[$__rate_interval]))",
@@ -292,7 +292,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Status timeline über degraded Applications",
           "fieldConfig": {
@@ -345,7 +345,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "sum by(name) (argocd_app_info{namespace=\"$namespace\", health_status!~\"Healthy|Progressing\"})",
@@ -373,7 +373,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Änderungsrate(Farbe) von Objekten pro Applikation",
           "fieldConfig": {
@@ -430,7 +430,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "sum by(name) (rate(argocd_app_k8s_request_total{namespace=\"$namespace\"}[1m])) > 0",
@@ -445,7 +445,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "95 Quantill der Latenz zu Redis.\nAlles über 125ms ist sehr kritisch, im Regelfall sollten es so um die 20ms sein.",
           "fieldConfig": {
@@ -501,7 +501,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "sum by(namespace) (histogram_quantile(0.95, argocd_redis_request_duration_seconds_bucket{namespace=\"$namespace\"}))",
@@ -516,7 +516,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Requests an den KubeAPI Server, die noch nicht ausgeführt wurden. Im Regelfall 0",
           "fieldConfig": {
@@ -594,7 +594,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "sum by(pod) (argocd_kubectl_exec_pending{namespace=\"$namespace\"})",
@@ -609,7 +609,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "\"Application reconciliation performance.\"\n\nVermutlich, wie schnell Änderungen an Ressourcen durchgeführt werden konnten.",
           "fieldConfig": {
@@ -688,7 +688,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "histogram_quantile(0.95, sum by(le) (rate(argocd_app_reconcile_bucket{namespace=\"$namespace\"}[$__rate_interval])))",
@@ -703,7 +703,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Latenz zum git server. ",
           "fieldConfig": {
@@ -782,7 +782,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "histogram_quantile(0.95, sum by(le) (rate(argocd_git_request_duration_seconds_bucket{namespace=\"$namespace\"}[$__rate_interval])))",
@@ -797,7 +797,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Wie viele Änderungen pro Intervall durchgeführt wurden",
           "fieldConfig": {
@@ -877,7 +877,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "sum(rate(argocd_app_reconcile_count{namespace=\"$namespace\"}[$__rate_interval]))",
@@ -892,7 +892,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "description": "Konfidenzintervall in denen 95 % aller Werte liegen",
           "fieldConfig": {
@@ -945,7 +945,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "builder",
               "expr": "histogram_quantile(0.95, sum by(le) (argocd_app_reconcile_bucket{namespace=\"$namespace\"}))",
@@ -973,7 +973,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logging-infrastructure"
+            "uid": "logs-multena"
           },
           "description": "Wie viel Log Nachrichten mit dem jeweiligen Level pro Intervall geloggt wurden.",
           "fieldConfig": {
@@ -1051,7 +1051,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logging-infrastructure"
+                "uid": "logs-multena"
               },
               "editorMode": "builder",
               "expr": "sum by(level) (rate({kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} [1m]))",
@@ -1067,7 +1067,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logging-infrastructure"
+            "uid": "logs-multena"
           },
           "gridPos": {
             "h": 20,
@@ -1090,7 +1090,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logging-infrastructure"
+                "uid": "logs-multena"
               },
               "editorMode": "builder",
               "expr": "{kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} | json | line_format `{{.message}}`",
@@ -1114,7 +1114,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logging-infrastructure"
+                "uid": "logs-multena"
               },
               "gridPos": {
                 "h": 8,
@@ -1137,7 +1137,7 @@ spec:
                 {
                   "datasource": {
                     "type": "loki",
-                    "uid": "logging-infrastructure"
+                    "uid": "logs-multena"
                   },
                   "editorMode": "code",
                   "expr": "{kubernetes_namespace_name=\"$namespace\"} |= `Initiated` != `dest-namespace` | json | line_format `{{.message}}` | pattern `<_> <_> <_> <_> <_> <_> '<version>'\" application=<application>` | line_format `{{.application}} synced to {{.version}}`",
@@ -1174,7 +1174,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "prometheus"
+              "uid": "metrics-multena"
             },
             "definition": "label_values(argocd_cluster_info, namespace)",
             "hide": 0,
