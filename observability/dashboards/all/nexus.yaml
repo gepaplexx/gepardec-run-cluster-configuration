@@ -755,7 +755,7 @@ spec:
               "query": "label_values(com_sonatype_nexus_plugins_healthcheck_ui_HealthCheckStatusComponent_update_timer,pod)",
               "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
-            "refresh": 1,
+            "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
@@ -810,6 +810,6 @@ spec:
       "timezone": "",
       "title": "Nexus",
       "uid": "f5cc2ad3-26f0-4a33-9abe-81eb30b8298f",
-      "version": 19,
+      "version": 20,
       "weekStart": ""
     }

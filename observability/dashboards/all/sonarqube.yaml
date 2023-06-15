@@ -574,7 +574,7 @@ spec:
               "query": "label_values(sonarqube_asyncexecution_workercount,pod)",
               "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
-            "refresh": 1,
+            "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
@@ -631,6 +631,6 @@ spec:
       "timezone": "",
       "title": "Sonarqube",
       "uid": "e2c4de0f-5be7-46d5-9bf1-01548e00356e",
-      "version": 21,
+      "version": 22,
       "weekStart": ""
     }
