@@ -34,8 +34,45 @@ spec:
       "panels": [
         {
           "datasource": {
+            "type": "loki",
+            "uid": "logs-multena"
+          },
+          "gridPos": {
+            "h": 34,
+            "w": 12,
+            "x": 0,
+            "y": 0
+          },
+          "id": 1,
+          "options": {
+            "dedupStrategy": "signature",
+            "enableLogDetails": true,
+            "prettifyLogMessage": false,
+            "showCommonLabels": false,
+            "showLabels": false,
+            "showTime": false,
+            "sortOrder": "Descending",
+            "wrapLogMessage": false
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "logs-multena"
+              },
+              "editorMode": "builder",
+              "expr": "{kubernetes_pod_name=~\"$pod\"} |~ `$log_level` | json | line_format `{{.message}}`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Logs",
+          "type": "logs"
+        },
+        {
+          "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "fieldConfig": {
             "defaults": {
@@ -49,7 +86,170 @@ spec:
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "drawStyle": "line",
-                "fillOpacity": 5,
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "jmx-exporter"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "requested"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "yellow",
+                      "mode": "fixed"
+                    }
+                  },
+                  {
+                    "id": "custom.lineStyle",
+                    "value": {
+                      "dash": [
+                        10,
+                        10
+                      ],
+                      "fill": "dash"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "sonarqube"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 13,
+            "w": 12,
+            "x": 12,
+            "y": 0
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "metrics-multena"
+              },
+              "editorMode": "code",
+              "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace=\"gp-cicd-tools\", pod=\"$pod\", cluster=\"\"}) by (container)",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "metrics-multena"
+              },
+              "editorMode": "code",
+              "expr": "sum(\n    kube_pod_container_resource_requests{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", resource=\"cpu\"}\n)\n",
+              "hide": false,
+              "legendFormat": "requested",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "CPU Usage",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "metrics-multena"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
@@ -113,8 +313,18 @@ spec:
                   {
                     "id": "color",
                     "value": {
-                      "fixedColor": "dark-green",
+                      "fixedColor": "yellow",
                       "mode": "fixed"
+                    }
+                  },
+                  {
+                    "id": "custom.lineStyle",
+                    "value": {
+                      "dash": [
+                        10,
+                        10
+                      ],
+                      "fill": "dash"
                     }
                   }
                 ]
@@ -133,14 +343,29 @@ spec:
                     }
                   }
                 ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "sonarqube"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
               }
             ]
           },
           "gridPos": {
-            "h": 9,
+            "h": 13,
             "w": 12,
-            "x": 0,
-            "y": 0
+            "x": 12,
+            "y": 13
           },
           "id": 4,
           "options": {
@@ -160,10 +385,10 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"cluster-sonarqube-68bf89d9b6-z5qrl\", container!=\"\", image!=\"\"}) by (container)",
+              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", container!=\"\", image!=\"\"}) by (container)",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -171,10 +396,10 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "sum(\n    kube_pod_container_resource_requests{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"cluster-sonarqube-68bf89d9b6-z5qrl\", resource=\"memory\"}\n)\n",
+              "expr": "sum(\n    kube_pod_container_resource_requests{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", resource=\"memory\"}\n)\n",
               "hide": false,
               "legendFormat": "requested",
               "range": true,
@@ -183,35 +408,35 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"cluster-sonarqube-68bf89d9b6-z5qrl\", container!=\"\", image!=\"\"})",
+              "expr": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", container!=\"\", image!=\"\"})",
               "hide": false,
-              "legendFormat": "total memory",
+              "legendFormat": "total memory used",
               "range": true,
               "refId": "C"
             },
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "sum(\n    kube_pod_container_resource_limits{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"cluster-sonarqube-68bf89d9b6-z5qrl\", resource=\"memory\"}\n)",
+              "expr": "sum(\n    kube_pod_container_resource_limits{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"$pod\", resource=\"memory\"}\n)",
               "hide": false,
               "legendFormat": "limit",
               "range": true,
               "refId": "D"
             }
           ],
-          "title": "Panel Title",
+          "title": "Memory",
           "type": "timeseries"
         },
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "metrics-multena"
           },
           "fieldConfig": {
             "defaults": {
@@ -223,6 +448,7 @@ spec:
                 "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
+                "axisSoftMax": 20,
                 "barAlignment": 0,
                 "drawStyle": "line",
                 "fillOpacity": 0,
@@ -267,28 +493,13 @@ spec:
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "jmx-exporter"
+                  "options": "Async Worker Count"
                 },
                 "properties": [
                   {
                     "id": "color",
                     "value": {
-                      "fixedColor": "dark-blue",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "requested"
-                },
-                "properties": [
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "dark-green",
+                      "fixedColor": "blue",
                       "mode": "fixed"
                     }
                   }
@@ -297,151 +508,10 @@ spec:
             ]
           },
           "gridPos": {
-            "h": 9,
+            "h": 8,
             "w": 12,
             "x": 12,
-            "y": 0
-          },
-          "id": 2,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace=\"gp-cicd-tools\", pod=\"$pod\", cluster=\"\"}) by (container)",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "prometheus"
-              },
-              "editorMode": "code",
-              "expr": "sum(\n    kube_pod_container_resource_requests{job=\"kube-state-metrics\", cluster=\"\", namespace=\"gp-cicd-tools\", pod=\"cluster-sonarqube-68bf89d9b6-z5qrl\", resource=\"cpu\"}\n)\n",
-              "hide": false,
-              "legendFormat": "requested",
-              "range": true,
-              "refId": "B"
-            }
-          ],
-          "title": "CPU Usage",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "logging-application"
-          },
-          "gridPos": {
-            "h": 19,
-            "w": 12,
-            "x": 0,
-            "y": 9
-          },
-          "id": 1,
-          "options": {
-            "dedupStrategy": "none",
-            "enableLogDetails": true,
-            "prettifyLogMessage": false,
-            "showCommonLabels": false,
-            "showLabels": false,
-            "showTime": false,
-            "sortOrder": "Descending",
-            "wrapLogMessage": false
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "logging-application"
-              },
-              "editorMode": "code",
-              "expr": "{kubernetes_pod_name=~\"$pod\"} |~ `ERROR|WARNING`",
-              "queryType": "range",
-              "refId": "A"
-            }
-          ],
-          "title": "Logs WARNING|ERROR",
-          "type": "logs"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 9
+            "y": 26
           },
           "id": 3,
           "options": {
@@ -460,7 +530,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "metrics-multena"
               },
               "editorMode": "code",
               "expr": "sonarqube_asyncexecution_workercount",
@@ -486,8 +556,8 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "cluster-sonarqube-68bf89d9b6-z5qrl",
-              "value": "cluster-sonarqube-68bf89d9b6-z5qrl"
+              "text": "cluster-sonarqube-68bf89d9b6-kwdv2",
+              "value": "cluster-sonarqube-68bf89d9b6-kwdv2"
             },
             "datasource": {
               "type": "prometheus",
@@ -509,6 +579,47 @@ spec:
             "skipUrlSync": false,
             "sort": 0,
             "type": "query"
+          },
+          {
+            "current": {
+              "selected": true,
+              "text": [
+                "INFO",
+                "WARNING",
+                "ERROR"
+              ],
+              "value": [
+                "INFO",
+                "WARNING",
+                "ERROR"
+              ]
+            },
+            "hide": 0,
+            "includeAll": false,
+            "label": "log_level",
+            "multi": true,
+            "name": "log_level",
+            "options": [
+              {
+                "selected": true,
+                "text": "INFO",
+                "value": "INFO"
+              },
+              {
+                "selected": true,
+                "text": "WARNING",
+                "value": "WARNING"
+              },
+              {
+                "selected": true,
+                "text": "ERROR",
+                "value": "ERROR"
+              }
+            ],
+            "query": "INFO, WARNING, ERROR",
+            "queryValue": "",
+            "skipUrlSync": false,
+            "type": "custom"
           }
         ]
       },
@@ -520,6 +631,6 @@ spec:
       "timezone": "",
       "title": "Sonarqube",
       "uid": "e2c4de0f-5be7-46d5-9bf1-01548e00356e",
-      "version": 12,
+      "version": 21,
       "weekStart": ""
     }
