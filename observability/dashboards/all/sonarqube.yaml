@@ -630,7 +630,7 @@ spec:
       "timepicker": {},
       "timezone": "",
       "title": "Sonarqube",
-      "uid": "e2c4de0f-5be7-46d5-9bf1-01548e00356e",
+      "uid": "sonarqube-dashboard",
       "version": 22,
       "weekStart": ""
     }

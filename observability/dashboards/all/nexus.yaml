@@ -809,7 +809,7 @@ spec:
       "timepicker": {},
       "timezone": "",
       "title": "Nexus",
-      "uid": "f5cc2ad3-26f0-4a33-9abe-81eb30b8298f",
+      "uid": "nexus-dashboard",
       "version": 20,
       "weekStart": ""
     }
