@@ -287,9 +287,6 @@ spec:
       - /spec/config/auth.generic_oauth/client_secret
       kind: Grafana
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
