@@ -2,7 +2,7 @@ apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDashboard
 metadata:
   namespace: gp-grafana
-  name: resource-and-limits
+  name: request-and-limits
   labels:
     dashboard: system
 spec:
@@ -42,7 +42,7 @@ spec:
           },
           "id": 2,
           "panels": [],
-          "title": "Resource and Limits",
+          "title": "Requests and Limits",
           "type": "row"
         },
         {
