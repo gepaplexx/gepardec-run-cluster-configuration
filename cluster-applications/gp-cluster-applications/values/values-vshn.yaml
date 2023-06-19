@@ -186,7 +186,7 @@ applications:
       automated:
         prune: true
         selfHeal: true
-#
+
 #  ####################### Multena ######################
   multena:
     name: multena
@@ -204,9 +204,7 @@ applications:
           - name: "multena.jwksCertUrl"
             value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
 
 ##################### ALERTMANAGER ######################
   alertmanager:
