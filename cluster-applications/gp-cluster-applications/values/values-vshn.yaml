@@ -19,7 +19,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-keycloak-instance
-      targetRevision: "1.1.*"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "ingress.hostname"
