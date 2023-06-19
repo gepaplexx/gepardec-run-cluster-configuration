@@ -326,7 +326,7 @@ spec:
       - name: keycloakConfigCli.identityProvider.openshift.baseUrl
         value: https://api.c-gepa-play.gepa.vshnmanaged.net:6443
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.1.*
+    targetRevision: 1.2.*
   ignoreDifferences:
     - group: oauth.openshift.io
       jsonPointers:
