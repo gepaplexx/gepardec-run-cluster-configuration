@@ -39,6 +39,7 @@ spec:
     syncOptions:
       - CreateNamespace={{ .destination.create }}
       - Replace={{ default "false"  .syncPolicy.replace }}
+      - ServerSideApply={{ default "false"  .syncPolicy.serverSideApply }}
 ...
 {{- end }}
 {{- end }}
