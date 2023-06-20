@@ -279,7 +279,7 @@ spec:
         value: grafana.play.run.gepardec.com
       - name: sso.keycloak.realmUrl
         value: https://sso.play.run.gepardec.com/realms/internal
-    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
     targetRevision: '*'
   ignoreDifferences:
     - group: integreatly.org
@@ -326,7 +326,7 @@ spec:
       - name: keycloakConfigCli.identityProvider.openshift.baseUrl
         value: https://api.c-gepa-play.gepa.vshnmanaged.net:6443
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.1.*
+    targetRevision: 1.2.*
   ignoreDifferences:
     - group: oauth.openshift.io
       jsonPointers:
@@ -371,9 +371,6 @@ spec:
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: '*'
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
