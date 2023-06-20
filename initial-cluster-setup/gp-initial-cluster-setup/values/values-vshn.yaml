@@ -94,7 +94,7 @@ applications:
       chart: gp-kyverno
       targetRevision: "*"
     syncPolicy:
-      automated: {}
-#        prune: true
-#        selfHeal: true
+      automated:
+        prune: true
+        selfHeal: true
       serverSideApply: true
