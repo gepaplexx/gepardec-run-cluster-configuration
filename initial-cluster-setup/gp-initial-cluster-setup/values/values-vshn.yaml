@@ -64,7 +64,7 @@ applications:
       namespace: gp-vault
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "2.3.*"
       chart: gp-hashicorp-vault
       helm:
