@@ -175,6 +175,8 @@ applications:
         parameters:
           - name: "multena.jwksCertUrl"
             value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
+          - name: "multena.insecureSkipVerify"
+            value: "true"
     syncPolicy:
       automated: {}
 
