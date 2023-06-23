@@ -377,7 +377,9 @@ spec:
       parameters:
       - name: multena.jwksCertUrl
         value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
-    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+      - name: multena.insecureSkipVerify
+        value: "true"
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
     targetRevision: '*'
   syncPolicy:
     syncOptions:
