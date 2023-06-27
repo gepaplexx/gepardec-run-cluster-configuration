@@ -71,6 +71,9 @@ applications:
         parameters:
           - name: "ingress.hostname"
             value: "vault.play.run.gepardec.com"
+          - name: "vault.server.ha.disruptionBudget.enabled"
+            value: "false"
+
     ignoreDifferences:
       - group: admissionregistration.k8s.io
         jsonPointers:
