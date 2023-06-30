@@ -26,7 +26,7 @@ spec:
           }
         ]
       },
-      "description": "Nexus Dashboard ",
+      "description": "Nexus Dashboard",
       "editable": true,
       "fiscalYearStartMonth": 0,
       "gnetId": 16459,
@@ -374,7 +374,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"$namespace\", kubernetes_container_name=\"sonarqube\"} |~ `$log_level` | json | line_format `{{.message}}`",
+              "expr": "{kubernetes_namespace_name=\"$namespace\", kubernetes_container_name=\"nexus\"} |~ `$log_level` | json | line_format `{{.message}}` |~\"$search\"",
               "queryType": "range",
               "refId": "A"
             }
@@ -1335,8 +1335,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1442,8 +1441,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1791,8 +1789,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1934,8 +1931,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2041,8 +2037,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2174,8 +2169,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2282,8 +2276,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2417,8 +2410,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2553,8 +2545,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2689,8 +2680,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2850,8 +2840,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2996,8 +2985,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3142,8 +3130,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3314,8 +3301,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3449,8 +3435,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3571,8 +3556,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3720,8 +3704,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3816,8 +3799,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -3924,8 +3906,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -4020,8 +4001,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -4361,9 +4341,9 @@ spec:
       "schemaVersion": 38,
       "style": "dark",
       "tags": [
-        "Ansprechperson: Tobias Meindl ",
         "Themengebiet: cicd-tools",
-        "Applikation: Nexus"
+        "Applikation: Nexus",
+        "Ansprechperson: Tobias Meindl"
       ],
       "templating": {
         "list": [
@@ -4386,35 +4366,41 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "INFO",
-              "value": "INFO"
+              "text": ".+",
+              "value": ".+"
             },
             "hide": 0,
-            "includeAll": false,
             "label": "log_level",
-            "multi": true,
             "name": "log_level",
             "options": [
               {
                 "selected": true,
-                "text": "INFO",
-                "value": "INFO"
-              },
-              {
-                "selected": false,
-                "text": "WARNING",
-                "value": "WARNING"
-              },
-              {
-                "selected": false,
-                "text": "ERROR",
-                "value": "ERROR"
+                "text": ".+",
+                "value": ".+"
               }
             ],
-            "query": "INFO, WARNING, ERROR",
-            "queryValue": "",
+            "query": ".+",
             "skipUrlSync": false,
-            "type": "custom"
+            "type": "textbox"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "",
+              "value": ""
+            },
+            "hide": 0,
+            "name": "search",
+            "options": [
+              {
+                "selected": true,
+                "text": "",
+                "value": ""
+              }
+            ],
+            "query": "",
+            "skipUrlSync": false,
+            "type": "textbox"
           }
         ]
       },
@@ -4438,7 +4424,7 @@ spec:
       },
       "timezone": "",
       "title": "Nexus",
-      "uid": "b2ff5621-ea0d-4bfa-b58e-4a7bfb07ed3b",
-      "version": 8,
+      "uid": "Nexus",
+      "version": 13,
       "weekStart": ""
     }

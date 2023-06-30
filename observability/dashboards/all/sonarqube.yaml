@@ -80,7 +80,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"$namespace\", kubernetes_container_name=\"sonarqube\"} |~ `$log_level` | json | line_format `{{.message}}`",
+              "expr": "{kubernetes_namespace_name=\"$namespace\", kubernetes_container_name=\"sonarqube\"} |~ `$log_level` | json | line_format `{{.message}}` |~\"$search\"",
               "queryType": "range",
               "refId": "A"
             }
@@ -1170,8 +1170,12 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "All",
-              "value": "$__all"
+              "text": [
+                "All"
+              ],
+              "value": [
+                "$__all"
+              ]
             },
             "datasource": {
               "type": "prometheus",
@@ -1196,8 +1200,12 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "All",
-              "value": "$__all"
+              "text": [
+                "All"
+              ],
+              "value": [
+                "$__all"
+              ]
             },
             "datasource": {
               "type": "prometheus",
@@ -1229,45 +1237,47 @@ spec:
           },
           {
             "current": {
-              "selected": false,
-              "text": [
-                "INFO"
-              ],
-              "value": [
-                "INFO"
-              ]
+              "selected": true,
+              "text": ".+",
+              "value": ".+"
             },
             "hide": 0,
-            "includeAll": false,
             "label": "log_level",
-            "multi": true,
             "name": "log_level",
             "options": [
               {
                 "selected": true,
-                "text": "INFO",
-                "value": "INFO"
-              },
-              {
-                "selected": false,
-                "text": "WARNING",
-                "value": "WARNING"
-              },
-              {
-                "selected": false,
-                "text": "ERROR",
-                "value": "ERROR"
+                "text": ".+",
+                "value": ".+"
               }
             ],
-            "query": "INFO, WARNING, ERROR",
-            "queryValue": "",
+            "query": ".+",
             "skipUrlSync": false,
-            "type": "custom"
+            "type": "textbox"
+          },
+          {
+            "current": {
+              "selected": true,
+              "text": "",
+              "value": ""
+            },
+            "hide": 0,
+            "name": "search",
+            "options": [
+              {
+                "selected": true,
+                "text": "",
+                "value": ""
+              }
+            ],
+            "query": "",
+            "skipUrlSync": false,
+            "type": "textbox"
           }
         ]
       },
       "time": {
-        "from": "now-2d",
+        "from": "now-3h",
         "to": "now"
       },
       "timepicker": {
@@ -1297,6 +1307,6 @@ spec:
       "timezone": "",
       "title": "Sonarqube Dashboard",
       "uid": "sonarqube",
-      "version": 28,
+      "version": 33,
       "weekStart": ""
     }

@@ -24,21 +24,6 @@ spec:
             "name": "Annotations & Alerts",
             "showIn": 0,
             "type": "dashboard"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "metrics-multena"
-            },
-            "enable": true,
-            "expr": "resets(process_uptime_seconds{namespace=\"$namespace\"}[1m]) > 0",
-            "iconColor": "rgba(255, 96, 96, 1)",
-            "name": "Restart Detection",
-            "showIn": 0,
-            "step": "1m",
-            "tagKeys": "restart-tag",
-            "textFormat": "uptime reset",
-            "titleFormat": "Restart"
           }
         ]
       },
@@ -106,7 +91,7 @@ spec:
                 "uid": "prometheus"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"$namespace\"} |~ `$log_level` | json | line_format `{{.message}}`",
+              "expr": "{kubernetes_namespace_name=\"$namespace\"} |~ `$log_level` | json | line_format `{{.message}}` |~\"$search\"",
               "instant": false,
               "range": true,
               "refId": "A"
@@ -149,20 +134,40 @@ spec:
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "thresholds"
+                "mode": "palette-classic"
               },
-              "decimals": 1,
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 2,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
                 }
-              ],
+              },
+              "mappings": [],
+              "max": 1.5,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -175,35 +180,29 @@ spec:
                     "value": 80
                   }
                 ]
-              },
-              "unit": "s"
+              }
             },
             "overrides": []
           },
           "gridPos": {
-            "h": 3,
-            "w": 6,
+            "h": 9,
+            "w": 12,
             "x": 0,
             "y": 19
           },
-          "id": 63,
-          "links": [],
-          "maxDataPoints": 100,
+          "id": 166,
           "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
             },
-            "textMode": "auto"
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
           },
-          "pluginVersion": "10.0.0",
           "targets": [
             {
               "datasource": {
@@ -211,100 +210,15 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "process_uptime_seconds{namespace=\"$namespace\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "",
-              "metric": "",
+              "expr": "demo_microservice_test_alert_active{namespace=\"$namespace\"}",
+              "instant": false,
+              "legendFormat": "{{pod}}",
               "range": true,
-              "refId": "A",
-              "step": 14400
+              "refId": "A"
             }
           ],
-          "title": "Uptime",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "dateTimeAsIso"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 3,
-            "w": 6,
-            "x": 6,
-            "y": 19
-          },
-          "id": 92,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.0.0",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "process_start_time_seconds{namespace=\"$namespace\"}*1000",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "",
-              "metric": "",
-              "range": true,
-              "refId": "A",
-              "step": 14400
-            }
-          ],
-          "title": "Start time",
-          "type": "stat"
+          "title": "Test Alert",
+          "type": "timeseries"
         },
         {
           "datasource": {
@@ -487,100 +401,6 @@ spec:
           ],
           "title": "Non-Heap used",
           "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 2,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "max": 1.5,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 12,
-            "x": 0,
-            "y": 22
-          },
-          "id": 166,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "demo_microservice_test_alert_active{namespace=\"$namespace\"}",
-              "instant": false,
-              "legendFormat": "{{pod}}",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Test Alert",
-          "type": "timeseries"
         },
         {
           "collapsed": false,
@@ -1021,8 +841,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1036,7 +855,7 @@ spec:
           },
           "gridPos": {
             "h": 7,
-            "w": 6,
+            "w": 8,
             "x": 0,
             "y": 37
           },
@@ -1151,8 +970,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1166,8 +984,8 @@ spec:
           },
           "gridPos": {
             "h": 7,
-            "w": 6,
-            "x": 6,
+            "w": 9,
+            "x": 8,
             "y": 37
           },
           "id": 25,
@@ -1276,8 +1094,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1291,8 +1108,8 @@ spec:
           },
           "gridPos": {
             "h": 7,
-            "w": 6,
-            "x": 12,
+            "w": 7,
+            "x": 17,
             "y": 37
           },
           "id": 26,
@@ -1416,8 +1233,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1542,8 +1358,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1654,8 +1469,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1791,8 +1605,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1983,8 +1796,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2083,8 +1895,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2225,8 +2036,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2386,8 +2196,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2546,8 +2355,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2642,8 +2450,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2752,8 +2559,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2887,8 +2693,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -3051,7 +2856,7 @@ spec:
           },
           {
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "demo-microservice-main",
               "value": "demo-microservice-main"
             },
@@ -3079,40 +2884,46 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "INFO",
-              "value": "INFO"
+              "text": ".+",
+              "value": ".+"
             },
             "hide": 0,
-            "includeAll": false,
             "label": "log_level",
-            "multi": true,
             "name": "log_level",
             "options": [
               {
                 "selected": true,
-                "text": "INFO",
-                "value": "INFO"
-              },
-              {
-                "selected": false,
-                "text": "WARNING",
-                "value": "WARNING"
-              },
-              {
-                "selected": false,
-                "text": "ERROR",
-                "value": "ERROR"
+                "text": ".+",
+                "value": ".+"
               }
             ],
-            "query": "INFO, WARNING, ERROR",
-            "queryValue": "",
+            "query": ".+",
             "skipUrlSync": false,
-            "type": "custom"
+            "type": "textbox"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "",
+              "value": ""
+            },
+            "hide": 0,
+            "name": "search",
+            "options": [
+              {
+                "selected": true,
+                "text": "",
+                "value": ""
+              }
+            ],
+            "query": "",
+            "skipUrlSync": false,
+            "type": "textbox"
           }
         ]
       },
       "time": {
-        "from": "now-2d",
+        "from": "now-24h",
         "to": "now"
       },
       "timepicker": {
@@ -3144,6 +2955,6 @@ spec:
       "timezone": "browser",
       "title": "Demo Microservice Dashboard",
       "uid": "demo-microservice-dashboard",
-      "version": 13,
+      "version": 18,
       "weekStart": ""
     }
