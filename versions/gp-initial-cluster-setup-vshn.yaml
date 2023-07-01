@@ -168,7 +168,7 @@ spec:
         value: vault.play.run.gepardec.com
       - name: vault.server.ha.disruptionBudget.enabled
         value: "false"
-    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
     targetRevision: 2.3.*
   ignoreDifferences:
     - group: admissionregistration.k8s.io
@@ -176,9 +176,6 @@ spec:
       - /webhooks/0/clientConfig/caBundle
       kind: MutatingWebhookConfiguration
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
