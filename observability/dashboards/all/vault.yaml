@@ -3087,6 +3087,5 @@ spec:
       "timezone": "",
       "title": "Vault",
       "uid": "Vault",
-      "version": 14,
       "weekStart": ""
     }

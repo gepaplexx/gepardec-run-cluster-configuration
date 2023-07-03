@@ -272,7 +272,6 @@ spec:
       },
       "timezone": "",
       "title": "Resource and Limits Review",
-      "uid": "ba4e8770-a470-4bbe-812f-293cf427c2bc",
-      "version": 3,
+      "uid": "compute-resources",
       "weekStart": ""
     }

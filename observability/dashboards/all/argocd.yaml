@@ -1251,6 +1251,5 @@ spec:
       "timezone": "",
       "title": "ArgoCD - Custom",
       "uid": "argo-custom",
-      "version": 12,
       "weekStart": ""
     }

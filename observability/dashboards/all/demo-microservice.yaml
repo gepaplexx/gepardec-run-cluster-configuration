@@ -2955,6 +2955,5 @@ spec:
       "timezone": "browser",
       "title": "Demo Microservice Dashboard",
       "uid": "demo-microservice-dashboard",
-      "version": 18,
       "weekStart": ""
     }

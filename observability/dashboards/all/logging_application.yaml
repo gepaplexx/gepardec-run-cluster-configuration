@@ -320,6 +320,5 @@ spec:
       "timezone": "",
       "title": "Logging Application",
       "uid": "logging-application",
-      "version": 11,
       "weekStart": ""
     }

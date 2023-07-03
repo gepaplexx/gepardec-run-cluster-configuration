@@ -1404,6 +1404,5 @@ spec:
       "timezone": "",
       "title": "Keycloak",
       "uid": "keycloak",
-      "version": 16,
       "weekStart": ""
     }

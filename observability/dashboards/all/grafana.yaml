@@ -1899,6 +1899,5 @@ spec:
       "timezone": "browser",
       "title": "Grafana",
       "uid": "grafana",
-      "version": 11,
       "weekStart": ""
     }
