@@ -4424,7 +4424,7 @@ spec:
       },
       "timezone": "",
       "title": "Nexus",
-      "uid": "Nexus",
+      "uid": "nexus",
       "version": 13,
       "weekStart": ""
     }
