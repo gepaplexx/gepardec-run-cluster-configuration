@@ -1307,5 +1307,6 @@ spec:
       "timezone": "",
       "title": "Sonarqube",
       "uid": "sonarqube",
+      "version": 1001,
       "weekStart": ""
     }
