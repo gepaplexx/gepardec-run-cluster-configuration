@@ -137,8 +137,10 @@ spec:
         value: https://sso.play.run.gepardec.com/realms/internal
       - name: argo_workflows.server.sso.redirectUrl
         value: https://workflows.play.run.gepardec.com/oauth2/callback
+      - name: argo_workflows.artifactRepository.s3.bucket
+        value: c-gepa-play-argo-workflows
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.1.*
+    targetRevision: 1.2.*
   syncPolicy:
     automated:
       prune: true
