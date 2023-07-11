@@ -30,6 +30,8 @@ applications:
             value: "play"
           - name: "keycloakConfigCli.identityProvider.openshift.baseUrl"
             value: "https://api.c-gepa-play.gepa.vshnmanaged.net:6443"
+          - name: "postgresql.backup.external.bucket"
+            value: "c-gepa-play-keycloak-backup"
     syncPolicy:
       automated:
         prune: true
