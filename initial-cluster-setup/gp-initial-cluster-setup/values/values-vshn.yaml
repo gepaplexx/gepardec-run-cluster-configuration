@@ -73,7 +73,8 @@ applications:
             value: "vault.play.run.gepardec.com"
           - name: "vault.server.ha.disruptionBudget.enabled"
             value: "false"
-
+          - name: "backup.external.bucket"
+            value: "c-gepa-play-vault-backup"
     ignoreDifferences:
       - group: admissionregistration.k8s.io
         jsonPointers:
