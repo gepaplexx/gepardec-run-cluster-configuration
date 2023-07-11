@@ -126,8 +126,8 @@ applications:
       namespace: gp-grafana
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      targetRevision: "1.0.*"
       chart: "gp-grafana-instance"
       helm:
         parameters:
@@ -173,7 +173,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
-      targetRevision: "*"
+      targetRevision: "0.3.*"
       chart: "gp-multena"
       helm:
         parameters:
