@@ -141,7 +141,7 @@ applications:
         kind: Grafana
         group: grafana.integreatly.org
       - jsonPointers:
-          - spec/datasource/secureJsonData/httpHeaderValue1
+          - /spec/datasource/secureJsonData/httpHeaderValue1
         kind: GrafanaDatasource
         group: grafana.integreatly.org
     syncPolicy:
