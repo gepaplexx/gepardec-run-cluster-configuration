@@ -142,10 +142,12 @@ applications:
         group: grafana.integreatly.org
       - jsonPointers:
           - spec/datasource/secureJsonData/httpHeaderValue1
-        kind: GrafanaDataSource
+        kind: GrafanaDatasource
         group: grafana.integreatly.org
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
 #  ####################### Grafana Dashboards ######################
   grafana-dashboards:
