@@ -32,6 +32,8 @@ applications:
             value: "https://api.c-gepa-play.gepa.vshnmanaged.net:6443"
           - name: "postgresql.backup.external.bucket"
             value: "c-gepa-play-keycloak-backup"
+          - name: "postgresql.backup.external.enabled"
+            value: "true"
     syncPolicy:
       automated:
         prune: true
