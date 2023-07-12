@@ -168,6 +168,8 @@ spec:
         value: vault.play.run.gepardec.com
       - name: vault.server.ha.disruptionBudget.enabled
         value: "false"
+      - name: backup.external.bucket
+        value: c-gepa-play-vault-backup
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: 2.3.*
   ignoreDifferences:
