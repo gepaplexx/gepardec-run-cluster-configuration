@@ -126,7 +126,7 @@ applications:
       namespace: gp-grafana
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "1.0.*"
       chart: "gp-grafana-instance"
       helm:
@@ -139,7 +139,11 @@ applications:
       - jsonPointers:
           - /spec/config/auth.generic_oauth/client_secret
         kind: Grafana
-        group: integreatly.org
+        group: grafana.integreatly.org
+      - jsonPointers:
+          - spec/datasource/secureJsonData/httpHeaderValue1
+        kind: GrafanaDataSource
+        group: grafana.integreatly.org
     syncPolicy:
       automated: {}
 
@@ -181,15 +185,6 @@ applications:
             value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
           - name: "multena.insecureSkipVerify"
             value: "true"
-    ignoreDifferences:
-      - jsonPointers:
-          - /spec/config/auth.generic_oauth/client_secret
-        kind: Grafana
-        group: grafana.integreatly.org
-      - jsonPointers:
-          - spec/datasource/secureJsonData/httpHeaderValue1
-        kind: GrafanaDataSource
-        group: grafana.integreatly.org
     syncPolicy:
       automated:
         prune: true
