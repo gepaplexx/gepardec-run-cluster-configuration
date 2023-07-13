@@ -288,14 +288,21 @@ spec:
         value: grafana.play.run.gepardec.com
       - name: sso.keycloak.realmUrl
         value: https://sso.play.run.gepardec.com/realms/internal
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: 1.0.*
   ignoreDifferences:
-    - group: integreatly.org
+    - group: grafana.integreatly.org
       jsonPointers:
       - /spec/config/auth.generic_oauth/client_secret
       kind: Grafana
+    - group: grafana.integreatly.org
+      jsonPointers:
+      - /spec/datasource/secureJsonData/httpHeaderValue1
+      kind: GrafanaDatasource
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=false
@@ -337,6 +344,8 @@ spec:
         value: https://api.c-gepa-play.gepa.vshnmanaged.net:6443
       - name: postgresql.backup.external.bucket
         value: c-gepa-play-keycloak-backup
+      - name: postgresql.backup.external.enabled
+        value: "true"
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: 1.2.*
   ignoreDifferences:
@@ -384,7 +393,7 @@ spec:
       - name: multena.insecureSkipVerify
         value: "true"
     repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
-    targetRevision: 1.2.*
+    targetRevision: 1.3.*
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
