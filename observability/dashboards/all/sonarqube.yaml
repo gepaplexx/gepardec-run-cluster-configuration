@@ -1158,7 +1158,7 @@ spec:
       "tags": [
         "Applikation: Sonarqube",
         "Ansprechperson: Tobias Meindl",
-        "Themengebiet: cicd-tools"
+        "Themengebiet: CICD"
       ],
       "templating": {
         "list": [

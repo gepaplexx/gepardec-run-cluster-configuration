@@ -4344,7 +4344,7 @@ spec:
       "schemaVersion": 38,
       "style": "dark",
       "tags": [
-        "Themengebiet: cicd-tools",
+        "Themengebiet: CICD",
         "Applikation: Nexus",
         "Ansprechperson: Tobias Meindl"
       ],
