@@ -31,7 +31,7 @@ spec:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 1,
-      "id": 28,
+      "id": 31,
       "links": [
         {
           "asDropdown": false,
@@ -97,8 +97,8 @@ spec:
             "overrides": []
           },
           "gridPos": {
-            "h": 12,
-            "w": 3,
+            "h": 11,
+            "w": 4,
             "x": 0,
             "y": 1
           },
@@ -280,8 +280,8 @@ spec:
           },
           "gridPos": {
             "h": 12,
-            "w": 5,
-            "x": 3,
+            "w": 4,
+            "x": 4,
             "y": 1
           },
           "id": 52,
@@ -315,7 +315,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(level) (rate({kubernetes_pod_name=~\"$workflow-.+\"} | json [$__interval]))",
+              "expr": "sum by(level) (rate({kubernetes_pod_name=~\"$workflow-.+\"} |= `$filter` | json [$__interval]))",
               "legendFormat": "",
               "queryType": "range",
               "refId": "A"
@@ -413,7 +413,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(kubernetes_labels_template) (rate({kubernetes_pod_name=~\"$workflow-.+\"} | json [$__interval]))",
+              "expr": "sum by(kubernetes_labels_template) (rate({kubernetes_pod_name=~\"$workflow-.+\"} |= `$filter` | json [$__interval]))",
               "legendFormat": "{{kubernetes_labels_template}}",
               "queryType": "range",
               "refId": "A"
@@ -467,7 +467,9 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "builder",
-              "expr": "{kubernetes_pod_name=~\"$pod\", kubernetes_container_name=~\"$container\"} | json | line_format `{{printf \"%-26s\" .kubernetes_labels_template}} {{.message}}`",
+              "expr": "{kubernetes_pod_name=~\"$pod\", kubernetes_container_name=~\"$container\"} |= `$filter` | json | line_format `{{printf \"%-26s\" .kubernetes_labels_template}} {{.message}}`",
+              "legendFormat": "",
+              "maxLines": 5000,
               "queryType": "range",
               "refId": "A"
             }
@@ -493,7 +495,7 @@ spec:
               },
               "gridPos": {
                 "h": 24,
-                "w": 12,
+                "w": 8,
                 "x": 0,
                 "y": 38
               },
@@ -518,7 +520,7 @@ spec:
                     "uid": "logs-multena"
                   },
                   "editorMode": "builder",
-                  "expr": "{kubernetes_pod_name=~\"$pod\", kubernetes_container_name=~\"$container\"} | json | line_format `{{.message}}` | kubernetes_labels_workflows_argoproj_io_workflow = `$workflow`",
+                  "expr": "{kubernetes_pod_name=~\"$pod\", kubernetes_container_name=~\"$container\"} |= `$filter` | json | line_format `{{.message}}` | kubernetes_labels_workflows_argoproj_io_workflow = `$workflow`",
                   "queryType": "range",
                   "refId": "A"
                 }
@@ -532,7 +534,7 @@ spec:
           "type": "row"
         }
       ],
-      "refresh": false,
+      "refresh": "",
       "schemaVersion": 38,
       "style": "dark",
       "tags": [
@@ -544,8 +546,8 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "mega-backend-build-java-58xn9",
-              "value": "mega-backend-build-java-58xn9"
+              "text": "mega-backend-build-java-fq4bs",
+              "value": "mega-backend-build-java-fq4bs"
             },
             "datasource": {
               "type": "prometheus",
@@ -636,9 +638,30 @@ spec:
             },
             "filters": [],
             "hide": 0,
+            "label": "Label Filter",
             "name": "Filters",
             "skipUrlSync": false,
             "type": "adhoc"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "",
+              "value": ""
+            },
+            "hide": 0,
+            "label": "Line-Filter",
+            "name": "filter",
+            "options": [
+              {
+                "selected": true,
+                "text": "",
+                "value": ""
+              }
+            ],
+            "query": "",
+            "skipUrlSync": false,
+            "type": "textbox"
           }
         ]
       },
