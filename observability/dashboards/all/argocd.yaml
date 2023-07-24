@@ -976,46 +976,44 @@ spec:
         },
         {
           "datasource": {
-            "type": "loki",
-            "uid": "logs-multena"
+            "uid": "logs-multena",
+            "type": "loki"
           },
           "description": "Wie viel Log Nachrichten mit dem jeweiligen Level pro Intervall geloggt wurden.",
           "fieldConfig": {
             "defaults": {
-              "color": {
-                "fixedColor": "yellow",
-                "mode": "palette-classic",
-                "seriesBy": "max"
-              },
               "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
+                "drawStyle": "bars",
+                "lineInterpolation": "linear",
                 "barAlignment": 0,
-                "drawStyle": "line",
+                "lineWidth": 5,
                 "fillOpacity": 0,
                 "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
+                "spanNulls": false,
+                "showPoints": "auto",
+                "pointSize": 1,
+                "stacking": {
+                  "mode": "normal",
+                  "group": "A"
                 },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 7,
+                "axisPlacement": "auto",
+                "axisLabel": "",
+                "axisColorMode": "text",
                 "scaleDistribution": {
                   "type": "linear"
                 },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "normal"
+                "axisCenteredZero": false,
+                "hideFrom": {
+                  "tooltip": false,
+                  "viz": false,
+                  "legend": false
                 },
                 "thresholdsStyle": {
                   "mode": "off"
                 }
+              },
+              "color": {
+                "mode": "palette-classic"
               },
               "mappings": [],
               "thresholds": {
@@ -1026,7 +1024,8 @@ spec:
                     "value": null
                   }
                 ]
-              }
+              },
+              "unit": "none"
             },
             "overrides": []
           },
@@ -1038,17 +1037,19 @@ spec:
           },
           "id": 27,
           "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true,
-              "sortBy": "Max",
-              "sortDesc": true
-            },
             "tooltip": {
               "mode": "single",
               "sort": "none"
+            },
+            "legend": {
+              "showLegend": true,
+              "displayMode": "table",
+              "placement": "right",
+              "calcs": [
+                "last"
+              ],
+              "sortBy": "Max",
+              "sortDesc": true
             }
           },
           "targets": [
@@ -1057,16 +1058,17 @@ spec:
                 "type": "loki",
                 "uid": "logs-multena"
               },
-              "editorMode": "builder",
-              "expr": "sum by(level) (rate({kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} [1m]))",
+              "editorMode": "code",
+              "expr": "sum by (level) (count_over_time({kubernetes_namespace_name=`$namespace`} | json | level =~ `$level` [1m]))",
               "legendFormat": "{{level}}",
               "queryType": "range",
               "refId": "A"
             }
           ],
-          "title": "Level / min",
+          "title": "level / min",
           "transformations": [],
-          "type": "timeseries"
+          "type": "timeseries",
+          "pluginVersion": "10.0.2"
         },
         {
           "datasource": {
@@ -1097,12 +1099,12 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "builder",
-              "expr": "{kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} | json | line_format `{{.message}}`",
+              "expr": "{kubernetes_namespace_name="$namespace"} | json | level =~ `$level` | line_format `{{ .message }}` | logfmt | line_format `{{ .time }} | {{ upper .level }} | {{ .msg }}`",
               "queryType": "range",
               "refId": "A"
             }
           ],
-          "title": "Error log",
+          "title": "Logs",
           "type": "logs"
         },
         {
@@ -1215,9 +1217,9 @@ spec:
             },
             "hide": 0,
             "includeAll": false,
-            "label": "Level",
+            "label": "level",
             "multi": true,
-            "name": "Level",
+            "name": "level",
             "options": [
               {
                 "selected": true,
