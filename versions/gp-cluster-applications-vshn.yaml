@@ -139,8 +139,8 @@ spec:
         value: https://workflows.play.run.gepardec.com/oauth2/callback
       - name: argo_workflows.artifactRepository.s3.bucket
         value: c-gepa-play-argo-workflows
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
-    targetRevision: 1.2.*
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
+    targetRevision: 1.3.*
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
