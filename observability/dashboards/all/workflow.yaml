@@ -10,7 +10,7 @@ spec:
     matchLabels:
       monitoring.gepardec.com/system: "true"
   folder: Gepardec Run
-  resyncPeriod: 1440m
+  resyncPeriod: 1d
   json: >
     {
       "annotations": {
@@ -32,7 +32,7 @@ spec:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 1,
-      "id": 31,
+      "id": 30,
       "links": [
         {
           "asDropdown": false,
@@ -44,7 +44,7 @@ spec:
           "title": "Workflow",
           "tooltip": "Argo Workflow",
           "type": "link",
-          "url": "https://workflows.play.run.gepardec.com/archived-workflows?name=${workflow}"
+          "url": "https://workflows.play.run.gepardec.com/workflows/${namespace}/${workflow}?tab=workflow"
         }
       ],
       "liveNow": true,
@@ -85,8 +85,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -376,8 +375,7 @@ spec:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -547,8 +545,8 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "mega-backend-build-java-fq4bs",
-              "value": "mega-backend-build-java-fq4bs"
+              "text": "mega-backend-build-java-6zw9j",
+              "value": "mega-backend-build-java-6zw9j"
             },
             "datasource": {
               "type": "prometheus",
@@ -663,6 +661,28 @@ spec:
             "query": "",
             "skipUrlSync": false,
             "type": "textbox"
+          },
+          {
+            "current": {
+              "selected": false,
+              "text": "mega-backend-cicd",
+              "value": "mega-backend-cicd"
+            },
+            "definition": "kube_pod_info{pod=~\"$pod\"}",
+            "hide": 2,
+            "includeAll": false,
+            "multi": false,
+            "name": "namespace",
+            "options": [],
+            "query": {
+              "query": "kube_pod_info{pod=~\"$pod\"}",
+              "refId": "PrometheusVariableQueryEditor-VariableQuery"
+            },
+            "refresh": 1,
+            "regex": "/.*namespace=\"(.*?)\".*/",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
           }
         ]
       },
@@ -674,6 +694,6 @@ spec:
       "timezone": "",
       "title": "workflow-dashboard",
       "uid": "workflow-dashboard",
-      "version": 13,
+      "version": 1628,
       "weekStart": ""
     }
