@@ -10,6 +10,7 @@ spec:
     matchLabels:
       monitoring.gepardec.com/system: "true"
   folder: demo-microservice
+  resyncPeriod: 1d
   json: |
     {
       "annotations": {

@@ -10,6 +10,7 @@ spec:
     matchLabels:
       monitoring.gepardec.com/system: "true"
   folder: Gepardec Run
+  resyncPeriod: 1d
   json: |
     {
       "description": "",
