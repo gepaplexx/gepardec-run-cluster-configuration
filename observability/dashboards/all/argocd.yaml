@@ -1099,7 +1099,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "builder",
-              "expr": "{kubernetes_namespace_name=`$namespace`} | json | level =~ `$level` | line_format `{{ .message }}` | logfmt | line_format `{{ .time }} | {{ upper .level }} | {{ .msg }}`",
+              "expr": "{kubernetes_namespace_name=`$namespace`} | json | level =~ `$level` | line_format `{{ .message }}` | logfmt | line_format `{{ .time }} | {{ upper .level }} | {{ .kubernetes_labels_app_kubernetes_io_name }}: {{ .msg }}`",
               "queryType": "range",
               "refId": "A"
             }
