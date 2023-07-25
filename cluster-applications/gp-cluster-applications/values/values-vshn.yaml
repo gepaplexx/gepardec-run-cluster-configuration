@@ -159,7 +159,7 @@ applications:
       create: true
     source:
       repoURL: "https://github.com/gepaplexx/gepardec-run-cluster-configuration"
-      targetRevision: "main"
+      targetRevision: "feature/GPX-695"
       path: "observability/dashboards/"
       directory:
         recurse: true
