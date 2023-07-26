@@ -986,7 +986,7 @@ spec:
                 "drawStyle": "bars",
                 "lineInterpolation": "linear",
                 "barAlignment": 0,
-                "lineWidth": 5,
+                "lineWidth": 2,
                 "fillOpacity": 0,
                 "gradientMode": "none",
                 "spanNulls": false,
