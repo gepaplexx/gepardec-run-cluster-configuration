@@ -284,7 +284,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(name) (rate(argocd_app_sync_total{namespace=\"$namespace\"}[$__rate_interval]))",
+              "expr": "sum by(name) (rate(argocd_app_sync_total{namespace=`$namespace`}[$__rate_interval]))",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -352,7 +352,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(name) (argocd_app_info{namespace=\"$namespace\", health_status!~\"Healthy|Progressing\"})",
+              "expr": "sum by(name) (argocd_app_info{namespace=`$namespace`, health_status!~`Healthy|Progressing`})",
               "legendFormat": "{{name}}",
               "range": true,
               "refId": "A"
@@ -437,7 +437,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(name) (rate(argocd_app_k8s_request_total{namespace=\"$namespace\"}[1m])) > 0",
+              "expr": "sum by(name) (rate(argocd_app_k8s_request_total{namespace=`$namespace`}[1m])) > 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -508,7 +508,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(namespace) (histogram_quantile(0.95, argocd_redis_request_duration_seconds_bucket{namespace=\"$namespace\"}))",
+              "expr": "sum by(namespace) (histogram_quantile(0.95, argocd_redis_request_duration_seconds_bucket{namespace=`$namespace`}))",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -601,7 +601,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "sum by(pod) (argocd_kubectl_exec_pending{namespace=\"$namespace\"})",
+              "expr": "sum by(pod) (argocd_kubectl_exec_pending{namespace=`$namespace`})",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -615,7 +615,7 @@ spec:
             "type": "prometheus",
             "uid": "metrics-multena"
           },
-          "description": "\"Application reconciliation performance.\"\n\nVermutlich, wie schnell Änderungen an Ressourcen durchgeführt werden konnten.",
+          "description": "`Application reconciliation performance.`\n\nVermutlich, wie schnell Änderungen an Ressourcen durchgeführt werden konnten.",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -695,7 +695,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "histogram_quantile(0.95, sum by(le) (rate(argocd_app_reconcile_bucket{namespace=\"$namespace\"}[$__rate_interval])))",
+              "expr": "histogram_quantile(0.95, sum by(le) (rate(argocd_app_reconcile_bucket{namespace=`$namespace`}[$__rate_interval])))",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -789,7 +789,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "histogram_quantile(0.95, sum by(le) (rate(argocd_git_request_duration_seconds_bucket{namespace=\"$namespace\"}[$__rate_interval])))",
+              "expr": "histogram_quantile(0.95, sum by(le) (rate(argocd_git_request_duration_seconds_bucket{namespace=`$namespace`}[$__rate_interval])))",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -884,7 +884,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "sum(rate(argocd_app_reconcile_count{namespace=\"$namespace\"}[$__rate_interval]))",
+              "expr": "sum(rate(argocd_app_reconcile_count{namespace=`$namespace`}[$__rate_interval]))",
               "legendFormat": "{{namespace}}",
               "range": true,
               "refId": "A"
@@ -952,7 +952,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "builder",
-              "expr": "histogram_quantile(0.95, sum by(le) (argocd_app_reconcile_bucket{namespace=\"$namespace\"}))",
+              "expr": "histogram_quantile(0.95, sum by(le) (argocd_app_reconcile_bucket{namespace=`$namespace`}))",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -971,51 +971,49 @@ spec:
           },
           "id": 8,
           "panels": [],
-          "title": "Loki be careful with time ranges",
+          "title": "Loki",
           "type": "row"
         },
         {
           "datasource": {
-            "type": "loki",
-            "uid": "logs-multena"
+            "uid": "logs-multena",
+            "type": "loki"
           },
           "description": "Wie viel Log Nachrichten mit dem jeweiligen Level pro Intervall geloggt wurden.",
           "fieldConfig": {
             "defaults": {
-              "color": {
-                "fixedColor": "yellow",
-                "mode": "palette-classic",
-                "seriesBy": "max"
-              },
               "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
+                "drawStyle": "bars",
+                "lineInterpolation": "linear",
                 "barAlignment": 0,
-                "drawStyle": "line",
+                "lineWidth": 2,
                 "fillOpacity": 0,
                 "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
+                "spanNulls": false,
+                "showPoints": "auto",
+                "pointSize": 1,
+                "stacking": {
+                  "mode": "normal",
+                  "group": "A"
                 },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 7,
+                "axisPlacement": "auto",
+                "axisLabel": "",
+                "axisColorMode": "text",
                 "scaleDistribution": {
                   "type": "linear"
                 },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "normal"
+                "axisCenteredZero": false,
+                "hideFrom": {
+                  "tooltip": false,
+                  "viz": false,
+                  "legend": false
                 },
                 "thresholdsStyle": {
                   "mode": "off"
                 }
+              },
+              "color": {
+                "mode": "palette-classic"
               },
               "mappings": [],
               "thresholds": {
@@ -1026,7 +1024,8 @@ spec:
                     "value": null
                   }
                 ]
-              }
+              },
+              "unit": "none"
             },
             "overrides": []
           },
@@ -1038,17 +1037,19 @@ spec:
           },
           "id": 27,
           "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true,
-              "sortBy": "Max",
-              "sortDesc": true
-            },
             "tooltip": {
               "mode": "single",
               "sort": "none"
+            },
+            "legend": {
+              "showLegend": true,
+              "displayMode": "table",
+              "placement": "right",
+              "calcs": [
+                "last"
+              ],
+              "sortBy": "Max",
+              "sortDesc": true
             }
           },
           "targets": [
@@ -1057,16 +1058,17 @@ spec:
                 "type": "loki",
                 "uid": "logs-multena"
               },
-              "editorMode": "builder",
-              "expr": "sum by(level) (rate({kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} [1m]))",
+              "editorMode": "code",
+              "expr": "sum by (level) (count_over_time({kubernetes_namespace_name=`$namespace`} | json | level =~ `$level` [1m]))",
               "legendFormat": "{{level}}",
               "queryType": "range",
               "refId": "A"
             }
           ],
-          "title": "Level / min",
+          "title": "level / min",
           "transformations": [],
-          "type": "timeseries"
+          "type": "timeseries",
+          "pluginVersion": "10.0.2"
         },
         {
           "datasource": {
@@ -1097,12 +1099,12 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "builder",
-              "expr": "{kubernetes_namespace_name=\"$namespace\", level=~\"$Level\"} | json | line_format `{{.message}}`",
+              "expr": "{kubernetes_namespace_name=`$namespace`} | json | level =~ `$level` | line_format `{{ .message }}` | logfmt | line_format `{{ .time }} | {{ upper .level }} | {{ .kubernetes_labels_app_kubernetes_io_name }}: {{ .msg }}`",
               "queryType": "range",
               "refId": "A"
             }
           ],
-          "title": "Error log",
+          "title": "Logs",
           "type": "logs"
         },
         {
@@ -1144,7 +1146,7 @@ spec:
                     "uid": "logs-multena"
                   },
                   "editorMode": "code",
-                  "expr": "{kubernetes_namespace_name=\"$namespace\"} |= `Initiated` != `dest-namespace` | json | line_format `{{.message}}` | pattern `<_> <_> <_> <_> <_> <_> '<version>'\" application=<application>` | line_format `{{.application}} synced to {{.version}}`",
+                  "expr": "{kubernetes_namespace_name=`$namespace`} |= `Initiated` != `dest-namespace` | json | line_format `{{.message}}` | pattern `<_> <_> <_> <_> <_> <_> '<version>'` application=<application>` | line_format `{{.application}} synced to {{.version}}`",
                   "queryType": "range",
                   "refId": "A"
                 }
@@ -1215,9 +1217,9 @@ spec:
             },
             "hide": 0,
             "includeAll": false,
-            "label": "Level",
+            "label": "level",
             "multi": true,
-            "name": "Level",
+            "name": "level",
             "options": [
               {
                 "selected": true,

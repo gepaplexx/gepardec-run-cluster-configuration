@@ -45,112 +45,6 @@ spec:
       "liveNow": false,
       "panels": [
         {
-          "collapsed": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 0
-          },
-          "id": 21,
-          "panels": [],
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "refId": "A"
-            }
-          ],
-          "title": "General Counters",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "metrics-multena"
-          },
-          "description": "start time of the process",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "dateTimeFromNow"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 6,
-            "x": 0,
-            "y": 1
-          },
-          "id": 16,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "none",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "9.5.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "metrics-multena"
-              },
-              "editorMode": "code",
-              "expr": "process_start_time_seconds{pod=\"$pod\"} * 1000",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Start time",
-          "type": "stat"
-        },
-        {
           "datasource": {
             "type": "prometheus",
             "uid": "metrics-multena"
@@ -220,7 +114,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "grafana_stat_total_orgs{pod=\"$pod\"}",
+              "expr": "grafana_stat_total_orgs{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "range": true,
@@ -299,7 +193,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_stat_total_users{pod=\"$pod\"}",
+              "expr": "grafana_stat_total_users{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "refId": "A"
@@ -377,7 +271,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_stat_totals_dashboard{pod=\"$pod\"}",
+              "expr": "grafana_stat_totals_dashboard{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "refId": "A"
@@ -428,7 +322,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"$namespace\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\"",
+              "expr": "{kubernetes_namespace_name=`$namespace`} | json | line_format `{{ .message }}`  | line_format `{{ ._timestamp }} | {{ upper .level }} | {{ .kubernetes_pod_name }}: {{ .message }}`",
               "queryType": "range",
               "refId": "A"
             }
@@ -622,7 +516,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "avg(rate(process_cpu_seconds_total{pod=\"$pod\"}[5m]))",
+              "expr": "avg(rate(process_cpu_seconds_total{pod=`$pod`}[5m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "CPU Time",
@@ -712,7 +606,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "avg(rate(process_resident_memory_bytes{pod=\"$pod\"}[5m]))",
+              "expr": "avg(rate(process_resident_memory_bytes{pod=`$pod`}[5m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Resident Mem",
@@ -724,7 +618,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "avg(rate(process_virtual_memory_bytes{pod=\"$pod\"}[5m]))",
+              "expr": "avg(rate(process_virtual_memory_bytes{pod=`$pod`}[5m]))",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Virtual Mem",
@@ -813,7 +707,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "process_open_fds{pod=\"$pod\"}",
+              "expr": "process_open_fds{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Open FD",
@@ -928,7 +822,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_response_status_total{pod=\"$pod\"}",
+              "expr": "grafana_api_response_status_total{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "API {{ code }}",
@@ -939,7 +833,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_page_response_status_total{pod=\"$pod\"}",
+              "expr": "grafana_page_response_status_total{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Page {{ code }}",
@@ -950,7 +844,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_proxy_response_status_total{pod=\"$pod\"}",
+              "expr": "grafana_proxy_response_status_total{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "Proxy {{ code }}",
@@ -1039,7 +933,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_login_post_total{pod=\"$pod\"}",
+              "expr": "grafana_api_login_post_total{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "POST",
@@ -1050,7 +944,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_login_oauth_total{pod=\"$pod\"}",
+              "expr": "grafana_api_login_oauth_total{pod=`$pod`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "OAuth",
@@ -1191,7 +1085,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_get_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+              "expr": "grafana_api_dashboard_get_milliseconds{pod=`$pod`, quantile=`0.5`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.5",
@@ -1202,7 +1096,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_get_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+              "expr": "grafana_api_dashboard_get_milliseconds{pod=`$pod`, quantile=`0.9`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.9",
@@ -1213,7 +1107,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_get_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+              "expr": "grafana_api_dashboard_get_milliseconds{pod=`$pod`, quantile=`0.99`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.99",
@@ -1302,7 +1196,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "rate(grafana_api_dashboard_get_milliseconds_sum{pod=\"$pod\"}[5m]) / rate(grafana_api_dashboard_get_milliseconds_count{pod=\"$pod\"}[5m])",
+              "expr": "rate(grafana_api_dashboard_get_milliseconds_sum{pod=`$pod`}[5m]) / rate(grafana_api_dashboard_get_milliseconds_count{pod=`$pod`}[5m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.5",
@@ -1417,7 +1311,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_save_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+              "expr": "grafana_api_dashboard_save_milliseconds{pod=`$pod`, quantile=`0.5`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.5",
@@ -1428,7 +1322,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_save_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+              "expr": "grafana_api_dashboard_save_milliseconds{pod=`$pod`, quantile=`0.9`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.9",
@@ -1439,7 +1333,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_save_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+              "expr": "grafana_api_dashboard_save_milliseconds{pod=`$pod`, quantile=`0.99`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.99",
@@ -1528,7 +1422,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "rate(grafana_api_dashboard_save_milliseconds_sum{pod=\"$pod\"}[5m]) / rate(grafana_api_dashboard_save_milliseconds_count{pod=\"$pod\"}[5m])",
+              "expr": "rate(grafana_api_dashboard_save_milliseconds_sum{pod=`$pod`}[5m]) / rate(grafana_api_dashboard_save_milliseconds_count{pod=`$pod`}[5m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.5",
@@ -1643,7 +1537,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_search_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+              "expr": "grafana_api_dashboard_search_milliseconds{pod=`$pod`, quantile=`0.5`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.5",
@@ -1654,7 +1548,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_search_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+              "expr": "grafana_api_dashboard_search_milliseconds{pod=`$pod`, quantile=`0.9`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.9",
@@ -1665,7 +1559,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "grafana_api_dashboard_search_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+              "expr": "grafana_api_dashboard_search_milliseconds{pod=`$pod`, quantile=`0.99`}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.99",
@@ -1754,7 +1648,7 @@ spec:
                 "type": "prometheus",
                 "uid": "metrics-multena"
               },
-              "expr": "rate(grafana_api_dashboard_search_milliseconds_sum{pod=\"$pod\"}[5m]) / rate(grafana_api_dashboard_search_milliseconds_count{pod=\"$pod\"}[5m])",
+              "expr": "rate(grafana_api_dashboard_search_milliseconds_sum{pod=`$pod`}[5m]) / rate(grafana_api_dashboard_search_milliseconds_count{pod=`$pod`}[5m])",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "0.5",

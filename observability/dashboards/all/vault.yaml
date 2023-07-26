@@ -174,7 +174,7 @@ spec:
                 "uid": "metrics-multena"
               },
               "editorMode": "code",
-              "expr": "up{namespace=\"gp-vault\"} @ end()",
+              "expr": "up{namespace=`gp-vault`} @ end()",
               "legendFormat": "{{pod}}",
               "range": true,
               "refId": "A"
@@ -276,7 +276,7 @@ spec:
                     "uid": "metrics-multena"
                   },
                   "editorMode": "code",
-                  "expr": "pod:container_cpu_usage:sum{namespace=\"gp-vault\"}",
+                  "expr": "pod:container_cpu_usage:sum{namespace=`gp-vault`}",
                   "legendFormat": "{{pod}}",
                   "range": true,
                   "refId": "A"
@@ -1075,7 +1075,7 @@ spec:
                     "uid": "logs-multena"
                   },
                   "editorMode": "code",
-                  "expr": "sum(count_over_time({kubernetes_namespace_name=~\"gp-vault\", kubernetes_pod_name=~\".+\"} | json | line_format \"Level: {{.level}} Message: {{.message}}\" |~ \".+\" |~\"\"[500ms]))",
+                  "expr": "sum(count_over_time({kubernetes_namespace_name=~`gp-vault`, kubernetes_pod_name=~`.+`} | json | line_format `Level: {{.level}} Message: {{.message}}` |~ `.+` |~``[500ms]))",
                   "queryType": "range",
                   "range": true,
                   "refId": "A"
@@ -1113,7 +1113,7 @@ spec:
                     "uid": "logs-multena"
                   },
                   "editorMode": "builder",
-                  "expr": "{kubernetes_namespace_name=\"gp-vault\", kubernetes_pod_name=~\"$pod\"} | json | line_format `{{.message}}` | level =~ `$level`",
+                  "expr": "{kubernetes_namespace_name=`gp-vault`, kubernetes_pod_name=~"$pod"} | json | line_format `{{ .kubernetes_pod_name }}: {{.message}}` | level =~ `$level`",
                   "legendFormat": "",
                   "queryType": "range",
                   "range": true,
@@ -1765,7 +1765,7 @@ spec:
                     "uid": "metrics-multena"
                   },
                   "editorMode": "code",
-                  "expr": "100 * sum(kubelet_volume_stats_available_bytes{namespace=\"gp-vault\"} / kubelet_volume_stats_capacity_bytes{namespace=\"gp-vault\"}) by (persistentvolumeclaim)",
+                  "expr": "100 * sum(kubelet_volume_stats_available_bytes{namespace=`gp-vault`} / kubelet_volume_stats_capacity_bytes{namespace=`gp-vault`}) by (persistentvolumeclaim)",
                   "legendFormat": "{{persistentvolumeclaim}}",
                   "range": true,
                   "refId": "A"
@@ -2153,7 +2153,7 @@ spec:
                   "refId": "A"
                 }
               ],
-              "title": "\"Get Policy\" Latency Rate",
+              "title": "`Get Policy` Latency Rate",
               "type": "timeseries"
             },
             {
@@ -2245,7 +2245,7 @@ spec:
                   "refId": "A"
                 }
               ],
-              "title": "\"Set Policy\" Latency Rate",
+              "title": "`Set Policy` Latency Rate",
               "type": "timeseries"
             },
             {
@@ -2337,7 +2337,7 @@ spec:
                   "refId": "A"
                 }
               ],
-              "title": "\"Delete Policy\" Latency Rate",
+              "title": "`Delete Policy` Latency Rate",
               "type": "timeseries"
             },
             {
@@ -2429,7 +2429,7 @@ spec:
                   "refId": "A"
                 }
               ],
-              "title": "\"List Policies\" Latency Rate",
+              "title": "`List Policies` Latency Rate",
               "type": "timeseries"
             }
           ],
@@ -3038,7 +3038,7 @@ spec:
             "query": {
               "label": "level",
               "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "{kubernetes_namespace_name=\"gp-vault\"}",
+              "stream": "{kubernetes_namespace_name=`gp-vault`}",
               "type": 1
             },
             "refresh": 2,
@@ -3072,7 +3072,7 @@ spec:
             "query": {
               "label": "kubernetes_pod_name",
               "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "{kubernetes_namespace_name=\"gp-vault\"}",
+              "stream": "{kubernetes_namespace_name=`gp-vault`}",
               "type": 1
             },
             "refresh": 2,

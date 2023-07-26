@@ -129,7 +129,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "code",
-              "expr": "sum(count_over_time({kubernetes_namespace_name=~\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}} Message: {{.message}}\" |~ \"$Level\" |~\"$Search\"[$__interval]))",
+              "expr": "sum(count_over_time({kubernetes_namespace_name=~`$Namespace`, kubernetes_pod_name=~`$Pod`} | json | line_format `Level: {{.level}} Message: {{.message}}` |~ `$Level` |~`$Search`[$__interval]))",
               "queryType": "range",
               "refId": "A"
             }
@@ -167,7 +167,7 @@ spec:
                 "uid": "logs-multena"
               },
               "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=~\"$Namespace\", kubernetes_pod_name=~\"$Pod\"} | json | line_format \"Level: {{.level}}\\t\\tPod: {{.kubernetes_pod_name}}\\t\\tContainer: {{.kubernetes_container_name}}\\t\\tHost: {{.kubernetes_host}}\\t\\tPodIP: {{.kubernetes_pod_ip}}\\nMessage: {{.message}}\" |~ \"$Level\" |~\"$Search\"",
+              "expr": "{kubernetes_namespace_name=~`$Namespace`, kubernetes_pod_name=~`$Pod`} | json | line_format `{{ .time }} | {{.level}} | {{.kubernetes_pod_name}} | {{.kubernetes_container_name}}: {{.message}}` |~ `$Level` |~`$Search`",
               "queryType": "range",
               "refId": "A"
             }
@@ -233,7 +233,7 @@ spec:
             "query": {
               "label": "kubernetes_pod_name",
               "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "{kubernetes_namespace_name=~\"$Namespace\"}",
+              "stream": "{kubernetes_namespace_name=~`$Namespace`}",
               "type": 1
             },
             "refresh": 2,
