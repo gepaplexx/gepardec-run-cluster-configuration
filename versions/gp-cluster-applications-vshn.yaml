@@ -245,7 +245,7 @@ spec:
       recurse: true
     path: observability/dashboards/
     repoURL: https://github.com/gepaplexx/gepardec-run-cluster-configuration
-    targetRevision: main
+    targetRevision: feature/GPX-695
   syncPolicy:
     automated:
       prune: true
@@ -286,7 +286,7 @@ spec:
       - name: sso.keycloak.realmUrl
         value: https://sso.play.run.gepardec.com/realms/internal
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.0.*
+    targetRevision: 1.1.*
   ignoreDifferences:
     - group: grafana.integreatly.org
       jsonPointers:
