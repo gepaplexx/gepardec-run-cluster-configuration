@@ -245,7 +245,7 @@ spec:
       recurse: true
     path: observability/dashboards/
     repoURL: https://github.com/gepaplexx/gepardec-run-cluster-configuration
-    targetRevision: feature/GPX-695
+    targetRevision: main
   syncPolicy:
     automated:
       prune: true
