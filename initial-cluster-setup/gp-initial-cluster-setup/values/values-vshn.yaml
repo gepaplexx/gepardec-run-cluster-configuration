@@ -48,7 +48,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
-      targetRevision: "*"
+      targetRevision: "0.0.*"
       chart: "gp-grafana-operator"
     syncPolicy:
       automated:
@@ -96,7 +96,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-kyverno
-      targetRevision: "*"
+      targetRevision: "1.0.*"
     syncPolicy:
       automated:
         prune: true
