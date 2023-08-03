@@ -58,7 +58,7 @@ spec:
   source:
     chart: gp-grafana-operator
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: '*'
+    targetRevision: 0.0.*
   syncPolicy:
     automated:
       prune: true
@@ -128,7 +128,7 @@ spec:
   source:
     chart: gp-kyverno
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: '*'
+    targetRevision: 1.0.*
   syncPolicy:
     automated:
       prune: true
