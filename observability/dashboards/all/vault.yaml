@@ -1113,7 +1113,7 @@ spec:
                     "uid": "logs-multena"
                   },
                   "editorMode": "builder",
-                  "expr": "{kubernetes_namespace_name=`gp-vault`, kubernetes_pod_name=~"$pod"} | json | line_format `{{ .kubernetes_pod_name }}: {{.message}}` | level =~ `$level`",
+                  "expr": "{kubernetes_namespace_name=`gp-vault`, kubernetes_pod_name=~`$pod`} | json | line_format `{{ .kubernetes_pod_name }}: {{.message}}` | level =~ `$level`",
                   "legendFormat": "",
                   "queryType": "range",
                   "range": true,
