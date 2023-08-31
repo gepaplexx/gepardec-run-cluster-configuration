@@ -17,7 +17,7 @@ applications:
         kind: OAuthClient
         group: oauth.openshift.io
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-keycloak-instance
       targetRevision: "1.2.*"
       helm:
@@ -65,7 +65,7 @@ applications:
       namespace: gp-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
       targetRevision: "1.4.*"
       helm:
@@ -92,7 +92,7 @@ applications:
       namespace: gp-cicd-eventbus
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-eventbus
       targetRevision: "1.0.*"
     syncPolicy:
@@ -126,7 +126,7 @@ applications:
       namespace: gp-grafana
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "1.1.*"
       chart: "gp-grafana-instance"
       helm:
