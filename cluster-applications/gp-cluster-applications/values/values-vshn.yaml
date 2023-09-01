@@ -179,7 +179,7 @@ applications:
       create: true
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
-      targetRevision: "1.3.*"
+      targetRevision: "1.4.*"
       chart: "gp-multena"
       helm:
         parameters:
