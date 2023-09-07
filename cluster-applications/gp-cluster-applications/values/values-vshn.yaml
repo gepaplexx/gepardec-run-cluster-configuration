@@ -183,9 +183,9 @@ applications:
       chart: "gp-multena"
       helm:
         parameters:
-          - name: "multena.jwksCertUrl"
+          - name: "multena.web.jwksCertUrl"
             value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
-          - name: "multena.insecureSkipVerify"
+          - name: "multena.web.insecureSkipVerify"
             value: "true"
     syncPolicy:
       automated: {}
