@@ -65,7 +65,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "fieldConfig": {
             "defaults": {
@@ -122,7 +122,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "builder",
               "expr": "sum by(kubernetes_labels_template) (count_over_time({kubernetes_pod_name=~\"$pod\"} | json [$__range]))",
@@ -173,7 +173,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "fieldConfig": {
             "defaults": {
@@ -312,7 +312,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "builder",
               "expr": "sum by(level) (rate({kubernetes_pod_name=~\"$workflow-.+\"} |= `$filter` | json [$__interval]))",
@@ -328,7 +328,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "fieldConfig": {
             "defaults": {
@@ -409,7 +409,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "builder",
               "expr": "sum by(kubernetes_labels_template) (rate({kubernetes_pod_name=~\"$workflow-.+\"} |= `$filter` | json [$__interval]))",
@@ -438,7 +438,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "gridPos": {
             "h": 23,
@@ -463,7 +463,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "builder",
               "expr": "{kubernetes_pod_name=~\"$pod\", kubernetes_container_name=~\"$container\"} |= `$filter` | json | line_format `{{printf \"%-26s\" .kubernetes_labels_template}} {{.message}}`",
@@ -490,7 +490,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "gridPos": {
                 "h": 24,
@@ -516,7 +516,7 @@ spec:
                 {
                   "datasource": {
                     "type": "loki",
-                    "uid": "logs-multena"
+                    "uid": "gp-multena-logs"
                   },
                   "editorMode": "builder",
                   "expr": "{kubernetes_pod_name=~\"$pod\", kubernetes_container_name=~\"$container\"} |= `$filter` | json | line_format `{{.message}}` | kubernetes_labels_workflows_argoproj_io_workflow = `$workflow`",
@@ -550,7 +550,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "prometheus"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(label_workflows_argoproj_io_workflow)",
             "hide": 0,
@@ -580,7 +580,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "prometheus"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(pod)",
             "hide": 0,
@@ -610,7 +610,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logs-multena"
+              "uid": "gp-multena-logs"
             },
             "definition": "",
             "hide": 0,
@@ -633,7 +633,7 @@ spec:
           {
             "datasource": {
               "type": "loki",
-              "uid": "logs-multena"
+              "uid": "gp-multena-logs"
             },
             "filters": [],
             "hide": 0,

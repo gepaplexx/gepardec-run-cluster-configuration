@@ -47,7 +47,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -115,7 +115,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -131,7 +131,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": " base_jvm_uptime_seconds Displays the uptime of the JVM in milliseconds.",
           "fieldConfig": {
@@ -195,7 +195,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (container) (base_jvm_uptime{pod=~\"$pod\", job=\"$serviceID\"}/1000)",
@@ -210,7 +210,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "base_gc_total_total Displays the total number of collections that have occurred. This attribute lists -1 if the collection count is undefined for this collector.",
           "fieldConfig": {
@@ -297,7 +297,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "builder",
               "expr": "sum by (name) (rate(base_gc_total{job=~\"$serviceID\", pod=~\"$pod\"}[5m]))",
@@ -313,7 +313,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "base_gc_time_total Displays the approximate accumulated collection elapsed time in milliseconds. This attribute displays -1 if the collection elapsed time is undefined for this collector. The JVM implementation may use a high resolution timer to measure the elapsed time. This attribute may display the same value even if the collection count has been incremented if the collection elapsed time is very short.",
           "fieldConfig": {
@@ -400,7 +400,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (name) (rate(base_gc_time_total{pod=~\"$pod\", job=\"$serviceID\"}[5m]))",
@@ -415,7 +415,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "",
           "fieldConfig": {
@@ -502,7 +502,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "base_cpu_systemLoadAverage{pod=~\"$pod\",job=\"$serviceID\"}",
@@ -518,7 +518,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -595,7 +595,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum(pod:container_cpu_usage:sum{namespace=\"$namespace\", pod=~\"$pod\"})",
@@ -610,7 +610,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -687,7 +687,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum(container_memory_working_set_bytes{namespace=\"$namespace\", pod=~\"$pod\", container=~\".+\"})/1000000",
@@ -702,7 +702,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -790,7 +790,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (name) (base_memory_usedHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"})",
@@ -802,7 +802,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "sum by (name) (base_memory_committedHeap_bytes{pod=~\"$pod\", job=\"$serviceID\"})",
               "intervalFactor": 2,
@@ -812,7 +812,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "sum by (name) (base_memory_maxHeap_bytes{pod=~\"$pod\", job=\"$serviceID\"})",
               "intervalFactor": 2,
@@ -826,7 +826,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -912,7 +912,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (name) (base_thread_count{pod=~\"$pod\",job=\"$serviceID\"})",
@@ -928,7 +928,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -1016,7 +1016,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (name) (base_memory_usedNonHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"})",
@@ -1028,7 +1028,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "sum by (name) (base_memory_committedNonHeap_bytes{pod=~\"$pod\",job=\"$serviceID\"})",
               "intervalFactor": 2,
@@ -1042,7 +1042,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "base_classloader_loadedClasses_count Displays the number of classes that are currently loaded in the JVM.",
           "fieldConfig": {
@@ -1106,7 +1106,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (container) (base_classloader_loadedClasses_count{pod=~\"$pod\", job=\"$serviceID\"})",
@@ -1120,7 +1120,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "base_classloader_loadedClasses_total_total Displays the total number of classes that have been loaded since the JVM has started execution.",
           "fieldConfig": {
@@ -1184,7 +1184,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (container) (base_classloader_loadedClasses_total{pod=~\"$pod\", job=\"$serviceID\"})",
@@ -1198,7 +1198,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "base_classloader_unloadedClasses_total_total Displays the total number of classes unloaded since the JVM has started execution.",
           "fieldConfig": {
@@ -1262,7 +1262,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "sum by (container) (base_classloader_unloadedClasses_total{pod=~\"$pod\", job=\"$serviceID\"})",
@@ -1293,7 +1293,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(base_gc_total{namespace=~\"gp-sso.*\"}, namespace)",
             "hide": 0,
@@ -1319,7 +1319,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(base_gc_total{namespace=\"$namespace\"}, job)",
             "hide": 0,
@@ -1353,7 +1353,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(base_gc_total{job=\"$serviceID\"}, pod)",
             "hide": 0,

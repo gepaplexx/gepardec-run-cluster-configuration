@@ -58,7 +58,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "gridPos": {
             "h": 15,
@@ -81,7 +81,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "code",
               "expr": "{kubernetes_namespace_name=\"$namespace\", kubernetes_container_name=\"sonarqube\"} |~ `$log_level` | json | line_format `{{.message}}` |~\"$search\"",
@@ -112,7 +112,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "",
           "fieldConfig": {
@@ -188,7 +188,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -207,7 +207,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -295,7 +295,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -312,7 +312,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -397,7 +397,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -413,7 +413,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "dsType": "influxdb",
               "editorMode": "code",
@@ -466,7 +466,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -551,7 +551,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -566,7 +566,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -581,7 +581,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -600,7 +600,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "",
           "fieldConfig": {
@@ -669,7 +669,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -688,7 +688,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "",
           "fieldConfig": {
@@ -757,7 +757,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -776,7 +776,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "",
           "fieldConfig": {
@@ -846,7 +846,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "dsType": "influxdb",
               "editorMode": "code",
@@ -899,7 +899,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -968,7 +968,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "dsType": "influxdb",
               "editorMode": "code",
@@ -1038,7 +1038,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "",
           "fieldConfig": {
@@ -1124,7 +1124,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1137,7 +1137,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": true,
@@ -1183,7 +1183,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(jvm_memory_bytes_used{job=\"cluster-sonarqube-jmx-metrics\"},area)",
             "hide": 2,
@@ -1213,7 +1213,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(jvm_memory_pool_bytes_max{job=\"cluster-sonarqube-jmx-metrics\"}, pool)",
             "hide": 2,

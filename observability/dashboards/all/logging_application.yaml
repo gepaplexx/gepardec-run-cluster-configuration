@@ -49,7 +49,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "fieldConfig": {
             "defaults": {
@@ -126,7 +126,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "code",
               "expr": "sum(count_over_time({kubernetes_namespace_name=~`$Namespace`, kubernetes_pod_name=~`$Pod`} | json | line_format `Level: {{.level}} Message: {{.message}}` |~ `$Level` |~`$Search`[$__interval]))",
@@ -140,7 +140,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "description": "",
           "gridPos": {
@@ -164,7 +164,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "code",
               "expr": "{kubernetes_namespace_name=~`$Namespace`, kubernetes_pod_name=~`$Pod`} | json | line_format `{{ .time }} | {{.level}} | {{.kubernetes_pod_name}} | {{.kubernetes_container_name}}: {{.message}}` |~ `$Level` |~`$Search`",
@@ -193,7 +193,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logs-multena"
+              "uid": "gp-multena-logs"
             },
             "definition": "",
             "hide": 0,
@@ -222,7 +222,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logs-multena"
+              "uid": "gp-multena-logs"
             },
             "definition": "",
             "hide": 0,
@@ -283,7 +283,7 @@ spec:
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(cluster_discriminator)",
             "hide": 2,

@@ -52,7 +52,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -179,7 +179,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "builder",
               "expr": "sum(avg by(container) (cluster:namespace:pod_cpu:active:kube_pod_container_resource_limits{container=\"$container\"}))",
@@ -193,7 +193,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "builder",
               "expr": "sum(avg by(container) (cluster:namespace:pod_cpu:active:kube_pod_container_resource_requests{container=\"$container\"}))",
@@ -207,7 +207,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "prometheus"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "builder",
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"$container\"}[$__rate_interval]))",
@@ -246,7 +246,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "prometheus"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(container)",
             "hide": 0,

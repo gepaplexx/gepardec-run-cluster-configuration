@@ -59,7 +59,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "Score from Autopilot at Leader",
           "fieldConfig": {
@@ -108,7 +108,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "vault_autopilot_node_healthy @ end()",
@@ -123,7 +123,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -171,7 +171,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "up{namespace=`gp-vault`} @ end()",
@@ -196,7 +196,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -273,7 +273,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "pod:container_cpu_usage:sum{namespace=`gp-vault`}",
@@ -288,7 +288,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "",
               "fieldConfig": {
@@ -369,7 +369,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_runtime_gc_pause_ns_sum[5m])/1000000) by (pod)",
@@ -384,7 +384,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -461,7 +461,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_runtime_sys_bytes / (1024 * 1024)) by (pod)",
@@ -476,7 +476,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -553,7 +553,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_runtime_alloc_bytes/(1024*1024)) by (pod)",
@@ -582,7 +582,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "",
               "fieldConfig": {
@@ -660,7 +660,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_core_handle_login_request_sum[5m])) by (pod)",
@@ -675,7 +675,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "",
               "fieldConfig": {
@@ -778,7 +778,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_core_handle_request_count[5m])) by (pod)",
@@ -793,7 +793,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "Ein hoher Anstieg hier kann gefährlich sein, weil damit Leases länger gültig sind als gewünscht",
               "fieldConfig": {
@@ -874,7 +874,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_expire_revoke) by (pod)",
@@ -889,7 +889,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -966,7 +966,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(increase(vault_token_create_count[5m])) by (pod)",
@@ -995,7 +995,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "fieldConfig": {
                 "defaults": {
@@ -1072,7 +1072,7 @@ spec:
                 {
                   "datasource": {
                     "type": "loki",
-                    "uid": "logs-multena"
+                    "uid": "gp-multena-logs"
                   },
                   "editorMode": "code",
                   "expr": "sum(count_over_time({kubernetes_namespace_name=~`gp-vault`, kubernetes_pod_name=~`.+`} | json | line_format `Level: {{.level}} Message: {{.message}}` |~ `.+` |~``[500ms]))",
@@ -1087,7 +1087,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "gridPos": {
                 "h": 14,
@@ -1110,7 +1110,7 @@ spec:
                 {
                   "datasource": {
                     "type": "loki",
-                    "uid": "logs-multena"
+                    "uid": "gp-multena-logs"
                   },
                   "editorMode": "builder",
                   "expr": "{kubernetes_namespace_name=`gp-vault`, kubernetes_pod_name=~`$pod`} | json | line_format `{{ .kubernetes_pod_name }}: {{.message}}` | level =~ `$level`",
@@ -1140,7 +1140,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "Anzahl Nodes, die Ausfallen können",
               "fieldConfig": {
@@ -1191,7 +1191,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "vault_autopilot_failure_tolerance @ end()",
@@ -1206,7 +1206,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -1283,7 +1283,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_raft_leader_lastContact_sum[5m])) by (pod)",
@@ -1298,7 +1298,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "Zeitspanne, für die eine Vaultinstanz Leader war bevor sie Leadership verloren hat\n\ndiese Metrik wird nicht ausgegeben, es sei denn eine Instanz verliert unerwartet Leadership. Jeder Wert bedeutet, dass etwas einen Leadership Loss verursacht hat, allerdings sind seltene, hohe Werte wahrscheinlich kein Grund zur Sorge, während häufige, niedrige Werte auf ein gravierendes Problem hinweisen",
               "fieldConfig": {
@@ -1376,7 +1376,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "vault_raft_leader_leadership_lost",
@@ -1391,7 +1391,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "so viel Zeit wurde mit gefailten Elections verbracht\n\nwenn Standbyinstanzen die Leadership nicht übernehmen können, fällt das ganze High-Availability Konzept zusammen, außerdem befindet sich das System, sollten gar keine Elections mehr funktionieren in einem Fehlerzustand, der manuelles Eingreifen vonnöten macht",
               "fieldConfig": {
@@ -1469,7 +1469,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "vault_core_leadership_setup_failed",
@@ -1484,7 +1484,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "Time taken to invoke appendEntries on a peer, so that it doesn’t timeout on a periodic basis.",
               "fieldConfig": {
@@ -1562,7 +1562,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_raft_replication_heartbeat_sum[15m])) by (peer_id)",
@@ -1577,7 +1577,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "Time to commit a new entry to the Raft log on the leader.",
               "fieldConfig": {
@@ -1655,7 +1655,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_raft_commitTime_sum[15m])) by (pod)",
@@ -1685,7 +1685,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -1762,7 +1762,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "100 * sum(kubelet_volume_stats_available_bytes{namespace=`gp-vault`} / kubelet_volume_stats_capacity_bytes{namespace=`gp-vault`}) by (persistentvolumeclaim)",
@@ -1777,7 +1777,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -1854,7 +1854,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum (\n    rate (\n        vault_raft_storage_bolt_write_time[15m]\n         )\n) by (database)",
@@ -1869,7 +1869,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -1946,7 +1946,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_raft_storage_put) by (pod)",
@@ -1961,7 +1961,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2038,7 +2038,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_raft_storage_get) by (pod)",
@@ -2067,7 +2067,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2144,7 +2144,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_policy_get_policy_sum[5m])) by (pod)",
@@ -2159,7 +2159,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2236,7 +2236,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_policy_set_policy_sum[5m])) by (pod)",
@@ -2251,7 +2251,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2328,7 +2328,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_policy_delete_policy_sum[5m])) by (pod)",
@@ -2343,7 +2343,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2420,7 +2420,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(rate(vault_policy_list_policies_sum[5m])) by (pod)",
@@ -2449,7 +2449,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2526,7 +2526,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "increase(vault_audit_log_response_failure[5m])",
@@ -2541,7 +2541,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2618,7 +2618,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "increase(vault_audit_log_request_failure[5m])",
@@ -2647,7 +2647,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2724,7 +2724,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(\n    vault_cache_hit / \n    (vault_cache_hit + vault_cache_miss)\n) by (pod)",
@@ -2736,7 +2736,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "vault_cache_hit + vault_cache_miss",
@@ -2752,7 +2752,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2802,7 +2802,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "vault_token_count @ end()",
@@ -2817,7 +2817,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "fieldConfig": {
                 "defaults": {
@@ -2894,7 +2894,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_ha_rpc_client_forward_errors) by (pod)",
@@ -2909,7 +2909,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "description": "Anzahl der Token mit Ablaufdatum\n\nunerwartete Änderungen oder stetiger Anstieg in dieser Metrik können einen Hinweis auf Probleme in der Verwendung von Vault (Client ruft Credential Generation zu oft auf, Time-to-Live zu hoch eingestellt…) hinweisen. Weiters ist sie hilfreich um für Ressourcenverbrauch einen Kontext herzustellen",
               "fieldConfig": {
@@ -2987,7 +2987,7 @@ spec:
                 {
                   "datasource": {
                     "type": "prometheus",
-                    "uid": "metrics-multena"
+                    "uid": "gp-multena-metrics"
                   },
                   "editorMode": "code",
                   "expr": "sum(vault_expire_num_leases)",
@@ -3027,7 +3027,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logs-multena"
+              "uid": "gp-multena-logs"
             },
             "definition": "",
             "hide": 0,
@@ -3060,7 +3060,7 @@ spec:
             },
             "datasource": {
               "type": "loki",
-              "uid": "logs-multena"
+              "uid": "gp-multena-logs"
             },
             "definition": "",
             "hide": 0,

@@ -47,7 +47,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "total amount of orgs",
           "fieldConfig": {
@@ -111,7 +111,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "grafana_stat_total_orgs{pod=`$pod`}",
@@ -127,7 +127,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "total amount of users",
           "fieldConfig": {
@@ -191,7 +191,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_stat_total_users{pod=`$pod`}",
               "format": "time_series",
@@ -205,7 +205,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "total amount of dashboards",
           "fieldConfig": {
@@ -269,7 +269,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_stat_totals_dashboard{pod=`$pod`}",
               "format": "time_series",
@@ -296,7 +296,7 @@ spec:
         {
           "datasource": {
             "type": "loki",
-            "uid": "logs-multena"
+            "uid": "gp-multena-logs"
           },
           "gridPos": {
             "h": 8,
@@ -319,7 +319,7 @@ spec:
             {
               "datasource": {
                 "type": "loki",
-                "uid": "logs-multena"
+                "uid": "gp-multena-logs"
               },
               "editorMode": "code",
               "expr": "{kubernetes_namespace_name=`$namespace`} | json | line_format `{{ .message }}`  | line_format `{{ ._timestamp }} | {{ upper .level }} | {{ .kubernetes_pod_name }}: {{ .message }}`",
@@ -346,7 +346,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "fieldConfig": {
             "defaults": {
@@ -423,7 +423,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -441,7 +441,7 @@ spec:
           "collapsed": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "gridPos": {
             "h": 1,
@@ -455,7 +455,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "refId": "A"
             }
@@ -470,7 +470,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "Average user and system CPU time spent in seconds.",
           "fill": 1,
@@ -514,7 +514,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "avg(rate(process_cpu_seconds_total{pod=`$pod`}[5m]))",
               "format": "time_series",
@@ -560,7 +560,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "Virtual and Resident memory size in bytes, averages over 5 min interval",
           "fill": 1,
@@ -603,7 +603,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
               "expr": "avg(rate(process_resident_memory_bytes{pod=`$pod`}[5m]))",
@@ -616,7 +616,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "avg(rate(process_virtual_memory_bytes{pod=`$pod`}[5m]))",
               "format": "time_series",
@@ -662,7 +662,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "Number of open file descriptors",
           "fill": 1,
@@ -705,7 +705,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "process_open_fds{pod=`$pod`}",
               "format": "time_series",
@@ -748,7 +748,7 @@ spec:
           "collapsed": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "gridPos": {
             "h": 1,
@@ -762,7 +762,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "refId": "A"
             }
@@ -777,7 +777,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "http response status",
           "fill": 1,
@@ -820,7 +820,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_response_status_total{pod=`$pod`}",
               "format": "time_series",
@@ -831,7 +831,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_page_response_status_total{pod=`$pod`}",
               "format": "time_series",
@@ -842,7 +842,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_proxy_response_status_total{pod=`$pod`}",
               "format": "time_series",
@@ -888,7 +888,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "api login counters",
           "fill": 1,
@@ -931,7 +931,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_login_post_total{pod=`$pod`}",
               "format": "time_series",
@@ -942,7 +942,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_login_oauth_total{pod=`$pod`}",
               "format": "time_series",
@@ -985,7 +985,7 @@ spec:
           "collapsed": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "gridPos": {
             "h": 1,
@@ -999,7 +999,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "refId": "A"
             }
@@ -1011,7 +1011,7 @@ spec:
           "collapsed": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "gridPos": {
             "h": 1,
@@ -1025,7 +1025,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "refId": "A"
             }
@@ -1040,7 +1040,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "summary for dashboard get duration",
           "fill": 1,
@@ -1083,7 +1083,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_get_milliseconds{pod=`$pod`, quantile=`0.5`}",
               "format": "time_series",
@@ -1094,7 +1094,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_get_milliseconds{pod=`$pod`, quantile=`0.9`}",
               "format": "time_series",
@@ -1105,7 +1105,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_get_milliseconds{pod=`$pod`, quantile=`0.99`}",
               "format": "time_series",
@@ -1151,7 +1151,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "average dashboard get duration over 5 minutes",
           "fill": 1,
@@ -1194,7 +1194,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "rate(grafana_api_dashboard_get_milliseconds_sum{pod=`$pod`}[5m]) / rate(grafana_api_dashboard_get_milliseconds_count{pod=`$pod`}[5m])",
               "format": "time_series",
@@ -1237,7 +1237,7 @@ spec:
           "collapsed": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "gridPos": {
             "h": 1,
@@ -1251,7 +1251,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "refId": "A"
             }
@@ -1266,7 +1266,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "summary for dashboard save duration",
           "fill": 1,
@@ -1309,7 +1309,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_save_milliseconds{pod=`$pod`, quantile=`0.5`}",
               "format": "time_series",
@@ -1320,7 +1320,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_save_milliseconds{pod=`$pod`, quantile=`0.9`}",
               "format": "time_series",
@@ -1331,7 +1331,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_save_milliseconds{pod=`$pod`, quantile=`0.99`}",
               "format": "time_series",
@@ -1377,7 +1377,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "average dashboard save duration over 5 minutes",
           "fill": 1,
@@ -1420,7 +1420,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "rate(grafana_api_dashboard_save_milliseconds_sum{pod=`$pod`}[5m]) / rate(grafana_api_dashboard_save_milliseconds_count{pod=`$pod`}[5m])",
               "format": "time_series",
@@ -1463,7 +1463,7 @@ spec:
           "collapsed": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "gridPos": {
             "h": 1,
@@ -1477,7 +1477,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "refId": "A"
             }
@@ -1492,7 +1492,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "summary for dashboard search duration",
           "fill": 1,
@@ -1535,7 +1535,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_search_milliseconds{pod=`$pod`, quantile=`0.5`}",
               "format": "time_series",
@@ -1546,7 +1546,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_search_milliseconds{pod=`$pod`, quantile=`0.9`}",
               "format": "time_series",
@@ -1557,7 +1557,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "grafana_api_dashboard_search_milliseconds{pod=`$pod`, quantile=`0.99`}",
               "format": "time_series",
@@ -1603,7 +1603,7 @@ spec:
           "dashes": false,
           "datasource": {
             "type": "prometheus",
-            "uid": "metrics-multena"
+            "uid": "gp-multena-metrics"
           },
           "description": "average dashboard search duration over 5 minutes",
           "fill": 1,
@@ -1646,7 +1646,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "metrics-multena"
+                "uid": "gp-multena-metrics"
               },
               "expr": "rate(grafana_api_dashboard_search_milliseconds_sum{pod=`$pod`}[5m]) / rate(grafana_api_dashboard_search_milliseconds_count{pod=`$pod`}[5m])",
               "format": "time_series",
@@ -1711,7 +1711,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(grafana_build_info,pod)",
             "hide": 0,
@@ -1741,7 +1741,7 @@ spec:
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "metrics-multena"
+              "uid": "gp-multena-metrics"
             },
             "definition": "label_values(grafana_build_info,version)",
             "hide": 0,
