@@ -9,7 +9,7 @@ spec:
   instanceSelector:
     matchLabels:
       monitoring.gepardec.com/system: "true"
-  folder: General
+  folder: Gepardec Run Public
   resyncPeriod: 1d
   json: >
     {
