@@ -17,9 +17,9 @@ applications:
         kind: OAuthClient
         group: oauth.openshift.io
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-keycloak-instance
-      targetRevision: "1.4.*"
+      targetRevision: "1.2.*"
       helm:
         parameters:
           - name: "ingress.hostname"
