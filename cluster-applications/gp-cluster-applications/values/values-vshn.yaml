@@ -178,15 +178,13 @@ applications:
       namespace: gp-grafana
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       targetRevision: "1.4.*"
       chart: "gp-multena"
       helm:
         parameters:
           - name: "multena.web.jwksCertUrl"
             value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
-          - name: "multena.web.insecureSkipVerify"
-            value: "true"
     syncPolicy:
       automated: {}
 
