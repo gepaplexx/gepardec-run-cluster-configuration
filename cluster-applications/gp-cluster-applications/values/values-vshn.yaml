@@ -65,9 +65,9 @@ applications:
       namespace: gp-cicd-tools
       create: true
     source:
-      repoURL: "https://gepaplexx.github.io/gp-helm-chart-development/"
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "1.5.*"
+      targetRevision: "1.4.*"
       helm:
         parameters:
           - name: "clustername"
