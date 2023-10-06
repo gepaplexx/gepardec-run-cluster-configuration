@@ -92,7 +92,7 @@ spec:
   project: gepardec-run
   source:
     chart: gp-cicd-eventbus
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: 1.0.*
   syncPolicy:
     automated:
@@ -140,7 +140,7 @@ spec:
       - name: argo_workflows.artifactRepository.s3.bucket
         value: c-gepa-play-argo-workflows
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.4.*
+    targetRevision: 1.5.*
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
@@ -343,7 +343,7 @@ spec:
         value: c-gepa-play-keycloak-backup
       - name: backup.external.enabled
         value: "true"
-    repoURL: https://gepaplexx.github.io/gp-helm-chart-development/
+    repoURL: https://gepaplexx.github.io/gp-helm-charts/
     targetRevision: 1.4.*
   ignoreDifferences:
     - group: oauth.openshift.io
