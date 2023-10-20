@@ -67,7 +67,7 @@ applications:
     source:
       repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
       chart: gp-cicd-tools
-      targetRevision: "1.5.*"
+      targetRevision: "1.6.*"
       helm:
         parameters:
           - name: "clustername"
@@ -81,7 +81,9 @@ applications:
           - name: "argo_workflows.artifactRepository.s3.bucket"
             value: "c-gepa-play-argo-workflows"
     syncPolicy:
-      automated: {}
+      automated:
+        prune: true
+        selfHeal: true
 
 ##################### GEPAPLEXX-CICD-EVENTBUS ######################
   cicd-eventbus:
