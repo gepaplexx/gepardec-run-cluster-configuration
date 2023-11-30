@@ -140,7 +140,7 @@ spec:
       - name: argo_workflows.artifactRepository.s3.bucket
         value: c-gepa-play-argo-workflows
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.5.*
+    targetRevision: 1.6.*
   syncPolicy:
     automated:
       prune: true
