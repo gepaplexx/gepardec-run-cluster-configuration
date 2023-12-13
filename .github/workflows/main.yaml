@@ -21,7 +21,7 @@ jobs:
       - name: create templates
         run: |
           bin/version-check.sh
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: updated templated argo applications for renovate bot
           branch: main
