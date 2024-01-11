@@ -41,6 +41,562 @@ spec:
       "liveNow": false,
       "panels": [
         {
+          "collapsed": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 12,
+          "panels": [],
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Latest Status",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 75
+                  },
+                  {
+                    "color": "green",
+                    "value": 100
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 0,
+            "y": 1
+          },
+          "id": 29,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "text": {}
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "sum(kyverno_policy_results_total{rule_result=\"pass\"})*100/sum(kyverno_policy_results_total{})",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Rule Execution Success Rate",
+          "transparent": true,
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 8,
+            "y": 1
+          },
+          "id": 2,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "count(count(kyverno_policy_rule_info_total{policy_type=\"cluster\"}==1) by (policy_name))",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Cluster Policies",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 12,
+            "y": 1
+          },
+          "id": 3,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "count(count(kyverno_policy_rule_info_total{policy_type=\"namespaced\"}==1) by (policy_name))",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Policies",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 50
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 75
+                  },
+                  {
+                    "color": "green",
+                    "value": 100
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 18,
+            "y": 1
+          },
+          "id": 28,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "text": {}
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "sum(kyverno_policy_results_total{rule_result=\"pass\", policy_background_mode=\"true\"})*100/sum(kyverno_policy_results_total{policy_background_mode=\"true\"})",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Background Scans Success Rate",
+          "transparent": true,
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 4,
+            "x": 6,
+            "y": 6
+          },
+          "id": 4,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "count(kyverno_policy_rule_info_total{rule_type=\"validate\"}==1)",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Validate Rules",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 4,
+            "x": 10,
+            "y": 6
+          },
+          "id": 23,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "count(kyverno_policy_rule_info_total{rule_type=\"mutate\"}==1)",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Mutate Rules",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 4,
+            "x": 14,
+            "y": 6
+          },
+          "id": 6,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "exemplar": true,
+              "expr": "count(kyverno_policy_rule_info_total{rule_type=\"generate\"}==1)",
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Generate Rules",
+          "type": "stat"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 10
+          },
+          "id": 60,
+          "panels": [],
+          "title": "Logs",
+          "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "gp-multena-logs"
+          },
+          "gridPos": {
+            "h": 14,
+            "w": 24,
+            "x": 0,
+            "y": 11
+          },
+          "id": 56,
+          "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": false,
+            "showCommonLabels": false,
+            "showLabels": false,
+            "showTime": false,
+            "sortOrder": "Descending",
+            "wrapLogMessage": false
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "gp-multena-logs"
+              },
+              "editorMode": "code",
+              "expr": "{kubernetes_namespace_name=\"gp-kyverno\"} |~ `$log_level` | json | line_format `{{.message}}` |~\"$search\"",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Logs",
+          "type": "logs"
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 25
+          },
+          "id": 61,
+          "panels": [],
+          "title": "ResourceUsage",
+          "type": "row"
+        },
+        {
           "datasource": {
             "type": "prometheus",
             "uid": "gp-multena-metrics"
@@ -101,7 +657,7 @@ spec:
             "h": 14,
             "w": 12,
             "x": 0,
-            "y": 0
+            "y": 26
           },
           "id": 58,
           "options": {
@@ -123,14 +679,15 @@ spec:
                 "uid": "gp-multena-metrics"
               },
               "editorMode": "code",
-              "expr": "sum(rate(container_cpu_usage_seconds_total{cluster=\"\", namespace=\"gp-kyverno\"}[5m])) by (pod)\n\n",
+              "exemplar": false,
+              "expr": "pod:container_cpu_usage:sum{namespace=\"gp-kyverno\"}\n",
               "instant": false,
-              "legendFormat": "__auto",
+              "legendFormat": "{{pod}}",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "CPU Usage - rate5m",
+          "title": "CPU Usage",
           "type": "timeseries"
         },
         {
@@ -196,7 +753,7 @@ spec:
             "h": 14,
             "w": 12,
             "x": 12,
-            "y": 0
+            "y": 26
           },
           "id": 59,
           "options": {
@@ -229,77 +786,6 @@ spec:
           "type": "timeseries"
         },
         {
-          "datasource": {
-            "type": "loki",
-            "uid": "gp-multena-logs"
-          },
-          "gridPos": {
-            "h": 14,
-            "w": 24,
-            "x": 0,
-            "y": 14
-          },
-          "id": 56,
-          "options": {
-            "dedupStrategy": "none",
-            "enableLogDetails": true,
-            "prettifyLogMessage": false,
-            "showCommonLabels": false,
-            "showLabels": false,
-            "showTime": false,
-            "sortOrder": "Descending",
-            "wrapLogMessage": false
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "gp-multena-logs"
-              },
-              "editorMode": "code",
-              "expr": "{kubernetes_namespace_name=\"gp-kyverno\"} |~ `$log_level` | json | line_format `{{.message}}` |~\"$search\"",
-              "queryType": "range",
-              "refId": "A"
-            }
-          ],
-          "title": "Logs",
-          "type": "logs"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "gp-multena-metrics"
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 24,
-            "x": 0,
-            "y": 28
-          },
-          "id": 42,
-          "options": {
-            "code": {
-              "language": "plaintext",
-              "showLineNumbers": false,
-              "showMiniMap": false
-            },
-            "content": "# Kyverno\nA Kubernetes-native policy management engine\n\n#### About this dashboard\n\nThis dashboard represents generic insights which can be extracted and made well use of from a cluster with Kyverno in action.\n\n#### For more details around the metrics\n\nCheckout the [official docs of Kyverno metrics](https://kyverno.io/docs/monitoring-kyverno-with-prometheus-metrics/)",
-            "mode": "markdown"
-          },
-          "pluginVersion": "10.0.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "refId": "A"
-            }
-          ],
-          "transparent": true,
-          "type": "text"
-        },
-        {
           "collapsed": true,
           "datasource": {
             "type": "prometheus",
@@ -309,501 +795,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 34
-          },
-          "id": 12,
-          "panels": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "max": 100,
-                  "min": 0,
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "red",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 50
-                      },
-                      {
-                        "color": "#EAB839",
-                        "value": 75
-                      },
-                      {
-                        "color": "green",
-                        "value": 100
-                      }
-                    ]
-                  },
-                  "unit": "percent"
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 6,
-                "w": 6,
-                "x": 0,
-                "y": 35
-              },
-              "id": 29,
-              "options": {
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showThresholdLabels": false,
-                "showThresholdMarkers": true,
-                "text": {}
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "sum(kyverno_policy_results_total{rule_result=\"pass\"})*100/sum(kyverno_policy_results_total{})",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Rule Execution Success Rate",
-              "transparent": true,
-              "type": "gauge"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "noValue": "0",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 5,
-                "w": 4,
-                "x": 8,
-                "y": 35
-              },
-              "id": 2,
-              "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "text": {},
-                "textMode": "auto"
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "count(count(kyverno_policy_rule_info_total{policy_type=\"cluster\"}==1) by (policy_name))",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Cluster Policies",
-              "type": "stat"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "noValue": "0",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 5,
-                "w": 4,
-                "x": 12,
-                "y": 35
-              },
-              "id": 3,
-              "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "text": {},
-                "textMode": "auto"
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "count(count(kyverno_policy_rule_info_total{policy_type=\"namespaced\"}==1) by (policy_name))",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Policies",
-              "type": "stat"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "max": 100,
-                  "min": 0,
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "red",
-                        "value": null
-                      },
-                      {
-                        "color": "red",
-                        "value": 50
-                      },
-                      {
-                        "color": "#EAB839",
-                        "value": 75
-                      },
-                      {
-                        "color": "green",
-                        "value": 100
-                      }
-                    ]
-                  },
-                  "unit": "percent"
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 6,
-                "w": 6,
-                "x": 18,
-                "y": 35
-              },
-              "id": 28,
-              "options": {
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showThresholdLabels": false,
-                "showThresholdMarkers": true,
-                "text": {}
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "sum(kyverno_policy_results_total{rule_result=\"pass\", policy_background_mode=\"true\"})*100/sum(kyverno_policy_results_total{policy_background_mode=\"true\"})",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Background Scans Success Rate",
-              "transparent": true,
-              "type": "gauge"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "noValue": "0",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 4,
-                "w": 4,
-                "x": 6,
-                "y": 40
-              },
-              "id": 4,
-              "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "text": {},
-                "textMode": "auto"
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "count(kyverno_policy_rule_info_total{rule_type=\"validate\"}==1)",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Validate Rules",
-              "type": "stat"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "noValue": "0",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 4,
-                "w": 4,
-                "x": 10,
-                "y": 40
-              },
-              "id": 23,
-              "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "text": {},
-                "textMode": "auto"
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "count(kyverno_policy_rule_info_total{rule_type=\"mutate\"}==1)",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Mutate Rules",
-              "type": "stat"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "mappings": [],
-                  "noValue": "0",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": null
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 4,
-                "w": 4,
-                "x": 14,
-                "y": 40
-              },
-              "id": 6,
-              "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "text": {},
-                "textMode": "auto"
-              },
-              "pluginVersion": "10.0.2",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "gp-multena-metrics"
-                  },
-                  "exemplar": true,
-                  "expr": "count(kyverno_policy_rule_info_total{rule_type=\"generate\"}==1)",
-                  "interval": "",
-                  "legendFormat": "",
-                  "refId": "A"
-                }
-              ],
-              "title": "Generate Rules",
-              "type": "stat"
-            }
-          ],
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "gp-multena-metrics"
-              },
-              "refId": "A"
-            }
-          ],
-          "title": "Latest Status",
-          "type": "row"
-        },
-        {
-          "collapsed": true,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "gp-multena-metrics"
-          },
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 35
+            "y": 40
           },
           "id": 26,
           "panels": [
@@ -852,8 +844,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -991,8 +982,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1130,8 +1120,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1257,7 +1246,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 36
+            "y": 41
           },
           "id": 19,
           "panels": [
@@ -1306,8 +1295,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1435,8 +1423,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1564,8 +1551,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1678,8 +1664,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1776,8 +1761,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -1883,7 +1867,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 37
+            "y": 42
           },
           "id": 34,
           "panels": [
@@ -1932,8 +1916,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2030,8 +2013,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2129,8 +2111,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "purple",
-                        "value": null
+                        "color": "purple"
                       }
                     ]
                   },
@@ -2192,8 +2173,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "blue",
-                        "value": null
+                        "color": "blue"
                       }
                     ]
                   },
@@ -2263,7 +2243,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 38
+            "y": 43
           },
           "id": 52,
           "panels": [
@@ -2312,8 +2292,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2411,8 +2390,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2480,8 +2458,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "blue",
-                        "value": null
+                        "color": "blue"
                       }
                     ]
                   },
@@ -2543,8 +2520,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "purple",
-                        "value": null
+                        "color": "purple"
                       }
                     ]
                   },
@@ -2614,7 +2590,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 39
+            "y": 44
           },
           "id": 8,
           "panels": [
@@ -2663,8 +2639,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2778,8 +2753,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -2862,8 +2836,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "orange",
-                        "value": null
+                        "color": "orange"
                       }
                     ]
                   },
@@ -2925,8 +2898,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "red",
-                        "value": null
+                        "color": "red"
                       }
                     ]
                   },
@@ -2996,7 +2968,7 @@ spec:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 40
+            "y": 45
           },
           "id": 44,
           "panels": [
@@ -3045,8 +3017,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -3160,8 +3131,7 @@ spec:
                     "mode": "absolute",
                     "steps": [
                       {
-                        "color": "green",
-                        "value": null
+                        "color": "green"
                       },
                       {
                         "color": "red",
@@ -3242,12 +3212,50 @@ spec:
           ],
           "title": "Admission Requests",
           "type": "row"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "gp-multena-metrics"
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 24,
+            "x": 0,
+            "y": 46
+          },
+          "id": 42,
+          "options": {
+            "code": {
+              "language": "plaintext",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "# Kyverno\nA Kubernetes-native policy management engine\n\n#### About this dashboard\n\nThis dashboard represents generic insights which can be extracted and made well use of from a cluster with Kyverno in action.\n\n#### For more details around the metrics\n\nCheckout the [official docs of Kyverno metrics](https://kyverno.io/docs/monitoring-kyverno-with-prometheus-metrics/)",
+            "mode": "markdown"
+          },
+          "pluginVersion": "10.0.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "gp-multena-metrics"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "text"
         }
       ],
       "refresh": "",
       "schemaVersion": 38,
       "style": "dark",
-      "tags": [],
+      "tags": [
+        "Ansprechperson: Tobias Meindl",
+        "Applikation: Kyverno",
+        "Themengebiet: Security & Berechtigungen"
+      ],
       "templating": {
         "list": [
           {
@@ -3262,32 +3270,32 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": ".+",
-              "value": ".+"
+              "text": "error",
+              "value": "error"
             },
             "hide": 0,
             "name": "log_level",
             "options": [
               {
-                "selected": true,
+                "selected": false,
                 "text": ".+",
                 "value": ".+"
               }
             ],
-            "query": ".+",
+            "query": "error",
             "skipUrlSync": false,
             "type": "textbox"
           }
         ]
       },
       "time": {
-        "from": "now-6h",
+        "from": "now-3h",
         "to": "now"
       },
       "timepicker": {},
       "timezone": "",
       "title": "Kyverno",
       "uid": "kyverno-dashboard",
-      "version": 10,
+      "version": 14,
       "weekStart": ""
     }
