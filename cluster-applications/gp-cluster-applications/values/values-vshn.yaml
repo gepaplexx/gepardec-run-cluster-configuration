@@ -228,6 +228,28 @@ applications:
         prune: true
         selfHeal: true
 
+######################## PRIVATE BIN ##########################
+
+  private-bin:
+    name: private-bin
+    enabled: true
+    argoProject: gepardec-run
+    destination:
+      namespace: gp-privatebin
+      create: true
+    source:
+      repoURL: "https://gepaplexx.github.io/gp-helm-charts/"
+      targetRevision: "0.1.*"
+      chart: gp-privatebin
+      helm:
+        parameters:
+          - name: "ingress.hostname"
+            value: "pb.play.run.gepardec.com"
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+
 ##################### CERT-MANAGER OPENSHIFT ROUTES ######################
   cert-manager-route-extension:
     name: cert-manager-route-extension
