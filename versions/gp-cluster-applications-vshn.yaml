@@ -403,31 +403,31 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: one-time-secret
+  name: private-bin
   finalizers:
   - "resources-finalizer.argocd.argoproj.io"
   annotations:
-    notifications.argoproj.io/subscribe.on-created.grafana: "one-time-secret | created"
-    notifications.argoproj.io/subscribe.on-deleted.grafana: "one-time-secret | deleted"
-    notifications.argoproj.io/subscribe.on-deployed.grafana: "one-time-secret | deployed"
-    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "one-time-secret | degraded"
-    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "one-time-secret | sync-failed"
-    notifications.argoproj.io/subscribe.on-sync-running.grafana: "one-time-secret | sync-running"
-    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "one-time-secret | sync-status-unknown"
-    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "one-time-secret | sync-succeeded"
+    notifications.argoproj.io/subscribe.on-created.grafana: "private-bin | created"
+    notifications.argoproj.io/subscribe.on-deleted.grafana: "private-bin | deleted"
+    notifications.argoproj.io/subscribe.on-deployed.grafana: "private-bin | deployed"
+    notifications.argoproj.io/subscribe.on-health-degraded.grafana: "private-bin | degraded"
+    notifications.argoproj.io/subscribe.on-sync-failed.grafana: "private-bin | sync-failed"
+    notifications.argoproj.io/subscribe.on-sync-running.grafana: "private-bin | sync-running"
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.grafana: "private-bin | sync-status-unknown"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.grafana: "private-bin | sync-succeeded"
 spec:
   destination:
-    namespace: gp-one-time-secret
+    namespace: gp-privatebin
     server: 'https://kubernetes.default.svc'
   project: gepardec-run
   source:
-    chart: gp-one-time-secret
+    chart: gp-privatebin
     helm:
       parameters:
       - name: ingress.hostname
         value: secret.play.run.gepardec.com
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.1.*
+    targetRevision: 0.1.*
   syncPolicy:
     automated:
       prune: true
