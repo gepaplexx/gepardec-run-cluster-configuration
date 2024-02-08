@@ -391,7 +391,7 @@ spec:
       - name: multena.web.jwksCertUrl
         value: https://sso.play.run.gepardec.com/realms/internal/protocol/openid-connect/certs
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.4.*
+    targetRevision: 1.5.*
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
