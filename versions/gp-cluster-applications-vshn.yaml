@@ -347,7 +347,7 @@ spec:
       - name: backup.external.enabled
         value: "true"
     repoURL: https://gepaplexx.github.io/gp-helm-charts/
-    targetRevision: 1.4.*
+    targetRevision: 1.5.*
   ignoreDifferences:
     - group: oauth.openshift.io
       jsonPointers:
