@@ -13,11 +13,33 @@ spec:
   resyncPeriod: 1d
   json: |
     {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
       "description": "",
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 17,
+      "id": 83,
       "links": [
         {
           "asDropdown": false,
@@ -101,7 +123,32 @@ spec:
                 ]
               }
             },
-            "overrides": []
+            "overrides": [
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "{}"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
           },
           "gridPos": {
             "h": 5,
@@ -130,6 +177,7 @@ spec:
               },
               "editorMode": "code",
               "expr": "sum(count_over_time({kubernetes_namespace_name=~`$Namespace`, kubernetes_pod_name=~`$Pod`} | json | line_format `Level: {{.level}} Message: {{.message}}` |~ `$Level` |~`$Search`[$__interval]))",
+              "legendFormat": "",
               "queryType": "range",
               "refId": "A"
             }
@@ -188,25 +236,24 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "",
-              "value": ""
+              "text": [
+                "mega-backend-prod"
+              ],
+              "value": [
+                "mega-backend-prod"
+              ]
             },
             "datasource": {
               "type": "loki",
               "uid": "gp-multena-logs"
             },
-            "definition": "",
+            "definition": "label_values(kubernetes_namespace_name)",
             "hide": 0,
             "includeAll": false,
             "multi": true,
             "name": "Namespace",
             "options": [],
-            "query": {
-              "label": "kubernetes_namespace_name",
-              "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "",
-              "type": 1
-            },
+            "query": "label_values(kubernetes_namespace_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
@@ -217,25 +264,24 @@ spec:
             "allValue": "",
             "current": {
               "selected": false,
-              "text": "All",
-              "value": "$__all"
+              "text": [
+                "mega-backend-prod-7d7f976c5-9lvn4"
+              ],
+              "value": [
+                "mega-backend-prod-7d7f976c5-9lvn4"
+              ]
             },
             "datasource": {
               "type": "loki",
               "uid": "gp-multena-logs"
             },
-            "definition": "",
+            "definition": "label_values({kubernetes_namespace_name=~`$Namespace`}, kubernetes_pod_name)",
             "hide": 0,
             "includeAll": true,
             "multi": true,
             "name": "Pod",
             "options": [],
-            "query": {
-              "label": "kubernetes_pod_name",
-              "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "{kubernetes_namespace_name=~`$Namespace`}",
-              "type": 1
-            },
+            "query": "label_values({kubernetes_namespace_name=~`$Namespace`}, kubernetes_pod_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
@@ -244,7 +290,7 @@ spec:
           },
           {
             "current": {
-              "selected": false,
+              "selected": true,
               "text": ".+",
               "value": ".+"
             },
@@ -263,7 +309,7 @@ spec:
           },
           {
             "current": {
-              "selected": false,
+              "selected": true,
               "text": "",
               "value": ""
             },
@@ -279,27 +325,6 @@ spec:
             "query": "",
             "skipUrlSync": false,
             "type": "textbox"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "gp-multena-metrics"
-            },
-            "definition": "label_values(cluster_discriminator)",
-            "hide": 2,
-            "includeAll": false,
-            "multi": false,
-            "name": "Cluster",
-            "options": [],
-            "query": {
-              "query": "label_values(cluster_discriminator)",
-              "refId": "StandardVariableQuery"
-            },
-            "refresh": 1,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "type": "query"
           }
         ]
       },
@@ -324,5 +349,6 @@ spec:
       "timezone": "",
       "title": "Logging Application",
       "uid": "logging-application",
+      "version": 6,
       "weekStart": ""
     }
