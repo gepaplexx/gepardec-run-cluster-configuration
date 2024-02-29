@@ -39,7 +39,6 @@ spec:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 83,
       "links": [
         {
           "asDropdown": false,
@@ -123,32 +122,7 @@ spec:
                 ]
               }
             },
-            "overrides": [
-              {
-                "__systemRef": "hideSeriesFrom",
-                "matcher": {
-                  "id": "byNames",
-                  "options": {
-                    "mode": "exclude",
-                    "names": [
-                      "{}"
-                    ],
-                    "prefix": "All except:",
-                    "readOnly": true
-                  }
-                },
-                "properties": [
-                  {
-                    "id": "custom.hideFrom",
-                    "value": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": true
-                    }
-                  }
-                ]
-              }
-            ]
+            "overrides": []
           },
           "gridPos": {
             "h": 5,
@@ -237,10 +211,10 @@ spec:
             "current": {
               "selected": false,
               "text": [
-                "mega-backend-prod"
+                ""
               ],
               "value": [
-                "mega-backend-prod"
+                ""
               ]
             },
             "datasource": {
@@ -263,25 +237,25 @@ spec:
           {
             "allValue": "",
             "current": {
-              "selected": false,
+              "selected": true,
               "text": [
-                "mega-backend-prod-7d7f976c5-9lvn4"
+                ""
               ],
               "value": [
-                "mega-backend-prod-7d7f976c5-9lvn4"
+                ""
               ]
             },
             "datasource": {
               "type": "loki",
               "uid": "gp-multena-logs"
             },
-            "definition": "label_values({kubernetes_namespace_name=~`$Namespace`}, kubernetes_pod_name)",
+            "definition": "label_values({kubernetes_namespace_name=`$Namespace`}, kubernetes_pod_name)",
             "hide": 0,
             "includeAll": true,
             "multi": true,
             "name": "Pod",
             "options": [],
-            "query": "label_values({kubernetes_namespace_name=~`$Namespace`}, kubernetes_pod_name)",
+            "query": "label_values({kubernetes_namespace_name=`$Namespace`}, kubernetes_pod_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
@@ -290,7 +264,7 @@ spec:
           },
           {
             "current": {
-              "selected": true,
+              "selected": false,
               "text": ".+",
               "value": ".+"
             },
@@ -309,7 +283,7 @@ spec:
           },
           {
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "",
               "value": ""
             },
@@ -349,6 +323,5 @@ spec:
       "timezone": "",
       "title": "Logging Application",
       "uid": "logging-application",
-      "version": 6,
       "weekStart": ""
     }
