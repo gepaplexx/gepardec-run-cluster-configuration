@@ -35,9 +35,10 @@ applications:
           - name: "backup.external.enabled"
             value: "true"
     syncPolicy:
-      automated:
-        prune: true
-        selfHeal: true
+      automated: {}
+#      automated:
+#        prune: true
+#        selfHeal: true
 
 ###################### EXTERNAL SECRETS CONFIGURATION ######################
   external-secrets:
