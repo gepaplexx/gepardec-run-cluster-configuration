@@ -13,11 +13,32 @@ spec:
   resyncPeriod: 1d
   json: |
     {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "target": {
+              "limit": 100,
+              "matchAny": false,
+              "tags": [],
+              "type": "dashboard"
+            },
+            "type": "dashboard"
+          }
+        ]
+      },
       "description": "",
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 17,
       "links": [
         {
           "asDropdown": false,
@@ -130,6 +151,7 @@ spec:
               },
               "editorMode": "code",
               "expr": "sum(count_over_time({kubernetes_namespace_name=~`$Namespace`, kubernetes_pod_name=~`$Pod`} | json | line_format `Level: {{.level}} Message: {{.message}}` |~ `$Level` |~`$Search`[$__interval]))",
+              "legendFormat": "",
               "queryType": "range",
               "refId": "A"
             }
@@ -188,25 +210,24 @@ spec:
           {
             "current": {
               "selected": false,
-              "text": "",
-              "value": ""
+              "text": [
+                ""
+              ],
+              "value": [
+                ""
+              ]
             },
             "datasource": {
               "type": "loki",
               "uid": "gp-multena-logs"
             },
-            "definition": "",
+            "definition": "label_values(kubernetes_namespace_name)",
             "hide": 0,
             "includeAll": false,
             "multi": true,
             "name": "Namespace",
             "options": [],
-            "query": {
-              "label": "kubernetes_namespace_name",
-              "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "",
-              "type": 1
-            },
+            "query": "label_values(kubernetes_namespace_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
@@ -216,26 +237,25 @@ spec:
           {
             "allValue": "",
             "current": {
-              "selected": false,
-              "text": "All",
-              "value": "$__all"
+              "selected": true,
+              "text": [
+                ""
+              ],
+              "value": [
+                ""
+              ]
             },
             "datasource": {
               "type": "loki",
               "uid": "gp-multena-logs"
             },
-            "definition": "",
+            "definition": "label_values({kubernetes_namespace_name=`$Namespace`}, kubernetes_pod_name)",
             "hide": 0,
             "includeAll": true,
             "multi": true,
             "name": "Pod",
             "options": [],
-            "query": {
-              "label": "kubernetes_pod_name",
-              "refId": "LokiVariableQueryEditor-VariableQuery",
-              "stream": "{kubernetes_namespace_name=~`$Namespace`}",
-              "type": 1
-            },
+            "query": "label_values({kubernetes_namespace_name=`$Namespace`}, kubernetes_pod_name)",
             "refresh": 2,
             "regex": "",
             "skipUrlSync": false,
@@ -279,27 +299,6 @@ spec:
             "query": "",
             "skipUrlSync": false,
             "type": "textbox"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "gp-multena-metrics"
-            },
-            "definition": "label_values(cluster_discriminator)",
-            "hide": 2,
-            "includeAll": false,
-            "multi": false,
-            "name": "Cluster",
-            "options": [],
-            "query": {
-              "query": "label_values(cluster_discriminator)",
-              "refId": "StandardVariableQuery"
-            },
-            "refresh": 1,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "type": "query"
           }
         ]
       },
