@@ -354,6 +354,9 @@ spec:
       - /secret
       kind: OAuthClient
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=false
       - Replace=false
